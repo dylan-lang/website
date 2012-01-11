@@ -28,6 +28,10 @@ News & Articles
     This essay explores Dylan from the perspective of a programmer used to
     traditional procedural languages, such as Pascal or C.
 
+`Dylan Web in 60 Seconds <http://carlgay.wordpress.com/2010/09/03/dylan-web-in-60-seconds/>`_ by Carl Gay.
+
+    A series of posts on how to do web programming in Dylan.
+
 .. raw:: html
 
       </div>
