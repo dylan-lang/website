@@ -25,3 +25,6 @@ via one of the above means.
    cocoa
    gtk
    staticlink
+   frontend-lisp
+   frontend-plot
+   performance
