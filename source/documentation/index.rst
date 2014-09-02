@@ -102,6 +102,21 @@ References
     as a foreign function interface and some low-level access to the
     Microsoft Win32 API.
 
+`Melange reference </documentation/melange/>`_ [`pdf </documentation/melange/MelangeUserGuide.pdf>`__] [`epub </documentation/melange/MelangeUserGuide.epub>`__]
+    The Melange interface generator provides a mechanism for
+    providing access to native C code. It is modeled upon Apple
+    Computer's Creole, and shares Creole's goals of automatically
+    providing full support for a foreign interface based upon existing
+    interface descriptions. It also, like Creole, provides mechanisms for
+    explicitly adapting these interfaces to provide a greater match
+    between C and Dylan data models.
+
+    Melange, however, differs from Creole in a number of
+    significant ways. This document, therefore, provides a gentle
+    introduction to Melange without attempting to build upon any existing
+    descriptions of Creole.
+
+
 `DUIM library reference <http://opendylan.org/documentation/opendylan/dref/index.htm>`_
     Describes the libraries forming DUIM (Dylan User Interface Manager),
     the portable window programming toolkit. It complements
