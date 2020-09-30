@@ -1,4 +1,4 @@
-This is the Open Dylan website.
+This is the Open Dylan website. Am amazing Project
 
 It is built using `Sphinx <http://sphinx.pocoo.org>`_.  All content is written using
 ReStructured Text with Sphinx extensions.
