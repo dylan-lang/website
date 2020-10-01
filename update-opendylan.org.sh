@@ -10,7 +10,7 @@ repo_dir=/root
 
 ./update-website.sh "${dest_dir}" "${repo_dir}"
 
-
+# This script is run from cron.
 echo "Done updating opendylan.org"
 bzip2 $logfile
 # Keep 10 days of logs.
