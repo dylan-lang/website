@@ -39,7 +39,7 @@ Now you need the Python dependencies. The easiest way to do this is to use
 
 You may also need ``python-dateutil``.
 
-    sudo pip3 install python-dateutil
+    sudo pip3 install python-dateutil.
 
 Building
 ========
