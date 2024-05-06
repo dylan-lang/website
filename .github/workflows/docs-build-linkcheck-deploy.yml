@@ -1,0 +1,50 @@
+name: Build and deploy docs
+
+on:
+  push:
+    # all branches
+
+  # This enables the Run Workflow button on the Actions tab.
+  workflow_dispatch:
+
+# https://github.com/JamesIves/github-pages-deploy-action#readme
+permissions:
+    contents: write
+
+jobs:
+
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Python package dependencies
+        uses: BSFishy/pip-action@v1
+        with:
+          packages: |
+            Sphinx
+            furo
+
+      - name: Build destination directory
+        run: mkdir opendylan.org
+
+      - name: Install Opendylan
+        uses: dylan-lang/install-opendylan@v3
+
+      - name: Execute update script
+        run: ./update.sh opendylan.org
+
+      - name: Bypassing Jekyll on GH Pages
+        run: sudo touch opendylan.org/.nojekyll
+
+      - name: Deploy documents to GH pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: opendylan.org
