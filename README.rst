@@ -27,6 +27,11 @@ The next step is fetching the repository and its dependencies::
 Building the site
 =================
 
+First create the destination directory, for instance
+:file:`/tmp/opendylan.org`::
+
+    mkdir /tmp/opendylan.org
+
 Simply run the :file:`update.sh` script, specifying where you want the HTML
 files to be generated::
 
