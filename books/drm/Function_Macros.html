@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Built-In_Macros_and_Special_Definitions" />
+    <link rel="prev" href="Statement_Macros" />
+    <link rel="next" href="BNF" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Function Macros &mdash; 14. The Built-In Macros and Special Definitions &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Statement_Macros"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="BNF"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Built-In_Macros_and_Special_Definitions"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li class="current parent"><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a>
+	      <ul class="sections">
+		<li><a href="Built-In_Macros_and_Special_Definitions_Overview">Overview</a></li>
+		<li><a href="Definition_Macros">Definitions</a></li>
+		<li><a href="Local_Declaration_Macros">Local Declarations</a></li>
+		<li><a href="Statement_Macros">Statements</a></li>
+		<li id="current" class="subsections"><a href="Function_Macros">Function Macros</a>
+		  <ul class="page-TOC">
+		    <li class="subsections"><a href="#HEADING-115-63">Assignment</a>
+		      <ul>
+			<li><a href="#HEADING-115-64"><code>:=</code><span class="attributes-summary">[Function Macro]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-115-92">Conditional Execution</a>
+		      <ul>
+			<li><a href="#HEADING-115-93"><code>|</code><span class="attributes-summary"> [Function Macro]</span></a></li>
+			<li><a href="#HEADING-115-100"><code>&amp;</code><span class="attributes-summary"> [Function Macro]</span></a></li>
+		      </ul>
+		    </li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 14</p>
+	<p id="section-name">The Built-In Macros and Special Definitions</p>
+      </div>
+
+      <a name="HEADING-115-0"></a>
+      <a name="UID-Built-In_Macros-5344"></a>
+      <h1 class="section-title"><a name="XREF-2068"></a><a name="IX-2069">Function Macros</a></h1>
+      <p>Function macros provide syntax for assignment and for conditional execution. These three
+	built-in function macros may be called using function-call syntax or operator syntax.</p>
+      <table class="numbered">
+	<caption><strong>Table 14-4</strong> Function Macros</caption>
+	<tr>
+	  <th class="primary"><p>Macro</p></th>
+	  <th><p>Description</p></th>
+	  <th><p>Page</p></th>
+	</tr><tr>
+	  <td><p><code>:=</code></p></td>
+	  <td><p><a href="#XREF-2072">Stores a new value in a location.</a></p></td>
+	  <td><p><a href="#XREF-2072">409</a></p></td>
+	</tr><tr>
+	  <td><p><code>|</code></p></td>
+	  <td><p><a href="#XREF-2075">Returns the value of the first of two operands that is
+		true.</a></p></td>
+	  <td><p><a href="#XREF-2075">412</a></p></td>
+	</tr><tr>
+	  <td><p><code>&amp;</code></p></td>
+	  <td><p><a href="#XREF-2079">If the value of a first operand is true, executes a second
+		operand and returns its values.</a></p></td>
+	  <td><p><a href="#XREF-2079">412</a></p></td>
+	</tr>
+      </table>
+      <a name="HEADING-115-63"></a>
+      <a name="UID-Built-In_Macros-5569"></a>
+      <h2 class="subsection-title"><a name="IX-2070">Assignment</a></h2>
+      <a name="HEADING-115-64"></a>
+      <h4 class="item-title" id="assignment"><a class="here" title="Link to here" href="#assignment"></a> <span class="signature"><code id="IX-2071">:=</code></span> <span class="attributes-summary">[Function Macro]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2072">Stores a new value in a location.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd><p><var>place</var> <code>:=</code> <var>new-value</var></p></dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>place</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>new-value</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <p><var>new-value</var>, an instance of <code>&lt;object&gt;</code>.</p>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><code>:=</code> stores <var>new-value</var> in <var>place</var> and
+	    returns <var>new-value</var>.</p>
+	  <p><var>place</var> may be a variable, a getter function or macro call with a
+	    corresponding setter, a slot access, or an element reference.</p>
+	  <p><var>new-value</var> may be any operand. It is executed, and its value is stored
+	    in <var>place</var>.</p>
+	  <p>In all cases, <var>new-value</var> must be an appropriate type for <var>place</var> or
+	    an error is signaled.</p>
+	  <p>The <var>new-value</var> of an assignment statement is executed first, followed by
+	    the <var>place</var> (assuming the <var>place</var> requires any execution, which will
+	    only be true if it is not a binding name).</p>
+	  <a name="HEADING-115-75"></a>
+	  <h5 class="description-subsection-title">Assignment to a binding</h5>
+	  <p>If <var>place</var> is a binding name, then <var>new-value</var> is stored in the
+	    binding. It is an error if there is no binding corresponding
+	    to <var>place</var>. (<code>:=</code> cannot be used to create bindings, only to change
+	    their values.) An error is also signaled if <var>place</var> is a binding specialized
+	    to a type and the <var>new-value</var> is not of that type.</p>
+	  <pre class="code">
+define variable *number* = 10;
+*number*
+<code> &rArr;</code>  10
+*number* := *number* + 10;
+<code> &rArr;</code>  20
+*number*
+<code> &rArr;</code>  20 </pre>
+	  <a name="HEADING-115-78"></a>
+	  <h5 class="description-subsection-title">Assignment to a function or function macro</h5>
+	  <p>If <var>place</var> has the syntax of a function call, then <code>:=</code> will invoke
+	    the corresponding setter function. Given a binding named <var>fun</var>, the
+	    corresponding setter is the binding named <code><var>fun</var>-setter</code> in the
+	    current environment.</p>
+	  <p><code>:=</code> maps <var>place</var> to <code><var>place</var>-setter</code> without
+	    regard for whether <var>place</var> is a function or a macro. It does not expand a macro
+	    call on the left-hand side before determining the setter.</p>
+	  <p>With the exception of the order of execution and a guaranteed return value, the
+	    following three expressions are equivalent:</p>
+	  <pre class="code">
+*top-view*.subviews := generate-subviews()
+subviews(*top-view*) := generate-subviews()
+subviews-setter(generate-subviews(), *top-view*) </pre>
+	  <p>(The differences are as follows: the execution time of <code>subviews-setter</code> is
+	    undefined in the first two expressions but defined in the last; the first two
+	    expressions will return the value of the call to <code>generate-subviews</code> while
+	    the last will return the value of the call to <code>subviews-setter</code>.)</p>
+	  <pre class="code">
+name(arg1,&hellip;argn ) := new-value </pre>
+	  <p>behaves exactly the same as</p>
+	  <pre class="code">
+begin
+  let <var>temp</var> = new-value;
+  name-setter(temp, arg1,&hellip;argn );
+  <var>temp</var>
+end</pre>
+	  <p>This is true regardless of whether <code>name</code> and <code>name-setter</code> are
+	    functions or macros. Here <var>temp</var> stands for a variable with a unique
+	    name. If <code>name-setter</code> is a macro, it is responsible for the order of
+	    execution of <code>arg1,&hellip;argn</code>.</p>
+	  <p>The same considerations apply to <code>arg.name := new-value</code>.</p>
+	  <a name="HEADING-115-89"></a>
+	  <h5 class="description-subsection-title">Assignment to element references</h5>
+	  <p>Just as <code>[]</code> can be used as syntax for <code>element</code>
+	    and <code>aref</code>, <code>[]</code> and <code>:=</code> can be used as syntax
+	    for <code>element-setter</code> and <code>aref-setter</code>. For example, the following
+	    three expressions are equivalent:</p>
+	  <pre class="code">
+foo[2] := "quux"
+element (foo, 2) := "quux"
+element-setter ("quux", foo, 2).<a name="IX-2073"></a> </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-115-92"></a>
+      <a name="UID-Built-In_Macros-5614"></a>
+      <h2 class="subsection-title">Conditional Execution</h2>
+      <a name="HEADING-115-93"></a>
+      <h4 class="item-title" id="or"><a class="here" title="Link to here" href="#or"></a> <span class="signature"><code id="IX-2074">|</code></span> <span class="attributes-summary">[Function Macro]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2075">Returns the value of the first of two
+	operands that is true.</a><a name="XREF-2076"></a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd><p><var>one</var> <code>|</code> <var>another</var></p></dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>one</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>another</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd><p>Zero or more instances of <code>&lt;object&gt;</code>.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p><code>|</code> (<a name="IX-2077">logical or</a>) executes <var>one</var>. If
+	    the first value of <var>one</var> is true, that value is returned and <var>another</var>
+	    is not executed. Otherwise <var>another</var> is executed and its values are
+	    returned.</p></dd>
+      </dl>
+      <a name="HEADING-115-100"></a>
+      <h4 class="item-title" id="and"><a class="here" title="Link to here" href="#and"></a> <span class="signature"><code id="IX-2078">&amp;</code></span> <span class="attributes-summary">[Function Macro]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2079">If the value of a first operand is
+	true, executes a second operand and returns its values.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd>
+	  <p class="macro-call">
+	    <var>one</var> <code>&amp;</code> <var>another</var> &rArr; <var>values</var>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>one</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>another</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd><p>Zero or more instances of <code>&lt;object&gt;</code>.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p><code>&amp;</code> (<a name="IX-2080">logical and</a>)
+	    executes <var>one</var>. If the first value returned by <var>one</var> is
+	    false, <code>#f</code> is returned and <var>another</var> is not
+	    executed. Otherwise, <var>another</var> is executed and its values are
+	    returned.<a name="IX-2081"></a></p>
+	  <a name="LINK-Built-In_Macros-lastpage"></a></dd>
+      </dl>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Statement_Macros"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="BNF"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Built-In_Macros_and_Special_Definitions"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

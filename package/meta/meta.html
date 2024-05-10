@@ -1,0 +1,1275 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Objective C / Dylan Bridge" href="../objc-dylan/index.html" /><link rel="prev" title="Copyright" href="copyright.html" />
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
+        <title>The Meta Library - Open Dylan</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" /
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Open Dylan</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../../_static/images/opendylan-light.png" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../../_static/images/opendylan-dark.png" alt="Dark Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../community/index.html">Get Involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../download/index.html">Download</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hacker-guide/source/index.html">Hacker Guide</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Hacker Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/documentation/index.html">Writing Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Writing Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/guidelines.html">Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/generating.html">Generating Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/doctower.html">Doctower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/example.html">Example documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/build-system.html">Jam-based Build System</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/compiler/index.html">DFMC, The Dylan Flow Machine Compiler</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of DFMC, The Dylan Flow Machine Compiler</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/compiler/notes-warnings-errors.html">Notes, Warnings and Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/compiler/old/design.html">Compiler Design (Old)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/compiler/old/internals.html">Compiler Internals (Old)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/runtime/index.html">The Runtime</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of The Runtime</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/object-representation.html">Object Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/calling-convention.html">Calling Convention</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/special-features.html">Special Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/mangling.html">Name Mangling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/threads.html">Compiler Support for Threads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/startup.html">Startup</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/runtime-manager/index.html">Runtime Manager</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Runtime Manager</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime-manager/access-path.html">The ACCESS-PATH library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime-manager/debugger-manager.html">The DEBUGGER-MANAGER library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/duim/index.html">DUIM - Dylan User Interface Manager</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/topics/index.html">Topics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Topics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/method-dispatch.html">Method Dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/debugging.html">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/porting.html">Porting to a New Target Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/ppml.html">The PPML library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/making-a-release.html">Release Check-list</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../proposals/index.html">Enhancement Proposals</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Enhancement Proposals</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0001-dep-process.html">DEP Purpose and Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0002-define-function.html">Define Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0003-c3-linearization.html">C3 superclass linearization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0004-strings-library.html">New strings Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0005-subclass-function.html">Subclass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0006-single-file-library.html">Single File Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0007-collection-type-safety.html">Type-Safe Limited Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0008-multi-line-strings.html">Multi-line Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0010-element-otherwise.html">Defaulted Element Reference Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0011-numeric-literal-syntax.html">Numeric Literal Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0012-string-literals.html">String Literal Syntax</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Learning</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../about/index.html">Tour of Dylan</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Tour of Dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/hello_world.html">Hello, World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/everything_value.html">Everything is a value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/classes.html">Classes &amp; Instantiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/generic_functions.html">Generic Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/getters_setters_functions.html">Getters &amp; Setters are functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/keyword_arguments.html">Keyword Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/limited_types.html">Limited Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/macros.html">Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/multiple_return_values.html">Multiple Return Values</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting-started-cli/source/index.html">Getting Started Guide</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Getting Started Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/hello-world.html">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/source-registries.html">Using Source Registries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/managing-dependencies.html">Managing Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/quick-tips.html">A Few More Quick Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/dylan-compiler.html">Using dylan-compiler interactively</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/dylan-environment.html">An example of dylan-environment interactive functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/editor-support.html">Editor Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/dylan-mode-for-emacs.html">Dylan Interactor Mode for Emacs (DIME)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/debugging-with-gdb-lldb.html">Debugging with GDB or LLDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/windows.html">Notes for Windows Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/environment-variables.html">Environment Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/cross-compilation.html">Cross Compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/platform-specific.html">Platform Specific Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://opendylan.org/books/dpg/">Dylan Programming Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://play.opendylan.org">Dylan Playground</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="https://opendylan.org/books/drm/">Dylan Reference Manual</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Package Docs</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Package Docs</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../base64/index.html">Base64</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of Base64</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../base64/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../base64/reference.html">Base64 library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../base64/author.html">Author</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../base64/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../binary-data/index.html">binary-data</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of binary-data</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../binary-data/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../binary-data/reference.html">API Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../binary-data/internals.html">Internals</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../command-interface/index.html">Welcome to Command interface’s documentation!</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of Welcome to Command interface’s documentation!</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../command-interface/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command-line-parser/index.html">command-line-parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concurrency/index.html">concurrency</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../data-analysis/index.html">data-analysis</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of data-analysis</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../data-analysis/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data-analysis/statistics.html">The STATISTICS library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data-analysis/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../deft/index.html">deft</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of deft</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../deft/pacman.html">The pacman Package Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dylan-tool/index.html">dylan-tool</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of dylan-tool</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dylan-tool/pacman.html">The pacman Package Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hash-algorithms/index.html">hash-algorithms</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../http/index.html">http</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of http</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../http/server/index.html">HTTP Server</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle navigation of HTTP Server</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../http/server/quickstart/index.html">Dylan Web in 60 Seconds</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle navigation of Dylan Web in 60 Seconds</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../http/server/quickstart/static-content.html">Serving Static Content</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../http/server/quickstart/dynamic-content.html">Serving Dynamic Content</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../http/server/quickstart/static-routing.html">Static URL Routing</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../http/server/configuration.html">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/server/routing.html">URL Routing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/server/dylan-server-pages.html">Dylan Server Pages (DSP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/server/stand-alone-server-app.html">Stand-Alone Server App</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../http/client/index.html">HTTP Client</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../http/reference/index.html">Reference</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle navigation of Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../http/reference/server.html">The HTTP-SERVER library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/reference/common.html">The HTTP-COMMON library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/reference/dsp.html">The DSP library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/reference/client.html">The HTTP-CLIENT library</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../http/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../logging/index.html">logging</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lsp-dylan/index.html">lsp-dylan</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle navigation of lsp-dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../melange/index.html">melange</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle navigation of melange</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../melange/introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/concrete-example.html">A Concrete Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/basic-use.html">Basic Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/importing-headers.html">Importing Header Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/specifying-object-names.html">Specifying Object Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/type-definitions.html">Type Definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/translating-object-representations.html">Translating Object Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/other-file-options.html">Other File Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/function-clauses.html">Function Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/struct-union-clauses.html">Struct and Union Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/pointer-clauses.html">Pointer Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/constant-clauses.html">Constant Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/variable-clauses.html">Variable Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/low-level-support.html">Low level support facilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/known-limitations.html">Known limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/proposed-modifications.html">Proposed modifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/historical-notes.html">Historical Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">meta</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle navigation of meta</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">The Meta Library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../objc-dylan/index.html">objc-dylan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regular-expressions/index.html">regular-expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx-extensions/index.html">sphinx-extensions</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../strings/index.html">strings</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle navigation of strings</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../testworks/index.html">testworks</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle navigation of testworks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../testworks/usage.html">Testworks Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../testworks/reference.html">Testworks Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../testworks/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tracing/index.html">tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uuid/index.html">uuid</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../v3d/index.html">v3d</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle navigation of v3d</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../v3d/v3d.html">The v3d library</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../library-reference/source/index.html">Open Dylan Libraries</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle navigation of Open Dylan Libraries</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/language-extensions/index.html">Dylan Language Extensions</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle navigation of Dylan Language Extensions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/language-differences.html">Language Differences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/define-function.html">Function Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/for-iteration.html">Extensions to the FOR iteration construct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/weak-tables.html">Weak tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/inlining.html">Inlining adjectives for methods, constants, functions, and slots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/numbers.html">Integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/object-with-elements.html">object-with-elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/macro-system-extensions.html">Macro System Extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/parser-expansions.html">Parser Expansions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/alternative-curry-syntax.html">Alternative Curry Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/numeric-literals.html">Numeric Literal Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/string-literals.html">String Literal Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/lid.html">LID File Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/c-ffi/index.html">The c-ffi Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/collections/index.html">The collections Library</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle navigation of The collections Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/bit-set.html">The bit-set Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/bit-vector.html">The bit-vector Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/collectors.html">The collectors Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/plists.html">The plists Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/set.html">The set Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/table-extensions.html">The table-extensions Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/coloring-stream/index.html">The coloring-stream Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/common-dylan/index.html">The common-dylan Library</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><div class="visually-hidden">Toggle navigation of The common-dylan Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/byte-vector.html">The byte-vector Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/common-extensions.html">The common-extensions Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/machine-words.html">The machine-words Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-format.html">The simple-format Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-profiling.html">The simple-profiling Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-random.html">The simple-random Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-timers.html">The simple-timers Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/transcendentals.html">The transcendentals Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/dood/index.html">The DOOD library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/dylan/index.html">The dylan Library</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><div class="visually-hidden">Toggle navigation of The dylan Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/dylan/finalization.html">The finalization Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/dylan/primitives.html">The dylan-primitives Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/dylan/threads.html">The threads Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/io/index.html">The io Library</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><div class="visually-hidden">Toggle navigation of The io Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/format.html">The format Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/format-out.html">The format-out Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/print.html">The print and pprint Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/streams.html">The streams Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/standard-io.html">The standard-io Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/network/index.html">The network Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/progress-stream/index.html">The progress-stream Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/sql/index.html">The sql Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/system/index.html">The system Library</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><div class="visually-hidden">Toggle navigation of The system Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/date.html">The date Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/locators.html">The locators Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/file-system.html">The file-system Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/operating-system.html">The operating-system Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/t-lists/index.html">The t-lists Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/win32/index.html">The Win32 API Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../documentation/index.html">All Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><div class="visually-hidden">Toggle navigation of All Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/index.html">News</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../documentation/cheatsheets/index.html">Cheat Sheets</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><div class="visually-hidden">Toggle navigation of Cheat Sheets</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/syntax.html">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/conditionals.html">Conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/collections.html">Collections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/iteration.html">Iteration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/scheme.html">For Schemers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../documentation/publications.html">Publications</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../intro-dylan/source/index.html">Intro to Dylan</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><div class="visually-hidden">Toggle navigation of Intro to Dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/why-dylan.html">Why Dylan?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/expressions-variables.html">Expressions &amp; Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/methods-generic-functions.html">Methods &amp; Generic Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/objects.html">Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/multiple-dispatch.html">Multiple Dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/modules-libraries.html">Modules &amp; Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/conditions.html">Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../corba-guide/source/index.html">CORBA Guide</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" role="switch" type="checkbox"/><label for="toctree-checkbox-37"><div class="visually-hidden">Toggle navigation of CORBA Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/intro.html">About Open Dylan CORBA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/getstart.html">Quick Start Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/bank-setup.html">Setting up the Bank Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/bank-idl.html">Writing and Compiling IDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/bank-client.html">The Bank Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/bank-server.html">The Bank Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/projects.html">Creating CORBA Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/rundebug.html">Running and Debugging CORBA Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/scepter.html">Using the Dylan IDL Compiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/idl-app.html">An IDL Binding for Dylan</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../building-with-duim/source/index.html">DUIM Guide</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" role="switch" type="checkbox"/><label for="toctree-checkbox-38"><div class="visually-hidden">Toggle navigation of DUIM Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/intro.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/design.html">Designing A Simple DUIM Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/improve.html">Improving The Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/menus.html">Adding Menus To The Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/callbacks.html">Adding Callbacks to the Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/commands.html">Using Command Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/tour.html">A Tour of the DUIM Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/source.html">Source Code For The Task List Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../duim-reference/source/index.html">DUIM Reference</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" role="switch" type="checkbox"/><label for="toctree-checkbox-39"><div class="visually-hidden">Toggle navigation of DUIM Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/conventions.html">Conventions in this Manual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/geom.html">DUIM-Geometry Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/ext-geom.html">DUIM-Extended-Geometry Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/dcs.html">DUIM-DCs Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/sheets.html">DUIM-Sheets Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/graphics.html">DUIM-Graphics Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/layouts.html">DUIM-Layouts Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/gadgets.html">DUIM-Gadgets Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/frames.html">DUIM-Frames Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../getting-started-ide/source/index.html">Getting Started / IDE</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" role="switch" type="checkbox"/><label for="toctree-checkbox-40"><div class="visually-hidden">Toggle navigation of Getting Started / IDE</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/quick-start.html">Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/expanding.html">Fixing Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/model.html">Programming in Open Dylan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/projects.html">Creating and Using Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/browsing.html">Learning More About an Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/debug.html">Debugging and Interactive Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/remotedbg.html">Remote Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/coloring.html">Dispatch Optimization Coloring in the Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/delivery.html">Delivering Dylan Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/editopt.html">The Interactive Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/com-projects.html">Creating COM Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../release-notes/source/index.html">Release Notes</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" role="switch" type="checkbox"/><label for="toctree-checkbox-41"><div class="visually-hidden">Toggle navigation of Release Notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2024.1.html">Open Dylan 2024.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2023.1.html">Open Dylan 2023.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2022.1.html">Open Dylan 2022.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2020.1.html">Open Dylan 2020.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2019.1.html">Open Dylan 2019.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2014.1.html">Open Dylan 2014.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2013.2.html">Open Dylan 2013.2 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2013.1.html">Open Dylan 2013.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2012.1.html">Open Dylan 2012.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2011.1.html">Open Dylan 2011.1 Release Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../sphinx-extensions/documentation/source/index.html">Sphinx Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../style-guide/source/index.html">Style Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Full Index</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/dylan-lang/website/blob/master/source/package/meta/meta.rst?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/dylan-lang/website/edit/master/source/package/meta/meta.rst" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="the-meta-library">
+<h1>The Meta Library<a class="headerlink" href="#the-meta-library" title="Link to this heading">¶</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>This is an implementation of Meta, a technique used to simplify the task
+of writing parsers. <a class="reference external" href="#baker91">[Baker91]</a> describes Meta and shows
+the main ideas for an implementation in Common Lisp.</p>
+<blockquote>
+<div><p>If all META did was recognize regular expressions, it would not be
+very useful. It is a programming language, however, and the
+operations [], {} and $ correspond to the Common Lisp control
+structures AND, OR, and DO.[8] Therefore, we can utilize META to not
+only parse, but also to transform. In this way, META is analogous to
+“attributed grammars” [Aho86], but it is an order of magnitude
+simpler and more efficient. Thus, with the addition of the “escape”
+operation “!”, which allows us to incorporate arbitrary Lisp
+expressions into META, we can not only parse integers, but produce
+their integral value as a result. – <a class="reference external" href="#baker91">[Baker91]</a></p>
+</div></blockquote>
+<p>The macro defined here is an attempt to implement Meta (with slightly
+adapted syntax) for Dylan. It is functional, but not yet optimized.</p>
+</section>
+<section id="exported-facilities">
+<h2>Exported facilities<a class="headerlink" href="#exported-facilities" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">meta</span></code>-library exports the <code class="docutils literal notranslate"><span class="pre">meta</span></code> module with the following
+macros:</p>
+<dl class="dylan macro">
+<dt class="sig sig-object dylan-api dylan" id="meta:meta:meta-definer">
+<span class="sig-name descname"><span class="pre">meta-definer</span></span> <em class="property"><span class="pre">Macro</span></em><a class="headerlink" href="#meta:meta:meta-definer" title="Link to this definition">¶</a></dt>
+<dd><p>Meta integrates the ability to parse from streams and strings in one
+facility. (The parsing of lists is not implemented yet, because it’s
+rather useless in Dylan. This addition would be simple to do, though.)</p>
+<dl class="field-list">
+<dt class="field-odd">Macro-call<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">meta</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">(</span><span class="n">variables</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="w">  </span><span class="n">meta</span><span class="w"> </span><span class="n">body</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>name</strong> – The meta-function name, which is immediately transformed into
+<code class="docutils literal notranslate"><span class="pre">scan-</span></code><em>name</em></p></li>
+<li><p><strong>variables</strong> – – token-holders used in <em>meta body</em>.</p></li>
+<li><p><strong>results</strong> – An expression returned on a successful scan. This can be omitted
+in which case, the return value will be <code class="docutils literal notranslate"><span class="pre">#f</span></code>.</p></li>
+<li><p><strong>body</strong> (<em>meta</em>) – A sequence of <a class="reference internal" href="#meta-expressions">Meta expressions</a> to scan</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Discussion<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>The <code class="docutils literal notranslate"><span class="pre">meta-definer</span></code> form works only with the <code class="docutils literal notranslate"><span class="pre">parse-string</span></code>
+<em>source-type</em> of the <a class="reference internal" href="#meta:meta:with-meta-syntax"><code class="xref dylan dylan-macro docutils literal notranslate"><span class="pre">with-meta-syntax</span></code></a> form.</p>
+<p>The user of this form has control over the return value. Usually <code class="docutils literal notranslate"><span class="pre">#t</span></code>
+is sufficient (in which case the results clause may be omitted, see
+below); however, e.g., the values of the <em>variables</em> may need to be
+manipulated during the parse phase.</p>
+</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">meta</span><span class="w"> </span><span class="n">public-id</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">pub</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
+<span class="w">  </span><span class="s">&quot;PUBLIC&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">scan-s</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="w"> </span><span class="n">scan-pubid-literal</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
+<span class="k">end</span><span class="w"> </span><span class="n">meta</span><span class="w"> </span><span class="n">public-id</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This definition returns <code class="docutils literal notranslate"><span class="pre">pub</span></code> when it successfully scans the tokens
+“PUBLIC”, (some) spaces, and a literal which <code class="docutils literal notranslate"><span class="pre">pub</span></code> receives. Note
+that, hereafter, the meta definition is referred to as
+<code class="docutils literal notranslate"><span class="pre">scan-public-id</span></code> outside the meta syntax block.</p>
+<p>This example, without an explicit results block, is from the <code class="docutils literal notranslate"><span class="pre">meta</span></code>
+library:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">meta</span><span class="w"> </span><span class="n">s</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="w">  </span><span class="n">element-of</span><span class="p">(</span><span class="no">$space</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">),</span><span class="w"> </span><span class="n">loop</span><span class="p">(</span><span class="n">element-of</span><span class="p">(</span><span class="no">$space</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">))</span>
+<span class="k">end</span><span class="w"> </span><span class="n">meta</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Scans in at least one space (<code class="docutils literal notranslate"><span class="pre">element-of</span></code> and <code class="docutils literal notranslate"><span class="pre">loop</span></code> are discussed
+in the section on <a class="reference internal" href="#meta-expressions">Meta expressions</a>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan macro">
+<dt class="sig sig-object dylan-api dylan" id="meta:meta:with-meta-syntax">
+<span class="sig-name descname"><span class="pre">with-meta-syntax</span></span> <em class="property"><span class="pre">Macro</span></em><a class="headerlink" href="#meta:meta:with-meta-syntax" title="Link to this definition">¶</a></dt>
+<dd><p>The guts of the <a class="reference internal" href="#meta:meta:meta-definer"><code class="xref dylan dylan-macro docutils literal notranslate"><span class="pre">meta-definer</span></code></a> form; use when requiring precise
+control of variables or constructs</p>
+<dl class="field-list">
+<dt class="field-odd">Macro Call<span class="colon">:</span></dt>
+<dd class="field-odd"><p><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">with-meta-syntax</span>
+<span class="n">source-type</span><span class="w"> </span><span class="p">(</span><span class="n">source</span><span class="w"> </span><span class="k">#key</span><span class="w"> </span><span class="n">keys</span><span class="p">)</span>
+<span class="w">  </span><span class="p">[</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="p">]</span>
+<span class="w">  </span><span class="n">meta</span><span class="p">;</span>
+<span class="w">  </span><span class="n">body</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>source-type</strong> – Either <code class="docutils literal notranslate"><span class="pre">parse-stream</span></code> or <code class="docutils literal notranslate"><span class="pre">parse-string</span></code>.</p></li>
+<li><p><strong>source</strong> – Either a stream or a string, depending on <em>source-type</em></p></li>
+<li><p><strong>start</strong> (<em>#key</em>) – If <em>source-type</em> is <code class="docutils literal notranslate"><span class="pre">parse-string</span></code>,
+the index to start at.</p></li>
+<li><p><strong>end</strong> (<em>#key</em>) – If <em>source-type</em> is <code class="docutils literal notranslate"><span class="pre">parse-string</span></code>,
+the index to finish before.</p></li>
+<li><p><strong>pos</strong> (<em>#key</em>) – If <em>source-type</em> is <code class="docutils literal notranslate"><span class="pre">parse-string</span></code>,
+a name that will be bound to the current index during execution
+of the <code class="docutils literal notranslate"><span class="pre">with-meta-syntax</span></code> forms.</p></li>
+<li><p><strong>meta</strong> – A <a class="reference external" href="#meta-expressions">Meta expression</a>.</p></li>
+<li><p><strong>body</strong> – A body. Evaluated only if parsing is successful.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> – If parsing fails <code class="docutils literal notranslate"><span class="pre">#f</span></code>, otherwise the values of <em>body</em>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><strong>Special programming aids:</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">variables</span> <span class="pre">(variable</span> <span class="pre">[</span> <span class="pre">::</span> <span class="pre">type</span> <span class="pre">]</span> <span class="pre">[</span> <span class="pre">=</span> <span class="pre">init</span> <span class="pre">],</span> <span class="pre">...);</span></code></p>
+<p>Bind variables to <em>init</em>, which defaults to <code class="docutils literal notranslate"><span class="pre">#f</span></code>;</p>
+<p>Future versions will have further special forms.</p>
+</p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">with-meta-syntax</span><span class="w"> </span><span class="n">parse-stream</span><span class="w"> </span><span class="p">(</span><span class="vg">*standard-input*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">body</span>
+<span class="k">end</span><span class="w"> </span><span class="n">with-meta-syntax</span><span class="p">;</span>
+
+<span class="k">let</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;string&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ask-user</span><span class="p">();</span>
+<span class="n">with-meta-syntax</span><span class="w"> </span><span class="n">parse-string</span><span class="w"> </span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="w"> </span><span class="k">start:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="k">end:</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span>
+<span class="w">  </span><span class="n">body</span>
+<span class="k">end</span><span class="w"> </span><span class="n">with-meta-syntax</span><span class="p">;</span>
+
+<span class="n">with-meta-syntax</span><span class="w"> </span><span class="n">parse-string</span><span class="w"> </span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="w">  </span><span class="p">...</span><span class="w"> </span><span class="p">[</span><span class="sc">&#39;\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">finish</span><span class="p">()]</span><span class="w"> </span><span class="p">...</span>
+<span class="w">  </span><span class="nb">values</span><span class="p">(</span><span class="n">these</span><span class="p">,</span><span class="w"> </span><span class="nb">values</span><span class="p">,</span><span class="w"> </span><span class="n">will</span><span class="p">,</span><span class="w"> </span><span class="n">be</span><span class="p">,</span><span class="w"> </span><span class="n">returned</span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="n">with-meta-syntax</span><span class="p">;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan macro">
+<dt class="sig sig-object dylan-api dylan" id="meta:meta:collector-definer">
+<span class="sig-name descname"><span class="pre">collector-definer</span></span> <em class="property"><span class="pre">Macro</span></em><a class="headerlink" href="#meta:meta:collector-definer" title="Link to this definition">¶</a></dt>
+<dd><p>General facility to collect data into sequences (by default, into
+strings). Initially <a class="reference internal" href="#meta:meta:with-meta-syntax"><code class="xref dylan dylan-macro docutils literal notranslate"><span class="pre">with-meta-syntax</span></code></a> had this functionality
+integrated. This is a more modular approach.</p>
+</dd></dl>
+
+<dl class="dylan macro">
+<dt class="sig sig-object dylan-api dylan" id="meta:meta:with-collector">
+<span class="sig-name descname"><span class="pre">with-collector</span></span> <em class="property"><span class="pre">Macro</span></em><a class="headerlink" href="#meta:meta:with-collector" title="Link to this definition">¶</a></dt>
+<dd><p>The guts of the <a class="reference internal" href="#meta:meta:collector-definer"><code class="xref dylan dylan-macro docutils literal notranslate"><span class="pre">collector-definer</span></code></a> form. This macro allows
+collecting data into a sequence.  This is similar in spirit to
+Common Lisp’s <code class="docutils literal notranslate"><span class="pre">LOOP</span></code> clauses <code class="docutils literal notranslate"><span class="pre">COLLECT</span></code> and <code class="docutils literal notranslate"><span class="pre">APPEND</span></code>, but more
+flexible. If you want to extract subsequences from a string while
+parsing it, this is the tool to use.</p>
+<dl class="field-list">
+<dt class="field-odd">Macro Call<span class="colon">:</span></dt>
+<dd class="field-odd"><p><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">with-collector</span><span class="w"> </span><span class="n">operation</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">#key</span><span class="w"> </span><span class="n">collect</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="p">;</span>
+<span class="w">  </span><span class="n">body</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>operation</strong> – Specifies the mode of operation. See below.</p></li>
+<li><p><strong>collect</strong> – A name for a function that, called with a parameter, inserts this parameter into the sequence.</p></li>
+<li><p><strong>append</strong> – A name for a function that, called with a sequence, appends this parameter to the sequence.</p></li>
+<li><p><strong>body</strong> – A Dylan body (bnf).</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>result</strong> – Normally the values of <em>body</em>. There is <a class="reference external" href="#minimal">minimal form</a> of <code class="docutils literal notranslate"><span class="pre">with-collector</span></code>, which always returns the collected sequence.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Discussion<span class="colon">:</span></dt>
+<dd class="field-even"><p><blockquote>
+<div><p>Like <code class="docutils literal notranslate"><span class="pre">COLLECT</span></code>, <code class="docutils literal notranslate"><span class="pre">with-collector</span></code> can put objects into a list.
+Unlike <code class="docutils literal notranslate"><span class="pre">COLLECT</span></code>, it can also create vectors or write into
+already created vectors.</p>
+<p><strong>Collecting into a list or vector</strong></p>
+<p>Two simple forms of <code class="docutils literal notranslate"><span class="pre">with-collector</span></code> are <code class="docutils literal notranslate"><span class="pre">into-list</span></code> and
+<code class="docutils literal notranslate"><span class="pre">into-vector</span></code>. They create a list or a vector and write into it. The
+sequence is available as a variable with a user-defined name:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">with-collector</span><span class="w"> </span><span class="n">into-list</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">#key</span><span class="w"> </span><span class="n">collect</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="p">;</span>
+<span class="w">  </span><span class="n">body</span>
+<span class="k">end</span>
+
+<span class="n">with-collector</span><span class="w"> </span><span class="n">into-vector</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">#key</span><span class="w"> </span><span class="n">collect</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="p">;</span>
+<span class="w">  </span><span class="n">body</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p><strong>Writing into an existing vector</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">into-vector</span></code>, by default, creates a &lt;stretchy-sequence&gt;. If you don’t
+like this behaviour, you can specify a different vector that will be
+used. For instance, if you already know how long the result will be, you
+might want to create a string in the first place.</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">with-collector</span><span class="w"> </span><span class="n">into-vector</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init</span><span class="p">,</span><span class="w"> </span><span class="k">#key</span><span class="w"> </span><span class="n">collect</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="p">;</span>
+<span class="w">  </span><span class="n">body</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p><strong>Using buffers</strong></p>
+<p>Normally it is not known in advance how long the result will be. What is
+really needed is a sequence that automatically reduces its size after
+processing is finished. <code class="docutils literal notranslate"><span class="pre">into-buffer</span></code> implements this by returning a
+subsequence of the original vector.</p>
+<p>Instead of a variable holding the sequence there is now a function which
+creates the subsequence.</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">with-collector</span><span class="w"> </span><span class="n">into-buffer</span><span class="w"> </span><span class="n">function-name</span><span class="p">,</span><span class="w"> </span><span class="k">#key</span><span class="w"> </span><span class="n">collect</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="p">;</span>
+<span class="w">  </span><span class="n">body</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>But how do you find out what the maximum buffer size has to be? A safe
+guess is the length of the original vector you are extracting elements
+from. The following construct automatically creates a vector of the same
+class (well, <a class="reference external" href="https://opendylan.org/books/drm/Coercing_and_Copying_Objects#type-for-copy"><code class="xref drm docutils literal notranslate"><span class="pre">type-for-copy</span></code></a>) and size as <em>big-one</em>:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">with-collector</span><span class="w"> </span><span class="n">into-buffer</span><span class="w"> </span><span class="n">function-name</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">big-one</span><span class="p">,</span><span class="w"> </span><span class="k">#key</span><span class="w"> </span><span class="n">collect</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="p">;</span>
+<span class="w">  </span><span class="n">body</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p><strong>A minimal collection form</strong></p>
+<p>If you don’t need to write into vectors or use buffers, but just want to
+collect some stuff and return it, use this idiom:</p>
+</div></blockquote>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">with-collector</span><span class="w"> </span><span class="p">{</span><span class="n">into-list|into-vector</span><span class="p">},</span><span class="w"> </span><span class="k">#key</span><span class="w"> </span><span class="n">collect</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="p">;</span>
+<span class="w">  </span><span class="n">body</span>
+<span class="w">  </span><span class="c1">// Note: Values of body will be thrown away.</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">function</span><span class="w"> </span><span class="n">parse-finger-query</span><span class="w"> </span><span class="p">(</span><span class="n">query</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;string&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">with-collector</span><span class="w"> </span><span class="n">into-buffer</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">query</span><span class="p">,</span><span class="w"> </span><span class="k">collect:</span><span class="w"> </span><span class="n">collect</span><span class="p">;</span>
+<span class="w">    </span><span class="n">with-meta-syntax</span><span class="w"> </span><span class="n">parse-string</span><span class="w"> </span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="p">(</span><span class="n">whois</span><span class="p">,</span><span class="w"> </span><span class="n">at</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="w">      </span><span class="p">[</span><span class="n">loop</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">),</span><span class="w"> </span><span class="p">{[{</span><span class="s">&quot;/W&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/w&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">yes!</span><span class="p">(</span><span class="n">whois</span><span class="p">)],</span><span class="w"> </span><span class="p">[]},</span><span class="w">        </span><span class="c1">// Whois switch?</span>
+<span class="w">       </span><span class="n">loop</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">),</span><span class="w"> </span><span class="n">loop</span><span class="p">({[{</span><span class="sc">&#39;\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\r&#39;</span><span class="p">},</span><span class="w"> </span><span class="n">finish</span><span class="p">()],</span><span class="w">           </span><span class="c1">// Newline? Quit.</span>
+<span class="w">            </span><span class="p">{[</span><span class="sc">&#39;@&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">yes!</span><span class="p">(</span><span class="n">at</span><span class="p">),</span><span class="w"> </span><span class="nb">do</span><span class="p">(</span><span class="n">collect</span><span class="p">(</span><span class="sc">&#39;@&#39;</span><span class="p">))],</span><span class="w"> </span><span class="c1">// @? Indirect.</span>
+<span class="w">             </span><span class="p">[</span><span class="n">type</span><span class="p">(</span><span class="nc">&lt;character&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">),</span><span class="w">             </span><span class="c1">// Else:</span>
+<span class="w">              </span><span class="nb">do</span><span class="p">(</span><span class="n">collect</span><span class="p">(</span><span class="n">c</span><span class="p">))]}})];</span><span class="w">              </span><span class="c1">//   Collect char</span>
+<span class="w">      </span><span class="nb">values</span><span class="p">(</span><span class="n">whois</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">(),</span><span class="w"> </span><span class="n">at</span><span class="p">);</span>
+<span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="n">with-meta-syntax</span><span class="p">;</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="n">with-collector</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">function</span><span class="w"> </span><span class="n">parse-finger-query</span><span class="p">;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Aside from the syntactic constructors exported above, the Meta library
+also provides some commonly-used forms for scanning and parsing:</p>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="meta:meta:scan-s">
+<span class="sig-name descname"><span class="pre">scan-s</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#meta:meta:scan-s" title="Link to this definition">¶</a></dt>
+<dd><p>Scans in at least one space.</p>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="meta:meta:scan-word">
+<span class="sig-name descname"><span class="pre">scan-word</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#meta:meta:scan-word" title="Link to this definition">¶</a></dt>
+<dd><p>Scans in a token and returns that token as a <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> instance. A
+“word” is surrounded by spaces or any of the following characters: ‘&lt;’,
+‘&gt;’, ‘{’, ‘}’, ‘[’, ‘]’, punctuation (‘,’, ‘?’, or ‘!’), or the single-
+or double- quotation-mark.</p>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="meta:meta:scan-int">
+<span class="sig-name descname"><span class="pre">scan-int</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#meta:meta:scan-int" title="Link to this definition">¶</a></dt>
+<dd><p>Reads in digit characters and returns an <code class="docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code> instance.</p>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="meta:meta:scan-number">
+<span class="sig-name descname"><span class="pre">scan-number</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#meta:meta:scan-number" title="Link to this definition">¶</a></dt>
+<dd><p>Although this is not an all-encompassing conversion utility (although,
+IMHO, it’s good enough to be part of the standard, once there is one,
+YMMV), it reads in just about any fixed-point number format and returns
+a <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#real"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;real&gt;</span></code></a> instance.</p>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="meta:meta:string-to-number">
+<span class="sig-name descname"><span class="pre">string-to-number</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#meta:meta:string-to-number" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>str</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a>, the string to convert
+to a number.</p></li>
+<li><p><strong>base</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>, defaults to <code class="docutils literal notranslate"><span class="pre">10</span></code>,
+the base of the number in the string.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ans</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#real"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;real&gt;</span></code></a>, the resulting number.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Discussion<span class="colon">:</span></dt>
+<dd class="field-odd"><p>This really should belong to the common-dylan spec, so that instead of
+rolling their own, everyone should use this function. It is
+therefore exported to this end.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Scanning tokens usually entails using some common character types. Meta
+exports the following:</p>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="meta:meta:$space">
+<span class="sig-name descname"><span class="pre">$space</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#meta:meta:$space" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Equivalent<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any whitespace.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="meta:meta:$digit">
+<span class="sig-name descname"><span class="pre">$digit</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#meta:meta:$digit" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Equivalent<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">[0-9]</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="meta:meta:$letter">
+<span class="sig-name descname"><span class="pre">$letter</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#meta:meta:$letter" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Equivalent<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">[a-zA-Z]</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="meta:meta:$num-char">
+<span class="sig-name descname"><span class="pre">$num-char</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#meta:meta:$num-char" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Equivalent<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">$digit</span> <span class="pre">++</span> <span class="pre">[.eE+]</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="meta:meta:$graphic-char">
+<span class="sig-name descname"><span class="pre">$graphic-char</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#meta:meta:$graphic-char" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Equivalent<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">[_&#64;#$%^&amp;*()+=~/]</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="meta:meta:$any-char">
+<span class="sig-name descname"><span class="pre">$any-char</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#meta:meta:$any-char" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Equivalent<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">$letter</span> <span class="pre">++</span> <span class="pre">$num-char</span> <span class="pre">++</span> <span class="pre">$graphic-char</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="meta-expressions">
+<h2>Meta expressions<a class="headerlink" href="#meta-expressions" title="Link to this heading">¶</a></h2>
+<p>Meta is a small, but featureful language, so naturally it has its own
+syntax. This syntax is adapted to Dylan’s way of writing things, of
+course.</p>
+<p>There are several basic Meta expressions implementing the core
+functionality. Additionally there are some <em>pseudo-functions</em>,
+syntactically function-like constructs which simplify certain tasks that
+would otherwise have to be written manually.</p>
+<section id="basic-meta-expressions-as-described-by-baker">
+<h3>Basic Meta expressions as described by Baker<a class="headerlink" href="#basic-meta-expressions-as-described-by-baker" title="Link to this heading">¶</a></h3>
+<p><strong>Baker</strong></p>
+<p><strong>``with-meta-syntax``</strong></p>
+<p><strong>Description</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">fragment</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">fragment</span></code></p>
+<p>try to match this</p>
+<p><code class="docutils literal notranslate"><span class="pre">[a</span> <span class="pre">b</span> <span class="pre">c</span> <span class="pre">...</span> <span class="pre">n]</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b,</span> <span class="pre">c,</span> <span class="pre">...,</span> <span class="pre">n]</span></code></p>
+<p>and/try all</p>
+<p><code class="docutils literal notranslate"><span class="pre">{a</span> <span class="pre">b</span> <span class="pre">c</span> <span class="pre">...</span> <span class="pre">n}</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">{a,</span> <span class="pre">b,</span> <span class="pre">c,</span> <span class="pre">...,</span> <span class="pre">n}</span></code></p>
+<p>or/first hit</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;(type</span> <span class="pre">variable)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">type(type,</span> <span class="pre">variable)</span></code></p>
+<p>match any <em>type</em>, store result in <em>variable</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><em>deprecated</em> <code class="docutils literal notranslate"><span class="pre">type</span></code> is most often used in seeing if a
+character is one of several possibilities. Use <code class="docutils literal notranslate"><span class="pre">element-of</span></code> instead.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">$foo</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">loop(foo)</span></code></p>
+<p>zero or more</p>
+<p><code class="docutils literal notranslate"><span class="pre">!Lisp</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">(Dylan)</span></code></p>
+<p>call the code (and check result)</p>
+<p>The same grammar which works for streams will works for strings. When
+parsing strings, more than just one-character look-ahead is possible,
+though. You can therefore not only match against characters, but also
+whole substrings. This does not work when reading from a stream.</p>
+</section>
+<section id="additional-pseudo-function-expressions">
+<h3>Additional pseudo-function expressions<a class="headerlink" href="#additional-pseudo-function-expressions" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>``with-meta-syntax``</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p><strong>Could be written as</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">do(Dylan)</span></code></p></td>
+<td><p>call the code and continue (whatever the result is)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(Dylan;</span> <span class="pre">#t)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">finish()</span></code></p></td>
+<td><p>finish parsing successfully</p></td>
+<td><p>not possible</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">test(predicate)</span></code></p></td>
+<td><p>Match against a predicate.</p></td>
+<td><p>not possible</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">test(predicate,</span> <span class="pre">variable)</span></code></p></td>
+<td><p>Match against a predicate, saving the result.</p></td>
+<td><p>not possible</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">peeking(variable,</span> <span class="pre">test)</span></code></p></td>
+<td><p>Save result first, so that expression test can use it.</p></td>
+<td><dl class="simple">
+<dt>not possible;</dt><dd><p><strong>Warning:</strong> <em>deprecated, use</em><code class="docutils literal notranslate"><span class="pre">peek</span></code> <em>instead</em></p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">peek(variable,</span> <span class="pre">test)</span></code></p></td>
+<td><p>Look one character ahead and store in <em>variable</em> if it passes <em>test</em>. Leave the character on the stream.</p></td>
+<td><p>not possible</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">element-of(sequence,</span> <span class="pre">variable)</span></code></p></td>
+<td><p>Sees if the <em>variable</em> (a character) is a member of the <em>sequence</em>, storing the result</p></td>
+<td><p>{ ‘a’, ‘b’, ‘c’ } (but not storing result)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">yes!(variable)</span></code></p></td>
+<td><p>Set <em>variable</em> to <code class="docutils literal notranslate"><span class="pre">#t</span></code> and continue.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(variable</span> <span class="pre">:=</span> <span class="pre">#t)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">no!(variable)</span></code></p></td>
+<td><p>Set <em>variable</em> to <code class="docutils literal notranslate"><span class="pre">#f</span></code> and continue.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(variable</span> <span class="pre">:=</span> <span class="pre">#f;</span> <span class="pre">#t)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">set!(variable,</span> <span class="pre">value)</span></code></p></td>
+<td><p>Set <em>variable</em> to <em>value</em> and continue.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(variable</span> <span class="pre">:=</span> <span class="pre">value;</span> <span class="pre">#t)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">accept(variable)</span></code></p></td>
+<td><p>Match anything and save result.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">type(&lt;object&gt;,</span> <span class="pre">variable)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="example-code">
+<h2>Example code<a class="headerlink" href="#example-code" title="Link to this heading">¶</a></h2>
+<section id="parsing-an-integer-base-10">
+<h3>Parsing an integer (base 10)<a class="headerlink" href="#parsing-an-integer-base-10" title="Link to this heading">¶</a></h3>
+<p>Common Lisp version:</p>
+<div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nb">parse-integer</span><span class="w"> </span><span class="p">(</span><span class="k">&amp;aux</span><span class="w"> </span><span class="p">(</span><span class="nv">s</span><span class="w"> </span><span class="mi">+1</span><span class="p">)</span><span class="w"> </span><span class="nv">d</span><span class="w"> </span><span class="p">(</span><span class="nv">n</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">and</span>
+<span class="w">   </span><span class="p">(</span><span class="nv">matchit</span>
+<span class="w">    </span><span class="nv">[{#\+</span><span class="w"> </span><span class="nv">[#\-</span><span class="w"> </span><span class="nv">!</span><span class="p">(</span><span class="k">setq</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="nv">]</span><span class="w"> </span><span class="nv">[]}</span>
+<span class="w">    </span><span class="nv">@</span><span class="p">(</span><span class="nv">digit</span><span class="w"> </span><span class="nv">d</span><span class="p">)</span><span class="w"> </span><span class="nv">!</span><span class="p">(</span><span class="k">setq</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nv">digit-to-integer</span><span class="w"> </span><span class="nv">d</span><span class="p">))</span>
+<span class="w">    </span><span class="nv">$[@</span><span class="p">(</span><span class="nv">digit</span><span class="w"> </span><span class="nv">d</span><span class="p">)</span><span class="w"> </span><span class="nv">!</span><span class="p">(</span><span class="k">setq</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nv">digit-to-integer</span><span class="w"> </span><span class="nv">d</span><span class="p">)))</span><span class="nv">]]</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="nv">n</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Direct translation to Dylan:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">constant</span><span class="w"> </span><span class="nc">&lt;digit&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">one-of</span><span class="p">(</span><span class="sc">&#39;0&#39;</span><span class="p">,</span><span class="sc">&#39;1&#39;</span><span class="p">,</span><span class="sc">&#39;2&#39;</span><span class="p">,</span><span class="sc">&#39;3&#39;</span><span class="p">,</span><span class="sc">&#39;4&#39;</span><span class="p">,</span><span class="sc">&#39;5&#39;</span><span class="p">,</span><span class="sc">&#39;6&#39;</span><span class="p">,</span><span class="sc">&#39;7&#39;</span><span class="p">,</span><span class="sc">&#39;8&#39;</span><span class="p">,</span><span class="sc">&#39;9&#39;</span><span class="p">);</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">function</span><span class="w"> </span><span class="n">parse-integer</span><span class="w"> </span><span class="p">(</span><span class="n">source</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;stream&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">+1</span><span class="p">;</span><span class="w"> </span><span class="c1">// sign</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// number</span>
+<span class="w">  </span><span class="n">with-meta-syntax</span><span class="w"> </span><span class="n">parse-stream</span><span class="w"> </span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+<span class="w">    </span><span class="n">variables</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+<span class="w">    </span><span class="p">[{</span><span class="sc">&#39;+&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="sc">&#39;-&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">-1</span><span class="p">)],</span><span class="w"> </span><span class="p">[]},</span>
+<span class="w">     </span><span class="n">type</span><span class="p">(</span><span class="nc">&lt;digit&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">digit-to-integer</span><span class="p">(</span><span class="n">d</span><span class="p">)),</span>
+<span class="w">     </span><span class="n">loop</span><span class="p">([</span><span class="n">type</span><span class="p">(</span><span class="nc">&lt;digit&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">digit-to-integer</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">)])];</span>
+<span class="w">    </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="n">with-meta-syntax</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">function</span><span class="w"> </span><span class="n">parse-integer</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Alternative version:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="c1">// this will actually return a fn named &#39;scan-int&#39;, not &#39;parse-int&#39;</span>
+<span class="k">define</span><span class="w"> </span><span class="n">collector</span><span class="w"> </span><span class="n">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">as</span><span class="p">(</span><span class="nc">&lt;string&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">).</span><span class="n">string-to-integer</span><span class="p">)</span>
+<span class="w">  </span><span class="n">loop</span><span class="p">([</span><span class="n">element-of</span><span class="p">(</span><span class="s">&quot;+-0123456789&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="nb">do</span><span class="p">(</span><span class="n">collect</span><span class="p">(</span><span class="n">i</span><span class="p">))])</span>
+<span class="k">end</span><span class="w"> </span><span class="n">collector</span><span class="w"> </span><span class="n">int</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="parsing-finger-queries">
+<h3>Parsing finger queries<a class="headerlink" href="#parsing-finger-queries" title="Link to this heading">¶</a></h3>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">function</span><span class="w"> </span><span class="n">parse-finger-query</span><span class="w"> </span><span class="p">(</span><span class="n">query</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;string&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">with-collector</span><span class="w"> </span><span class="n">into-buffer</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="p">(</span><span class="k">collect:</span><span class="w"> </span><span class="n">collect</span><span class="p">)</span>
+<span class="w">    </span><span class="n">with-meta-syntax</span><span class="w"> </span><span class="n">parse-string</span><span class="w"> </span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="w">      </span><span class="n">variables</span><span class="w"> </span><span class="p">(</span><span class="n">whois</span><span class="p">,</span><span class="w"> </span><span class="n">at</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="w">      </span><span class="p">[</span><span class="n">loop</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">),</span><span class="w"> </span><span class="p">{[{</span><span class="s">&quot;/W&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/w&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">yes!</span><span class="p">(</span><span class="n">whois</span><span class="p">)],</span><span class="w"> </span><span class="p">[]},</span><span class="w">        </span><span class="c1">// Whois switch?</span>
+<span class="w">       </span><span class="n">loop</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">),</span><span class="w"> </span><span class="n">loop</span><span class="p">({[{</span><span class="sc">&#39;\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\r&#39;</span><span class="p">},</span><span class="w"> </span><span class="n">finish</span><span class="p">()],</span><span class="w">           </span><span class="c1">// Newline? Quit.</span>
+<span class="w">            </span><span class="p">{[</span><span class="sc">&#39;@&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">yes!</span><span class="p">(</span><span class="n">at</span><span class="p">),</span><span class="w"> </span><span class="nb">do</span><span class="p">(</span><span class="n">collect</span><span class="p">(</span><span class="sc">&#39;@&#39;</span><span class="p">))],</span><span class="w"> </span><span class="c1">// @? Indirect.</span>
+<span class="w">             </span><span class="p">[</span><span class="n">accept</span><span class="p">(</span><span class="n">c</span><span class="p">),</span><span class="w"> </span><span class="nb">do</span><span class="p">(</span><span class="n">collect</span><span class="p">(</span><span class="n">c</span><span class="p">))]}})];</span><span class="w">   </span><span class="c1">// then collect char</span>
+<span class="w">      </span><span class="nb">values</span><span class="p">(</span><span class="n">whois</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">(),</span><span class="w"> </span><span class="n">at</span><span class="p">);</span>
+<span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="n">with-meta-syntax</span><span class="p">;</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="n">with-collector</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">function</span><span class="w"> </span><span class="n">parse-finger-query</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="lisp-meta.htm">[Baker91]</a> Baker, Henry. “Pragmatic Parsing in Common
+Lisp”. <em>ACM Lisp Pointers 4, 2</em> (Apr-Jun 1991), 3-15.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../objc-dylan/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Objective C / Dylan Bridge</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="copyright.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Copyright</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2011-2023, Dylan Hackers
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">The Meta Library</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#exported-facilities">Exported facilities</a></li>
+<li><a class="reference internal" href="#meta-expressions">Meta expressions</a><ul>
+<li><a class="reference internal" href="#basic-meta-expressions-as-described-by-baker">Basic Meta expressions as described by Baker</a></li>
+<li><a class="reference internal" href="#additional-pseudo-function-expressions">Additional pseudo-function expressions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-code">Example code</a><ul>
+<li><a class="reference internal" href="#parsing-an-integer-base-10">Parsing an integer (base 10)</a></li>
+<li><a class="reference internal" href="#parsing-finger-queries">Parsing finger queries</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=55d3bea0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=4e2eecee"></script>
+    </body>
+</html>

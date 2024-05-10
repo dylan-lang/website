@@ -1,0 +1,285 @@
+/*
+   Style sheet for the Dylan Reference Manual
+
+   This places the navigation "mini-TOC" at a fixed position at the left of
+   the viewport.
+
+   This overrides the shared rules in common.css.
+*/
+
+
+
+/*
+   Overall Page Layout
+*/
+
+/* leave room for navigation links and margins inside the viewport */
+body       { margin: 0 0 0 25%; padding: 0; }
+#content   { padding-right: 1pc }
+#footer    { padding: 0 0.5pc   }
+
+/* some experimental attempts to get the nav area to "float" in WinIE */
+/*
+html
+  {
+  overflow: hidden;
+  }
+body
+  {
+  height: 100%;
+  overflow: scroll;
+  }
+*/
+
+
+/* Navigation header at the top/left of the viewport */
+#navigation-header
+               {
+                 position: fixed; top: 0; left: 0; height: 100%;
+                 /* we would use 'width:' here, but Opera (8.5.1) lays it
+                    out narrower than it should; the workaround is to use
+                    'right:' */
+                 /* width: 25%; */ right: 75%;
+                 margin: 0; padding: 0 8px 0 0; /* the shadow image is 8px wide */
+                 font-family: sans-serif;
+                 color: black;
+                 /* cast a translucent shadow at the right edge of the navigation area */
+                 background: transparent url("../images/shadow-right") repeat-y top right;
+               }
+/* links are only underlined when hovering */
+#navigation-header a       { text-decoration: none      }
+#navigation-header a:hover { text-decoration: underline }
+/* since we're setting the background colors, it's important to also set
+   all the text colors, though we set them to the typical browser defaults
+   (black text, blue links, dark purple visited links)
+*/
+#navigation-header a:link    { color: blue }
+#navigation-header a:visited { color: #606 }
+#navigation-header a:active  { color: red  }
+/* the book title is a link, but is always the same (purple) color */
+#book-title a:link           { color: #606 }
+
+#navigation-top {
+                  height: 3.5em;
+                  overflow: hidden;
+                  padding: 2px 2px 0 2px;
+                  background-color: white;
+                }
+
+#book-title    {
+                 padding: 0; margin: 0.25em 0 0 0; height: 1em;
+                 text-align: center;
+                 line-height: 1em;
+                 white-space: nowrap;
+               }
+#book-title img.book-icon         { display: none }
+#book-title img.book-title        { width: 95%; max-width: 15em; height: 1.25em; border: none; }
+#book-title img.book-title:hover  { border-bottom: 1px solid purple }
+#book-title img.book-title:active { border-bottom: 1px solid red    }
+#navigation-core
+               {
+                 margin: 0; padding: 0;
+                 margin-top: 0.7em;
+               }
+
+/* "mini-TOC" navigation area at the left of the viewport */
+#navigation-TOC
+               {
+                 position: absolute;
+                 top: 3.5em; left: 0; bottom: 0; right: 8px;
+                 overflow: auto;
+                 border-top: 1px solid silver;
+                 padding-top: 0.5em;
+                 background-color: #EEF;
+               }
+
+
+/*
+   Core Navigation Layout
+   
+   The core navigation links are placed at very specific positions in the
+   top/left navigation area.
+*/
+
+/* links */
+#navigation-core a,
+#navigation-core > span {
+                          text-transform: lowercase;
+                          font-family: "Gill Sans", sans-serif;
+                          font-size: smaller;
+                        }
+
+/* "disabled" links (any text not inside a link) */
+#navigation-core                     { color: #AAA }
+
+/* the "start of book" button is redundant, so hide it */
+#navigation-core .start              { display: none }
+
+/* button layout */
+#navigation-core .contents           { position: absolute; left: 2px; width: 15%; text-align: center; height: 19px; }
+#navigation-core .index              { position: absolute; left: 22%; width: 15%; text-align: center; height: 19px; }
+#navigation-core .up                 { position: absolute; left: 44%; width: 15%; text-align: center; height: 19px; }
+#navigation-core .previous           { position: absolute; right: 22%; width: 15%; text-align: center; height: 19px; }
+#navigation-core .next               { position: absolute; right: 10px; width: 15%; text-align: center; height: 19px; }
+
+/* button appearance */
+#navigation-core img                 { border: none }
+
+#navigation-core a,
+#navigation-core > span              { min-height: 19px /* height of the link background images */ }
+
+/* hide the link texts and replace them with images */
+
+#navigation-core .contents span,
+#navigation-core .index span,
+#navigation-core .up span,
+#navigation-core .next span,
+#navigation-core .previous span      { display: none }
+
+#navigation-core a.contents,
+#navigation-core a.index,
+#navigation-core a.up,
+#navigation-core a.next,
+#navigation-core a.previous,
+#navigation-core span.contents,
+#navigation-core span.index,
+#navigation-core span.up,
+#navigation-core span.next,
+#navigation-core span.previous       {
+                                       text-decoration: none;
+                                       background-color: transparent;
+                                       background-repeat: no-repeat;
+                                       background-position: center center;
+                                     }
+#navigation-core a.contents          { background-image: url("../images/contents") }
+#navigation-core a.index             { background-image: url("../images/index")    }
+#navigation-core a.up                { background-image: url("../images/up")       }
+#navigation-core a.next              { background-image: url("../images/next")     }
+#navigation-core a.previous          { background-image: url("../images/previous") }
+
+#navigation-core a.contents:active   { background-image: url("../images/contents-active") }
+#navigation-core a.index:active      { background-image: url("../images/index-active")    }
+#navigation-core a.up:active         { background-image: url("../images/up-active")       }
+#navigation-core a.next:active       { background-image: url("../images/next-active")     }
+#navigation-core a.previous:active   { background-image: url("../images/previous-active") }
+
+#navigation-core span.contents       { background-image: url("../images/contents-disabled") }
+#navigation-core span.index          { background-image: url("../images/index-disabled")    }
+#navigation-core span.up             { background-image: url("../images/up-disabled")       }
+#navigation-core span.next           { background-image: url("../images/next-disabled")     }
+#navigation-core span.previous       { background-image: url("../images/previous-disabled") }
+
+/*
+#navigation-core a.contents:hover    { border-bottom: 1px solid #606    }
+#navigation-core a.index:hover       { border-bottom: 1px solid #1E82B8 }
+#navigation-core a.up:hover          { border-bottom: 1px solid #D42145 }
+#navigation-core a.next:hover,
+#navigation-core a.previous:hover    { border-bottom: 1px solid #F15813 }
+*/
+#navigation-core a.contents:hover    { background-color: #606    }
+#navigation-core a.index:hover       { background-color: #1E82B8 }
+#navigation-core a.up:hover          { background-color: #D42145 }
+#navigation-core a.next:hover,
+#navigation-core a.previous:hover    { background-color: #F15813 }
+
+#navigation-core a.contents:active,
+#navigation-core a.index:active,
+#navigation-core a.up:active,
+#navigation-core a.next:active,
+#navigation-core a.previous:active   { background-color: red    }
+
+
+/* Hide the horizontal rule that separates the headers from the content. */
+#header hr { display: none }
+
+
+
+/*
+   Navigation "mini-TOC" Layout
+*/
+
+/* a little space between lower-level items so that if they wrap, adjacent
+   items don't blend together */
+#navigation-TOC > ul > li,
+#navigation-TOC > ol > li   { margin: 0.25em auto }
+#navigation-TOC > ol        { margin: 0      auto }
+
+/* somewhat shallow indents to maximize horizontal space and minimize line
+   wrapping */
+#navigation-TOC ul,
+#navigation-TOC ol          { padding-left: 2.5em;  margin: 0 }
+#navigation-TOC ul ul,
+#navigation-TOC ol ul       { padding-left: 0.5em }
+
+/* use bullets, numbers, letters for different groups of the navigation
+   "mini-TOC" */
+#navigation-TOC ul.front-matter,
+#navigation-TOC ul.back-matter
+                   {
+                     list-style-type: square;
+                   }
+
+/* for lower-level items no bullets and smaller font size */
+#navigation-TOC > ul > li > ul,
+#navigation-TOC > ol > li > ul
+                   {
+                     list-style-type: none;
+                     font-size: smaller;
+                   }
+#navigation-TOC > ul > li > ul li:before,
+#navigation-TOC > ol > li > ul li:before
+                   { content: "" }
+#navigation-TOC > ul > li ul > li > ul,
+#navigation-TOC > ol > li ul > li > ul,
+#navigation-TOC > ul > li ul > li > ul > li > ul,
+#navigation-TOC > ol > li ul > li > ul > li > ul
+                   { list-style-type: none }
+#navigation-TOC > ul > li ul > li > ul li:before,
+#navigation-TOC > ol > li ul > li > ul li:before,
+#navigation-TOC > ul > li ul > li > ul > li > ul li:before,
+#navigation-TOC > ol > li ul > li > ul > li > ul li:before
+                   { content: "" }
+
+/* appendices are labeled with letters, and the errata section has a
+   distinguishing bullet */
+ol.appendices      { list-style-type: upper-latin }
+ul.errata          {
+                     list-style-type: circle; padxding-left: 1em;
+                     margin-top: 0;
+                     /* this is a little kludgey, since it depends on ul.errata being at
+                        the bottom of the list, but this gets us some padding at the
+                        bottom of the navigation area -- padding-bottom on
+                        #navigation-TOC seems to be ignored, even though top, left and
+                        right all work as expected */
+                     padding-bottom: 1em;
+                   }
+
+/* highlight the current page in the navigation area */
+li#current         { font-weight: bold   }
+li#current li      { font-weight: normal }
+/* display the link in black instead of link color, for contrast */
+li#current > a:visited { color: black }
+
+/* no space between wrapped lines; helps group them together visually */
+ul.page-TOC li ul li { line-height: 100% }
+
+/* no margin above lists, no bullets */
+ul.page-TOC,
+ul.page-TOC ul     {
+                     margin-top: 0;
+                     list-style-type: none;
+                   }
+
+/* grid layout for Index letters */
+#navigation-TOC .index-grid
+                   {
+                     border-collapse: collapse;
+                   }
+#navigation-TOC .index-grid a
+                   {
+                     display: table-cell;
+                     width: 1.5em;
+                     text-align: center;
+                     background-color: #DDD;
+                     border: 1px solid #EEE;
+                   }

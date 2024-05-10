@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Types_and_Classes" />
+    <link rel="prev" href="Classes" />
+    <link rel="next" href="Instance_Creation_and_Initialization" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Slots &mdash; 5. Types and Classes &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Classes"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Instance_Creation_and_Initialization"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Types_and_Classes"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li class="current parent"><a href="Types_and_Classes">Types and Classes</a>
+	      <ul class="sections">
+		<li><a href="Types_and_Classes_Overview">Overview</a></li>
+		<li><a href="Type_Protocol">The Type Protocol</a></li>
+		<li><a href="Classes">Classes</a></li>
+		<li id="current" class="subsections"><a href="Slots">Slots</a>
+		  <ul class="page-TOC">
+		    <li><a href="#HEADING-42-11">Slot Inheritance</a></li>
+		    <li><a href="#HEADING-42-16">Slot Specifications</a></li>
+		  </ul>
+		</li>
+		<li><a href="Instance_Creation_and_Initialization">Instance Creation and Initialization</a></li>
+		<li><a href="Singletons">Singletons</a></li>
+		<li><a href="Union_Types">Union Types</a></li>
+		<li><a href="Limited_Types">Limited Types</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 5</p>
+	<p id="section-name">Types and Classes</p>
+      </div>
+
+      <a name="HEADING-42-0"></a>
+      <a name="UID-Types_and_Classes-2625"></a>
+      <h1 class="section-title"><a name="IX-599">Slots</a></h1>
+      <p>Slots are the interface to information about instances. They correspond to
+	the <a name="IX-600">fields or instance variables</a> of other object-oriented
+	programming languages. By default, each instance of the class has private storage for each
+	slot, so one instance can have one value in the slot and another instance can have another
+	value. Some slots are shared among instances, as described
+	in <a href="#XREF-629"><q>Slot Allocation</q> on page 60</a>.</p>
+      <p id="FOOTNOTE-ANCHOR-2"><a name="IX-601">All slot access is performed by function
+	calls.</a><a rel="footnote" href="#FOOTNOTE-2" title="Footnote 2"><sup>*</sup></a> The method
+	that returns the value of a slot is called the <dfn id="IX-602">getter method</dfn>,
+	and the method that sets the value of a slot is called the <dfn id="IX-603">setter
+	  method</dfn>. The getter and setter methods are added to generic functions. When defining a
+	class, you specify slots by specifying the generic functions to which the getter and setter
+	methods should be added.</p>
+      <p>For example, the class definition for <code>&lt;point&gt;</code> might be</p>
+      <pre class="code">
+define class &lt;point&gt; (&lt;object&gt;)
+  slot horizontal;
+  slot vertical;
+end class;
+</pre>
+      <p>This definition indicates that instances of <code>&lt;point&gt;</code> should have two
+	slots, <code>horizontal</code> and <code>vertical</code>. The getter method for the first
+	slot is added to the generic function <code>horizontal</code>, and the getter method for the
+	second slot is added to the generic function <code>vertical</code>. The setter method for
+	the first slot is added to the generic function <code>horizontal-setter</code>, while the
+	setter method for the second slot is added to the generic
+	function <code>vertical-setter.</code></p>
+      <p>The following two code fragments are equivalent. Each returns the horizontal coordinate of
+	a point:</p>
+      <pre class="code">
+horizontal(a-point)
+a-point.horizontal
+</pre>
+      <p>The following three code fragments each set the horizontal coordinate of a point to 10:</p>
+      <pre class="code">
+horizontal-setter(10, my-point)
+horizontal(my-point) := 10
+my-point.horizontal := 10
+</pre>
+      <p><a name="IX-604">A slot setter method returns its new value argument.</a></p>
+      <a name="HEADING-42-11"></a>
+      <a name="UID-Types_and_Classes-1861"></a>
+      <h2 class="subsection-title"><a name="IX-605">Slot Inheritance</a></h2>
+      <p>Slots are inherited from superclasses.</p>
+      <p>The collection of all the getter and setter generic functions for slots specified in a
+	class or inherited from its superclasses must not contain any duplicates.</p>
+      <p>If a superclass is <a name="IX-606">inherited through multiple paths</a>,
+	its <a name="IX-607">slots are inherited once</a>. For example, if class <var>A</var> has
+	direct superclasses <var>B</var> and <var>C</var>, and both <var>B</var> and <var>C</var>
+	have <var>D</var> as a direct superclass, <var>A</var> inherits from <var>D</var> both
+	through <var>B</var> and through <var>C</var>, but the slots defined by <var>D</var> are
+	only counted once. Because of this, multiple inheritance does not by itself create any
+	duplicates among the getters and setters.</p>
+      <p>Note that two classes that specify a slot with the same getter or setter generic function
+	are <dfn id="IX-608">disjoint</dfn> &mdash;they can never have a common subclass and
+	no object can be an instance of both classes.<a name="IX-609"></a></p>
+      <a name="HEADING-42-16"></a>
+      <a name="UID-Types_and_Classes-1868"></a>
+      <h2 class="subsection-title"><a name="XREF-610"></a>Slot Specifications</h2>
+      <p>A slot specification describes a slot.</p>
+      <p><a name="IX-611"></a>A slot specification must include the name of the getter of the
+	slot (i.e., the name of the generic function to which the getter method will be added). This
+	is how slots are identified. The specification may optionally include the name of the setter
+	method. If it does not, a default name is generated by appending <q><code>-setter</code></q>
+	to the name of the getter.</p>
+      <p>A number of other options are available in slot specifications:</p>
+      <ul>
+	<li>An <a name="IX-612">initial value for the slot</a> may be specified with
+	  an <dfn id="IX-613">init specification</dfn>.</li>
+	<li><a name="IX-614">An init-keyword may be specified.</a> This allows a value for the slot
+	  to be supplied when an instance is created.</li>
+	<li><a name="IX-615">Slot allocation may be specified.</a> This controls whether storage for
+	  the slot is allocated in each instance, or some other way. </li>
+	<li><a name="IX-616">A slot may be specifed as constant.</a> There will be no setter for the
+	  slot.</li>
+	<li><a name="IX-617">A type may be specified.</a> The value of the slot will be constrained
+	  to be an instance of that type.</li>
+	<li><a name="IX-618">A sealing directive may be specified.</a>
+	  See <a href="Define_Sealed_Domain#XREF-1123"><q>Define Sealed Domain</q> on page 135</a>
+	  for a complete description of the sealing constraints imposed by this directive.</li>
+      </ul>
+      <p>For the complete syntax of slot specifications, see the reference entry of <code>define
+	  class</code> on <a href="Definition_Macros#XREF-2013">page 378</a>.</p>
+      <p>The following example defines a class with three slots, using a variety of slot
+	options.</p>
+      <pre class="code">
+define class &lt;window&gt; (&lt;view&gt;)
+  slot title :: &lt;string&gt; = "untitled";
+  slot position :: &lt;point&gt;, init-keyword: window-position:;
+  slot color, init-keyword: color:, init-value: $blue-color;
+end class &lt;window&gt;;
+</pre>
+      <a name="HEADING-42-29"></a>
+      <h3 class="sub-subsection-title"><a name="XREF-620"></a><a name="IX-619">Init Specifications</a></h3>
+      <p>An init specification provides a default initial value for a slot. It can do this directly
+	(if it is an init specification of a slot) or it can do it indirectly by providing a default
+	value for an init-keyword (if it is an init specification of an init-keyword).</p>
+      <p>There are three kinds of init specifications:</p>
+      <ul>
+	<li>An <dfn id="IX-621">init value</dfn> specifies a value that is used to initialize
+	  the slot. Each time the slot needs to be initialized, the identical value is used.</li>
+	<li>An <dfn id="IX-622">init function</dfn> specifies a function to be called to
+	  generate a value that is used to initialize the slot. Each time the slot needs to be
+	  initialized, the function is called and its value is used. This allows slots to be
+	  initialized to fresh values, or to values computed from the current program state.</li>
+	<li>An <dfn id="IX-623">init expression</dfn> specifies an expression to be executed
+	  to generate a value that is used to initialize the slot. Each time the slot needs to be
+	  initialized, the expression is executed and its value is used. This allows slots to be
+	  initialized to fresh values, or to values computed from the current program state.</li>
+      </ul>
+      <p>Only one init specification may be supplied in a given slot specification, inherited slot
+	specification, or initialization argument specification.</p>
+      <p>In general, an <var>init-function</var> will be called and an <var>init-expression</var>
+	will be executed only if its value will actually be used.<a name="IX-624"></a></p>
+      <a name="HEADING-42-37"></a>
+      <h3 class="sub-subsection-title"><a name="IX-625">Init-Keywords</a></h3>
+      <p>An init-keyword allows the value of a slot to be specified by a keyword argument in the
+	call to <code>make</code> when an instance is created. An init-keyword may be optional or
+	required.</p>
+      <p>When the value of a slot is provided by a keyword in a call to <code>make</code>, it is
+	called an <dfn id="IX-626">initialization argument</dfn>.</p>
+      <p>If an init-keyword is specified, the slot is said to be
+	<dfn id="IX-627">keyword initializable</dfn>.</p>
+      <a name="HEADING-42-41"></a>
+      <h3 class="sub-subsection-title"><a name="XREF-629"></a><a name="IX-628">Slot Allocation</a></h3>
+      <p>Options for slot allocation include <code id="IX-630">instance</code>,
+	<code id="IX-631">class</code>, <code id="IX-632">each-subclass</code>,
+	and <code id="IX-633">virtual</code>.</p>
+      <p><code id="IX-634">instance</code> allocation specifies that each instance gets its
+	own storage for the slot. This is the default.</p>
+      <p><code id="IX-635">class</code> allocation specifies there is only one storage
+	location used by all the general instances of the class. All the instances share a single
+	value for the slot. If the value is changed in one instance, all the instances see the new
+	value.</p>
+      <p><code>each-subclass</code> allocation specifies that the class gets one storage location
+	for the slot, to be used by all the direct instances of the class. In addition, every
+	subclass of the class gets a storage location for the slot, for use by its direct
+	instances.</p>
+      <p><code id="IX-636">virtual</code> allocation specifies that no storage will be
+	allocated for the slot. If allocation is <code>virtual</code>, then it is up to the
+	programmer to define methods on the getter and setter generic functions to retrieve and
+	store the value of the slot. Dylan will ensure the existence of generic functions for any
+	specified getter and setter but will not add any methods to them. A virtual slot cannot
+	specify an init specification or init-keyword. Any required initialization for the slot must
+	be performed in a method
+	on <code id="IX-637">initialize</code>.<a name="IX-638"></a></p>
+      <a name="HEADING-42-47"></a>
+      <h3 class="sub-subsection-title"><a name="IX-639">Constant Slots</a></h3>
+      <p>Specifying a slot as constant is equivalent to specifying <code>setter: #f</code>. If the
+	constant adjective is supplied, it is an error to supply an explicit value for
+	the <code>setter:</code> keyword in the slot specification. Such slots can only be given
+	values at instance creation time (with an <a name="IX-640">init specification</a>
+	or <a name="IX-641">init-keyword</a>).</p>
+      <pre class="code">
+define class &lt;person&gt; (&lt;being&gt;)
+  constant slot birthplace, required-init-keyword: birthplace:;
+end class &lt;person&gt;;
+
+define class &lt;astronaut&gt; (&lt;person&gt;)
+  constant class slot employer = #"NASA";
+end class &lt;astronaut&gt;;
+
+define class &lt;hair-trigger&gt; (&lt;object&gt;)
+  constant slot error-if-touched;
+end class &lt;hair-trigger&gt;;<a name="IX-642"></a>
+</pre>
+      <a name="HEADING-42-52"></a>
+      <h3 class="sub-subsection-title"><a name="IX-643">Specializing Slots</a></h3>
+      <p>Slots may be specialized by <a name="IX-644">declaring the type of the slot</a> when
+	a class is created. Specializing a slot has the following effects on the getter and setter
+	methods of the slot:</p>
+      <ul>
+	<li>The automatically defined <a name="IX-645">slot getter method</a> has its single
+	  parameter specialized on the class that specified the slot and has
+	  a <a name="IX-646">return value declaration</a> that indicates that it returns a single
+	  value of the type specified for the slot.</li>
+	<li>The automatically defined <a name="IX-647">slot setter method</a> has its instance
+	  argument specialized on the class that specified the slot, has its new-value argument
+	  specialized on the type specified for the slot, and has a <a name="IX-648">return value
+	  declaration</a> that indicates that it returns a single value of the type specified for
+	  the slot.</li>
+      </ul>
+      <p>The following example demonstrates how an explicitly defined setter method can be used to
+	coerce a slot value of the wrong type (<code>&lt;sequence&gt;</code>) to the right type
+	(<code>&lt;simple-object-vector&gt;</code>).</p>
+      <pre class="code">
+   define class &lt;person&gt; (&lt;object&gt;)
+     slot friends :: &lt;simple-object-vector&gt;, init-value: #[];
+   end class;
+
+   define method friends-setter (f :: &lt;sequence&gt;, p :: &lt;person&gt;)
+     p.friends := as(&lt;simple-object-vector&gt;, f);
+     f;             // return new-value argument
+   end method
+
+   tom.friends := list(dick, harry);
+</pre>
+      <p>The assignment expression invokes the method with the new-value parameter specialized
+	on <code>&lt;sequence&gt;</code>, which reinvokes the function with a new-value argument
+	that is a <code>&lt;simple-object-vector&gt;</code>, which invokes the slot setter
+	method.<a name="IX-649"></a></p>
+      <a name="HEADING-42-61"></a>
+      <h3 class="sub-subsection-title"><a name="IX-650">Overriding Slots in Subclasses</a></h3>
+      <p>Some slot options related to instance initialization can be overridden in subclasses. The
+	mechanisms for doing this are described
+	in <a href="Instance_Creation_and_Initialization#XREF-677"><q>Inherited Slot
+	Specifications</q> on page 67</a> and
+	in <a href="Instance_Creation_and_Initialization#XREF-680"><q>Initialization Argument
+	Specifications</q> on page 68</a>.</p>
+      <a name="HEADING-42-63"></a>
+      <h3 class="sub-subsection-title"><a name="IX-651">Using Slots</a></h3>
+      <p>Because slots are <a name="IX-652">accessed through methods in generic functions</a>, they
+	appear to clients just like any other methods in generic functions. It is possible for a
+	value to be stored in a slot in instances of one class, but computed from auxiliary values
+	by instances of another class. It is possible to <a name="IX-653">filter the value of a
+	slot</a> when it is retrieved or stored. In all of these cases, the interface to the value
+	is a function call, thus hiding the implementation details from clients.</p>
+      <p>In the following example, the class <code>&lt;view&gt;</code> stores <code>position</code>
+	directly, while <code>&lt;displaced-view&gt;</code> performs a transformation on the value
+	of the slot when storing or retrieving it.</p>
+      <pre class="code">
+define class &lt;view&gt; (&lt;object&gt;)
+  instance slot position;
+end class;
+
+define class &lt;displaced-view&gt; (&lt;view&gt;)
+end class;
+
+define method position (v :: &lt;displaced-view&gt;)
+  // call the  inherited method (the raw slot getter)
+  // and transform the result
+  displace-transform (next-method (v));
+end method;
+
+define method position-setter (new-position,
+                               v :: &lt;displaced-view&gt;)
+  // call the inherited method (the raw slot setter)
+  // on the result of untransforming the position
+  next-method (displace-untransform (new-position),
+               v);
+  new-position;  // return the new position
+end method;
+</pre>
+      <p>In other situations, a programmer will want storage in an instance for a slot value, but
+	will want to perform some auxiliary action whenever the slot is accessed. In this case, the
+	programmer should define two slots: an instance slot to provide the storage and a virtual
+	slot to provide the interface. In general, only the virtual slot will be documented. The
+	instance slot will be an internal implementation used by the virtual slot for storage. An
+	example of such use would be a slot that caches a value.</p>
+      <pre class="code">
+define class &lt;shape&gt; (&lt;view&gt;)
+  virtual slot image;
+  instance slot cached-image, init-value: #f;
+  ...
+end class;
+
+define method image (shape :: &lt;shape&gt;)
+  cached-image (shape)
+    | (cached-image (shape) := compute-image (shape));
+end method;
+
+define method image-setter (new-image, shape :: &lt;shape&gt;)
+  cached-image (shape) := new-image;
+end method;<a name="IX-654"></a><a name="IX-655"></a>
+</pre>
+      
+      <div id="footnotes">
+	<hr />
+	
+	<p id="FOOTNOTE-2"><a href="#FOOTNOTE-ANCHOR-2"><sup>*</sup></a> This is in contrast to some
+	  other languages where slots are accessed through named value references.</p>
+	
+      </div>
+      
+    </div>
+    
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Classes"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Instance_Creation_and_Initialization"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Types_and_Classes"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

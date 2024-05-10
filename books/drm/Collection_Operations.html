@@ -1,0 +1,3909 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Built-In_Functions" />
+    <link rel="prev" href="Coercing_and_Copying_Objects" />
+    <link rel="next" href="Reflective_Operations_on_Types" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Collection Operations &mdash; 12. The Built-in Functions &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Coercing_and_Copying_Objects"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Reflective_Operations_on_Types"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Built-In_Functions"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li class="current parent"><a href="Built-In_Functions">The Built-In Functions</a>
+	      <ul class="sections">
+		<li><a href="Built-In_Functions_Overview">Overview</a></li>
+		<li><a href="Constructing_and_Initializing_Instances">Constructing and Initializing Instances</a></li>
+		<li><a href="Equality_and_Comparison">Equality and Comparison</a></li>
+		<li><a href="Arithmetic_Operations">Arithmetic Operations</a></li>
+		<li><a href="Coercing_and_Copying_Objects">Coercing and Copying Objects</a></li>
+		<li id="current" class="subsections"><a href="Collection_Operations">Collection Operations</a>
+		  <ul class="page-TOC">
+		    <li class="subsections"><a href="#HEADING-102-3">Collection Properties</a>
+		      <ul>
+			<li><a href="#HEADING-102-4"><code>empty?</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-10"><code>empty?</code> <var>collection</var> &rArr; <var>boolean</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-12"><code>size</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-18"><code>size</code> <var>collection</var> &rArr; <var>integer-or-false</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-102-20"><code>size</code> <var>array</var> &rArr; <var>size</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-102-23"><code>size</code> <var>list</var> &rArr; <var>integer-or-false</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-102-25"><code>size</code> <var>range</var> &rArr; <var>size</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-102-27"><code>size</code> <var>table</var> &rArr; <var>size</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-29"><code>size-setter</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			<li><a href="#HEADING-102-40"><code>rank</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-46"><code>rank</code> <var>array</var> &rArr; <var>rank</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-48"><code>row-major-index</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-56"><code>row-major-index</code> <var>array</var> #rest <var>subscripts</var> &rArr; <var>index</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-58"><code>dimensions</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-64"><code>dimensions</code> <var>vector</var> &rArr; <var>sequence</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-66"><code>dimension</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-74"><code>dimension</code> <var>array axis</var> &rArr; <var>dimension</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-76"><code>key-test</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-83"><code>key-test</code> <var>sequence</var> &rArr; <var>test-function</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-102-85"><code>key-test</code> <var>table</var> &rArr; <var>test-function</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-87"><code>key-sequence</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-102-95">Selecting Elements</a>
+		      <ul>
+			<li><a href="#HEADING-102-96"><code>element</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-105"><code>element</code> <var>simple-vector index</var> #key <var>default</var> &rArr; <var>element</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-102-107"><code>element</code> <var>unicode-string index</var> #key <var>default</var> &rArr; <var>character</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-102-109"><code>element</code> <var>byte-string index</var> #key <var>default</var> &rArr; <var>character</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-102-111"><code>element</code> <var>table key</var> #key <var>default</var> &rArr; <var>element</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-113"><code>element-setter</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-125"><code>element-setter</code> new-element simple-vector index <span class="attributes-summary">[Sealed G.F. Method]</span> &rArr; new-element </a></li>
+			    <li><a href="#HEADING-102-127"><code>element-setter</code> new-value table key <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-102-129"><code>element-setter</code> character unicode-string index <span class="attributes-summary">[Sealed G.F. Method]</span> &rArr; character</a></li>
+			    <li><a href="#HEADING-102-131"><code>element-setter</code> <var>character byte-string index</var> &rArr; <var>character</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-133"><code>aref</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-141"><code>aref</code> <var>array</var> #rest <var>indices</var> &rArr; <var>element</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-143"><code>aref-setter</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-153"><code>aref-setter</code> <var>new-value array</var> #rest <var>indices</var> &rArr; <var>new-value</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-155"><code>first</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-102-163"><code>second</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-102-170"><code>third</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-102-177"><code>first-setter</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-102-185"><code>second-setter</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-102-192"><code>third-setter</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-102-199"><code>last</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			<li><a href="#HEADING-102-208"><code>last-setter</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			<li><a href="#HEADING-102-219"><code>head</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-102-227"><code>tail</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-102-235"><code>head-setter</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-102-244"><code>tail-setter</code><span class="attributes-summary"> [Function]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-102-253">Adding and Removing Elements</a>
+		      <ul>
+			<li><a href="#HEADING-102-254"><code>add</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			<li><a href="#HEADING-102-264"><code>add!</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-274"><code>add!</code> <var>deque new-value</var> &rArr; <var>deque</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-102-276"><code>add!</code> <var>stretchy-vector new-element</var> &rArr; <var>stretchy-vector</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-102-278"><code>add!</code> <var>list element</var> &rArr; <var>pair</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-280"><code>add-new</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			<li><a href="#HEADING-102-291"><code>add-new!</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			<li><a href="#HEADING-102-302"><code>remove</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			<li><a href="#HEADING-102-314"><code>remove!</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-325"><code>remove!</code> <var>deque value</var> #key <var>test count</var> &rArr; <var>deque</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-102-327"><code>remove!</code> stretchy-vector element #key test count <span class="attributes-summary">[Sealed G.F. Method]</span> &rArr; stretchy-vector</a></li>
+			    <li><a href="#HEADING-102-329"><code>remove!</code> <var>list element</var> #key <var>test count</var> &rArr; <var>list</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-331"><code>push</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			<li><a href="#HEADING-102-339"><code>pop</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			<li><a href="#HEADING-102-346"><code>push-last</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			<li><a href="#HEADING-102-354"><code>pop-last</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-102-361">Reordering Elements</a>
+		      <ul>
+			<li><a href="#HEADING-102-362"><code>reverse</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-371"><code>reverse</code> <var>range</var> &rArr; <var>new-range</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-373"><code>reverse!</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-382"><code>reverse!</code> <var>range</var> &rArr; <var>range</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-384"><code>sort</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			<li><a href="#HEADING-102-395"><code>sort!</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-102-407">Set Operations</a>
+		      <ul>
+			<li><a href="#HEADING-102-408"><code>intersection</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-419"><code>intersection</code> <var>range1 range2</var> #key <var>test</var> &rArr; <var>range</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-421"><code>union</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			<li><a href="#HEADING-102-433"><code>remove-duplicates</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			<li><a href="#HEADING-102-443"><code>remove-duplicates!</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-102-453">Subsequence Operations</a>
+		      <ul>
+			<li><a href="#HEADING-102-454"><code>copy-sequence</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-463"><code>copy-sequence</code> <var>range</var> #key <var>start end</var> &rArr; <var>new-range</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-465"><code>concatenate</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-102-475"><code>concatenate-as</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-102-486"><code>replace-subsequence!</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			<li><a href="#HEADING-102-500"><code>subsequence-position</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-102-511">Mapping and Reducing</a>
+		      <ul>
+			<li class="subsections"><a href="#HEADING-102-512">Simple Mapping</a>
+			  <ul>
+			    <li><a href="#HEADING-102-515"><code>do</code><span class="attributes-summary"> [Function]</span></a></li>
+			    <li><a href="#HEADING-102-524"><code>map</code><span class="attributes-summary"> [Function]</span></a></li>
+			    <li><a href="#HEADING-102-534"><code>map-as</code><span class="attributes-summary"> [Function]</span> </a></li>
+			    <li><a href="#HEADING-102-544"><code>map-into</code><span class="attributes-summary"> [Function]</span></a></li>
+			    <li><a href="#HEADING-102-558"><code>any?</code><span class="attributes-summary"> [Function]</span></a></li>
+			    <li><a href="#HEADING-102-568"><code>every?</code><span class="attributes-summary"> [Function]</span></a></li>
+			  </ul>
+			</li>
+			<li class="subsections"><a href="#HEADING-102-578">Extensible Mapping Functions</a>
+			  <ul>
+			    <li><a href="#HEADING-102-579"><code>reduce</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			    <li><a href="#HEADING-102-590"><code>reduce1</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			    <li><a href="#HEADING-102-601"><code>choose</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			    <li><a href="#HEADING-102-609"><code>choose-by</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			  </ul>
+			</li>
+			<li class="subsections"><a href="#HEADING-102-618">Other Mapping Functions</a>
+			  <ul>
+			    <li><a href="#HEADING-102-619"><code>member?</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			      <ul class="gf-methods">
+				<li><a href="#HEADING-102-629"><code>member?</code> <var>val range</var> #key <var>test</var> &rArr; <var>boolean</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			      </ul>
+			    </li>
+			    <li><a href="#HEADING-102-631"><code>find-key</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			    <li><a href="#HEADING-102-642"><code>remove-key!</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			      <ul class="gf-methods">
+				<li><a href="#HEADING-102-650"><code>remove-key!</code> <var>table key</var> &rArr; <var>table</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			      </ul>
+			    </li>
+			    <li><a href="#HEADING-102-652"><code>replace-elements!</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			    <li><a href="#HEADING-102-663"><code>fill!</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			  </ul>
+			</li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-102-674">The Iteration Protocol</a>
+		      <ul>
+			<li><a href="#HEADING-102-675"><code>forward-iteration-protocol</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-102-703"><code>forward-iteration-protocol</code> <var>table</var> &rArr; <var>initial-state limit next-state finished-state? current-key current-element current-element-setter copy-state</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-102-705"><code>backward-iteration-protocol</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+			<li class="subsections"><a href="#HEADING-102-719">The Table Protocol</a>
+			  <ul>
+			    <li><a href="#HEADING-102-721"><code>table-protocol</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			      <ul class="gf-methods">
+				<li><a href="#HEADING-102-732"><code>table-protocol</code> <var>object-table</var> &rArr; <var>test-function hash-function</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			      </ul>
+			    </li>
+			    <li><a href="#HEADING-102-736"><code>merge-hash-codes</code><span class="attributes-summary"> [Function]</span></a></li>
+			    <li><a href="#HEADING-102-749"><code>object-hash</code><span class="attributes-summary"> [Function]</span></a></li>
+			  </ul>
+			</li>
+		      </ul>
+		    </li>
+		  </ul>
+		</li>
+		<li><a href="Reflective_Operations_on_Types">Reflective Operations on Types</a></li>
+		<li><a href="Functional_Operations">Functional Operations</a></li>
+		<li><a href="Function_Application">Function Application</a></li>
+		<li><a href="Reflective_Operations_on_Functions">Reflective Operations on Functions</a></li>
+		<li><a href="Operations_on_Conditions">Operations on Conditions</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 12</p>
+	<p id="section-name">The Built-In Functions</p>
+      </div>
+
+      <a name="HEADING-102-0"></a>
+      <a name="UID-Built-In_Functions-3130"></a>
+      <h1 class="section-title"><a name="XREF-1696"></a><a name="IX-1697">Collection Operations</a></h1>
+      <p>The generic functions described in this section have predefined methods for the built-in
+	collection classes (and sequence classes, where appropriate). The details of these
+	predefined methods have not yet been specified.</p>
+      <p>Note to implementors: Functions such as <code>map</code>, <code>map-as</code> that return a
+	new collection cannot rely on the type they instantiate having a valid default
+	for <code>fill:</code>. Therefore, when the size of the result is nonzero, these functions
+	should compute the first element of the result before making the collection and specify that
+	element as the <code>fill:</code> value. Otherwise a spurious type error could occur when
+	making the collection.</p>
+      <a name="HEADING-102-3"></a>
+      <a name="UID-Built-In_Functions-21096"></a>
+      <h2 class="subsection-title"><a name="IX-1698">Collection Properties</a></h2>
+      <a name="HEADING-102-4"></a>
+      <h4 class="item-title" id="empty_"><a class="here" title="Link to here" href="#empty_"></a> <span class="signature"><code id="IX-1699">empty?</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1700">Returns true if its argument is empty.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>empty? <var>object</var> </code>
+	    &rArr;<code> <var>boolean</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>boolean</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;boolean&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns true if <var>object</var> is empty. Otherwise returns <code>#f</code>.</p>
+	  <a name="HEADING-102-10"></a>
+	  <h5 class="method-signature"><span class="signature"><code>empty?</code> <var>collection</var> &rArr; <var>boolean</var> </span><span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>A set of methods defined for the class <code>&lt;collection&gt;</code> returns true if
+	    the collection has zero elements.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-12"></a>
+      <h4 class="item-title" id="size"><a class="here" title="Link to here" href="#size"></a> <span class="signature"><code id="IX-1701">size</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><code><a name="XREF-1702"></a></code>Returns the size of its argument.</p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>size <var>object</var> </code>
+	    &rArr;<code> #rest <var>objects</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>objects</var></dt>
+	    <dd>
+              <p>Instances of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the size of <var>object</var>.</p>
+	  <a name="HEADING-102-18"></a>
+	  <h5 class="method-signature"><span class="signature"><code>size</code> <var>collection</var> &rArr; <var>integer-or-false</var> </span><span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>When called on a collection, <code>size</code> returns the numbers of keys in the
+	    collection. This default method simply counts while iterating through the
+	    collection. <code>size</code> may return <code>#f</code> for collections of unbounded
+	    size.</p>
+	  <a name="HEADING-102-20"></a>
+	  <h5 class="method-signature"><span class="signature"><code>size</code> <var>array</var> &rArr; <var>size</var> </span><span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>The method for <code>&lt;array&gt;</code> is equivalent to</p>
+	  <pre class="code">
+reduce(\*, 1, dimensions (array))</pre>
+	  <a name="HEADING-102-23"></a>
+	  <h5 class="method-signature"><span class="signature"><code>size</code> <var>list</var> &rArr; <var>integer-or-false</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>For circular lists, <code>size</code> is guaranteed to terminate and
+	    return <code>#f</code>. For noncircular lists, <code>size</code> returns an integer size
+	    value.</p>
+	  <a name="HEADING-102-25"></a>
+	  <h5 class="method-signature"><span class="signature"><code>size</code> <var>range</var> &rArr; <var>size</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>For unbounded ranges, <code>size</code> always terminates and
+	    returns <code>#f</code>. For finite ranges, <code>size</code> returns an integer.</p>
+	  <a name="HEADING-102-27"></a>
+	  <h5 class="method-signature"><span class="signature"><code>size</code> <var>table</var> &rArr; <var>size</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The class <code>&lt;table&gt;</code> provides an implementation of <code>size</code>
+	    for use by its subclasses. The method returns an instance
+	    of <code>&lt;integer&gt;</code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-29"></a>
+      <h4 class="item-title" id="size-setter"><a class="here" title="Link to here" href="#size-setter"></a> <span class="signature"><code id="IX-1703">size-setter</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1704">Sets the size of an object.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>size-setter <var>new-size object</var> </code>
+	    &rArr;<code> <var>new-size</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-size</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>object</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-size</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Sets the size of <var>object</var> to <var>new-size</var>.</p>
+	  <p><var>object </var>is modified by this operation.</p>
+	  <p>Methods are provided for stretchy sequences; that is, for collections that are
+	    instances both of <code>&lt;stretchy-collection&gt;</code> and
+	    of <code>&lt;sequence&gt;</code>.</p>
+	  <p><code>size-setter</code> sets the size of a stretchy sequence to
+	    be <var>new-size</var>. The stretchy sequence is modified by this
+	    operation. If <var>new-size </var>is less than or equal to the original size of the
+	    stretchy sequence, then the first <var>new-size</var> elements of the stretchy sequence
+	    are retained at the same positions. If <var>new-size</var> is greater than the original
+	    size of the stretchy sequence, then the previous elements of the stretchy sequence are
+	    retained at the same positions, and enough new elements are added to reach the new
+	    size. The value of each new element is the same as would have been used if the stretchy
+	    sequence had been created with <code>make</code>,
+	    specifying <code>size: <var>new-size</var></code> but not <code>fill:</code>.</p>
+	  <p>It is not specified how <code>size-setter</code> adds new elements to the stretchy
+	    sequence. In particular, it is not required to call <code>add!</code> or any other
+	    predefined function.</p></dd>
+      </dl>
+      <a name="HEADING-102-40"></a>
+      <h4 class="item-title" id="rank"><a class="here" title="Link to here" href="#rank"></a> <span class="signature"><code id="IX-1705">rank</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1706">Returns the number of dimensions of an array.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>rank <var>array</var> </code>
+	    &rArr;<code> <var>rank</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>array</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;array&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>rank</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the number of dimensions (the rank) of <var>array</var>.</p>
+	  <a name="HEADING-102-46"></a>
+	  <h5 class="method-signature"><span class="signature"><code>rank</code> <var>array</var> &rArr; <var>rank</var> </span><span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>The method for <code>&lt;array&gt;</code> computes <code>rank</code> by
+	    calling <code>size</code> on the <code>dimensions</code> of <code>array</code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-48"></a>
+      <h4 class="item-title" id="row-major-index"><a class="here" title="Link to here" href="#row-major-index"></a> <span class="signature"><code id="IX-1707">row-major-index</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1708">Returns the row-major-index position of an array element.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>row-major-index <var>array</var> #rest <var>subscripts</var> </code>
+	    &rArr;<code> <var>index</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>array</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;array&gt;</code>.</p>
+	    </dd>
+	    <dt><var>subscripts</var></dt>
+	    <dd><p>Instances of <code>&lt;integer&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>index</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Computes the position according to the row-major ordering of <code>array</code> for the
+	    element that is specified by <code>subscripts</code>, and returns the position of that
+	    element.</p>
+	  <p>An error is signaled if the number of subscripts is not equal to the rank of the
+	    array. An error is signaled if any of the subscripts are out of bounds for array.</p>
+	  <a name="HEADING-102-56"></a>
+	  <h5 class="method-signature"><span class="signature"><code>row-major-index</code> <var>array</var> <code>#rest</code> <var>subscripts</var> &rArr; <var>index</var> </span><span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>The method for <code>&lt;array&gt;</code> computes the <var>index</var> using
+	    the <var>subscripts</var> and the result of calling <code>dimensions</code> on
+	    the <var>array</var>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-58"></a>
+      <h4 class="item-title" id="dimensions"><a class="here" title="Link to here" href="#dimensions"></a> <span class="signature"><code id="IX-1709">dimensions</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1710">Returns the dimensions of an array.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>dimensions <var>array</var> </code>
+	    &rArr;<code> <var>sequence</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>array</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;array&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>. The elements of this sequences will
+		be instances of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the dimensions of <var>array</var>, as a sequence of integers. The consequences
+	    are undefined if the resulting sequence is modified. This function forms the basis for
+	    all the other array operations. Each concrete subclass of <code>&lt;array&gt;</code>
+	    must either provide or inherit an implementation of this function.</p>
+	  <a name="HEADING-102-64"></a>
+	  <h5 class="method-signature"><span class="signature"><code>dimensions</code> <var>vector</var> &rArr; <var>sequence</var> </span><span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>Returns a sequence whose single element is the size of the vector.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-66"></a>
+      <h4 class="item-title" id="dimension"><a class="here" title="Link to here" href="#dimension"></a> <span class="signature"><code id="IX-1711">dimension</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1712">Returns the size of a specified dimension of an array.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>dimension <var>array axis</var> </code>
+	    &rArr;<code> <var>dimension</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>array </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;array&gt;</code>.</p>
+	    </dd>
+	    <dt><var>axis</var></dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>dimension</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the <var>axis</var> dimension of <code>array</code>.</p>
+	  <p><var>axis</var> must be a non-negative integer less than the rank
+	    of <code>array</code>. An error is signaled if <var>axis</var> is out of bounds
+	    for <code>array</code>.</p>
+	  <a name="HEADING-102-74"></a>
+	  <h5 class="method-signature"><span class="signature"><code>dimension</code> <var>array axis</var> &rArr; <var>dimension</var> </span><span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>The method for <code>&lt;array&gt;</code> calls <code>element</code> on the result of
+	    calling <code>dimensions</code> on the <code>array</code>, using the <code>axis</code>
+	    number as the key.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-76"></a>
+      <h4 class="item-title" id="key-test"><a class="here" title="Link to here" href="#key-test"></a> <span class="signature"><code id="IX-1713">key-test</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1714">Returns the function used by its collection argument to compare keys.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>key-test <var>collection</var> </code>
+	    &rArr;<code> <var>test-function</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>collection</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;collection&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>test-function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>. The function used by the collection
+		to compare keys.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the function used by <var>collection</var> to compare keys.</p>
+	  <p>All collection classes must provide or inherit a method that returns a result
+	    consistent with their iteration protocol and <code>element</code> methods. A given
+	    method for <code>key-test</code> must return the same value (compared
+	    with <code>==</code>) each time it is called.</p>
+	  <a name="HEADING-102-83"></a>
+	  <h5 class="method-signature"><span class="signature"><code>key-test</code> <var>sequence</var> &rArr; <var>test-function</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The method of <code>key-test</code> for sequences returns the
+	    function <code>==</code>.</p>
+	  <a name="HEADING-102-85"></a>
+	  <h5 class="method-signature"><span class="signature"><code>key-test</code> <var>table</var> &rArr; <var>test-function</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The method of <code>key-test</code> for instances of <code>&lt;table&gt;</code> returns
+	    the first value of <code>table-protocol(<var>table)</var></code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-87"></a>
+      <h4 class="item-title" id="key-sequence"><a class="here" title="Link to here" href="#key-sequence"></a> <span class="signature"><code id="IX-1715">key-sequence</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><code><a name="XREF-1716"></a></code>Returns a sequence containing the keys of its collection argument.</p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>key-sequence <var>collection</var> </code>
+	    &rArr;<code> <var>keys</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>collection</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;collection&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>keys</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code> containing the keys
+		of <var>collection</var>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence containing the keys of <var>collection</var>.</p>
+	  <p>Although elements may be duplicated in a collection, keys, by their nature, must be
+	    unique; two different elements in a collection may not share a common key, even though
+	    distinct keys may yield identical elements.</p>
+	  <p>The order in which the keys from <var>collection</var> appear in the key sequence is
+	    unspecified if <var>collection</var> is unstable under iteration. In particular,
+	    different calls to <code>key-sequence</code> with the same argument may yield
+	    differently ordered key sequences. If <var>collection</var> is stable under iteration,
+	    however, the resulting sequence of keys will be in the natural order
+	    for <var>collection</var>.<a name="IX-1717"></a></p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-95"></a>
+      <a name="UID-Built-In_Functions-415"></a>
+      <h2 class="subsection-title"><a name="IX-1719">Selecting Elements</a></h2>
+      <a name="HEADING-102-96"></a>
+      <h4 class="item-title" id="element"><a class="here" title="Link to here" href="#element"></a> <span class="signature"><code id="IX-1718">element</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1720">Returns the collection element associated with a particular key.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>element <var>collection key</var> #key <var>default</var> </code>
+	    &rArr;<code> <var>element</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>collection</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;collection&gt;</code>.</p>
+	    </dd>
+	    <dt><var>key</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	    <dt><var>default</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>element</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the element associated with <var>key</var> in <var>collection</var>. If no
+	    element is associated with <var>key</var>, then the behavior of <code>element</code>
+	    depends on whether it was called with a <var>default</var> argument: if
+	    a <var>default</var> argument was passed, its value is returned; otherwise, an error is
+	    signaled.</p>
+	  <p>All collections are required to implement <code>element</code>.</p>
+	  <a name="HEADING-102-105"></a>
+	  <h5 class="method-signature"><span class="signature"><code>element</code> <var>simple-vector index</var> #key <var>default</var> &rArr; <var>element</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>There is a constant time implementation of <code>element</code> for all general
+	    instances of <code>&lt;simple-vector&gt;</code>.</p>
+	  <a name="HEADING-102-107"></a>
+	  <h5 class="method-signature"><span class="signature"><code>element</code> <var>unicode-string index</var> #key <var>default</var> &rArr; <var>character</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The class <code>&lt;unicode-string&gt;</code> provides a constant time implementation
+	    for the <code>element</code> function.</p>
+	  <a name="HEADING-102-109"></a>
+	  <h5 class="method-signature"><span class="signature"><code>element</code> <var>byte-string index</var> #key <var>default</var> &rArr; <var>character</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The class <code>&lt;byte-string&gt;</code> provides a constant time implementation for
+	    the <code>element</code> function.</p>
+	  <a name="HEADING-102-111"></a>
+	  <h5 class="method-signature"><span class="signature"><code>element</code> <var>table key</var> #key <var>default</var> &rArr; <var>element</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The class <code>&lt;table&gt;</code> provides a default implementation for
+	    the <code>element</code> function.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-113"></a>
+      <h4 class="item-title" id="element-setter"><a class="here" title="Link to here" href="#element-setter"></a> <span class="signature"><code id="IX-1721">element-setter</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1722">Sets the collection element associated with a particular key.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>element-setter <var>new-value mutable-collection key</var> </code>
+	    &rArr;<code> <var>new-value</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>mutable-collection</var></dt>
+	    <dd><p>An instance of <code>&lt;mutable-collection&gt;</code>.</p></dd>
+	    <dt><var>key</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-value</var></dt>
+	    <dd>
+              <p>Zero or more instances of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Alters <var>mutable-collection </var> so that the value associated with <var>key</var>
+	    will subsequently be <var>new-value</var>. If <var>mutable-collection</var> is
+	    stretchy, <code>element-setter</code> may also change its size (for example, by adding
+	    new keys with values).</p>
+	  <p>An error is signaled if a program calls <code>element-setter</code> with a key that is
+	    not already a key to <var>collection</var>, unless the collection is stretchy.</p>
+	  <p>Stretchy collections allow <code>element-setter</code> to be called with a key that is
+	    not present in the collection, expanding the collection as necessary to add a new
+	    element in that case. Each concrete subclass of <code>&lt;stretchy-collection&gt;</code>
+	    must provide or inherit a method for <code>element-setter</code> that behaves as follows
+	    when there is not already an element present for the indicated key:</p>
+	  <ul>
+	    <li>If the class is a subclass of <code>&lt;explicit-key-collection&gt;</code>, adds a
+	      new element to the collection with the indicated key.</li>
+	    <li>If the class is a subclass of <code>&lt;sequence&gt;</code>, first
+	      calls <code>size-setter</code> on the key + 1 and the collection to expand the
+	      sequence. The key must be a non-negative integer.</li>
+	  </ul>
+	  <a name="HEADING-102-125"></a>
+	  <h5 class="method-signature"><span class="signature"><code>element-setter</code> <var>new-element simple-vector index</var><br />
+	      &rArr; <var>new-element</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>There is a constant time implementation of <code>element-setter</code> for all general
+	    instances of <code>&lt;simple-vector&gt;</code>.</p>
+	  <a name="HEADING-102-127"></a>
+	  <h5 class="method-signature"><span class="signature"><code>element-setter</code> <var>new-value table key</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The class <code>&lt;table&gt;</code> provides an implementation
+	    of <code>element-setter</code> for use by its subclasses. If no element with the
+	    given <var>key</var> exists, <code>element-setter</code> will add the <var>key</var>
+	    and <var>new-value</var> to the table.</p>
+	  <a name="HEADING-102-129"></a>
+	  <h5 class="method-signature"><span class="signature"><code>element-setter</code> <var>character unicode-string index</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span><br />&rArr; <var>character</var></h5>
+	  <p>The class <code>&lt;unicode-string&gt;</code> provides a constant time implementation
+	    for the <code>element-setter</code> function.</p>
+	  <a name="HEADING-102-131"></a>
+	  <h5 class="method-signature"><span class="signature"><code>element-setter</code> <var>character byte-string index</var> &rArr; <var>character</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The class <code>&lt;byte-string&gt;</code> provides a constant time implementation for
+	    the <code>element-setter</code> function.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-133"></a>
+      <h4 class="item-title" id="aref"><a class="here" title="Link to here" href="#aref"></a> <span class="signature"><code id="IX-1723">aref</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1724">Returns the array element indicated by a set of indices.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>aref <var>array</var> #rest <var>indices</var> </code>
+	    &rArr;<code> <var>element</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>array</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;array&gt;</code>.</p>
+	    </dd>
+	    <dt><var>indices</var></dt>
+	    <dd><p>Instances of <code>&lt;integer&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>element</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the element of <var>array</var> indicated by <var>indices</var>.</p>
+	  <p>An error is signaled if the number of <var>indices</var> is not equal to the rank of
+	    the <var>array</var>. An error is signaled if any of the <var>indices</var> are out of
+	    bounds for the <var>array</var>.</p>
+	  <a name="HEADING-102-141"></a>
+	  <h5 class="method-signature"><span class="signature"><code>aref</code> <var>array</var> <code>#rest</code> <var>indices</var> &rArr; <var>element</var> </span><span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>The method for <code>&lt;array&gt;</code> calls <code>element</code> on
+	    the <var>array</var>, using as the key the result of
+	    applying <code>row-major-index</code> to
+	    the <var>array </var>and <var>indices</var>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-143"></a>
+      <h4 class="item-title" id="aref-setter"><a class="here" title="Link to here" href="#aref-setter"></a> <span class="signature"><code id="IX-1725">aref-setter</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1726">Sets the array element indicated by a set of indices.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>aref-setter <var>new-value array</var> #rest <var>indices</var> </code>
+	    &rArr;<code> <var>new-value</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>array</var></dt>
+	    <dd><p>An instance of <code>&lt;array&gt;</code>.</p></dd>
+	    <dt><var>indices</var></dt>
+	    <dd><p>Instances of <code>&lt;integer&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Sets the element of <var>array</var> indicated by <var>indices</var> to
+	    the <var>new-value</var> and returns the <var>new-value</var>.</p>
+	  <p><var>array</var> is modified by this operation.</p>
+	  <p>An error is signaled if the number of <var>indices</var> is not equal to the rank of
+	    the <var>array</var>. An error is signaled if any of the <var>indices</var> are out of
+	    bounds for <var>array</var>. An error is signaled if the <var>array </var>is limited to
+	    hold objects of a particular type and the new value is not an instance of that type.</p>
+	  <a name="HEADING-102-153"></a>
+	  <h5 class="method-signature"><span class="signature"><code>aref-setter</code> <var>new-value array</var> <code> #rest</code> <var>indices</var> &rArr; <var>new-value</var> </span><span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>The method for <code>&lt;array&gt;</code> calls <code>element-setter</code> on the
+	    array and new value, using as the key the result of
+	    applying <code>row-major-index</code> to the <code>array</code>
+	    and <var>indices</var>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-155"></a>
+      <h4 class="item-title" id="first"><a class="here" title="Link to here" href="#first"></a> <span class="signature"><code id="IX-1727">first</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1728">Returns the first element of a sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>first <var>sequence</var> #key <var>default</var> </code>
+	    &rArr;<code> <var>value</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>default</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code> .</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the first element of the <var>sequence</var> by calling <code>element</code>
+	    with the supplied arguments and the corresponding index.</p>
+	  <p>Note that because <code>element</code> is zero-based, <code>first(seq)</code> is
+	    equivalent to <code>element(seq, 0)</code> and <code>seq[0]</code>.</p></dd>
+      </dl>
+      <a name="HEADING-102-163"></a>
+      <h4 class="item-title" id="second"><a class="here" title="Link to here" href="#second"></a> <span class="signature"><code id="IX-1729">second</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1730">Returns the second element of a sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>second <var>sequence</var> #key <var>default</var> </code>
+	    &rArr;<code> <var>value</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>default</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Returns the second element of the <var>sequence</var> by calling <code>element</code>
+	    with the supplied arguments and the corresponding index.</p></dd>
+      </dl>
+      <a name="HEADING-102-170"></a>
+      <h4 class="item-title" id="third"><a class="here" title="Link to here" href="#third"></a> <span class="signature"><code id="IX-1731">third</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1732">Returns the third element of a sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>third <var>sequence</var> #key <var>default</var> </code>
+	    &rArr;<code> <var>value</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>default</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Returns the third element of the <var>sequence</var> by calling <code>element</code>
+	    with the supplied arguments and the corresponding index.</p></dd>
+      </dl>
+      <a name="HEADING-102-177"></a>
+      <h4 class="item-title" id="first-setter"><a class="here" title="Link to here" href="#first-setter"></a> <span class="signature"><code id="XREF-1637">first-setter</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1734">Sets the first element of a mutable sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>first-setter <var>new-value mutable-sequence</var> </code>
+	    &rArr;<code> <var>new-value</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>mutable-sequence</var></dt>
+	    <dd><p>An instance of <code>&lt;mutable-sequence&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Sets the first element of the <var>mutable-sequence</var> and returns
+	    the <var>new-value</var>, by calling <code>element-setter </code>with the supplied
+	    arguments and the corresponding index.</p>
+	  <p>Note that because <code>element-setter</code> is zero-based, <code>first-setter(val,
+	      seq)</code> is equivalent to <code>element-setter(val, seq, 0)</code> and <code>seq[0]
+	      := val</code>.</p></dd>
+      </dl>
+      <a name="HEADING-102-185"></a>
+      <h4 class="item-title" id="second-setter"><a class="here" title="Link to here" href="#second-setter"></a> <span class="signature"><code id="IX-1735">second-setter</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1736">Sets the second element of a mutable sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>second-setter <var>new-value mutable-sequence</var> </code>
+	    &rArr;<code> <var>new-value</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>mutable-sequence</var></dt>
+	    <dd><p>An instance of <code>&lt;mutable-sequence&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Sets the second element of the <var>mutable-sequence</var> and returns
+	    the <var>new-value</var>, by calling <code>element-setter </code>with the supplied
+	    arguments and the corresponding index.</p></dd>
+      </dl>
+      <a name="HEADING-102-192"></a>
+      <h4 class="item-title" id="third-setter"><a class="here" title="Link to here" href="#third-setter"></a> <span class="signature"><code id="IX-1737">third-setter</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1738">Sets the third element of a mutable sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>third-setter <var>new-value mutable-sequence</var> </code>
+	    &rArr;<code> <var>new-value</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>mutable-sequence</var></dt>
+	    <dd><p>An instance of <code>&lt;mutable-sequence&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Sets the third element of the <var>mutable-sequence</var> and returns
+	    the <var>new-value</var>, by calling <code>element-setter </code>with the supplied
+	    arguments and the corresponding index.</p></dd>
+      </dl>
+      <a name="HEADING-102-199"></a>
+      <h4 class="item-title" id="last"><a class="here" title="Link to here" href="#last"></a> <span class="signature"><code id="IX-1739">last</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><code><a name="XREF-1740"></a></code>Returns the last element of a sequence.</p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>last <var>sequence</var> #key <var>default</var> </code>
+	    &rArr;<code> <var>value</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>default</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>value</var></dt>
+	    <dd>
+              <p>Zero or more instances of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the last element of <var>sequence</var>.</p>
+	  <p>If the sequence is empty, then the behavior of <code>last</code> depends on whether it
+	    was called with a <var>default</var> argument. If the <var>default</var> argument was
+	    supplied, its value is returned; otherwise, an error is signaled.</p>
+	  <pre class="code">
+last (#("emperor", "of", "china"))
+<code> &rArr;</code>  "china"</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-208"></a>
+      <h4 class="item-title" id="last-setter"><a class="here" title="Link to here" href="#last-setter"></a> <span class="signature"><code id="IX-1741">last-setter</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1742">Sets the last element of a mutable sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>last-setter <var>new-value mutable-sequence</var> </code>
+	    &rArr;<code> <var>new-value</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>mutable-sequence</var></dt>
+	    <dd><p>An instance of <code>&lt;mutable-sequence&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Replaces the last element of <var>mutable-sequence</var> with <var>new-value</var>.</p>
+	  <p><var>mutable-sequence</var> is modified by this operation.</p>
+	  <p><var>new-value</var> must obey any type restrictions for elements
+	    of <var>mutable-sequence</var> . An error is signaled if <var>mutable-sequence</var> is
+	    empty or unbounded.</p>
+	  <pre class="code">
+define variable my-list = list (1, 2, 3)
+my-list
+<code> &rArr;</code>  #(1, 2, 3)
+last (my-list) := 4
+<code> &rArr;</code>  4
+my-list
+<code> &rArr;</code>  #(1, 2, 4)
+define variable my-empty-vector = vector()
+my-empty-vector
+<code> &rArr;</code>  #[]
+last (my-empty-vector) := 4
+{error}</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-219"></a>
+      <h4 class="item-title" id="head"><a class="here" title="Link to here" href="#head"></a> <span class="signature"><code id="IX-1743">head</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1744">Returns the head of a list.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>head <var>list</var> </code>
+	    &rArr;<code> <var>object</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>list</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;list&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the head of <var>list</var>.</p>
+	  <p>If <var>list</var> is a pair, <code>head</code> returns the value of the head
+	    slot. If <var>list</var> is the empty list, <code>head</code> returns the empty
+	    list.</p>
+	  <pre class="code">
+head (#(4, 5, 6))
+<code> &rArr;</code>  4
+head (#())
+<code> &rArr;</code>  #()</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-227"></a>
+      <h4 class="item-title" id="tail"><a class="here" title="Link to here" href="#tail"></a> <span class="signature"><code id="IX-1745">tail</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1746">Returns the tail of a list.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>tail <var>list</var> </code>
+	    &rArr;<code> <var>object</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>list</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;list&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the tail of <var>list</var>.</p>
+	  <p>If <var>list</var> is a pair, <code>tail</code> returns the value of the tail
+	    slot. If <var>list</var> is the empty list, <code>tail</code> returns the empty
+	    list.</p>
+	  <pre class="code">
+tail (#(4, 5, 6))
+ &rArr; #(5, 6)
+tail (#())
+ &rArr; #()</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-235"></a>
+      <h4 class="item-title" id="head-setter"><a class="here" title="Link to here" href="#head-setter"></a> <span class="signature"><code id="IX-1747">head-setter</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1748">Sets the head of a pair.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>head-setter <var>object pair</var> </code>
+	    &rArr;<code> <var>object</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>pair</var></dt>
+	    <dd><p>An instance of <code>&lt;pair&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Sets the head of <var>pair</var> to contain <var>object</var> and
+	    returns <var>object</var>.</p>
+	  <p><var>pair</var> is modified by this operation.</p>
+	  <pre class="code">
+define variable x = list (4, 5, 6)
+head (x) := 9
+ &rArr; 9
+x
+ &rArr; #(9, 5, 6)</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-244"></a>
+      <h4 class="item-title" id="tail-setter"><a class="here" title="Link to here" href="#tail-setter"></a> <span class="signature"><code id="IX-1749">tail-setter</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1750">Sets the tail of a pair.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>tail-setter <var>object pair</var> </code>
+	    &rArr;<code> <var>object</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>pair</var></dt>
+	    <dd><p>An instance of <code>&lt;pair&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Sets the tail of <var>pair</var> to contain <var>object</var> and
+	    returns <var>object</var>.</p>
+	  <p><var>pair</var> is modified by this operation.</p>
+	  <pre class="code">
+define variable x = list (4, 5, 6)
+tail (x) := #(9, 8, 7)
+<code> &rArr;</code>  #(9, 8, 7)
+x
+<code> &rArr;</code>  #(4, 9, 8, 7)
+tail (x) := "dot"
+<code> &rArr;</code>  "dot"
+x
+<code> &rArr;</code>  #(4 . "dot")<a name="IX-1751"></a></pre>
+	  <p class="errata-note" id="errata-p309-1">
+	    <a class="note-tag" href="Errata#p309-1"><strong>Errata:</strong></a> In the published
+	    book, the final value of <code>x</code> is incorrect: <code>#(4, 9, 8 . "dot")</code>
+	  </p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-253"></a>
+      <a name="UID-Built-In_Functions-29552"></a>
+      <h2 class="subsection-title"><a name="IX-1752">Adding and Removing Elements</a></h2>
+      <a name="HEADING-102-254"></a>
+      <h4 class="item-title" id="add"><a class="here" title="Link to here" href="#add"></a> <span class="signature"><code id="IX-1753">add</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1754">Adds an element to a sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>add <var>source-sequence new-element</var> </code>
+	    &rArr;<code> <var>result-sequence</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>source-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>new-element</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>result-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence that contains <var>new-element</var> and all the elements
+	    of <var>source-sequence</var>. The <var>result-sequence</var> may or may not be freshly
+	    allocated. It may share structure with a preexisting sequence.</p>
+	  <p><var>source-sequence</var> is not modified by this operation.</p>
+	  <p>The <var>result-sequence</var>'s size is one greater than the size
+	    of <var>source-sequence</var>. The generic function <code>add</code> doesn't specify
+	    where the new element will be added, although individual methods may do so.</p>
+	  <pre class="code">
+define variable *numbers* = #(3, 4, 5)
+add (*numbers*, 1)
+  &rArr;  #(1, 3, 4, 5) 
+*numbers*
+  &rArr;  #(3, 4, 5)</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-264"></a>
+      <h4 class="item-title" id="add."><a class="here" title="Link to here" href="#add."></a> <span class="signature"><code id="IX-1755">add!</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1756">Adds an element to a sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>add! <var>source-sequence new-element</var> </code>
+	    &rArr;<code> <var>result-sequence</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>source-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>new-element</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>result-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence that contains <var>new-element</var> and all the elements
+	    of <var>source-sequence</var>. The <var>result-sequence</var> may or may not be freshly
+	    allocated. It may share structure with a preexisting
+	    sequence. <var>source-sequence</var> and <var>result-sequence</var> may or may not
+	    be <code>==</code>.</p>
+	  <p><var>source-sequence</var> may be modified by this operation.</p>
+	  <p><var>result-sequence</var>'s size is one greater than the size
+	    of <var>source-sequence</var>. The generic function <code>add!</code> doesn't specify
+	    where the new element will be added, although individual methods may do so.</p>
+	  <pre class="code">
+define variable *numbers* = list (3, 4, 5)
+add! (*numbers*, 1)
+  &rArr;  #(1, 3, 4, 5)
+*numbers*
+  &rArr; {undefined}</pre>
+	  <a name="HEADING-102-274"></a>
+	  <h5 class="method-signature"><span class="signature"><code>add! <var>deque new-value</var> </code>&rArr;<code> <var>deque</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The result of <code>add!</code> on a deque is <code>==</code> to the <var>deque</var>
+	    argument, which is modified by this operation. <code>add!</code>
+	    adds <var>new-element</var> at the beginning of the <var>deque</var>.</p>
+	  <a name="HEADING-102-276"></a>
+	  <h5 class="method-signature"><span class="signature"><code>add! <var>stretchy-vector new-element</var> </code>&rArr;<code> <var>stretchy-vector</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The result of <code>add!</code> on a stretchy vector is <code>==</code> to
+	    the <var>stretchy-vector</var> argument, which is modified by this
+	    operation. <code>add!</code> adds <var>new-element</var> at the end of
+	    the <var>stretchy-vector</var>.</p>
+	  <a name="HEADING-102-278"></a>
+	  <h5 class="method-signature"><span class="signature"><code>add! <var>list element</var> </code>&rArr;<code> <var>pair</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The result of <code>add!</code> on a list is equivalent to <code>(pair <var>element
+		list)</var></code>. The result will share structure with the <var>list</var>
+		argument, but it will not be <code>==</code> to the argument, and the argument will
+		not be modified.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-280"></a>
+      <h4 class="item-title" id="add-new"><a class="here" title="Link to here" href="#add-new"></a> <span class="signature"><code id="IX-1757">add-new</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1758">Adds a new element to a sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>add-new <var>source-sequence new-element</var> #key <var>test</var> </code>
+	    &rArr;<code> <var>result-sequence</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>source-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>new-element</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	    <dt><var>test</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>. The default
+		is <code>==</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>result-sequence </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Adds <var>new-element</var> to source-sequence if it is not already an element
+	    of <var>source-sequence</var>, as determined by the <var>test</var>
+	    function. If <var>new-element</var> is already a member of <var>source-sequence</var>,
+	    then <var>source-sequence</var> is returned unmodified.</p>
+	  <p>If an element is added, <code>add-new</code> operates just as <code>add</code>
+	    would.</p>
+	  <p>The <var>test</var> function may be noncommutative: it is always called with an element
+	    from <var>source-sequence</var> as its first argument and <var>new-element</var> as its
+	    second argument.</p>
+	  <pre class="code">
+add-new (#(3, 4, 5), 1)
+  &rArr;  #(1, 3, 4, 5)
+add-new (#(3, 4, 5), 4)
+  &rArr;  #(3, 4, 5)</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-291"></a>
+      <h4 class="item-title" id="add-new."><a class="here" title="Link to here" href="#add-new."></a> <span class="signature"><code id="IX-1759">add-new!</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1760">Adds a new element to a sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>add-new! <var>source-sequence new-element</var> #key <var>test</var> </code>
+	    &rArr;<code> <var>result-sequence</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>source-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>new-element</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	    <dt><var>test</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>. The default
+		is <code>==</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>result-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Adds <var>new-element</var> to source-sequence if it is not already an element
+	    of <var>source-sequence</var>, as determined by the <var>test</var>
+	    function. If <var>new-element</var> is already a member of <var>source-sequence</var>,
+	    then <var>source-sequence</var> is returned unmodified.</p>
+	  <p>If an element is added, <code>add-new!</code> operates just as <code>add!</code>
+	    would.</p>
+	  <p>The <var>test</var> function may be noncommutative: it is always called with an element
+	    from <var>sequence</var> as its first argument and <var>new-element</var> as its second
+	    argument.</p>
+	  <pre class="code">
+add-new! (list (3, 4, 5), 1)
+  &rArr;  #(1, 3, 4, 5)
+add-new! (list (3, 4, 5), 4)
+  &rArr;  #(3, 4, 5)</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-302"></a>
+      <h4 class="item-title" id="remove"><a class="here" title="Link to here" href="#remove"></a> <span class="signature"><code id="IX-1761">remove</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="IX-1762"></a><a name="XREF-1763">Removes an element from a sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>remove <var>source-sequence value</var> #key <var>test count</var> </code>
+	    &rArr;<code> <var>result-sequence</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>source-sequence </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>value</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	    <dt><var>test</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>. The default
+		is <code>==</code>.</p></dd>
+	    <dt><var>count</var></dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code> or <code>#f</code>. The default
+		is <code>#f</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>result-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence consisting of the elements of <var>source-sequence</var> not equal
+	    to <var>value</var>. The <var>result-sequence</var> may or may not be freshly
+	    allocated. However, the <var>source-sequence</var> is never modified
+	    by <code>remove</code>.</p>
+	  <p><var>test</var> is a function that determines whether an element is equal
+	    to <var>value</var>. The <var>test</var> function may be noncommutative: it is always
+	    called with an element from <var>source-sequence</var> as its first argument
+	    and <var>value</var> as its second argument.</p>
+	  <p>If <var>count</var> is <code>#f</code>, then all copies of <var>value</var> are
+	    removed. Otherwise, no more than <var>count</var> copies of <var>value</var> are removed
+	    (so additional elements equal to <var>value</var> might remain
+	    in <var>result-sequence</var>).</p>
+	  <pre class="code">
+define variable *old-list* = list(1, 2, 3)
+define variable *new-list* = remove(*old-list*, 1)
+*new-list*
+  &rArr;  #(2, 3)
+*new-list* == tail(*old-list*)
+  &rArr;  {undefined}</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-314"></a>
+      <h4 class="item-title" id="remove."><a class="here" title="Link to here" href="#remove."></a> <span class="signature"><code id="IX-1764">remove!</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1765">Removes an element from a sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>remove! <var>source-sequence value</var> #key <var>test count</var> </code>
+	    &rArr;<code> <var>result-sequence</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>source-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>value</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	    <dt><var>test</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>. The default
+		is <code>==</code>.</p></dd>
+	    <dt><var>count</var></dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code> or <code>#f</code>. The default
+		is <code>#f</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>result-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence consisting of the elements of <var>source-sequence</var> not equal
+	    to <var>value</var>. The <var>result-sequence</var> may or may not be freshly allocated,
+	    may or may not be <code>==</code> to the <var>source-sequence</var>, and may or may not
+	    share structure with the <var>source-sequence</var>. The <var>source-sequence</var> may
+	    be modified by <code>remove!</code>.</p>
+	  <p><var>test</var> is a function that determines whether an element is equal
+	    to <var>value</var>. The <var>test</var> function may be noncommutative: it is always
+	    called with an element from <var>source-sequence</var> as its first argument
+	    and <var>value</var> as its second argument.</p>
+	  <p>If <var>count</var> is <code>#f</code>, then all copies of <var>value</var> are
+	    removed. Otherwise, no more than <var>count</var> copies of <var>value</var> are removed
+	    (so additional elements equal to <var>value</var> might remain
+	    in <var>result-sequence</var>).</p>
+	  <a name="HEADING-102-325"></a>
+	  <h5 class="method-signature"><span class="signature"><code>remove!</code> <var>deque value</var> #key <var>test count</var> &rArr; <var>deque</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The result of <code>remove!</code> on a deque is <code>==</code> to
+	    the <var>deque</var> argument. The argument is modified by this operation.</p>
+	  <a name="HEADING-102-327"></a>
+	  <h5 class="method-signature"><span class="signature"><code>remove!</code> <var>stretchy-vector element</var> #key <var>test count</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span><br />
+	    &rArr; <var>stretchy-vector</var></h5>
+	  <p>The result of <code>remove!</code> on a stretchy vector is <code>==</code> to
+	    the <var>stretchy-vector</var> argument. The argument is modified by this operation.</p>
+	  <a name="HEADING-102-329"></a>
+	  <h5 class="method-signature"><span class="signature"><code>remove!</code> <var>list element</var> #key <var>test count</var> &rArr; <var>list</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The result of <code>remove!</code> on a list may or may not be <code>==</code> to
+	    the <var>list</var> argument. The argument may be modified by this operation.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-331"></a>
+      <h4 class="item-title" id="push"><a class="here" title="Link to here" href="#push"></a> <span class="signature"><code id="IX-1766">push</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1767">Adds an element to the front of a deque.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>push <var>deque new-value</var> </code>
+	    &rArr;<code> <var>new-value</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>deque</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;deque&gt;</code>.</p>
+	    </dd>
+	    <dt><var>new-value</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>new-value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>. The same object that was passed in as
+		an argument.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Augments <var>deque</var> by adding <var>new-value</var> to its front.</p>
+	  <p><var>deque</var> is modified by this operation.</p></dd>
+      </dl>
+      <a name="HEADING-102-339"></a>
+      <h4 class="item-title" id="pop"><a class="here" title="Link to here" href="#pop"></a> <span class="signature"><code id="IX-1768">pop</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1769">Removes and returns the first element of a deque.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>pop <var>deque</var> </code>
+	    &rArr;<code> <var>first-element</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>deque</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;deque&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>first-element</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Removes the first element from <var>deque</var> and returns it.</p>
+	  <p><var>deque</var> is modified by this operation.</p></dd>
+      </dl>
+      <a name="HEADING-102-346"></a>
+      <h4 class="item-title" id="push-last"><a class="here" title="Link to here" href="#push-last"></a> <span class="signature"><code id="IX-1770">push-last</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1771">Adds an element to the end of a deque.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>push-last <var>deque new-value</var> </code>
+	    &rArr;<code> <var>new-value</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>deque</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;deque&gt;</code>.</p>
+	    </dd>
+	    <dt><var>new-value</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>new-value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>. The same object that was passed in as
+		an argument.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Augments <var>deque</var> by adding <var>new-value</var> to its end.</p>
+	  <p><var>deque</var> is modified by this operation.</p></dd>
+      </dl>
+      <a name="HEADING-102-354"></a>
+      <h4 class="item-title" id="pop-last"><a class="here" title="Link to here" href="#pop-last"></a> <span class="signature"><code id="IX-1772">pop-last</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1773">Removes and returns an element from the end of a deque.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>pop-last <var>deque</var> </code>
+	    &rArr;<code> <var>last-element</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>deque</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;deque&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>last-element</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Removes the last element from <var>deque</var> and returns it.</p>
+	  <p><var>deque</var> is modified by this
+	    operation. <a name="IX-1774"></a><a name="IX-1775"></a></p></dd>
+      </dl>
+      <a name="HEADING-102-361"></a>
+      <a name="UID-Built-In_Functions-9856"></a>
+      <h2 class="subsection-title"><a name="IX-1776">Reordering Elements</a></h2>
+      <a name="HEADING-102-362"></a>
+      <h4 class="item-title" id="reverse"><a class="here" title="Link to here" href="#reverse"></a> <span class="signature"><code id="IX-1777">reverse</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1778">Returns a sequence with elements in the reverse order of its argument sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>reverse <var>source-sequence</var> </code>
+	    &rArr;<code> <var>result-sequence</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>source-sequence </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>result-sequence </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence containing the same elements as <var>source-sequence</var>, but in
+	    reverse order. The <var>result-sequence</var> is generally of the same class as
+	    the <var>source-sequence</var>.</p>
+	  <p>The <var>result-sequence</var> may or may not be freshly
+	    allocated. The <var>source-sequence</var> is not modified by this operation.</p>
+	  <p>The consequences are undefined if the <var>source-sequence</var> is unbounded (circular
+	    or infinite).</p>
+	  <pre class="code">
+define variable *x* = list("bim", "bam", "boom")
+*x*
+  &rArr;  #("bim", "bam", "boom")
+reverse(*x*)
+  &rArr;  #("boom", "bam", "bim")
+*x*
+  &rArr;  #("bim", "bam", "boom")</pre>
+	  <a name="HEADING-102-371"></a>
+	  <h5 class="method-signature"><span class="signature"><code>reverse</code> <var>range</var> &rArr; <var>new-range</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>Reversing a range produces another range. An unbounded range cannot be reversed.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-373"></a>
+      <h4 class="item-title" id="reverse."><a class="here" title="Link to here" href="#reverse."></a> <span class="signature"><code id="IX-1779">reverse!</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1780">Returns a sequence with elements in the reverse order of its argument sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>reverse! <var>source-sequence</var> </code>
+	    &rArr;<code> <var>result-sequence</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>source-sequence </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>result-sequence </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence containing the same elements as <var>source-sequence</var>, but in
+	    reverse order. The <var>result-sequence</var> is generally of the same class as
+	    the <var>source-sequence</var>.</p>
+	  <p>The <var>source-sequence</var> may be modified by this
+	    operation. The <var>result-sequence</var> may or may not be freshly
+	    allocated. The <var>source-sequence</var> and the <var>result-sequence</var> may or may
+	    not be <code>==</code>. Programs should never rely on this operation performing a
+	    side-effect on an existing sequence, but should instead use the value returned by the
+	    function.</p>
+	  <p>The consequences are undefined if the <var>source-sequence</var> is unbounded (circular
+	    or infinite).</p>
+	  <pre>
+define variable *x* = list("bim", "bam", "boom")
+*x*
+  &rArr;  #("bim", "bam", "boom")
+reverse!(*x*)
+  &rArr;  #("boom", "bam", "bim")
+*x*
+  &rArr;  {undefined}
+</pre>
+	  <a name="HEADING-102-382"></a>
+	  <h5 class="method-signature"><span class="signature"><code>reverse!</code> <var>range</var> &rArr; <var>range</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The result of <code>reverse!</code> on a range is <code>==</code> to
+	    the <var>range</var> argument. An unbounded range cannot be reversed.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-384"></a>
+      <h4 class="item-title" id="sort"><a class="here" title="Link to here" href="#sort"></a> <span class="signature"><code id="IX-1781">sort</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1782">Returns a sequence containing the elements of its argument sequence, sorted.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>sort <var>source-sequence</var> #key <var>test stable</var> </code>
+	    &rArr;<code> <var>result-sequence</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>source-sequence </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>test</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>. The default
+		is <code>&lt;</code>.</p></dd>
+	    <dt><var>stable</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>, treated as a boolean.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>result-sequence </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence containing the elements of <var>source-sequence</var> sorted into
+	    ascending order. The <var>result-sequence</var> may or may not be freshly
+	    allocated. The <var>source-sequence</var> is not modified by this operation.</p>
+	  <p><code>sort</code> determines the relationship between two elements by giving elements
+	    to the <var>test</var>. The first argument to the <var>test</var> function is one
+	    element of <var>source-sequence</var>; the second argument is another element
+	    of <var>source-sequence</var>. <var>test</var> should return true if and only if the
+	    first argument is strictly less than the second (in some appropriate sense). If the
+	    first argument is greater than or equal to the second (in the appropriate sense), then
+	    the <var>test</var> should return <code>#f</code>.</p>
+	  <p>If <var>stable</var> is supplied and not <code>#f</code>, a possibly slower algorithm
+	    will be used that will leave in their original order any two elements, <var>x</var>
+	    and <var>y</var>, such that <var>test(x, y)</var> and <var>test(y, x)</var> are both
+	    false.</p>
+	  <pre class="code">
+define variable *numbers* = vector(3, 1, 4, 1, 5, 9)
+*numbers*
+  &rArr; #[3, 1, 4, 1, 5, 9]
+sort (*numbers*)
+  &rArr;  #[1, 1, 3, 4, 5, 9]
+*numbers*
+  &rArr;  #[3, 1, 4, 1, 5, 9]</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-395"></a>
+      <h4 class="item-title" id="sort."><a class="here" title="Link to here" href="#sort."></a> <span class="signature"><code id="IX-1783">sort!</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1784">Returns a sequence containing the elements of its argument sequence, sorted.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>sort! <var>source-sequence</var> #key <var>test stable</var> </code>
+	    &rArr;<code> <var>result-sequence</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>source-sequence </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>test</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>. The default
+		is <code>&lt;</code>.</p></dd>
+	    <dt><var>stable</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>, treated as a boolean.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>result-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence containing the elements of <var>source-sequence</var> sorted into
+	    ascending order. The <var>result-sequence</var> may or may not be freshly
+	    allocated. The <var>source-sequence</var> may be modified by this
+	    operation. The <var>result-sequence</var> may or may not be <code>==</code>
+	    to <var>source-sequence</var>. After this operation, the contents
+	    of <var>source-sequence</var> are undefined.</p>
+	  <p>Programs should never rely on this operation performing a side-effect on an existing
+	    sequence, but should instead use the value returned by the function.</p>
+	  <p><code>sort!</code> determines the relationship between two elements by giving elements
+	    to the <var>test</var>. The first argument to the <var>test</var> function is one
+	    element of <var>source-sequence</var>; the second argument is another element
+	    of <var>source-sequence</var>. <var>test</var> should return true if and only if the
+	    first argument is strictly less than the second (in some appropriate sense). If the
+	    first argument is greater than or equal to the second (in the appropriate sense), then
+	    the <var>test</var> should return <code>#f</code>.</p>
+	  <p>If <var>stable</var> is supplied and not <code>#f</code>, a possibly slower algorithm
+	    will be used that will leave in their original order any two elements, <var>x</var>
+	    and <var>y</var>, such that <var>test(x, y)</var> and <var>test(y, x)</var> are both
+	    false.</p>
+	  <pre>
+define variable *numbers* = vector(3, 1, 4, 1, 5, 9)
+*numbers*
+  &rArr; #[3, 1, 4, 1, 5, 9]
+sort! (*numbers*)
+  &rArr;  #[1, 1, 3, 4, 5, 9]
+*numbers*
+  &rArr;  {undefined}<a name="IX-1785"></a>
+</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-407"></a>
+      <a name="UID-Built-In_Functions-2737"></a>
+      <h2 class="subsection-title"><a name="IX-1786">Set Operations</a></h2>
+      <a name="HEADING-102-408"></a>
+      <h4 class="item-title" id="intersection"><a class="here" title="Link to here" href="#intersection"></a> <span class="signature"><code id="IX-1787">intersection</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1788">Returns the intersection of two sequences.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>intersection <var>sequence1 sequence2</var> #key <var>test</var> </code>
+	    &rArr;<code> <var>new-sequence</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>sequence1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>sequence2</var></dt>
+	    <dd><p>An instance of <code>&lt;sequence&gt;</code>.</p></dd>
+	    <dt><var>test</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>. The default
+		is <code>==</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a new sequence containing only those elements of <var>sequence1</var> that also
+	    appear in <var>sequence2</var>.</p>
+	  <p><var>test</var> is used to determine whether an element appears
+	    in <var>sequence2</var>. It is always called with an element of <var>sequence1</var> as
+	    its first argument and an element from <var>sequence2</var> as its second argument. The
+	    order of elements in the result sequence is not specified.</p>
+	  <p><var>new-sequence</var> may or may not share structure with the <var>sequence1</var>
+	    and <var>sequence2</var>.</p>
+	  <pre class="code">
+? intersection (#("john", "paul", "george", "ringo"),
+                #("richard", "george", "edward", "charles"),
+                test: \=)
+#("george")</pre>
+	  <a name="HEADING-102-419"></a>
+	  <h5 class="method-signature"><span class="signature"><code>intersection <var>range1 range2</var> #key <var>test</var> </code>&rArr;<code> <var>range</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p><code>intersection</code> applied to two ranges and a test of <code>==</code> (the
+	    default) will produce another range as its result, even though
+	    the <code>type-for-copy</code> of a range is not <code>&lt;range&gt;</code>. If
+	    either <var>range1</var> or <var>range2</var> is unbounded, this method is guaranteed to
+	    terminate only if the <var>test</var> is <code>==</code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-421"></a>
+      <h4 class="item-title" id="union"><a class="here" title="Link to here" href="#union"></a> <span class="signature"><code id="IX-1789">union</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1790">Returns the union of two sequences.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>union <var>sequence1 sequence2</var> #key <var>test</var> </code>
+	    &rArr;<code> <var>new-sequence</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>sequence1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>sequence2</var></dt>
+	    <dd><p>An instance of <code>&lt;sequence&gt;</code>.</p></dd>
+	    <dt><var>test</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>. The default
+		is <code>==</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence containing every element of <var>sequence1</var>
+	    and <var>sequence2</var>.</p>
+	  <p>If the same element appears in both argument sequences, this will not cause it to
+	    appear twice in the result sequence. However, if the same element appears more than once
+	    in a single argument sequence, it may appear more than once in the result sequence.</p>
+	  <p><var>test</var> is used for all comparisons. It is always called with an element
+	    from <var>sequence1</var> as its first argument and an element from <var>sequence2</var>
+	    as its second argument. The order of elements in the <var>new-sequence</var> is not
+	    specified.</p>
+	  <p><var>new-sequence</var> may or may not share structure with <var>sequence1</var>
+	    or <var>sequence2</var>.</p>
+	  <pre class="code">
+union (#("butter", "flour", "sugar", "salt", "eggs"),
+       #("eggs", "butter", "mushrooms", "onions", "salt"),
+       test: \=)
+<code> &rArr;</code>  #("salt", "butter", "flour", "sugar", "eggs",
+       "mushrooms", "onions")</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-433"></a>
+      <h4 class="item-title" id="remove-duplicates"><a class="here" title="Link to here" href="#remove-duplicates"></a> <span class="signature"><code id="IX-1791">remove-duplicates</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1792">Returns a sequence without duplicates.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>remove-duplicates <var>source-sequence</var> #key <var>test</var> </code>
+	    &rArr;<code> <var>result-sequence</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>source-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>test</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>. The default
+		is <code>==</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>result-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence that contains all the unique elements
+	    from <var>source-sequence</var> but no duplicate elements.</p>
+	  <p><var>test</var> is the function used to determine whether one element is a duplicate of
+	    another. The <var>test</var> argument may be noncommutative; it will always be called
+	    with its arguments in the same order as they appear in <var>source-sequence</var>.</p>
+	  <p>The <var>result-sequence</var> may or may not be freshly allocated. However,
+	    the <var>source-sequence</var> will not be modified by this operation.</p>
+	  <pre class="code">
+remove-duplicates (#("spam", "eggs", "spam", 
+                     "sausage", "spam", "spam"),
+                    test: \=)
+<code> &rArr;</code>  #("spam", "eggs", "sausage")
+or
+<code> &rArr;</code>  #("eggs", "spam", "sausage")
+or
+<code> &rArr;</code>  #("eggs", "sausage", "spam")</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-443"></a>
+      <h4 class="item-title" id="remove-duplicates."><a class="here" title="Link to here" href="#remove-duplicates."></a> <span class="signature"><code id="IX-1793">remove-duplicates!</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1794">Returns a sequence without duplicates.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>remove-duplicates! <var>source-sequence</var> #key <var>test</var> </code>
+	    &rArr;<code> <var>result-sequence</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>source-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>test</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>. The default
+		is <code>==</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>result-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence that contains all the unique elements
+	    from <var>source-sequence</var> but no duplicate elements.</p>
+	  <p><var>test</var> is the function used to determine whether one element is a duplicate of
+	    another. The <var>test</var> argument may be noncommutative; it will always be called
+	    with its arguments in the same order as they appear in <var>source-sequence</var>.</p>
+	  <p>The <var>result-sequence</var> may or may not be freshly allocated, may or may not
+	    share structure with the <var>source-sequence</var>, and may or may not
+	    be <code>==</code> to the <var>source-sequence</var>. The <var>source-sequence</var> may
+	    or may not be modified by the operation.</p>
+	  <pre class="code">
+define variable *menu* = #("spam", "eggs", "spam", 
+                           "sausage", "spam", "spam")
+remove-duplicates! (*menu*, test: \=)
+  &rArr;  #("spam", "eggs", "sausage")
+or
+<code> &rArr;</code>  #("eggs", "spam", "sausage")
+or
+<code> &rArr;</code>  #("eggs", "sausage", "spam")
+*menu*
+  &rArr;  {undefined}<a name="IX-1795"></a></pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-453"></a>
+      <a name="UID-Built-In_Functions-2699"></a>
+      <h2 class="subsection-title">Subsequence Operations</h2>
+      <a name="HEADING-102-454"></a>
+      <h4 class="item-title" id="copy-sequence"><a class="here" title="Link to here" href="#copy-sequence"></a> <span class="signature"><a name="IX-1798"></a><code id="IX-1796">copy-sequence</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1797">Returns a freshly allocated copy of some subsequence of a sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>copy-sequence <var>source</var> #key <var>start end</var> </code>
+	    &rArr;<code> <var>new-sequence</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>source</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>start</var></dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code>. The default
+		is <code>0</code>.</p></dd>
+	    <dt><var>end</var></dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code>. The default is the size
+		of <var>source</var>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>new-sequence</var></dt>
+	    <dd>
+              <p>A freshly allocated instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Creates a freshly allocated sequence containing the elements of <var>source</var>
+	    between <var>start</var> and <var>end</var>.</p>
+	  <pre class="code">
+define constant hamlet = #("to", "be", "or", "not", "to", "be")
+hamlet == copy-sequence (hamlet)
+<code> &rArr;</code>  #f
+copy-sequence (hamlet, start: 2, end: 4)
+<code> &rArr;</code>  #("or", "not")</pre>
+	  <a name="HEADING-102-463"></a>
+	  <h5 class="method-signature"><span class="signature"><code>copy-sequence</code> <var>range</var> <code>#key</code> <var>start end</var> &rArr; <var>new-range</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>When applied to a range, <code>copy-sequence</code> returns another range, even though
+	    the <code>type-for-copy</code> of a range is the <code>&lt;list&gt;</code> class.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-465"></a>
+      <h4 class="item-title" id="concatenate"><a class="here" title="Link to here" href="#concatenate"></a> <span class="signature"><code id="IX-1799">concatenate</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1800">Returns the concatenation of one or more
+	  sequences in a sequence of a type determined by the <code>type-for-copy</code> of its first
+	  argument.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>concatenate <var>first-sequence</var> #rest <var>more-sequences</var> </code>
+	    &rArr;<code> <var>result-sequence</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>first-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>more-sequences</var></dt>
+	    <dd><p>Instances of <code>&lt;sequence&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>result-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence containing all the elements of all the sequences, in order.</p>
+	  <p>The <var>result-sequence</var> will be an instance of the <code>type-for-copy</code>
+	    value for <var>first-sequence</var>. It may or may not be freshly
+	    allocated. The <var>result-sequence</var> may be created by calling <code>make</code> on
+	    the indicated type, with a <code>size:</code> initialization argument whose value is the
+	    sum of the sizes of the argument sequences. (For this reason,
+	    the <code>type-for-copy</code> value of <var>first-sequence</var> must support
+	    the <code>size:</code> init-keyword.)</p>
+	  <p><var>new-sequence</var> may share structure with any of the argument sequences, but it
+	    is not guaranteed to do so. The argument sequences will not be modified by this
+	    operation.</p>
+	  <pre class="code">
+concatenate ("low-", "calorie")
+<code> &rArr;</code>  "low-calorie"</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-475"></a>
+      <h4 class="item-title" id="concatenate-as"><a class="here" title="Link to here" href="#concatenate-as"></a> <span class="signature"><code id="IX-1801">concatenate-as</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1802">Returns the concatenation of one or more sequences in a sequence of a specified type.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>concatenate-as <var>type first-sequence</var> #rest <var>more-sequences</var> </code>
+	    &rArr;<code> <var>result-sequence</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>type</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;type&gt;</code>, which must be a subtype
+		of <code>&lt;mutable-sequence&gt;</code></p>
+	    </dd>
+	    <dt><var>first-sequence</var></dt>
+	    <dd><p>An instance of <code>&lt;sequence&gt;</code>.</p></dd>
+	    <dt><var>more-sequences</var></dt>
+	    <dd><p>Instances of <code>&lt;sequence&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>result-sequence</var></dt>
+	    <dd>
+              <p>An instance of <var>type</var>, and therefore also an instance
+		of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence containing all the elements of all the sequences, in order.</p>
+	  <p>The <var>result-sequence</var> will be an instance of <var>type</var>. It may or may
+	    not be freshly allocated.</p>
+	  <p><var>type</var> must be a subtype of <code>&lt;mutable-sequence&gt;</code> and
+	    acceptable as the first argument to <code>make</code>. <code>size:</code> with a
+	    non-negative integer value must be an acceptable initarg for <code>make</code>
+	    of <var>type</var>. The <var>result-sequence</var> may be created by
+	    calling <code>make</code> on <var>type</var>, with a <code>size: </code>initialization
+	    argument whose value is the sum of the sizes of the arguments.</p>
+	  <pre class="code">
+concatenate-as (&lt;string&gt;, #('n', 'o', 'n'), #('f', 'a', 't'))
+<code> &rArr;</code>  "nonfat"</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-486"></a>
+      <h4 class="item-title" id="replace-subsequence."><a class="here" title="Link to here" href="#replace-subsequence."></a> <span class="signature"><code id="IX-1803">replace-subsequence!</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1804">Replaces a portion of a sequence with the elements of another sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>replace-subsequence! <var>target-sequence insert-sequence</var> #key <var>start end</var> </code><br />
+	    &rArr;<code> <var>result-sequence</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>target-sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>insert-sequence</var></dt>
+	    <dd><p>An instance of <code>&lt;sequence&gt;</code>.</p></dd>
+	    <dt><var>start</var></dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code>. The default
+		is <code>0</code>.</p></dd>
+	    <dt><var>end</var></dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code>. The default is the size
+		of <var>target-sequence</var>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>result-sequence </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><code>replace-subsequence!</code> returns a sequence with the same elements
+	    as <var>target-sequence</var>, except that elements of the indicated subsequence
+	    of <var>target-sequence</var> are replaced by all the elements
+	    of <var>insert-sequence</var>. The subsequence to be overridden begins at
+	    index <var>start</var> and ends at index <var>end</var>.</p>
+	  <p><var>result-sequence</var> may or may not share structure
+	    with <var>target-sequence</var> or <var>insert-sequence</var>, and it may or may not
+	    be <code>==</code> to <var>target-sequence</var>
+	    or <var>insert-sequence</var>. <var>target-sequence</var> may or may not be modified by
+	    the operation. <var>insert-sequence</var> will not be modified by this operation.</p>
+	  <pre class="code">
+define variable *original* = list ("a", "b", "c", "d", "e")
+
+*new* := replace-subsequence! (*original*, #("x", "y", "z"), end: 1)
+<code> &rArr;</code>  #("x", "y", "z", "b", "c", "d", "e")
+
+*new* := replace-subsequence! (*new*, #("x", "y", "z"), start: 4)
+<code> &rArr;</code>  #("x", "y", "z", "b", "x", "y", "z")
+
+*new* := replace-subsequence! (*new*, #("a", "b", "c"), 
+                                      start: 2, end: 4)
+<code> &rArr;</code>  #("x", "y", "a", "b", "c", "x", "y", "z")</pre>
+	  <p class="errata-note" id="errata-p325-1">
+	    <a class="note-tag" href="Errata#p325-1"><strong>Errata:</strong></a> In the published
+	    book, <var>target-sequence</var> is incorrectly written as <var>source-sequence</var>.
+	  </p>
+	  <p class="errata-note" id="errata-p326-1">
+	    <a class="note-tag" href="Errata#p326-1"><strong>Errata:</strong></a> In the published
+	    book, each of the example calls of <code>replace-subsequence!</code> ends with an extra
+	    right parenthesis.
+	  </p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-500"></a>
+      <h4 class="item-title" id="subsequence-position"><a class="here" title="Link to here" href="#subsequence-position"></a> <span class="signature"><code id="IX-1805">subsequence-position</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1806">Returns the position where a pattern appears in a sequence.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>subsequence-position <var>big pattern</var> #key <var>test count</var> </code>
+	    &rArr;<code> <var>index</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>big</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	    <dt><var>pattern</var></dt>
+	    <dd><p>An instance of <code>&lt;sequence&gt;</code>.</p></dd>
+	    <dt><var>test</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>. The default
+		is <code>==</code>.</p></dd>
+	    <dt><var>count</var></dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code>. The default
+		is <code>1</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>index</var></dt>
+	    <dd>
+              <p><code>#f</code> or an instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Searches <var>big</var> for a subsequence that is element-for-element equal
+	    to <var>pattern</var>, as determined by the <var>test</var> argument.</p>
+	  <p><var>test</var> is applied to elements of successive subsequences of <var>big</var> and
+	    corresponding elements of the <var>pattern</var> to determine whether a match has
+	    occurred. If a subsequence is found, <code>subsequence-position</code> returns the index
+	    at which the subsequence starts; otherwise, it returns <code>#f</code>. If there is more
+	    than one match, <var>count</var> determines which subsequence is
+	    selected. A <var>count</var> of 1 (the default) indicates that the first match should be
+	    returned.</p>
+	  <pre class="code">
+subsequence-position ("Ralph Waldo Emerson", "Waldo")
+<code> &rArr;</code>  6</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-511"></a>
+      <a name="UID-Built-In_Functions-3007"></a>
+      <h2 class="subsection-title"><a name="IX-1808">Mapping and Reducing</a></h2>
+      <a name="HEADING-102-512"></a>
+      <h3 class="sub-subsection-title">Simple Mapping</h3>
+      <p>The following <a name="IX-1807">mapping functions</a>
+	(<code>do</code>, <code>map</code>, <code>map-as</code>, <code>map-into</code>, <code>any?</code>, <code>every?</code>)
+	iterate over a number of source collections. Each time through the iteration, a function is
+	applied to one element from each of the source collections. The number of arguments to the
+	function is equal to the number of source collections.</p>
+      <p>The functions vary in how they handle the results of each function application.</p>
+      <a name="HEADING-102-515"></a>
+      <h4 class="item-title" id="do"><a class="here" title="Link to here" href="#do"></a> <span class="signature"><code id="IX-1809">do</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1810">Iterates over one or more collections for side effect.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>do <var>function collection</var> #rest <var>more-collections</var> </code>
+	    &rArr;<code> <var>false</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	    <dt><var>collection</var></dt>
+	    <dd><p>An instance of <code>&lt;collection&gt;</code>.</p></dd>
+	    <dt><var>more-collections</var></dt>
+	    <dd><p>Instances of <code>&lt;collection&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>false</var></dt>
+	    <dd>
+              <p><code>#f</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Applies <var>function</var> to corresponding elements of all the <var>collections</var>
+	    and returns <code>#f</code>. If all the <var>collections</var> are
+	    sequences, <code>do</code> guarantees that they will be processed in their natural
+	    order.</p>
+	  <pre class="code">
+do (method (a b) print (a + b) end,
+    #(100, 100, 200, 200),
+    #(1, 2, 3, 4))
+101
+102
+203
+204
+<code> &rArr;</code>  #f</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-524"></a>
+      <h4 class="item-title" id="map"><a class="here" title="Link to here" href="#map"></a> <span class="signature"><code id="IX-1811">map</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1812">Iterates over one or more collections and collects the results in a freshly allocated collection.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>map <var>function collection</var> #rest <var>more-collections</var> </code>
+	    &rArr;<code> <var>new-collection</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	    <dt><var>collection</var></dt>
+	    <dd><p>An instance of <code>&lt;collection&gt;</code>.</p></dd>
+	    <dt><var>more-collections</var></dt>
+	    <dd><p>Instances of <code>&lt;collection&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-collection</var></dt>
+	    <dd>
+              <p>A freshly allocated instance of <code>&lt;collection&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Creates a freshly allocated collection whose elements are obtained by
+	    calling <var>function</var> on corresponding elements of all
+	    the <var>collections</var>. If all the <var>collections</var> are sequences, processing
+	    is performed in the natural order.</p>
+	  <p><code>map</code> returns a collection whose value is an instance of
+	    the <code>type-for-copy</code> value of <var>collection</var>. The new collection is
+	    created by calling <code>make</code> on that type, with a <code>size:</code>
+	    initialization argument whose value is the number of corresponding elements in
+	    the <var>collections</var>.</p>
+	  <pre class="code">
+map (\+,
+     #(100, 100, 200, 200),
+     #(1, 2, 3, 4))
+<code> &rArr;</code>  #(101, 102, 203, 204)</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-534"></a>
+      <h4 class="item-title" id="map-as"><a class="here" title="Link to here" href="#map-as"></a> <span class="signature"><code id="IX-1813">map-as</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1814">Iterates over one or more collections and collects the results in a freshly allocated collection of a specified type.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>map-as <var>type function collection</var> #rest <var>more-collections</var> </code>
+	    &rArr;<code> <var>new-collection</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>type</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;type&gt;</code>. It must be an instantiable subtype
+		of <code>&lt;mutable-collection&gt;</code>.</p>
+	    </dd>
+	    <dt><var>function</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>.</p></dd>
+	    <dt><var>collection</var></dt>
+	    <dd><p>An instance of <code>&lt;collection&gt;</code>.</p></dd>
+	    <dt><var>more-collections</var></dt>
+	    <dd><p>Instances of <code>&lt;collection&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-collection</var></dt>
+	    <dd>
+              <p>A freshly allocated instance of <code>&lt;mutable-collection&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Creates a freshly allocated collection of type <var>type</var> whose elements are
+	    obtained by applying <var>function</var> to corresponding elements of
+	    the <var>collection</var> arguments. <var>type</var> must be acceptable as the first
+	    argument to <code>make</code>. <code>size:</code> with a non-negative integer value must
+	    be an acceptable initarg for <code>make</code>
+	    of <var>type</var>. <var>new-collection</var> is created by calling <code>make</code>
+	    on <var>type</var>, with a <code>size:</code> initialization argument whose value is the
+	    number of corresponding elements in the <var>collections</var>. If all
+	    the <var>collections</var> are sequences (including <var>new-collection</var>),
+	    processing is done in the natural order.</p>
+	  <pre class="code">
+map-as (&lt;vector&gt;, \+,
+        #(100, 100, 200, 200),
+        #(1, 2, 3, 4))
+<code> &rArr;</code>  #[101, 102, 203, 204]</pre>
+	  <p class="errata-note" id="errata-p329-1">
+	    <a class="note-tag" href="Errata#p329-1"><strong>Errata:</strong></a> In the published
+	    book, the result is incorrectly written as a list instead of a vector: <code>#(101, 102,
+	    203, 204)</code>
+	  </p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-544"></a>
+      <h4 class="item-title" id="map-into"><a class="here" title="Link to here" href="#map-into"></a> <span class="signature"><code id="IX-1815">map-into</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1816">Iterates over one or more collections and collects the results in an existing mutable collection.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>map-into <var>mutable-collection function collection</var> #rest <var>more-collections</var> </code><br />
+	    &rArr;<code> <var>mutable-collection</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>mutable-collection </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;mutable-collection&gt;</code>.</p>
+	    </dd>
+	    <dt><var>function</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>.</p></dd>
+	    <dt><var>collection</var></dt>
+	    <dd><p>An instance of <code>&lt;collection&gt;</code>.</p></dd>
+	    <dt><var>more-collections</var></dt>
+	    <dd><p>Instances of <code>&lt;collection&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>mutable-collection </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;mutable-collection&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the <var>mutable-collection</var> argument after modifying it by replacing its
+	    elements with the results of applying <var>function</var> to corresponding elements
+	    of <var>collection</var> and <var>more-collections</var>.</p>
+	  <p>If <var>mutable-collection</var> and all the other <var>collections</var> are
+	    sequences, processing is done in the natural order.</p>
+	  <p>When <var>mutable-collection</var> is an instance
+	    of <code>&lt;stretchy-collection&gt;</code>, the usual alignment requirement (described
+	    in <a href="Collection_Alignment#XREF-1021"><q>Collection Alignment</q> on page
+	      120</a>) is relaxed. In this case, the key sequence of <var>mutable-collection</var> is
+	    not considered during alignment. Rather, only the key sequences for the
+	    source <var>collections</var> are aligned, with <var>function</var> called on the
+	    corresponding elements. The result of each call to <var>function</var> is then stored
+	    into <var>mutable-collection</var> with the corresponding key (possibly
+	    stretching <var>mutable-collection</var> in the process),
+	    using <code>element-setter</code>. Other keys in <var>mutable-collection</var> remain
+	    undisturbed.</p>
+	  <p><var>mutable-collection </var>may be the same object as <var>collection</var> or any of
+	    the <var>more-collections</var>.</p>
+	  <p>An error is signaled if<var> mutable-collection</var> does not have the
+	    same <code>key-test</code> function as the rest of the <var>collections</var>. This is
+	    true even if it is a <code>&lt;stretchy-collection&gt;</code> and therefore does not get
+	    aligned.</p>
+	  <pre class="code">
+define variable x = list (10, 9, 8, 7)
+map-into (x, \+, #(1, 2, 3, 4), #(100, 100, 200, 200))
+<code> &rArr;</code>  #(101, 102, 203, 204)
+x
+<code> &rArr;</code>  #(101, 102, 203, 204)</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-558"></a>
+      <h4 class="item-title" id="any_"><a class="here" title="Link to here" href="#any_"></a> <span class="signature"><a name="IX-1819"></a><code id="IX-1817">any?</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1818">Returns the first true value obtained by iterating over one or more collections.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>any? <var>function collection</var> #rest <var>more-collections</var> </code>
+	    &rArr;<code> <var>value</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	    <dt><var>collection</var></dt>
+	    <dd><p>An instance of <code>&lt;collection&gt;</code>.</p></dd>
+	    <dt><var>more-collections</var></dt>
+	    <dd><p>Instances of <code>&lt;collection&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Applies <var>function</var> to groups of corresponding elements
+	    of <var>collection</var> and <var>more-collections</var>. If an application
+	    of <var>function</var> returns true, then <code>any?</code> returns that true
+	    value. Otherwise <var>function</var> returns <code>#f</code> when applied to every such
+	    group, and <code>any?</code> returns <code>#f</code>.</p>
+	  <p>If all the <var>collections</var> are sequences, <code>any?</code> operates in natural
+	    order. In all cases, <code>any?</code> stops on the first true value returned
+	    by <var>function</var>.</p>
+	  <pre class="code">
+any? (\&gt;, #(1, 2, 3 ,4), #(5, 4, 3, 2))
+<code> &rArr;</code>  #t
+any? (even?, #(1, 3, 5, 7))
+<code> &rArr;</code>  #f</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-568"></a>
+      <h4 class="item-title" id="every_"><a class="here" title="Link to here" href="#every_"></a> <span class="signature"><a name="IX-1822"></a><code id="IX-1820">every?</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1821">Returns true if a predicate returns true when applied to all corresponding elements of a set of collections.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>every? <var>function collection</var> #rest <var>more-collections</var> </code>
+	    &rArr;<code> <var>value</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	    <dt><var>collection</var></dt>
+	    <dd><p>An instance of <code>&lt;collection&gt;</code>.</p></dd>
+	    <dt><var>more-collections</var></dt>
+	    <dd><p>Instances of <code>&lt;collection&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;boolean&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Applies <var>function</var> to groups of corresponding elements
+	    of <var>collection</var> and <var>more-collections</var>. If an application
+	    of <var>function</var> returns false, then <code>every?</code>
+	    returns <code>#f</code>. Otherwise <var>function</var> returns a true value when applied
+	    to every such group, and <code>every?</code> returns <code>#t</code>.</p>
+	  <p>If all the <var>collections</var> are sequences, <code>every?</code> operates in
+	    natural order. In all cases, <code>every?</code> stops on the first false value returned
+	    by <var>function</var>.</p>
+	  <pre class="code">
+every? (\&gt;, #(1, 2, 3, 4), #(5, 4, 3, 2))
+<code> &rArr;</code>  #f
+every? (odd?, #(1, 3, 5, 7))
+<code> &rArr;</code>  #t </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-578"></a>
+      <h3 class="sub-subsection-title">Extensible Mapping Functions</h3>
+      <a name="HEADING-102-579"></a>
+      <h4 class="item-title" id="reduce"><a class="here" title="Link to here" href="#reduce"></a> <span class="signature"><code id="IX-1823">reduce</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1824">Combines the elements of a collection and a seed value into a single value by repeatedly applying a binary function.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>reduce <var>function initial-value collection</var> </code>
+	    &rArr;<code> <var>value</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	    <dt><var>initial-value</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	    <dt><var>collection</var></dt>
+	    <dd><p>An instance of <code>&lt;collection&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the result of combining the elements of <var>collection</var>
+	    and <var>initial-value</var> according to <var>function</var>.</p>
+	  <p>If <var>collection</var> is empty, <code>reduce</code>
+	    returns <var>initial-value</var>; otherwise, <var>function</var> is applied
+	    to <var>initial-value</var> and the first element of <var>collection</var> to produce a
+	    new value. If more elements remain in the <var>collection</var>,
+	    then <var>function</var> is called again, this time with the value from the previous
+	    application and the next element from <var>collection</var>. This process continues
+	    until all elements of <var>collection</var> have been processed.</p>
+	  <p><var>function</var> is a binary function used to combine all the elements
+	    of <var>collection</var> into a single value. Processing is always done in the natural
+	    order for <var>collection</var>.</p>
+	  <pre class="code">
+define variable high-score = 10
+reduce (max, high-score, #(3, 1, 4, 1, 5, 9))
+<code> &rArr;</code>  10
+reduce (max, high-score, #(3, 12, 9, 8, 8, 6))
+<code> &rArr;</code>  12 </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-590"></a>
+      <h4 class="item-title" id="reduce1"><a class="here" title="Link to here" href="#reduce1"></a> <span class="signature"><code id="IX-1825">reduce1</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1826">Combines the elements of a collection into a single value by repeatedly applying a binary function, using the first element of the collection as the seed value.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>reduce1 <var>function collection</var> </code>
+	    &rArr;<code> <var>value</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	    <dt><var>collection</var></dt>
+	    <dd><p>An instance of <code>&lt;collection&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the combination of the elements of <var>collection</var> according
+	    to <var>function</var>.</p></dd>
+	<dd>
+	  <p>An error is signaled if <var>collection</var> is empty.</p>
+	  <p><code>reduce1</code> is similar to <code>reduce</code>, except that the first element
+	    of <var>collection</var> is taken as the initial value, and all the remaining elements
+	    of <var>collection</var> are processed as if by <code>reduce</code>. (In other words,
+	    the first value isn't used twice.)</p>
+	  <p>For unstable collections, <q>first</q> element effectively means <q>an element chosen
+	      at random.</q> Processing is done in the natural order for <var>collection</var>.</p>
+	  <pre class="code">
+reduce1 (\+, #(1, 2, 3, 4, 5))
+<code> &rArr;</code>  15 </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-601"></a>
+      <h4 class="item-title" id="choose"><a class="here" title="Link to here" href="#choose"></a> <span class="signature"><a name="IX-1829"></a><code id="IX-1827">choose</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1828">Returns those elements of a sequence that satisfy a predicate.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>choose <var>predicate source-sequence</var> </code>
+	    &rArr;<code> <var>result-sequence</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>predicate</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	    <dt><var>source-sequence</var></dt>
+	    <dd><p>An instance of <code>&lt;sequence&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>result-sequence </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence containing those elements of <var>source-sequence </var> that
+	    satisfy <var>predicate</var>. The <var>result-sequence</var> may or may not be freshly
+	    allocated.</p>
+	  <pre class="code">
+choose (even?, #(3, 1, 4, 1, 5, 8, 9))
+  &rArr;  #(4, 8) </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-609"></a>
+      <h4 class="item-title" id="choose-by"><a class="here" title="Link to here" href="#choose-by"></a> <span class="signature"><a name="IX-1832"></a><code id="IX-1830">choose-by</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1831">Returns those elements of a sequence that correspond to those in another sequence that satisfy a predicate.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>choose-by <var>predicate test-sequence value-sequence</var> </code>
+	    &rArr;<code> <var>result-sequence</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>predicate</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	    <dt><var>test-sequence</var></dt>
+	    <dd><p>An instance of <code>&lt;sequence&gt;</code>.</p></dd>
+	    <dt><var>value-sequence</var></dt>
+	    <dd><p>An instance of <code>&lt;sequence&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>result-sequence </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence containing the elements from <var>value-sequence</var> that
+	    correspond to elements in <var>test-sequence</var> that
+	    satisfy <var>predicate</var>. The <var>result-sequence</var> may or may not be freshly
+	    allocated.</p>
+	  <pre class="code">
+choose-by (even?, range (from: 1),
+             #("a", "b", "c", "d", "e", "f", "g", "h", "i"))
+  &rArr;  #("b", "d", "f", "h") </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-618"></a>
+      <h3 class="sub-subsection-title">Other Mapping Functions</h3>
+      <a name="HEADING-102-619"></a>
+      <h4 class="item-title" id="member_"><a class="here" title="Link to here" href="#member_"></a> <span class="signature"><a name="IX-1835"></a><code id="IX-1833">member?</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1834">Returns true if a collection contains a particular value.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>member? <var>value collection</var> #key <var>test</var> </code>
+	    &rArr;<code> <var>boolean</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>value</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>collection</var></dt>
+	    <dd><p>An instance of <code>&lt;collection&gt;</code>.</p></dd>
+	    <dt><var>test</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>. The default
+		is <code>==</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>boolean</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;boolean&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns true if <var>collection</var> contains <var>value</var> as determined
+	    by <var>test</var>. Otherwise returns false.</p>
+	  <p>The <var>test</var> function may be noncommutative: it is always called
+	    with <var>value</var> as its first argument and an element from <var>collection</var> as
+	    its second argument.</p>
+	  <pre class="code">
+define constant flavors = #(#"vanilla", #"pistachio", #"ginger")
+member? (#"vanilla", flavors)
+<code> &rArr;  #t </code>
+member? (#"banana", flavors)
+<code> &rArr;</code>  #f </pre>
+	  <a name="HEADING-102-629"></a>
+	  <h5 class="method-signature"><span class="signature"><code>member?</code> <var>val range</var> <code>#key</code> <var>test</var> &rArr; <var>boolean</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>If <var>range</var> is unbounded, this method is guaranteed to terminate
+	    if <var>test</var> is <code>==</code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-631"></a>
+      <h4 class="item-title" id="find-key"><a class="here" title="Link to here" href="#find-key"></a> <span class="signature"><a name="IX-1838"></a><code id="IX-1836">find-key</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1837">Returns the key in a collection such that the corresponding collection element satisfies a predicate.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>find-key <var>collection predicate</var> #key <var>skip failure</var> </code>
+	    &rArr;<code> <var>key</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>collection</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;collection&gt;</code>.</p>
+	    </dd>
+	    <dt><var>predicate</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>.</p></dd>
+	    <dt><var>skip</var></dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code>. The default
+		is <code>0</code>.</p></dd>
+	    <dt><var>failure</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>. The default
+		is <code>#f</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>key</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a key value such
+	    that <code>(</code><var>predicate</var> <code>(element</code> <var>collection
+	    key</var><code>))</code> is true. If no element in <var>collection</var>
+	    satisfies <var>predicate</var>, <code>find-key</code> returns <var>failure</var>.</p>
+	  <p>The <var>skip</var> argument indicates that the first <var>skip</var> matching elements
+	    should be ignored. If <var>skip</var> or fewer elements of <var>collection</var>
+	    satisfy <var>predicate</var>, then <var>failure</var> is returned. If collection is not
+	    stable under iteration, then skip is only useful for finding out whether collection
+	    contains at least <var>skip</var> elements which satisfy <var>predicate</var>; it is not
+	    useful for finding a particular element.</p>
+	  <pre class="code">
+flavors
+<code> &rArr;</code>  #(#"vanilla", #"pistachio", #"ginger")
+find-key (flavors, has-nuts?)
+<code> &rArr;</code>  1
+flavors[1]
+<code> &rArr;</code>  #"pistachio" </pre>
+	  <p class="errata-note" id="errata-p335-1">
+	    <a class="note-tag" href="Errata#p335-1"><strong>Errata:</strong></a> In the published
+	    book, the argument <var>predicate</var> is incorrectly named <var>function</var> in the
+	    signature of <code>find-key</code>.
+	  </p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-642"></a>
+      <h4 class="item-title" id="remove-key."><a class="here" title="Link to here" href="#remove-key."></a> <span class="signature"><code id="IX-1839">remove-key!</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1840">Modifies an explicit key collection so it no longer has a particular key.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>remove-key! <var>collection key</var> </code>
+	    &rArr;<code> <var>boolean</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>collection</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;mutable-explicit-key-collection&gt;</code>.</p>
+	    </dd>
+	    <dt><var>key</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>boolean</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;boolean&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Modifies <var>collection</var> so that it no longer has a key equal
+	    to <var>key</var>. Equality is determined by <var>collection</var>'s key-test
+	    function.</p>
+	  <p>The <var>boolean</var> return value will be <code>#t</code> if the <var>key</var> was
+	    present and removed, or <code>#f</code> if the key was not present and hence not
+	    removed.</p>
+	  <a name="HEADING-102-650"></a>
+	  <h5 class="method-signature"><span class="signature"><code>remove-key!</code> <var>table key</var> &rArr; <var>table</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>There is a predefined method on <code>&lt;table&gt;</code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-652"></a>
+      <h4 class="item-title" id="replace-elements."><a class="here" title="Link to here" href="#replace-elements."></a> <span class="signature"><code id="IX-1841">replace-elements!</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1842">Replaces those collection elements that satisfy a predicate.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>replace-elements! <var>mutable-collection predicate new-value-fn</var> #key <var>count</var> </code><br />
+	    &rArr;<code> <var>mutable-collection</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>mutable-collection</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;mutable-collection&gt;</code>.</p>
+	    </dd>
+	    <dt><var>predicate</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>.</p></dd>
+	    <dt><var>new-value-fn</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>.</p></dd>
+	    <dt><var>count</var></dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code> or <code>#f</code>. The default
+		is <code>#f</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>mutable-collection</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;mutable-collection&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Replaces those elements of <var>mutable-collection</var> for which <var>predicate</var>
+	    returns true. The elements are replaced with the value of
+	    calling <var>new-value-fn</var> on the existing element. If <var>count</var>
+	    is <code>#f</code>, all of the matching elements are replaced. Otherwise, no more
+	    than <var>count</var> elements are replaced.</p>
+	</dd>
+	<dd>
+	  <p><var>mutable-collection</var> may be modified by this operation.</p>
+	  <pre class="code">
+define variable numbers = list (10, 13, 16, 19)
+replace-elements! (numbers, odd?, double)
+<code> &rArr;  </code>#(10, 26, 16, 38)</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-663"></a>
+      <h4 class="item-title" id="fill."><a class="here" title="Link to here" href="#fill."></a> <span class="signature"><code id="IX-1843">fill!</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1844">Fills a collection with a specified value.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>fill! <var>mutable-collection value</var> #key <var>start end</var> </code>
+	    &rArr;<code> <var>mutable-collection</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>mutable-collection</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;mutable-collection&gt;</code>.</p>
+	    </dd>
+	    <dt><var>value</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	    <dt><var>start</var></dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code>.</p></dd>
+	    <dt><var>end</var></dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>mutable-collection </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;mutable-collection&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Modifies <var>mutable-collection</var> so that <code>element(<var>mutable-collection,
+		key)</var></code> returns <var>value</var> for every <var>key</var>.</p>
+	  <p>If <var>mutable-collection</var> is a sequence, then <var>start</var>
+	    and <var>end</var> keywords may be specified to indicate that only a part of the
+	    sequence should be filled. <var>start</var> is considered an inclusive bound and
+	    defaults to <code>0</code>; <var>end</var> is an exclusive bound and defaults to the
+	    length of the sequence.</p>
+	  <pre class="code">
+define variable numbers = list (10, 13, 16, 19)
+fill! (numbers, 3, start: 2)
+<code> &rArr;</code>  #(10, 13, 3, 3)<a name="IX-1845"></a> </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-102-674"></a>
+      <a name="UID-Built-In_Functions-418"></a>
+      <h2 class="subsection-title"><a name="IX-1847">The Iteration Protocol</a></h2>
+      <a name="HEADING-102-675"></a>
+      <h4 class="item-title" id="forward-iteration-protocol"><a class="here" title="Link to here" href="#forward-iteration-protocol"></a> <span class="signature"><code id="IX-1846">forward-iteration-protocol</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1540">Returns a group of functions used to iterate over the elements of a collection.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>forward-iteration-protocol <var>collection</var> </code><br />
+	    &rArr;<code> <var>initial-state limit next-state finished-state? current-key current-element current-element-setter copy-state</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>collection</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;collection&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>initial-state</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>. The initial iteration state object.</p>
+	    </dd>
+	    <dt><var>limit</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code> that is used by
+		the <var>finished-state?</var> function to determine whether the iteration has been
+		completed.</p></dd>
+	    <dt><var>next-state</var></dt>
+	    <dd>
+	      <p>An instance of <code>&lt;function&gt;</code>. Its signature is</p>
+	      <p><code>next-state</code> <var>collection state</var> &rArr; <var>new-state</var></p>
+	    </dd>
+	    <dd><p>This function steps the iteration by producing a new state from the
+		associated <var>collection</var> and <var>state. </var>The <var>next-state</var>
+		function may or may not modify the <var>state</var> argument; it is an error to use
+		a state value after it has been passed to the associated <var>next-state</var>
+		function. The <var>copy-state</var> function provides a mechanism for saving a
+		particular state in an iteration for later resumption.</p></dd>
+	    <dt><var>finished-state?</var></dt>
+	    <dd>
+	      <p>An instance of <code>&lt;function&gt;</code>. Its signature is</p>
+	      <p><code>finished-state? <var>collection state limit</var></code> &rArr;<code> <var>boolean</var></code></p>
+	    </dd>
+	    <dd><p>This function returns <code>#t</code> if the iteration of the collection has been
+		completed, i.e., there are no other elements of the collection to consider. It
+		returns <code>#f</code> otherwise. It is an error to use a finished state in a call
+		to the associated <var>next-state</var>, <var>current-element</var>,
+		<var>current-key</var> or <var>current-element-setter</var> functions.</p></dd>
+	    <dt><var>current-key</var></dt>
+	    <dd>
+	      <p>An instance of <code>&lt;function&gt;</code>. Its signature is</p>
+	      <p><code>current-key <var>collection state</var></code> &rArr;<code> <var>key</var></code></p>
+	    </dd>
+	    <dd><p>This function returns the unique key associated with <var>state </var> in
+		the <var>collection</var>. If the <var>current-key</var> function were called once
+		with each <var>state</var> value produced during an iteration over a collection, the
+		resulting sequence of values would contain every key from the collection exactly
+		once; it would be the key-sequence of the collection.</p></dd>
+	    <dt><var>current-element</var></dt>
+	    <dd>
+	      <p>An instance of <code>&lt;function&gt;</code>. Its signature is</p>
+	      <p><code>current-element</code> <var>collection state</var> &rArr; <var>element</var></p>
+	    </dd>
+	    <dd>
+	      <p>This function returns the element of <var>collection</var> currently indicated
+		by <var>state</var>.</p></dd>
+	    <dt><var>current-element-setter</var></dt>
+	    <dd>
+	      <p>An instance of <code>&lt;function&gt;</code>. Its signature is</p>
+	      <p><code>current-element-setter</code> <var>value collection state</var> &rArr; <var>value</var></p>
+	    </dd>
+	    <dd><p>This function sets the element of <var>collection</var> indicated
+		by <var>state</var> to <var>value</var> and returns <var>value</var>. If
+		<var>collection</var> is not an instance of <code>&lt;mutable-collection&gt;</code>, or if
+		the <var>value</var> is not of a type acceptable to the collection, an error is
+		signaled.</p></dd>
+	    <dt><var>copy-state</var></dt>
+	    <dd>
+	      <p>An instance of <code>&lt;function&gt;</code>. Its signature is</p>
+	      <p><code>copy-state <var>collection state</var></code> &rArr;<code> <var>new-state</var></code></p>
+	    </dd>
+	    <dd><p>This function returns a state that represents the same point in the iteration
+		over <var>collection</var> as is represented by <var>state.</var></p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns eight values used to implement iteration over the <var>collection</var>
+	    argument.</p>
+	  <p>Only the <var>collection</var> argument this function was called with may be used as
+	    the <var>collection</var> argument to functions returned by this function. Only
+	    the <var>initial-state</var> object and state objects returned by
+	    the <var>next-state</var> and <var>copy-state</var> functions may be used as
+	    the <var>state</var> argument to functions returned by this function. Only
+	    the <var>limit</var> object may be used as the <var>limit</var> argument to
+	    the <var>finished-state?</var> function.</p>
+	  <p>An example of the use of the iteration protocol is the following definition of a
+	    single-argument version of the <code>do</code> function:</p>
+	  <pre class="code">
+define method do1 (f :: &lt;function&gt;, c :: &lt;collection&gt;)
+  let (init, limit, next, end?, key, elt) =
+                     forward-iteration-protocol(c);
+  for (state = init then next(c, state),
+     until: end?(c, state, limit))
+    f(elt(c, state));
+  end for;
+end method do1;</pre>
+	  <a name="HEADING-102-703"></a>
+	  <h5 class="method-signature"><span class="signature"><code>forward-iteration-protocol</code> <var>table</var><br /> &rArr; <var>initial-state limit next-state finished-state? current-key current-element current-element-setter copy-state</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p class="short-description">The method for <code>&lt;table&gt;</code> implements the iteration protocol in terms of the function <code>table-protocol</code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-705"></a>
+      <h4 class="item-title" id="backward-iteration-protocol"><a class="here" title="Link to here" href="#backward-iteration-protocol"></a> <span class="signature"><code id="IX-1849">backward-iteration-protocol</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1850">Returns a group of functions used to iterate over the elements of a collection in reverse order.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>backward-iteration-protocol <var>collection</var> </code><br />
+	    &rArr;<code> <var>initial-state limit next-state finished-state? current-key current-element current-element-setter copy-state</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>collection</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;collection&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>initial-state</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>limit</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	    <dt><var>next-state</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>.</p></dd>
+	    <dt><var>finished-state?</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>.</p></dd>
+	    <dt><var>current-key</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>.</p></dd>
+	    <dt><var>current-element</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>.</p></dd>
+	    <dt class="RP3.RoutineParam"><var>current-element-setter</var></dt>
+	    <dd class="RP3.RoutineParam"><p>An instance of <code>&lt;function&gt;</code>.</p></dd>
+	    <dt><var>copy-state</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns eight values used to implement reverse iteration over the <var>collection</var>
+	    argument.</p>
+	  <p>Some collection classes that are stable under iteration support the ability to iterate
+	    in the reverse of the natural order, by providing a method on the generic
+	    function <code>backward-iteration-protocol</code>. The eight values returned by this
+	    function are analogous to the corresponding values returned
+	    by <code>forward-iteration-protocol</code>.</p></dd>
+      </dl>
+      <a name="HEADING-102-719"></a>
+      <h3 class="sub-subsection-title">The Table Protocol</h3>
+      <p>The class <code>&lt;table&gt;</code> provides an implementation of the iteration protocol,
+	using the function <code>table-protocol</code>. Every concrete subclass
+	of <code>&lt;table&gt;</code> must provide or inherit a method
+	for <code>table-protocol</code>. A complete description of the table protocol is given
+	in <a href="Tables#XREF-1036"><q>Tables</q> on page 122</a>.</p>
+      <a name="HEADING-102-721"></a>
+      <h4 class="item-title" id="table-protocol"><a class="here" title="Link to here" href="#table-protocol"></a> <span class="signature"><code id="IX-1851">table-protocol</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1852">Returns functions used to implement the
+	iteration protocol for tables.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>table-protocol <var>table</var> </code>
+	    &rArr;<code> <var>test-function hash-function</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>table</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;table&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>test-function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>. Its signature is</p>
+	      <p><code>test-function</code> <var>key1 key2</var> &rArr; <var>boolean</var></p>
+	    </dd>
+	    <dd><p><var>test-function</var> is used to compare keys. It returns true if the keys are
+		members of the same equivalence class according to the table's equivalence
+		predicate.</p></dd>
+	    <dt><var>hash-function</var></dt>
+	    <dd>
+	      <p>An instance of <code>&lt;function&gt;</code>. Its signature is</p>
+	      <p><code>hash-function</code> <var>key</var> &rArr; <var>id state</var></p>
+	    </dd>
+	    <dd><p><var>hash-function</var> computes the hash code of the <var>key</var>, using the
+		hash function associated with the table's equivalence predicate. The hash code is
+		returned as two values, <var>id</var> (an integer) and <var>state</var> (a hash
+		state).</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the test-function and hash-function for the <code>&lt;table&gt;</code>. These
+	    functions are in turn used to implement the other collection operations
+	    on <code>&lt;table&gt;</code>.</p>
+	  <a name="HEADING-102-732"></a>
+	  <h5 class="method-signature"><span class="signature"><code>table-protocol</code> <var>object-table</var> &rArr; <var>test-function hash-function</var> </span><span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p class="short-description">The method for <code>&lt;object-table&gt;</code>
+	    returns <code>==</code> as the <var>test-function</var> and <code>object-hash</code> as
+	    the <var>hash-function</var>.</p>
+	  <p>The method for <code>&lt;object-table&gt;</code> could be written as</p>
+	  <pre class="code">
+define method table-protocol (table :: &lt;object-table&gt;)
+      =&gt; (test-function :: &lt;function&gt;, 
+          hash-function :: &lt;function&gt;)
+  values(\==, object-hash);
+end method table-protocol; </pre>
+	  <p class="errata-note" id="errata-p341-1">
+	    <a class="note-tag" href="Errata#p341-1"><strong>Errata:</strong></a> In the published
+	    book, the <code>table-protocol</code> method signature is missing parentheses around the
+	    result values.
+	  </p>
+	</dd>
+      </dl>
+      <a name="HEADING-102-736"></a>
+      <h4 class="item-title" id="merge-hash-codes"><a class="here" title="Link to here" href="#merge-hash-codes"></a> <span class="signature"><code id="IX-1853">merge-hash-codes</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description">Returns a hash-code created from the merging of two argument hash codes.</p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>merge-hash-codes <var>id1 state1 id2 state2</var> #key <var>ordered</var> </code>
+	    &rArr;<code> <var>merged-id merged-state</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>id1 </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	    <dt><var>state1</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	    <dt><var>id2</var></dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code>.</p></dd>
+	    <dt><var>state2</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	    <dt><var>ordered</var></dt>
+	    <dd><p>An instance of <code>&lt;boolean&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>merged-id </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	    <dt><var>merged-state</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Computes a new hash code by merging the argument hash codes in some implementation
+	    dependent way. This can be used, for example, to generate a hash-code for an object by
+	    combining hash codes of some of its parts.</p>
+	  <p><var>id1</var>, <var>id2</var>, and <var>merged-id </var> are all
+	    integers. <var>state1</var>, <var>state2</var>, and <var>merged-state </var> are all
+	    hash states. <var>ordered</var> is a boolean and determines whether the algorithm used
+	    to perform the merge is permitted to be order dependent. If false, which is the default,
+	    then the merged result must be independent of the order in which the argument pairs are
+	    provided. If true, then the order of the argument pairs matters because the algorithm
+	    used need not be either commutative or associative. It is best to provide a true value
+	    for <var>ordered</var> when possible, as this may result in a better distribution of
+	    hash ids. However, <var>ordered</var> must only be true if this will not cause the hash
+	    function to violate the second constraint on hash functions, described
+	    on <a href="Tables#XREF-1049">page 123</a>.</p>
+	  <p><var>state1</var> and <var>state2</var> should be the value
+	    of <code>$permanant-hash-state</code> or hash-states returned from previous calls
+	    to <code>merge-hash-codes</code> or <code>object-hash</code>.</p></dd>
+      </dl>
+      <a name="HEADING-102-749"></a>
+      <h4 class="item-title" id="object-hash"><a class="here" title="Link to here" href="#object-hash"></a> <span class="signature"><code id="IX-1854">object-hash</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1855">The hash function for the equivalence predicate <code>==</code>.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>object-hash <var>object</var> </code>
+	    &rArr;<code> <var>hash-id hash-state</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>hash-id </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	    <dt><var>hash-state</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Returns a hash-code for <var>object</var> that corresponds to the equivalence
+	    predicate <code>==</code>. It is made available as a tool for writing hash functions in
+	    which the object identity of some component of a key is to be used in computing the hash
+	    code. It returns a hash id (an integer) and associated hash state for the object,
+	    computed in some implementation dependent manner. The values returned
+	    by <code>object-hash</code> when called repeatedly on the same object might not be the
+	    same for each call. If the <var>hash-id</var> value changes then
+	    the <var>hash-state</var> value will also
+	    change.<a name="IX-1856"></a><a name="IX-1857"></a></p></dd>
+      </dl>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Coercing_and_Copying_Objects"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Reflective_Operations_on_Types"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Built-In_Functions"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

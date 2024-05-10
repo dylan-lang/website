@@ -1,0 +1,1635 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Creating CORBA Projects" href="projects.html" /><link rel="prev" title="The Bank Client" href="bank-client.html" />
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
+        <title>The Bank Server - Open Dylan</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" /
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Open Dylan</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../../_static/images/opendylan-light.png" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../../_static/images/opendylan-dark.png" alt="Dark Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../community/index.html">Get Involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../download/index.html">Download</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hacker-guide/source/index.html">Hacker Guide</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Hacker Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/documentation/index.html">Writing Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Writing Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/guidelines.html">Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/generating.html">Generating Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/doctower.html">Doctower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/example.html">Example documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/build-system.html">Jam-based Build System</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/compiler/index.html">DFMC, The Dylan Flow Machine Compiler</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of DFMC, The Dylan Flow Machine Compiler</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/compiler/notes-warnings-errors.html">Notes, Warnings and Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/compiler/old/design.html">Compiler Design (Old)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/compiler/old/internals.html">Compiler Internals (Old)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/runtime/index.html">The Runtime</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of The Runtime</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/object-representation.html">Object Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/calling-convention.html">Calling Convention</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/special-features.html">Special Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/mangling.html">Name Mangling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/threads.html">Compiler Support for Threads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/startup.html">Startup</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/runtime-manager/index.html">Runtime Manager</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Runtime Manager</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime-manager/access-path.html">The ACCESS-PATH library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime-manager/debugger-manager.html">The DEBUGGER-MANAGER library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/duim/index.html">DUIM - Dylan User Interface Manager</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/topics/index.html">Topics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Topics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/method-dispatch.html">Method Dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/debugging.html">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/porting.html">Porting to a New Target Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/ppml.html">The PPML library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/making-a-release.html">Release Check-list</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../proposals/index.html">Enhancement Proposals</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Enhancement Proposals</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0001-dep-process.html">DEP Purpose and Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0002-define-function.html">Define Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0003-c3-linearization.html">C3 superclass linearization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0004-strings-library.html">New strings Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0005-subclass-function.html">Subclass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0006-single-file-library.html">Single File Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0007-collection-type-safety.html">Type-Safe Limited Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0008-multi-line-strings.html">Multi-line Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0010-element-otherwise.html">Defaulted Element Reference Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0011-numeric-literal-syntax.html">Numeric Literal Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0012-string-literals.html">String Literal Syntax</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Learning</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../about/index.html">Tour of Dylan</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Tour of Dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/hello_world.html">Hello, World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/everything_value.html">Everything is a value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/classes.html">Classes &amp; Instantiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/generic_functions.html">Generic Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/getters_setters_functions.html">Getters &amp; Setters are functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/keyword_arguments.html">Keyword Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/limited_types.html">Limited Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/macros.html">Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/multiple_return_values.html">Multiple Return Values</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting-started-cli/source/index.html">Getting Started Guide</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Getting Started Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/hello-world.html">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/source-registries.html">Using Source Registries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/managing-dependencies.html">Managing Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/quick-tips.html">A Few More Quick Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/dylan-compiler.html">Using dylan-compiler interactively</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/dylan-environment.html">An example of dylan-environment interactive functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/editor-support.html">Editor Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/dylan-mode-for-emacs.html">Dylan Interactor Mode for Emacs (DIME)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/debugging-with-gdb-lldb.html">Debugging with GDB or LLDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/windows.html">Notes for Windows Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/environment-variables.html">Environment Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/cross-compilation.html">Cross Compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/platform-specific.html">Platform Specific Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://opendylan.org/books/dpg/">Dylan Programming Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://play.opendylan.org">Dylan Playground</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="https://opendylan.org/books/drm/">Dylan Reference Manual</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../package/index.html">Package Docs</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Package Docs</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/base64/index.html">Base64</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of Base64</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/base64/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/base64/reference.html">Base64 library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/base64/author.html">Author</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/base64/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/binary-data/index.html">binary-data</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of binary-data</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/binary-data/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/binary-data/reference.html">API Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/binary-data/internals.html">Internals</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/command-interface/index.html">Welcome to Command interface’s documentation!</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of Welcome to Command interface’s documentation!</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/command-interface/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/command-line-parser/index.html">command-line-parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/concurrency/index.html">concurrency</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/data-analysis/index.html">data-analysis</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of data-analysis</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/data-analysis/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/data-analysis/statistics.html">The STATISTICS library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/data-analysis/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/deft/index.html">deft</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of deft</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/deft/pacman.html">The pacman Package Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/dylan-tool/index.html">dylan-tool</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of dylan-tool</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/dylan-tool/pacman.html">The pacman Package Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/hash-algorithms/index.html">hash-algorithms</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/http/index.html">http</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of http</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../package/http/server/index.html">HTTP Server</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle navigation of HTTP Server</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../package/http/server/quickstart/index.html">Dylan Web in 60 Seconds</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle navigation of Dylan Web in 60 Seconds</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../package/http/server/quickstart/static-content.html">Serving Static Content</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../package/http/server/quickstart/dynamic-content.html">Serving Dynamic Content</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../package/http/server/quickstart/static-routing.html">Static URL Routing</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/server/configuration.html">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/server/routing.html">URL Routing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/server/dylan-server-pages.html">Dylan Server Pages (DSP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/server/stand-alone-server-app.html">Stand-Alone Server App</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/http/client/index.html">HTTP Client</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../package/http/reference/index.html">Reference</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle navigation of Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/reference/server.html">The HTTP-SERVER library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/reference/common.html">The HTTP-COMMON library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/reference/dsp.html">The DSP library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/reference/client.html">The HTTP-CLIENT library</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/http/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/logging/index.html">logging</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/lsp-dylan/index.html">lsp-dylan</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle navigation of lsp-dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/melange/index.html">melange</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle navigation of melange</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/concrete-example.html">A Concrete Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/basic-use.html">Basic Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/importing-headers.html">Importing Header Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/specifying-object-names.html">Specifying Object Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/type-definitions.html">Type Definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/translating-object-representations.html">Translating Object Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/other-file-options.html">Other File Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/function-clauses.html">Function Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/struct-union-clauses.html">Struct and Union Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/pointer-clauses.html">Pointer Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/constant-clauses.html">Constant Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/variable-clauses.html">Variable Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/low-level-support.html">Low level support facilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/known-limitations.html">Known limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/proposed-modifications.html">Proposed modifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/historical-notes.html">Historical Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/meta/index.html">meta</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle navigation of meta</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/meta/copyright.html">Copyright</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/meta/meta.html">The Meta Library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/objc-dylan/index.html">objc-dylan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/regular-expressions/index.html">regular-expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/sphinx-extensions/index.html">sphinx-extensions</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/strings/index.html">strings</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle navigation of strings</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/testworks/index.html">testworks</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle navigation of testworks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/testworks/usage.html">Testworks Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/testworks/reference.html">Testworks Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/testworks/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/tracing/index.html">tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/uuid/index.html">uuid</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/v3d/index.html">v3d</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle navigation of v3d</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/v3d/v3d.html">The v3d library</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../library-reference/source/index.html">Open Dylan Libraries</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle navigation of Open Dylan Libraries</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/language-extensions/index.html">Dylan Language Extensions</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle navigation of Dylan Language Extensions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/language-differences.html">Language Differences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/define-function.html">Function Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/for-iteration.html">Extensions to the FOR iteration construct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/weak-tables.html">Weak tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/inlining.html">Inlining adjectives for methods, constants, functions, and slots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/numbers.html">Integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/object-with-elements.html">object-with-elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/macro-system-extensions.html">Macro System Extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/parser-expansions.html">Parser Expansions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/alternative-curry-syntax.html">Alternative Curry Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/numeric-literals.html">Numeric Literal Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/string-literals.html">String Literal Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/lid.html">LID File Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/c-ffi/index.html">The c-ffi Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/collections/index.html">The collections Library</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle navigation of The collections Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/bit-set.html">The bit-set Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/bit-vector.html">The bit-vector Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/collectors.html">The collectors Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/plists.html">The plists Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/set.html">The set Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/table-extensions.html">The table-extensions Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/coloring-stream/index.html">The coloring-stream Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/common-dylan/index.html">The common-dylan Library</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><div class="visually-hidden">Toggle navigation of The common-dylan Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/byte-vector.html">The byte-vector Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/common-extensions.html">The common-extensions Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/machine-words.html">The machine-words Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-format.html">The simple-format Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-profiling.html">The simple-profiling Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-random.html">The simple-random Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-timers.html">The simple-timers Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/transcendentals.html">The transcendentals Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/dood/index.html">The DOOD library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/dylan/index.html">The dylan Library</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><div class="visually-hidden">Toggle navigation of The dylan Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/dylan/finalization.html">The finalization Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/dylan/primitives.html">The dylan-primitives Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/dylan/threads.html">The threads Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/io/index.html">The io Library</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><div class="visually-hidden">Toggle navigation of The io Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/format.html">The format Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/format-out.html">The format-out Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/print.html">The print and pprint Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/streams.html">The streams Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/standard-io.html">The standard-io Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/network/index.html">The network Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/progress-stream/index.html">The progress-stream Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/sql/index.html">The sql Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/system/index.html">The system Library</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><div class="visually-hidden">Toggle navigation of The system Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/date.html">The date Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/locators.html">The locators Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/file-system.html">The file-system Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/operating-system.html">The operating-system Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/t-lists/index.html">The t-lists Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/win32/index.html">The Win32 API Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../documentation/index.html">All Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><div class="visually-hidden">Toggle navigation of All Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../news/index.html">News</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../documentation/cheatsheets/index.html">Cheat Sheets</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><div class="visually-hidden">Toggle navigation of Cheat Sheets</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/syntax.html">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/conditionals.html">Conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/collections.html">Collections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/iteration.html">Iteration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/scheme.html">For Schemers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../documentation/publications.html">Publications</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../intro-dylan/source/index.html">Intro to Dylan</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><div class="visually-hidden">Toggle navigation of Intro to Dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/why-dylan.html">Why Dylan?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/expressions-variables.html">Expressions &amp; Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/methods-generic-functions.html">Methods &amp; Generic Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/objects.html">Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/multiple-dispatch.html">Multiple Dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/modules-libraries.html">Modules &amp; Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/conditions.html">Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">CORBA Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" role="switch" type="checkbox"/><label for="toctree-checkbox-37"><div class="visually-hidden">Toggle navigation of CORBA Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro.html">About Open Dylan CORBA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getstart.html">Quick Start Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bank-setup.html">Setting up the Bank Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bank-idl.html">Writing and Compiling IDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bank-client.html">The Bank Client</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">The Bank Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="projects.html">Creating CORBA Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rundebug.html">Running and Debugging CORBA Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scepter.html">Using the Dylan IDL Compiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idl-app.html">An IDL Binding for Dylan</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../building-with-duim/source/index.html">DUIM Guide</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" role="switch" type="checkbox"/><label for="toctree-checkbox-38"><div class="visually-hidden">Toggle navigation of DUIM Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/intro.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/design.html">Designing A Simple DUIM Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/improve.html">Improving The Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/menus.html">Adding Menus To The Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/callbacks.html">Adding Callbacks to the Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/commands.html">Using Command Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/tour.html">A Tour of the DUIM Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/source.html">Source Code For The Task List Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../duim-reference/source/index.html">DUIM Reference</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" role="switch" type="checkbox"/><label for="toctree-checkbox-39"><div class="visually-hidden">Toggle navigation of DUIM Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/conventions.html">Conventions in this Manual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/geom.html">DUIM-Geometry Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/ext-geom.html">DUIM-Extended-Geometry Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/dcs.html">DUIM-DCs Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/sheets.html">DUIM-Sheets Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/graphics.html">DUIM-Graphics Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/layouts.html">DUIM-Layouts Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/gadgets.html">DUIM-Gadgets Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/frames.html">DUIM-Frames Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../getting-started-ide/source/index.html">Getting Started / IDE</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" role="switch" type="checkbox"/><label for="toctree-checkbox-40"><div class="visually-hidden">Toggle navigation of Getting Started / IDE</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/quick-start.html">Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/expanding.html">Fixing Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/model.html">Programming in Open Dylan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/projects.html">Creating and Using Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/browsing.html">Learning More About an Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/debug.html">Debugging and Interactive Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/remotedbg.html">Remote Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/coloring.html">Dispatch Optimization Coloring in the Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/delivery.html">Delivering Dylan Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/editopt.html">The Interactive Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/com-projects.html">Creating COM Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../release-notes/source/index.html">Release Notes</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" role="switch" type="checkbox"/><label for="toctree-checkbox-41"><div class="visually-hidden">Toggle navigation of Release Notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2024.1.html">Open Dylan 2024.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2023.1.html">Open Dylan 2023.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2022.1.html">Open Dylan 2022.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2020.1.html">Open Dylan 2020.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2019.1.html">Open Dylan 2019.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2014.1.html">Open Dylan 2014.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2013.2.html">Open Dylan 2013.2 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2013.1.html">Open Dylan 2013.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2012.1.html">Open Dylan 2012.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2011.1.html">Open Dylan 2011.1 Release Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../sphinx-extensions/documentation/source/index.html">Sphinx Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../style-guide/source/index.html">Style Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Full Index</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/dylan-lang/website/blob/master/source/corba-guide/source/bank-server.rst?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/dylan-lang/website/edit/master/source/corba-guide/source/bank-server.rst" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="the-bank-server">
+<h1>The Bank Server<a class="headerlink" href="#the-bank-server" title="Link to this heading">¶</a></h1>
+<section id="the-server">
+<h2>The server<a class="headerlink" href="#the-server" title="Link to this heading">¶</a></h2>
+<p>In this chapter, we design and implement a CORBA server, using Dylan
+and the Open Dylan ORB.</p>
+<p>Our server presents an object-oriented interface to a bank object and
+its accounts. Because we want the bank’s account records to persist
+beyond the lifetime of the server, we store the account records in a
+Microsoft Access™ relational database. The server manipulates this
+database using Open Dylan’s SQL-ODBC library.</p>
+<p>Since the primary motivation for this tutorial is to illustrate the
+use of CORBA, we will not spend too much time on the use of the
+SQL-ODBC library. Instead, we concentrate on how to provide
+implementations of CORBA objects, and how to make those implementation
+available to the CORBA environment.</p>
+<p>A very small amount of SQL knowledge is assumed in early sections of
+this chapter.</p>
+</section>
+<section id="the-odbc-database">
+<h2>The ODBC database<a class="headerlink" href="#the-odbc-database" title="Link to this heading">¶</a></h2>
+<p>The folder <code class="file docutils literal notranslate"><span class="pre">Examplescorbabankbank-server</span></code> contains a prepared
+Microsoft Access database file <code class="file docutils literal notranslate"><span class="pre">bankDB.mdb</span></code> that the server uses
+to record account details.</p>
+<p>This database contains a single SQL table called <code class="docutils literal notranslate"><span class="pre">Accounts</span></code>:</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Balance</p></th>
+<th class="head"><p>Limit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Jack</p></td>
+<td><p>0</p></td>
+<td><p>NULL</p></td>
+</tr>
+<tr class="row-odd"><td><p>Jill</p></td>
+<td><p>-100</p></td>
+<td><p>200</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Accounts</span></code> table has three columns: <code class="docutils literal notranslate"><span class="pre">Name</span></code>, <code class="docutils literal notranslate"><span class="pre">Balance</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">Limit</span></code>. Each record in the table represents an account.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Name</span></code> column contains values of SQL type <code class="docutils literal notranslate"><span class="pre">string</span></code> that are
+used to uniquely identify account records.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Balance</span></code> column contains values of SQL type <code class="docutils literal notranslate"><span class="pre">long</span></code>,
+reflecting the current balance of each account.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Limit</span></code> column contains either the distinguished SQL value
+NULL that indicates an absent value, or a value of SQL type
+<code class="docutils literal notranslate"><span class="pre">long</span></code>, reflecting the overdraft limit of a checking account.</p></li>
+</ul>
+<p>Note that both accounts and checking accounts are stored as records in
+the same table. By convention, we interpret a record with a NULL
+<code class="docutils literal notranslate"><span class="pre">Limit</span></code> value an ordinary account. We interpret a record with a
+non-NULL, and thus integral, <code class="docutils literal notranslate"><span class="pre">Limit</span></code> value as a checking account
+with the given overdraft limit.</p>
+<p>For instance, the <code class="docutils literal notranslate"><span class="pre">Accounts</span></code> table above contains two records, one
+for Jack’s account and one for Jill’s checking account. (Recall that
+checking accounts can have negative balances while ordinary accounts
+cannot.)</p>
+</section>
+<section id="overview-of-the-open-dylan-sql-odbc-library">
+<h2>Overview of the Open Dylan SQL-ODBC library<a class="headerlink" href="#overview-of-the-open-dylan-sql-odbc-library" title="Link to this heading">¶</a></h2>
+<p>The SQL-ODBC library is built on top of a generic SQL library. The SQL
+library does not include the low-level code necessary to communicate
+with any particular database management system (DBMS): it simply
+provides a convenient high-level mechanism for integrating database
+operations into Dylan applications.</p>
+<p>The SQL library is designed to form the high-level part of
+implementation libraries that contain lower-level code to support a
+particular DBMS protocol, such as ODBC. The SQL-ODBC library is one
+such implementation library.</p>
+<p>The SQL library defines the following abstract classes:</p>
+<ul>
+<li><p>The abstract class <code class="docutils literal notranslate"><span class="pre">&lt;dbms&gt;</span></code> is used to identify a database
+management system.</p>
+<p>The SQL-ODBC library defines an instantiable subclass
+<code class="docutils literal notranslate"><span class="pre">&lt;odbc-dbms&gt;</span></code> of <code class="docutils literal notranslate"><span class="pre">&lt;user&gt;</span></code> for identifying the ODBC DBMS.</p>
+</li>
+<li><p>The abstract class <code class="docutils literal notranslate"><span class="pre">&lt;user&gt;</span></code> identifies users to a DBMS.</p>
+<p>Exactly what a user means depends on the DBMS. The <a class="reference external" href="https://opendylan.org/books/drm/Constructing_and_Initializing_Instances#make"><code class="xref drm docutils literal notranslate"><span class="pre">make</span></code></a>
+method on <code class="docutils literal notranslate"><span class="pre">&lt;user&gt;</span></code> takes two keyword arguments, <code class="docutils literal notranslate"><span class="pre">user:</span></code> and <code class="docutils literal notranslate"><span class="pre">password:</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">user:</span></code> init-keyword takes an instance of <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a>
+that should be a valid user name for the DBMS in question. The <code class="docutils literal notranslate"><span class="pre">password:</span></code>
+init-keyword should be the password that accompanies the user name.</p>
+<p>The SQL-ODBC library defines the instantiable subclass <code class="docutils literal notranslate"><span class="pre">&lt;odbc-user&gt;</span></code>
+of <code class="docutils literal notranslate"><span class="pre">&lt;user&gt;</span></code> for identifying a user to an ODBC DBMS.</p>
+</li>
+<li><p>The abstract class <code class="docutils literal notranslate"><span class="pre">&lt;database&gt;</span></code> identifies a database to a DBMS.</p>
+<p>Exactly what a database is depends on the DBMS in question. The
+SQL-ODBC library defines the class <code class="docutils literal notranslate"><span class="pre">&lt;odbc-database&gt;</span></code>, a subclass
+of <code class="docutils literal notranslate"><span class="pre">&lt;database&gt;</span></code>, whose instances identify databases to an ODBC
+DBMS. In particular, the <a class="reference external" href="https://opendylan.org/books/drm/Constructing_and_Initializing_Instances#make"><code class="xref drm docutils literal notranslate"><span class="pre">make</span></code></a> method on <code class="docutils literal notranslate"><span class="pre">&lt;odbc-database&gt;</span></code>
+accepts the <code class="docutils literal notranslate"><span class="pre">datasource-name:</span></code> keyword argument to specify the
+name of the ODBC datasource, as a <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a>.</p>
+</li>
+<li><p>The abstract class <code class="docutils literal notranslate"><span class="pre">&lt;connection&gt;</span></code> represents database connections.</p>
+<p>Instances of this class identify an execution context for executing
+SQL statements. The exact composition of a connection depends on the
+DBMS.</p>
+<p>The SQL-ODBC library defines the class <code class="docutils literal notranslate"><span class="pre">&lt;odbc-connection&gt;</span></code>, a
+subclass of <code class="docutils literal notranslate"><span class="pre">&lt;connection&gt;</span></code>. Instances of this class are created
+upon making a connection an ODBC database.</p>
+</li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;sql-statement&gt;</span></code> class represents SQL statements and their
+state.  This class has the init-keywords <code class="docutils literal notranslate"><span class="pre">text:</span></code>,
+<code class="docutils literal notranslate"><span class="pre">input-indicator:</span></code>, and <code class="docutils literal notranslate"><span class="pre">output-indicator:</span></code>.</p>
+<p>The required keyword <code class="docutils literal notranslate"><span class="pre">text:</span></code> expects a <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a> that contains
+the text of an SQL statement.  Host variables can be included in the
+statement by placing a question mark (<code class="docutils literal notranslate"><span class="pre">?</span></code>) at the point in the
+string at which the value of the host variable should be
+substituted. The optional keyword argument <code class="docutils literal notranslate"><span class="pre">output-indicator:</span></code>
+expects an instance of <a class="reference external" href="https://opendylan.org/books/drm/Object_Classes#object"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code></a>. The output indicator is a
+substitution value to be used whenever the column of a retrieved
+record contains the SQL NULL value. The optional keyword
+<code class="docutils literal notranslate"><span class="pre">input-indicator:</span></code> expects an instance of <a class="reference external" href="https://opendylan.org/books/drm/Object_Classes#object"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code></a>. The input
+indicator is a marker value used to identify SQL NULL values in host
+variables.</p>
+<p>The SQL library defines two convenient macros that we use in this
+tutorial: <code class="docutils literal notranslate"><span class="pre">with-dbms</span></code> and <code class="docutils literal notranslate"><span class="pre">with-connection</span></code>. Here is the form of
+a <code class="docutils literal notranslate"><span class="pre">with-dbms</span></code> call:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">with-dbms</span><span class="w"> </span><span class="p">(</span><span class="n">dbms</span><span class="p">)</span>
+<span class="w">  </span><span class="c1">// body</span>
+<span class="k">end</span><span class="w"> </span><span class="n">with-dbms</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">with-dbms</span></code> statement macro considers dbms, which must be a
+general instance of class <code class="docutils literal notranslate"><span class="pre">&lt;dbms&gt;</span></code>, to be the DBMS in use throughout
+body. For example, if dbms is an instance of <code class="docutils literal notranslate"><span class="pre">&lt;odbc-dbms&gt;</span></code> and body
+contains a call to <code class="docutils literal notranslate"><span class="pre">connect</span></code>, then the call actually returns an
+<code class="docutils literal notranslate"><span class="pre">&lt;odbc-connection&gt;</span></code>.</p>
+<p>Here is the form of a <code class="docutils literal notranslate"><span class="pre">with-connection</span></code> call:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">with-connection</span><span class="w"> </span><span class="p">(</span><span class="n">connection</span><span class="p">)</span>
+<span class="w">  </span><span class="c1">// body</span>
+<span class="k">end</span><span class="w"> </span><span class="n">with-connection</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">with-connection</span></code> statement macro considers connection, which
+must be an instance of class <code class="docutils literal notranslate"><span class="pre">&lt;connection&gt;</span></code>, to be the default
+database connection in use throughout body . For instance, each call
+to <code class="docutils literal notranslate"><span class="pre">execute</span></code> an SQL statement within body uses connection by
+default, so that the call’s <code class="docutils literal notranslate"><span class="pre">connection:</span></code> keyword argument need not
+be supplied.</p>
+<p>A call to the generic function <code class="docutils literal notranslate"><span class="pre">connect</span></code> returns a new connection of
+class <code class="docutils literal notranslate"><span class="pre">&lt;connection&gt;</span></code> to the specified database database as the user
+user . The connection can be closed by a call to <code class="docutils literal notranslate"><span class="pre">disconnect</span></code>.</p>
+<p>A call to the generic function <code class="docutils literal notranslate"><span class="pre">execute(sql-statement,</span> <span class="pre">parameter:</span>
+<span class="pre">vector)</span></code> executes the SQL statement on the default connection. The
+(optional) <code class="docutils literal notranslate"><span class="pre">parameter:</span></code> argument supplies a vector of values to be
+substituted for any host variables appearing in the statement’s
+text. The n th entry of this vector determines the value of the n th
+host variable. Vector entries that equal the value of the statement’s
+<code class="docutils literal notranslate"><span class="pre">input-indicator:</span></code> keyword argument are sent as SQL NULL values.</p>
+<p>If the SQL statement is a <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement, then the result of
+executing the statement (with <code class="docutils literal notranslate"><span class="pre">execute</span></code>) is a value of class
+<code class="docutils literal notranslate"><span class="pre">&lt;result-set&gt;</span></code>, which is itself a subclass of Dylan’s built in
+<a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#sequence"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;sequence&gt;</span></code></a> class. Each element of a result set is a record and
+each element of a record is a value. The various Dylan collection
+protocols and functions work as you would expect on a result set. For
+the purpose of this tutorial, it suffices to think of a result set as
+a sequence of vectors.</p>
+<p>Just to illustrate the use of the SQL-ODBC library without worrying
+about the implementation of our CORBA server, here is a code fragment
+that might be used to extract the entries in the <code class="docutils literal notranslate"><span class="pre">Name</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Balance</span></code> columns of the <code class="file docutils literal notranslate"><span class="pre">bankDB.mdb</span></code> database:</p>
+<div class="highlight-idl notranslate"><div class="highlight"><pre><span></span><span class="k">begin</span>
+<span class="w">  </span><span class="o">//</span><span class="w"> </span>choose<span class="w"> </span>the<span class="w"> </span>DBMS
+<span class="w">  </span>let<span class="w"> </span>odbc<span class="o">-</span>dbms<span class="w"> </span><span class="o">=</span><span class="w"> </span>make(<span class="o">&lt;</span>odbc<span class="o">-</span>dbms<span class="o">&gt;</span>);
+<span class="w">  </span>with<span class="o">-</span>dbms<span class="w"> </span>(odbc<span class="o">-</span>dbms)
+<span class="w">    </span><span class="o">//</span><span class="w"> </span>identify<span class="w"> </span>the<span class="w"> </span>database
+<span class="w">    </span>let<span class="w"> </span>database<span class="w"> </span><span class="o">=</span><span class="w"> </span>make(<span class="o">&lt;</span>database<span class="o">&gt;</span>,<span class="w"> </span>datasource<span class="o">-</span>name<span class="o">:</span><span class="w"> </span><span class="s2">&quot;bankDB&quot;</span>);
+
+<span class="w">    </span><span class="o">//</span><span class="w"> </span>identify<span class="w"> </span>the<span class="w"> </span>user
+<span class="w">    </span>let<span class="w"> </span>user<span class="w"> </span><span class="o">=</span><span class="w"> </span>make(<span class="o">&lt;</span>user<span class="o">&gt;</span>,<span class="w"> </span>user<span class="o">-</span>name<span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>,<span class="w"> </span>password<span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>);
+
+<span class="w">    </span><span class="o">//</span><span class="w"> </span>establish<span class="w"> </span>a<span class="w"> </span>connection<span class="w"> </span><span class="k">for</span><span class="w"> </span>this<span class="w"> </span>database<span class="w"> </span><span class="k">and</span><span class="w"> </span>user
+<span class="w">    </span>let<span class="w"> </span>connection<span class="w"> </span><span class="o">=</span><span class="w"> </span>connect(database,<span class="w"> </span>user);
+<span class="w">    </span>with<span class="o">-</span>connection<span class="w"> </span>(connection)<span class="w"> </span><span class="o">//</span><span class="w"> </span>make<span class="w"> </span>it<span class="w"> </span>the<span class="w"> </span>default
+<span class="w">      </span>let<span class="w"> </span>query1<span class="w"> </span><span class="o">=</span><span class="w">               </span><span class="o">//</span><span class="w"> </span>construct<span class="w"> </span>the<span class="w"> </span>query...
+<span class="w">        </span>make(<span class="o">&lt;</span>sql<span class="o">-</span>statement<span class="o">&gt;</span>,
+<span class="w">             </span><span class="nb">text</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;select (Name, Balance) from Accounts&quot;</span>);
+
+<span class="w">       </span><span class="o">//</span><span class="w"> </span>...<span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nb">execute</span><span class="w"> </span>it<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>default<span class="w"> </span>connection
+<span class="w">       </span>let<span class="w"> </span>result<span class="o">-</span>set<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">execute</span>(query);
+
+<span class="w">       </span><span class="o">//</span><span class="w"> </span>extract<span class="w"> </span>the<span class="w"> </span>first<span class="w"> </span>record
+<span class="w">       </span>let<span class="w"> </span>first<span class="o">-</span>record<span class="w"> </span><span class="o">=</span><span class="w"> </span>result<span class="o">-</span>set[<span class="mi">0</span>];
+
+<span class="w">       </span><span class="o">//</span><span class="w"> </span>extract<span class="w"> </span>the<span class="w"> </span>first<span class="w"> </span>field<span class="w"> </span><span class="k">of</span><span class="w"> </span>the<span class="w"> </span>first<span class="w"> </span>record.
+<span class="w">       </span>let<span class="w"> </span>first<span class="o">-</span>name<span class="w"> </span><span class="o">=</span><span class="w"> </span>result<span class="o">-</span>set[<span class="mi">0</span>][<span class="mi">0</span>];
+<span class="w">       </span>let<span class="w"> </span>first<span class="o">-</span>balance<span class="w"> </span><span class="o">=</span><span class="w"> </span>result<span class="o">-</span>set[<span class="mi">0</span>][<span class="mi">1</span>];
+<span class="w">       </span>let<span class="w"> </span>second<span class="o">-</span>record<span class="w"> </span><span class="o">=</span><span class="w"> </span>result<span class="o">-</span>set[<span class="mi">1</span>];
+
+<span class="w">       </span><span class="o">//</span><span class="w"> </span>...
+<span class="w">    </span><span class="k">end</span><span class="w"> </span>with<span class="o">-</span>connection;
+<span class="w">    </span>disconnect(connection);<span class="w"> </span><span class="o">//</span><span class="w"> </span>disconnect<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>database
+<span class="w">  </span><span class="k">end</span><span class="w"> </span>with<span class="o">-</span>dbms;
+<span class="k">end</span>;
+</pre></div>
+</div>
+</section>
+<section id="implementing-corba-objects-in-a-server">
+<h2>Implementing CORBA objects in a server<a class="headerlink" href="#implementing-corba-objects-in-a-server" title="Link to this heading">¶</a></h2>
+<p>A CORBA server has to provide an implementation object, called a
+servant, for each of the proxy objects that might be manipulated by a
+client. Our server needs to implement the initial <code class="docutils literal notranslate"><span class="pre">bank</span></code> servant,
+and then create new servants for each of the account objects created
+in response to <code class="docutils literal notranslate"><span class="pre">openAccount</span></code>, <code class="docutils literal notranslate"><span class="pre">openCheckingAccount</span></code> and
+<code class="docutils literal notranslate"><span class="pre">retrieveAccount</span></code> requests. Each of these servants needs to be
+registered in the CORBA environment and assigned an object reference,
+so that the ORB can direct incoming requests to the appropriate
+servant.</p>
+<p>In CORBA, the primary means for an object implementation to access ORB
+services such as object reference generation is via an object adapter.</p>
+<section id="object-adapters">
+<h3>Object adapters<a class="headerlink" href="#object-adapters" title="Link to this heading">¶</a></h3>
+<p>An object adapter is responsible for the following functions:</p>
+<ul class="simple">
+<li><p>Generation and interpretation of object references</p></li>
+<li><p>Registration of servants</p></li>
+<li><p>Mapping object references to the corresponding servants</p></li>
+<li><p>IDL method invocations, mediated by skeleton methods</p></li>
+<li><p>Servant activation and deactivation</p></li>
+</ul>
+<p>The Open Dylan ORB library provides an implementation of the Portable
+Object Adapter (POA). This object adapter forms part of the CORBA
+standard and, like the ORB, has an interface that is specified in
+pseudo IDL (PIDL). The Open Dylan interface to the POA conforms
+closely to the interface obtained by applying the Dylan mapping rules
+to the POA’s PIDL specification.</p>
+<p>A POA object manages the implementation of a collection of objects,
+associating object references with specific servants. While the ORB is
+an abstraction visible to both the client and server, POA objects are
+visible only to the server. User-supplied object implementations are
+registered with a POA and assigned object references. When a client
+issues a request to perform an operation on such an object reference,
+the ORB and POA cooperate to determine which servant the operation
+should be invoked on, and to perform the invocation as an upcall
+through a skeleton method.</p>
+<p>The POA allows several ways of using servants although it does not
+deal with the issue of starting the server process. Once started,
+however, there can be a servant started and ended for a single method
+call, a separate servant for each object, or a shared servant for all
+instances of the object type. It allows for groups of objects to be
+associated by means of being registered with different instances of
+the POA object and allows implementations to specify their own
+activation techniques. If the implementation is not active when an
+invocation is performed, the POA will start one.</p>
+<p>Unfortunately, the flexibility afforded by the POA means that its
+interface is complex and somewhat difficult to use. The example in
+this tutorial makes only elementary use of the POA.</p>
+<p>Here is the PIDL specification of the facilities of the POA that are
+used in this tutorial:</p>
+<div class="highlight-idl notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>PortableServer<span class="w"> </span>{
+<span class="w">  </span>native<span class="w"> </span>Servant;
+
+<span class="w">  </span>interface<span class="w"> </span>POAManager<span class="w"> </span>{
+<span class="w">    </span>exception<span class="w"> </span>AdapterInactive{};
+<span class="w">    </span>void<span class="w"> </span>activate()<span class="w"> </span>raises<span class="w"> </span>(...);
+<span class="w">    </span>...
+<span class="w">  </span>};
+
+<span class="w">  </span>interface<span class="w"> </span>POA<span class="w"> </span>{
+<span class="w">    </span>exception<span class="w"> </span>WrongAdapter<span class="w"> </span>{};
+<span class="w">    </span>readonly<span class="w"> </span>attribute<span class="w"> </span>POAManager<span class="w"> </span>the_POAManager;
+<span class="w">    </span>Object<span class="w"> </span>servant_to_reference(in<span class="w"> </span>Servant<span class="w"> </span>p_servant)
+<span class="w">      </span>raises<span class="w"> </span>(...);
+<span class="w">    </span>Servant<span class="w"> </span>reference_to_servant(in<span class="w"> </span>Object<span class="w"> </span>reference)
+<span class="w">      </span>raises<span class="w"> </span>(WrongAdapter,<span class="w"> </span>...);
+<span class="w">    </span>...
+<span class="w">  </span>};
+};
+</pre></div>
+</div>
+<p>The POA-related interfaces are defined in a module separate from the
+<code class="docutils literal notranslate"><span class="pre">CORBA</span></code> module, called <code class="docutils literal notranslate"><span class="pre">PortableServer</span></code> . That module declares
+several interfaces, of which only the <code class="docutils literal notranslate"><span class="pre">POA</span></code> and <code class="docutils literal notranslate"><span class="pre">POAManager</span></code> are
+shown here.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">PortableServer</span></code> module specifies the type <code class="docutils literal notranslate"><span class="pre">Servant</span></code>. Values
+of type <code class="docutils literal notranslate"><span class="pre">Servant</span></code> represent language-specific implementations of
+CORBA interfaces. Since this type can only be determined by the
+programming language in question, it is merely declared as a <code class="docutils literal notranslate"><span class="pre">native</span></code> type in the PIDL.</p>
+<p>In the Dylan mapping, the <code class="docutils literal notranslate"><span class="pre">Servant</span></code> type maps to the abstract class
+<code class="docutils literal notranslate"><span class="pre">PortableServer/&lt;Servant&gt;</span></code>. User-defined Dylan classes that are
+meant to implement CORBA objects and be registered with a POA must
+inherit from this abstract class.</p>
+<p>Each <code class="docutils literal notranslate"><span class="pre">POA</span></code> object has an associated <code class="docutils literal notranslate"><span class="pre">POAManager</span></code> object. A POA
+manager encapsulates the processing state of the POA it is associated
+with. Using operations on the POA manager, an application can make
+requests for a POA to be queued or discarded, and can have the POA
+deactivated.</p>
+<p>A POA manager has two main processing states, holding and active ,
+that determine the capabilities of the associated POA and the handling
+of ORB requests received by that POA. Both the POA manager and its
+associated POA are initially in the holding state.</p>
+<p>When a POA is in the holding state, it simply queues requests received
+from the ORB without dispatching them to their implementation
+objects. In the active state, the POA receives and processes requests.</p>
+<p>Invoking the POA Manager’s <code class="docutils literal notranslate"><span class="pre">activate</span></code> operation causes it, and its
+associated POA, to enter the active state.</p>
+<p>A POA object provides two useful operations that map between object
+references and servants: <code class="docutils literal notranslate"><span class="pre">servant_to_reference</span></code> and
+<code class="docutils literal notranslate"><span class="pre">reference_to_servant</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">servant_to_reference</span></code> operation has two behaviors. If the given
+servant is not already active in the POA, then the POA generates a new
+object reference for that servant, records the association in the POA,
+and returns the reference. If the servant is already active in the
+POA, then the operation merely returns its associated object
+reference.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">reference_to_servant</span></code> operation returns the servant associated
+with a given object reference in the POA. If the object reference was
+not created by this POA, the operation raises the <code class="docutils literal notranslate"><span class="pre">WrongAdapter</span></code>
+exception.</p>
+</section>
+<section id="the-servers-perspective">
+<h3>The server’s perspective<a class="headerlink" href="#the-servers-perspective" title="Link to this heading">¶</a></h3>
+<p>From the perspective of the server, the Bank-Protocol library
+specifies the protocol that its servants must implement in order to
+satisfy the interfaces in the IDL <code class="file docutils literal notranslate"><span class="pre">bank.idl</span></code>. A partial
+implementation of this protocol resides in the Bank-Skeletons library
+generated by the IDL compiler. This library should be used by any
+application that wants to act as a server by providing an
+implementation for a CORBA object matching an interface in the
+<code class="file docutils literal notranslate"><span class="pre">bank.idl</span></code> file.</p>
+<p>The Bank-Skeletons library defines an abstract servant class for each
+of the protocol classes corresponding to an IDL interface. Each of
+these classes inherits from the abstract class
+<code class="docutils literal notranslate"><span class="pre">PortableServer/&lt;Servant&gt;</span></code>, allowing instances of these classes to
+be registered with a POA.</p>
+<p>A server provides an implementation of an abstract servant class by
+defining a concrete subclass of that class, called an implementation
+class, and defining methods, specialized on the implementation class,
+for each of the protocol functions corresponding to an IDL attribute
+or operation.</p>
+<p>The Bank-Skeletons library defines a concrete skeleton method,
+specialized on the appropriate abstract servant class, for each
+protocol function stemming from an IDL attribute or operation. When
+the POA receives a request from a client through the ORB it looks up
+the servant targeted by that request, and invokes the corresponding
+skeleton method on that servant. The skeleton method performs an
+upcall to the method that implements the protocol function for the
+implementation class of the servant. If the upcall succeeds, the
+skeleton method sends the result to the client. If the method raises a
+Dylan condition corresponding to a CORBA user or system exception, the
+skeleton method sends the CORBA exception back to the client.</p>
+</section>
+</section>
+<section id="requirements-for-implementing-the-bank-server">
+<h2>Requirements for implementing the bank server<a class="headerlink" href="#requirements-for-implementing-the-bank-server" title="Link to this heading">¶</a></h2>
+<p>As there were for the bank client, there are three parts to
+implementing the bank server:</p>
+<ul class="simple">
+<li><p>Write the code to initialize the CORBA ORB, set up the POA and POA
+manager, and get an initial object reference.</p></li>
+<li><p>Write the code for the CORBA objects that the server provides.</p></li>
+<li><p>Write the code for the server GUI.</p></li>
+</ul>
+<p>We start by writing the CORBA object code. As noted in Section 6.4,
+this entails writing concrete servant implementations.</p>
+<section id="the-bank-server-gui">
+<h3>The bank server GUI<a class="headerlink" href="#the-bank-server-gui" title="Link to this heading">¶</a></h3>
+<p>Since this demonstration principally concerns CORBA, and because we
+would like to revamp the look-and-feel of the demonstration
+occasionally, we do not describe the GUI implementation in great
+detail. Instead, only a brief outline of the current design is given.</p>
+<p>The bank server consists of one window that shows a table of raw
+account data. Each row in the table shows the name, the current
+balance, and the overdraft limit data.</p>
+<p>There is also a log window for viewing incoming requests. The full
+implementation of the server GUI can be found in the file
+<code class="file docutils literal notranslate"><span class="pre">server-frame.dylan</span></code>.</p>
+</section>
+<section id="the-bank-server-library-and-module">
+<h3>The bank server library and module<a class="headerlink" href="#the-bank-server-library-and-module" title="Link to this heading">¶</a></h3>
+<p>The bank server is implemented as a library:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">library</span><span class="w"> </span><span class="n">bank-server</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">common-dylan</span><span class="p">;</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">dylan-orb</span><span class="p">;</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">bank-skeletons</span><span class="p">;</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">sql-odbc</span><span class="p">;</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">duim</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">library</span><span class="w"> </span><span class="n">bank-server</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>that defines a single module:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">module</span><span class="w"> </span><span class="n">bank-server</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">common-dylan</span><span class="p">;</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">dylan-orb</span><span class="p">;</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">bank-skeletons</span><span class="p">;</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">sql-odbc</span><span class="p">;</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">duim</span><span class="p">;</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">threads</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">module</span><span class="w"> </span><span class="n">bank-server</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Like the client, our server needs to use the Dylan-ORB system library
+and module, in addition to its application specific libraries. Because
+the server provides implementations (or servants) for CORBA objects
+satisfying interfaces defined in the <code class="docutils literal notranslate"><span class="pre">bank.idl</span></code> file, it also needs
+to use the Bank-Skeletons library and module.</p>
+<p>Interoperating with ODBC requires the SQL-ODBC library and module.</p>
+<p>Finally, our implementation of the server makes non-essential use of
+the DUIM and Threads libraries and modules to present the user with a
+dialog to shutdown the server. The full source code for the server is
+in the <code class="file docutils literal notranslate"><span class="pre">bank-server.dylan</span></code> file.</p>
+</section>
+<section id="implementing-the-servant-classes">
+<h3>Implementing the servant classes<a class="headerlink" href="#implementing-the-servant-classes" title="Link to this heading">¶</a></h3>
+<p>The Bank-Skeletons library defines three abstract servant classes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BankingDemo</span><span class="o">&lt;</span><span class="n">account</span><span class="o">-</span><span class="n">servant</span><span class="o">&gt;</span>
+<span class="n">BankingDemo</span><span class="o">/&lt;</span><span class="n">checkingAccount</span><span class="o">-</span><span class="n">servant</span><span class="o">&gt;</span>
+<span class="n">BankingDemo</span><span class="o">/&lt;</span><span class="n">bank</span><span class="o">-</span><span class="n">servant</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>These classes correspond to the IDL interfaces <code class="docutils literal notranslate"><span class="pre">account</span></code>,
+<code class="docutils literal notranslate"><span class="pre">checkingAccount</span></code>, and <code class="docutils literal notranslate"><span class="pre">bank</span></code>.</p>
+<p>The class <code class="docutils literal notranslate"><span class="pre">BankingDemo/&lt;checkingAccount-servant&gt;</span></code> is defined to
+inherit from <code class="docutils literal notranslate"><span class="pre">BankingDemo&lt;account-servant&gt;</span></code>, matching the
+inheritance relationship declared in the IDL.</p>
+<p>Each class inherits from the abstract class
+<code class="docutils literal notranslate"><span class="pre">PortableServer/&lt;Servant&gt;</span></code>. This allows instances of the class to be
+registered with a POA.</p>
+<p>In our implementation of the bank server, these servant classes are
+implemented by the following concrete subclasses:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">bank</span><span class="o">-</span><span class="n">implementation</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">account</span><span class="o">-</span><span class="n">implementation</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">checkingAccount</span><span class="o">-</span><span class="n">implementation</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;bank-implementation&gt;</span></code> class implements
+<code class="docutils literal notranslate"><span class="pre">BankingDemo/&lt;bank-servant&gt;</span></code> by representing a bank as a connection
+to a database:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">class</span><span class="w"> </span><span class="nc">&lt;bank-implementation&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">BankingDemo/&lt;bank-servant&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">slot</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;connection&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">connection:</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">constant</span><span class="w"> </span><span class="nb">slot</span><span class="w"> </span><span class="n">poa</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">PortableServer/&lt;POA&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">poa:</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">constant</span><span class="w"> </span><span class="nb">slot</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">CORBA/&lt;string&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">name:</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">class</span><span class="w"> </span><span class="nc">&lt;bank-implementation&gt;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The bank implementation class includes the slot <code class="docutils literal notranslate"><span class="pre">poa</span></code> to record the
+POA in which the bank servant is active, so that servants representing
+accounts at the bank can be registered in the same POA.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;account-implementation&gt;</span></code> class implements <code class="docutils literal notranslate"><span class="pre">BankingDemo/&lt;account-servant&gt;</span></code>:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">class</span><span class="w"> </span><span class="nc">&lt;account-implementation&gt;</span>
+<span class="w">    </span><span class="p">(</span><span class="n">BankingDemo/&lt;account-servant&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">constant</span><span class="w"> </span><span class="nb">slot</span><span class="w"> </span><span class="n">bank</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;bank-implementation&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">bank:</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">constant</span><span class="w"> </span><span class="nb">slot</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">CORBA/&lt;string&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">name:</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">class</span><span class="w"> </span><span class="nc">&lt;account-implementation&gt;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>An instance of this class represents an account. The <code class="docutils literal notranslate"><span class="pre">bank</span></code> slot
+provides a connection to the database that holds the account’s
+record. The <code class="docutils literal notranslate"><span class="pre">name</span></code> slot identifies the record in the database.</p>
+<p>Finally, the <code class="docutils literal notranslate"><span class="pre">&lt;checkingAccount-implementation&gt;</span></code> class implements
+<code class="docutils literal notranslate"><span class="pre">BankingDemo/&lt;checkingAccount-servant&gt;</span></code> simply by inheriting from
+<code class="docutils literal notranslate"><span class="pre">&lt;account-implementation&gt;</span></code>:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">class</span><span class="w"> </span><span class="nc">&lt;checkingAccount-implementation&gt;</span>
+<span class="w">  </span><span class="p">(</span><span class="nc">&lt;account-implementation&gt;</span><span class="p">,</span>
+<span class="w">   </span><span class="n">BankingDemo/&lt;checkingAccount-servant&gt;</span><span class="p">)</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">class</span><span class="w"> </span><span class="nc">&lt;checkingAccount-implementation&gt;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="implementing-the-servant-methods">
+<h3>Implementing the servant methods<a class="headerlink" href="#implementing-the-servant-methods" title="Link to this heading">¶</a></h3>
+<p>The next step in implementing the server is to define methods,
+specialized on the implementation classes, for each of the protocol
+functions corresponding to an IDL attribute or operation.</p>
+<p>To support this, the abstract servant classes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BankingDemo</span><span class="o">/&lt;</span><span class="n">account</span><span class="o">-</span><span class="n">servant</span><span class="o">&gt;</span>
+<span class="n">BankingDemo</span><span class="o">/&lt;</span><span class="n">checkingAccount</span><span class="o">-</span><span class="n">servant</span><span class="o">&gt;</span>
+<span class="n">BankingDemo</span><span class="o">/&lt;</span><span class="n">bank</span><span class="o">-</span><span class="n">servant</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>are defined to inherit, respectively, from the abstract protocol
+classes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BankingDemo</span><span class="o">/&lt;</span><span class="n">account</span><span class="o">&gt;</span>
+<span class="n">BankingDemo</span><span class="o">/&lt;</span><span class="n">checkingAccount</span><span class="o">&gt;</span>
+<span class="n">BankingDemo</span><span class="o">/&lt;</span><span class="n">bank</span><span class="o">-</span><span class="n">servant</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>As a result, implementing a protocol function boils down to defining a
+concrete method for that function, where the method specializes on the
+implementation class of its target object. Recall that the target
+object of a protocol function is the first parameter to that function.</p>
+<p>We can now present the implementations of the protocol functions. The
+<code class="docutils literal notranslate"><span class="pre">BankingDemo/account/name</span></code> method returns the value of the account’s
+<code class="docutils literal notranslate"><span class="pre">name</span></code> slot:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/account/name</span>
+<span class="w">    </span><span class="p">(</span><span class="n">account</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;account-implementation&gt;</span><span class="p">)</span>
+<span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">CORBA/&lt;string&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">account</span><span class="p">.</span><span class="n">name</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/account/name</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">BankingDemo/account/balance</span></code> method retrieves the balance field
+from the corresponding record on the database by executing an SQL
+<code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/account/balance</span>
+<span class="w">    </span><span class="p">(</span><span class="n">account</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;account-implementation&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">balance</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">CORBA/&lt;long&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">with-connection</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">bank</span><span class="p">.</span><span class="n">connection</span><span class="p">)</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;sql-statement&gt;</span><span class="p">,</span>
+<span class="w">                     </span><span class="k">text:</span><span class="w"> </span><span class="s">&quot;SELECT Balance FROM Accounts &quot;</span>
+<span class="w">                           </span><span class="s">&quot;WHERE Name = ?&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">result-set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span>
+<span class="w">                             </span><span class="k">parameters:</span><span class="w"> </span><span class="nb">vector</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">name</span><span class="p">));</span>
+<span class="w">    </span><span class="nb">as</span><span class="p">(</span><span class="n">CORBA/&lt;long&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">result-set</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]);</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="n">with-connection</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/account/balance</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">BankingDemo/account/balance</span></code> method increments the record’s
+balance field by executing an SQL <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code> statement:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/account/credit</span>
+<span class="w">    </span><span class="p">(</span><span class="n">account</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;account-implementation&gt;</span><span class="p">,</span>
+<span class="w">     </span><span class="n">amount</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">CORBA/&lt;unsigned-long&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="n">with-connection</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">bank</span><span class="p">.</span><span class="n">connection</span><span class="p">)</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">amount</span><span class="p">);</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;sql-statement&gt;</span><span class="p">,</span>
+<span class="w">                     </span><span class="k">text:</span><span class="w"> </span><span class="s">&quot;UPDATE Accounts &quot;</span>
+<span class="w">                           </span><span class="s">&quot;SET Balance = Balance + ? &quot;</span>
+<span class="w">                           </span><span class="s">&quot;WHERE Name = ?&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="w"> </span><span class="k">parameters:</span><span class="w"> </span><span class="nb">vector</span><span class="p">(</span><span class="nb">as</span><span class="p">(</span><span class="nc">&lt;integer&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">),</span>
+<span class="w">            </span><span class="n">account</span><span class="p">.</span><span class="n">name</span><span class="p">));</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="n">with-connection</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/account/credit</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">BankingDemo/account/debit</span></code> method executes an SQL <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>
+statement that decrements the record’s balance field, provided the
+balance exceeds the desired amount:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/account/debit</span>
+<span class="w">    </span><span class="p">(</span><span class="n">account</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;account-implementation&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">CORBA/&lt;long&gt;</span><span class="p">)</span>
+<span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="n">with-connection</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">bank</span><span class="p">.</span><span class="n">connection</span><span class="p">)</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">amount</span><span class="p">);</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;sql-statement&gt;</span><span class="p">,</span>
+<span class="w">                     </span><span class="k">text:</span><span class="w"> </span><span class="s">&quot;UPDATE Accounts &quot;</span>
+<span class="w">                           </span><span class="s">&quot;SET Balance = Balance - ? &quot;</span>
+<span class="w">                           </span><span class="s">&quot;WHERE Name = ? AND Balance &gt;= ?&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span>
+<span class="w">            </span><span class="k">parameters:</span><span class="w"> </span><span class="nb">vector</span><span class="p">(</span><span class="nb">as</span><span class="p">(</span><span class="nc">&lt;integer&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">),</span>
+<span class="w">                               </span><span class="n">account</span><span class="p">.</span><span class="n">name</span><span class="p">,</span>
+<span class="w">                               </span><span class="nb">as</span><span class="p">(</span><span class="nc">&lt;integer&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">)));</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="n">with-connection</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/account/debit</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">BankingDemo/checkingAccount/limit</span></code> method is similar to the
+<code class="docutils literal notranslate"><span class="pre">BankingDemo/account/balance</span></code> method defined above:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/checkingAccount/limit</span>
+<span class="w">    </span><span class="p">(</span><span class="n">account</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;checkingAccount-implementation&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">limit</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">CORBA/&lt;long&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">with-connection</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">bank</span><span class="p">.</span><span class="n">connection</span><span class="p">)</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;sql-statement&gt;</span><span class="p">,</span>
+<span class="w">                     </span><span class="k">text:</span><span class="w"> </span><span class="s">&quot;select Limit from Accounts &quot;</span>
+<span class="w">                           </span><span class="s">&quot;where Name = ?&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">result-set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span>
+<span class="w">                             </span><span class="k">parameters:</span><span class="w"> </span><span class="nb">vector</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">name</span><span class="p">));</span>
+<span class="w">    </span><span class="nb">as</span><span class="p">(</span><span class="n">CORBA/&lt;long&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">result-set</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="n">with-connection</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/checkingAccount/limit</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Because we defined <code class="docutils literal notranslate"><span class="pre">&lt;checkingAccount-implementation&gt;</span></code> to inherit
+from <code class="docutils literal notranslate"><span class="pre">&lt;account-implementation&gt;</span></code>, there is no need to re-implement
+the <code class="docutils literal notranslate"><span class="pre">BankingDemo/account/balance</span></code> and <code class="docutils literal notranslate"><span class="pre">BankingDemo/account/credit</span></code>
+methods for this implementation class. However, we do want to define a
+specialized <code class="docutils literal notranslate"><span class="pre">BankingDemo/account/debit</span></code> method, to reflect that a
+checking account can be overdrawn up to its limit:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/account/debit</span>
+<span class="w">    </span><span class="p">(</span><span class="n">account</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;checkingAccount-implementation&gt;</span><span class="p">,</span>
+<span class="w">     </span><span class="n">amount</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">CORBA/&lt;long&gt;</span><span class="p">)</span>
+<span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="n">with-connection</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">bank</span><span class="p">.</span><span class="n">connection</span><span class="p">)</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">amount</span><span class="p">);</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;sql-statement&gt;</span><span class="p">,</span>
+<span class="w">                     </span><span class="k">text:</span><span class="w"> </span><span class="s">&quot;UPDATE Accounts &quot;</span>
+<span class="w">                           </span><span class="s">&quot;SET Balance = Balance - ? &quot;</span>
+<span class="w">                           </span><span class="s">&quot;WHERE Name = ? AND (Balance + Limit) &gt;= ?&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span>
+<span class="w">            </span><span class="k">parameters:</span><span class="w"> </span><span class="nb">vector</span><span class="p">(</span><span class="nb">as</span><span class="p">(</span><span class="nc">&lt;integer&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">),</span>
+<span class="w">                               </span><span class="n">account</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="nb">as</span><span class="p">(</span><span class="nc">&lt;integer&gt;</span><span class="p">,</span>
+<span class="w">                               </span><span class="n">amount</span><span class="p">)));</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="n">with-connection</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/account/debit</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">BankingDemo/bank/name</span></code> method returns the value of the bank’s <code class="docutils literal notranslate"><span class="pre">name</span></code> slot:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/bank/name</span>
+<span class="w">    </span><span class="p">(</span><span class="n">bank</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;bank-implementation&gt;</span><span class="p">)</span>
+<span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">CORBA/&lt;string&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">bank</span><span class="p">.</span><span class="n">name</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/bank/name</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">BankingDemo/bank/openAccount</span></code> method illustrates how CORBA user exceptions are raised:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/bank/openAccount</span>
+<span class="w">    </span><span class="p">(</span><span class="n">bank</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;bank-implementation&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">CORBA/&lt;string&gt;</span><span class="p">)</span>
+<span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">account</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">BankingDemo/&lt;account&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">existsAccount?</span><span class="p">(</span><span class="n">bank</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">))</span>
+<span class="w">    </span><span class="nb">error</span><span class="p">(</span><span class="nb">make</span><span class="p">(</span><span class="n">BankingDemo/bank/&lt;duplicateAccount&gt;</span><span class="p">));</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="k">begin</span>
+<span class="w">      </span><span class="n">with-connection</span><span class="p">(</span><span class="n">bank</span><span class="p">.</span><span class="n">connection</span><span class="p">)</span>
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;sql-statement&gt;</span><span class="p">,</span>
+<span class="w">              </span><span class="k">text:</span><span class="w"> </span><span class="s">&quot;INSERT INTO Accounts(Name, Balance, Limit) &quot;</span>
+<span class="w">                    </span><span class="s">&quot;VALUES(?, ?, ?)&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="k">input-indicator:</span><span class="w"> </span><span class="l">#f</span><span class="p">);</span>
+<span class="w">        </span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="w"> </span><span class="k">parameters:</span><span class="w"> </span><span class="nb">vector</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="nb">as</span><span class="p">(</span><span class="nc">&lt;integer&gt;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<span class="w">                                   </span><span class="l">#f</span><span class="p">));</span>
+<span class="w">      </span><span class="k">end</span><span class="w"> </span><span class="n">with-connection</span><span class="p">;</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="n">new-account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;account-implementation&gt;</span><span class="p">,</span>
+<span class="w">                             </span><span class="k">bank:</span><span class="w"> </span><span class="n">bank</span><span class="p">,</span><span class="w"> </span><span class="k">name:</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="w">      </span><span class="nb">as</span><span class="p">(</span><span class="n">BankingDemo/&lt;account&gt;</span><span class="p">,</span>
+<span class="w">         </span><span class="n">PortableServer/POA/servant-to-reference</span><span class="p">(</span><span class="n">bank</span><span class="p">.</span><span class="n">poa</span><span class="p">,</span>
+<span class="w">                                                 </span><span class="n">new-account</span><span class="p">));</span>
+<span class="w">    </span><span class="k">end</span><span class="p">;</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/bank/openAccount</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If the test <code class="docutils literal notranslate"><span class="pre">existsAccount?(bank,</span> <span class="pre">name)</span></code> succeeds, the call to</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="nb">error</span><span class="w"> </span><span class="p">(</span><span class="nb">make</span><span class="p">(</span><span class="n">BankingDemo/bank/&lt;duplicateAccount&gt;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>raises a Dylan condition. (We omit the definition of
+<code class="docutils literal notranslate"><span class="pre">existsAccount?</span></code>, which can be found in the source.) Recall that the
+condition class <code class="docutils literal notranslate"><span class="pre">BankingDemo/bank/&lt;duplicateAccount&gt;</span></code> corresponds to
+the IDL <code class="docutils literal notranslate"><span class="pre">duplicateAccount</span></code> exception. The POA that invoked this
+method in response to a client’s request will catch the condition and
+send the IDL <code class="docutils literal notranslate"><span class="pre">duplicateAccount</span></code> exception back to the client.</p>
+<p>If there is no existing account for the supplied name, the
+<code class="docutils literal notranslate"><span class="pre">BankingDemo/bank/openAccount</span></code> method creates a new record in the
+database by executing an SQL <code class="docutils literal notranslate"><span class="pre">INSERT</span></code> statement, initializing the
+“Limit” field of this record with the SQL NULL value. (Recall that the
+presence of the NULL value serves to distinguish ordinary accounts
+from checking accounts on the database.)</p>
+<p>Finally, the method makes a new servant of class
+<code class="docutils literal notranslate"><span class="pre">&lt;account-implementation&gt;</span></code>, registers it with the bank’s POA with a
+call to <code class="docutils literal notranslate"><span class="pre">PortableServer/POA/servant-to-reference</span></code>, and narrows the
+resulting object reference to the more specific class
+<code class="docutils literal notranslate"><span class="pre">BankingDemo/&lt;account&gt;</span></code>, the class of object references to account
+objects, as required by the signature of the protocol function.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">BankingDemo/bank/openCheckingAccount</span></code> method is similar, except
+that it initializes the <code class="docutils literal notranslate"><span class="pre">Limit</span></code> field of the new account record with
+the desired overdraft limit, and registers a new servant of class
+<code class="docutils literal notranslate"><span class="pre">&lt;checkingAccount-implementation&gt;</span></code>, returning an object reference of
+class <code class="docutils literal notranslate"><span class="pre">BankingDemo/&lt;checkingAccount&gt;</span></code>:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/bank/openCheckingAccount</span>
+<span class="w">    </span><span class="p">(</span><span class="n">bank</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;bank-implementation&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">CORBA/&lt;string&gt;</span><span class="p">,</span>
+<span class="w">     </span><span class="n">limit</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">CORBA/&lt;long&gt;</span><span class="p">)</span>
+<span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">checkingAccount</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">BankingDemo/&lt;checkingAccount&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">existsAccount?</span><span class="p">(</span><span class="n">bank</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">))</span>
+<span class="w">    </span><span class="nb">error</span><span class="w"> </span><span class="p">(</span><span class="nb">make</span><span class="p">(</span><span class="n">BankingDemo/bank/&lt;duplicateAccount&gt;</span><span class="p">));</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="k">begin</span>
+<span class="w">      </span><span class="n">with-connection</span><span class="p">(</span><span class="n">bank</span><span class="p">.</span><span class="n">connection</span><span class="p">)</span>
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">limit</span><span class="p">);</span>
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span>
+<span class="w">          </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;sql-statement&gt;</span><span class="p">,</span>
+<span class="w">              </span><span class="k">text:</span><span class="w"> </span><span class="s">&quot;INSERT INTO Accounts(Name, Balance, Limit) &quot;</span>
+<span class="w">                    </span><span class="s">&quot;VALUES(?, ?, ?)&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="k">input-indicator:</span><span class="w"> </span><span class="l">#f</span><span class="p">);</span>
+<span class="w">        </span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="w"> </span><span class="k">parameters:</span><span class="w"> </span><span class="nb">vector</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="nb">as</span><span class="p">(</span><span class="nc">&lt;integer&gt;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<span class="w">                                          </span><span class="nb">as</span><span class="p">(</span><span class="nc">&lt;integer&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">limit</span><span class="p">)));</span>
+<span class="w">      </span><span class="k">end</span><span class="w"> </span><span class="n">with-connection</span><span class="p">;</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="n">new-account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;checkingAccount-implementation&gt;</span><span class="p">,</span>
+<span class="w">                             </span><span class="k">bank:</span><span class="w"> </span><span class="n">bank</span><span class="p">,</span><span class="w"> </span><span class="k">name:</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="w">      </span><span class="nb">as</span><span class="p">(</span><span class="n">BankingDemo/&lt;checkingAccount&gt;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">PortableServer/POA/servant-to-reference</span><span class="p">(</span><span class="n">bank</span><span class="p">.</span><span class="n">poa</span><span class="p">,</span>
+<span class="w">                                              </span><span class="n">new-account</span><span class="p">));</span>
+<span class="w">     </span><span class="k">end</span><span class="p">;</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/bank/openCheckingAccount</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">BankingDemo/bank/retrieveAccount</span></code> method uses the <code class="docutils literal notranslate"><span class="pre">name</span></code>
+parameter to select the <code class="docutils literal notranslate"><span class="pre">Limit</span></code> field of an account record. If there
+is no record with that name, indicated by the query returning an empty
+result set, the method raises the CORBA user exception
+<code class="docutils literal notranslate"><span class="pre">nonExistentAccount</span></code> by signalling the corresponding Dylan error.</p>
+<p>Otherwise, the method uses the value of the <code class="docutils literal notranslate"><span class="pre">Limit</span></code> field to
+distinguish whether the account is an account or a current account,
+creating a new servant of the appropriate class:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/bank/retrieveAccount</span>
+<span class="w">    </span><span class="p">(</span><span class="n">bank</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;bank-implementation&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">CORBA/&lt;string&gt;</span><span class="p">)</span>
+<span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">account</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">BankingDemo/&lt;account&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">with-connection</span><span class="p">(</span><span class="n">bank</span><span class="p">.</span><span class="n">connection</span><span class="p">)</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;sql-statement&gt;</span><span class="p">,</span>
+<span class="w">                  </span><span class="k">text:</span><span class="w"> </span><span class="s">&quot;SELECT Limit FROM Accounts &quot;</span>
+<span class="w">                        </span><span class="s">&quot;WHERE Name = ?&quot;</span><span class="p">,</span>
+<span class="w">                  </span><span class="k">output-indicator:</span><span class="w"> </span><span class="l">#f</span><span class="p">);</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">result-set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="w"> </span><span class="k">parameters:</span><span class="w"> </span><span class="nb">vector</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
+<span class="w">                          </span><span class="k">result-set-policy:</span>
+<span class="w">                            </span><span class="no">$scrollable-result-set-policy</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">empty?</span><span class="w"> </span><span class="p">(</span><span class="n">result-set</span><span class="p">))</span>
+<span class="w">      </span><span class="nb">error</span><span class="w"> </span><span class="p">(</span><span class="nb">make</span><span class="p">(</span><span class="n">BankingDemo/bank/&lt;nonExistentAccount&gt;</span><span class="p">));</span>
+<span class="w">    </span><span class="k">elseif</span><span class="w"> </span><span class="p">(</span><span class="n">result-set</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="w">      </span><span class="nb">as</span><span class="p">(</span><span class="n">BankingDemo/&lt;checkingAccount&gt;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">PortableServer/POA/servant-to-reference</span>
+<span class="w">        </span><span class="p">(</span><span class="n">bank</span><span class="p">.</span><span class="n">poa</span><span class="p">,</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;checkingAccount-implementation&gt;</span><span class="p">,</span>
+<span class="w">                        </span><span class="k">bank:</span><span class="w"> </span><span class="n">bank</span><span class="p">,</span><span class="w"> </span><span class="k">name:</span><span class="w"> </span><span class="n">name</span><span class="p">)));</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">      </span><span class="nb">as</span><span class="p">(</span><span class="n">BankingDemo/&lt;account&gt;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">PortableServer/POA/servant-to-reference</span>
+<span class="w">        </span><span class="p">(</span><span class="n">bank</span><span class="p">.</span><span class="n">poa</span><span class="p">,</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;account-implementation&gt;</span><span class="p">,</span>
+<span class="w">                        </span><span class="k">bank:</span><span class="w"> </span><span class="n">bank</span><span class="p">,</span><span class="w"> </span><span class="k">name:</span><span class="w"> </span><span class="n">name</span><span class="p">)));</span>
+<span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="p">;</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="n">with-connection</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/bank/retrieveAccount</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>(Unlike the other queries in this example, this query is executed with
+<code class="docutils literal notranslate"><span class="pre">result-set-policy:</span> <span class="pre">$scrollable-result-set-policy</span></code> to ensure that
+testing the emptiness of the result set does not invalidate its
+records.)</p>
+<p>Finally, the <code class="docutils literal notranslate"><span class="pre">closeAccount</span></code> removes the record of an account from
+the database by executing an SQL <code class="docutils literal notranslate"><span class="pre">delete</span></code> statement:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/bank/closeAccount</span>
+<span class="w">    </span><span class="p">(</span><span class="n">bank</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;bank-implementation&gt;</span><span class="p">,</span>
+<span class="w">     </span><span class="n">account-reference</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">BankingDemo/&lt;account&gt;</span><span class="p">)</span>
+<span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">account</span>
+<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">Portableserver/POA/reference-to-servant</span><span class="p">(</span><span class="n">bank</span><span class="p">.</span><span class="n">poa</span><span class="p">,</span>
+<span class="w">                                           </span><span class="n">account-reference</span><span class="p">);</span>
+<span class="w">  </span><span class="n">with-connection</span><span class="p">(</span><span class="n">bank</span><span class="p">.</span><span class="n">connection</span><span class="p">)</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;sql-statement&gt;</span><span class="p">,</span>
+<span class="w">                  </span><span class="k">text:</span><span class="w"> </span><span class="s">&quot;DELETE FROM Accounts &quot;</span>
+<span class="w">                        </span><span class="s">&quot;WHERE Name = ?&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="w"> </span><span class="k">parameters:</span><span class="w"> </span><span class="nb">vector</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">name</span><span class="p">));</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="n">with-connection</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">BankingDemo/bank/closeAccount</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Note that we need to dereference the object reference <code class="docutils literal notranslate"><span class="pre">account</span></code> that
+is passed in as the parameter of the <code class="docutils literal notranslate"><span class="pre">BankingDemo/bank/closeAccount</span></code>
+operation. We call the <code class="docutils literal notranslate"><span class="pre">Portableserver/POA/reference-to-servant</span></code>
+operation of the POA to do so. Here, we make implicit use of our
+knowledge that, in our application, the server only encounters object
+references registered with its local POA. This assumption is not true
+in general.</p>
+</section>
+</section>
+<section id="implementing-corba-initialization-for-the-bank-server">
+<h2>Implementing CORBA initialization for the bank server<a class="headerlink" href="#implementing-corba-initialization-for-the-bank-server" title="Link to this heading">¶</a></h2>
+<p>To complete the implementation of the bank server we need to write the
+code that enters it into the CORBA environment. In detail, we need to:</p>
+<ul class="simple">
+<li><p>Initialize the server’s ORB</p></li>
+<li><p>Get a reference to the ORB pseudo-object for use in future ORB operations</p></li>
+<li><p>Get a reference to the POA pseudo-object for use in future POA operations</p></li>
+<li><p>Make a bank servant and register it with the POA</p></li>
+<li><p>Make the object reference of the bank servant available to the client</p></li>
+<li><p>Activate the POA to start processing incoming requests</p></li>
+<li><p>Prevent the process from exiting, providing availability</p></li>
+</ul>
+<p>To do this, we need to make use of some additional operations
+specified in the CORBA module:</p>
+<div class="highlight-idl notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>CORBA<span class="w"> </span>{
+<span class="w">  </span><span class="o">///</span><span class="w"> </span>...
+<span class="w">  </span>interface<span class="w"> </span>ORB<span class="w"> </span>{
+<span class="w">    </span><span class="o">//</span><span class="w"> </span>...
+<span class="w">    </span>typedef<span class="w"> </span><span class="nb">string</span><span class="w"> </span>ObjectId;
+<span class="w">     </span>exception<span class="w"> </span>InvalidName<span class="w"> </span>{};
+<span class="w">     </span>Object<span class="w"> </span>resolve_initial_references<span class="w"> </span>(in<span class="w"> </span>ObjectId<span class="w"> </span>identifier)
+<span class="w">       </span>raises<span class="w"> </span>(InvalidName);
+<span class="w">    </span>void<span class="w"> </span>run();
+<span class="w">    </span>void<span class="w"> </span>shutdown(<span class="w"> </span>in<span class="w"> </span>boolean<span class="w"> </span>wait_for_completion<span class="w"> </span>);
+<span class="w">  </span>}
+}
+</pre></div>
+</div>
+<p>The CORBA standard specifies the ORB operation
+<code class="docutils literal notranslate"><span class="pre">resolve_initial_references</span></code>. This operation provides a portable
+method for applications to obtain initial references to a small set of
+standard objects (objects other than the initial ORB). These objects
+are identified by a mnemonic name, using a string knows as an
+<code class="docutils literal notranslate"><span class="pre">ObjectId</span></code>. For instance, the <code class="docutils literal notranslate"><span class="pre">ObjectID</span></code> for an initial POA object
+is <code class="docutils literal notranslate"><span class="pre">&quot;RootPOA&quot;</span></code>. (References to a select few other objects, such as
+the <code class="docutils literal notranslate"><span class="pre">&quot;Interface</span> <span class="pre">Repository&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;NamingService&quot;</span></code>, can also be
+obtained in this manner.)</p>
+<p>The ORB operation <code class="docutils literal notranslate"><span class="pre">resolve_initial_references</span></code> returns the object
+associated with an <code class="docutils literal notranslate"><span class="pre">ObjectId</span></code>, raising the exception <code class="docutils literal notranslate"><span class="pre">InvalidName</span></code>
+for an unrecognized <code class="docutils literal notranslate"><span class="pre">ObjectID</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">run</span></code> and <code class="docutils literal notranslate"><span class="pre">shutdown</span></code> operations are useful in multi-threaded
+programs, such as servers, which, apart from the main thread, need to
+run a separate request receiver thread for each POA.</p>
+<p>(A single-threaded application, such as a pure ORB client, does not
+generally need to use these operations.)</p>
+<p>A thread that calls an ORB’s <code class="docutils literal notranslate"><span class="pre">run</span></code> operation simply waits until it
+receives notification that the ORB has shut down.</p>
+<p>Calling <code class="docutils literal notranslate"><span class="pre">run</span></code> in a server’s main thread can then be used to ensure
+that the server process does not exit until the ORB has been
+explicitly shut down.</p>
+<p>Meanwhile, the <code class="docutils literal notranslate"><span class="pre">shutdown</span></code> operation instructs the ORB, and its
+object adapters, to shut down.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">wait_for_completion</span></code> parameter is <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>, the operation
+blocks until all pending ORB processing has completed, otherwise it
+simply shuts down the ORB immediately.</p>
+<div class="highlight-idl notranslate"><div class="highlight"><pre><span></span>define<span class="w"> </span>method<span class="w"> </span>initialize<span class="o">-</span>server<span class="w"> </span>()
+<span class="w">  </span>let<span class="w"> </span>location<span class="o">-</span>service<span class="w"> </span><span class="o">=</span><span class="w"> </span>get<span class="o">-</span>location<span class="o">-</span>service();
+
+<span class="w">  </span><span class="o">//</span><span class="w"> </span>get<span class="w"> </span>reference<span class="w"> </span>to<span class="w"> </span>ORB
+<span class="w">  </span>let<span class="w"> </span>orb<span class="w"> </span><span class="o">=</span><span class="w"> </span>CORBA<span class="o">/</span>ORB<span class="o">-</span>init(make(CORBA<span class="o">/&lt;</span>arg<span class="o">-</span><span class="nb">list</span><span class="o">&gt;</span>),<span class="w"> </span><span class="s2">&quot;Open Dylan ORB&quot;</span>);
+
+<span class="w">  </span><span class="o">//</span><span class="w"> </span>get<span class="w"> </span>reference<span class="w"> </span>to<span class="w"> </span>root<span class="w"> </span>POA,<span class="w"> </span>initially<span class="w"> </span>in<span class="w"> </span>the<span class="w"> </span>holding<span class="w"> </span>state
+<span class="w">  </span>let<span class="w"> </span>RootPOA<span class="w"> </span><span class="o">=</span><span class="w"> </span>CORBA<span class="o">/</span>ORB<span class="o">/</span>resolve<span class="o">-</span>initial<span class="o">-</span>references(orb,<span class="w"> </span><span class="s2">&quot;RootPOA&quot;</span>);
+
+<span class="w">  </span>with<span class="o">-</span>dbms<span class="w"> </span>($dbms)
+<span class="w">     </span><span class="o">//</span><span class="w"> </span>connect<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>database
+<span class="w">     </span>let<span class="w"> </span>database<span class="w"> </span><span class="o">=</span><span class="w"> </span>make(<span class="o">&lt;</span>database<span class="o">&gt;</span>,<span class="w"> </span>datasource<span class="o">-</span>name<span class="o">:</span><span class="w"> </span>$datasource<span class="o">-</span>name);
+<span class="w">     </span>let<span class="w"> </span>user<span class="w"> </span><span class="o">=</span><span class="w">  </span>make(<span class="o">&lt;</span>user<span class="o">&gt;</span>,<span class="w"> </span>user<span class="o">-</span>name<span class="o">:</span><span class="w"> </span>$user<span class="o">-</span>name,<span class="w"> </span>password<span class="o">:</span><span class="w"> </span>$user<span class="o">-</span>password);
+<span class="w">     </span>let<span class="w"> </span>connection<span class="w"> </span><span class="o">=</span><span class="w"> </span>connect(database,<span class="w"> </span>user);
+
+<span class="w">     </span><span class="o">//</span><span class="w"> </span>make<span class="w"> </span>the<span class="w"> </span>server<span class="w"> </span>frame,<span class="w"> </span>initialize<span class="w"> </span><span class="k">and</span><span class="w"> </span>refresh<span class="w"> </span>it.
+<span class="w">     </span>let<span class="w"> </span>server<span class="o">-</span>frame<span class="w"> </span><span class="o">=</span><span class="w"> </span>make(<span class="o">&lt;</span>server<span class="o">-</span>frame<span class="o">&gt;</span>,<span class="w"> </span>connection<span class="o">:</span><span class="w"> </span>connection);
+<span class="w">     </span>server<span class="o">-</span>frame.refresh<span class="o">-</span>check<span class="o">-</span>button.gadget<span class="o">-</span>value<span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">#</span>t;
+<span class="w">     </span>refresh(server<span class="o">-</span>frame);
+
+<span class="w">     </span><span class="o">//</span><span class="w">  </span>make<span class="w"> </span>the<span class="w"> </span>bank<span class="w"> </span>servant
+<span class="w">     </span>let<span class="w"> </span>bank<span class="w"> </span><span class="o">=</span><span class="w"> </span>make(<span class="o">&lt;</span>bank<span class="o">-</span>implementation<span class="o">&gt;</span>,<span class="w"> </span>connection<span class="o">:</span><span class="w"> </span>connection,
+<span class="w">                     </span>poa<span class="o">:</span><span class="w"> </span>RootPOA,<span class="w"> </span>name<span class="o">:</span><span class="w"> </span><span class="s2">&quot;Dylan Bank&quot;</span>,
+<span class="w">                     </span>server<span class="o">-</span>frame<span class="o">:</span><span class="w"> </span>server<span class="o">-</span>frame);
+
+<span class="w">     </span><span class="o">//</span><span class="w"> </span>get<span class="w"> </span>the<span class="w"> </span>servant<span class="s1">&#39;s object reference from the poa</span>
+<span class="s1">     let bank-reference = PortableServer/POA/servant-to-reference(bank.poa, bank);</span>
+
+<span class="s1">     // activate the bank&#39;</span>s<span class="w"> </span>POA<span class="w"> </span>using<span class="w"> </span>its<span class="w"> </span>POA<span class="w"> </span>manager.
+<span class="w">     </span>let<span class="w"> </span>POAManager<span class="w"> </span><span class="o">=</span><span class="w"> </span>PortableServer<span class="o">/</span>POA<span class="o">/</span>the<span class="o">-</span>POAManager(bank.poa);
+<span class="w">     </span>PortableServer<span class="o">/</span>POAManager<span class="o">/</span>activate(POAManager);
+
+<span class="w">     </span><span class="o">//</span><span class="w"> </span>register<span class="w"> </span>the<span class="w"> </span>bank<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>location<span class="w"> </span>service
+<span class="w">     </span>register<span class="o">-</span>bank(orb,<span class="w"> </span>location<span class="o">-</span>service,<span class="w"> </span>bank<span class="o">-</span>reference);
+
+<span class="w">     </span><span class="o">//</span><span class="w"> </span>create<span class="w"> </span>a<span class="w"> </span>separate<span class="w"> </span>thread<span class="w"> </span>to<span class="w"> </span>shut<span class="w"> </span>down<span class="w"> </span>the<span class="w"> </span>orb,<span class="w"> </span>unblocking<span class="w"> </span>the<span class="w"> </span>main<span class="w"> </span>thread.
+<span class="w">     </span>make(<span class="o">&lt;</span>thread<span class="o">&gt;</span>,
+<span class="w">          </span><span class="k">function</span><span class="o">:</span><span class="w"> </span>method<span class="w"> </span>()
+<span class="w">                      </span>start<span class="o">-</span>frame(server<span class="o">-</span>frame);
+<span class="w">                      </span>CORBA<span class="o">/</span>ORB<span class="o">/</span>shutdown(orb,<span class="w"> </span><span class="o">#</span>t);
+<span class="w">                    </span><span class="k">end</span><span class="w"> </span>method);
+
+<span class="w">     </span><span class="o">//</span><span class="w"> </span>block<span class="w"> </span>the<span class="w"> </span>main<span class="w"> </span>thread
+<span class="w">     </span>CORBA<span class="o">/</span>ORB<span class="o">/</span>run(orb);
+
+<span class="w">     </span><span class="o">//</span><span class="w"> </span>remove<span class="w"> </span>from<span class="w"> </span>location<span class="w"> </span>service
+<span class="w">     </span>unregister<span class="o">-</span>bank(orb,<span class="w"> </span>location<span class="o">-</span>service,<span class="w"> </span>bank<span class="o">-</span>reference);
+
+<span class="w">     </span><span class="o">//</span><span class="w"> </span><span class="nb">close</span><span class="w"> </span>the<span class="w"> </span>bank&#39;s<span class="w"> </span>connection.
+<span class="w">     </span>disconnect(connection);
+<span class="w">  </span><span class="k">end</span><span class="w"> </span>with<span class="o">-</span>dbms;
+<span class="k">end</span><span class="w"> </span>method;
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">initialize-server</span></code> function first initializes the Open Dylan
+ORB by calling the Dylan generic function <code class="docutils literal notranslate"><span class="pre">CORBA/ORB-init</span></code>, just as
+we initialized the ORB in the client. The call returns a
+<code class="docutils literal notranslate"><span class="pre">CORBA/&lt;ORB&gt;</span></code> pseudo object.</p>
+<p>Invoking <code class="docutils literal notranslate"><span class="pre">CORBA/ORB/resolve-initial-references</span></code> on this ORB, passing
+the <code class="docutils literal notranslate"><span class="pre">ObjectID</span> <span class="pre">&quot;RootPOA&quot;</span></code>, returns a POA object of class
+<code class="docutils literal notranslate"><span class="pre">PortableServer/&lt;POA&gt;</span></code>. This is the CORBA standard method for
+obtaining the initial POA object. Note that RootPOA is initially in
+the holding state.</p>
+<p>Next, we connect to the database and use the connection to make a bank
+servant. We register the servant with the POA, RootPOA, and publish
+the resulting object reference, encoded as a string, according to the
+location-service requested in the command line arguments. By default
+this is via a shared file. However, if the following is specified on
+the command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">location</span><span class="o">-</span><span class="n">service</span><span class="p">:</span><span class="n">naming</span><span class="o">-</span><span class="n">service</span>
+</pre></div>
+</div>
+<p>then a Name Service is used instead. Use the ORB command line option
+<code class="docutils literal notranslate"><span class="pre">-ORBname-service</span></code> to specify the IOR of the Name Service. Be sure
+to use the same command line options for the client and the server or
+they will not find each other!</p>
+<p>We then obtain the POA Manager for the POA using the POA operation
+<code class="docutils literal notranslate"><span class="pre">PortableServer/POA/the-POAManager</span></code>. The call to
+<code class="docutils literal notranslate"><span class="pre">PortableServer/POAManager/activate</span></code> moves the POA out of the
+holding state, into the active state, ready to receive and process
+incoming requests.</p>
+<p>To prevent the server from exiting before having the chance to process
+any requests, we introduce a new thread. This thread waits until the
+user responds to a DUIM dialog and then proceeds to shut down the ORB
+with a CORBA standard call to <code class="docutils literal notranslate"><span class="pre">CORBA/ORB/shutdown</span></code>. Meanwhile,
+back in the main thread, the subsequent call to <code class="docutils literal notranslate"><span class="pre">CORBA/ORB/run</span></code>
+causes the main thread to block, waiting for notification that the ORB
+has shut down.</p>
+<p>Once the ORB has shut down, the main thread resumes, closes the
+connection to the bank, and exits, terminating the server application.</p>
+<p>The full implementation of the server initialization is in the file
+<code class="docutils literal notranslate"><span class="pre">init-server.dylan</span></code>.</p>
+<p>This completes the description of our implementation of the server.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="projects.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Creating CORBA Projects</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="bank-client.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">The Bank Client</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2011-2023, Dylan Hackers
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">The Bank Server</a><ul>
+<li><a class="reference internal" href="#the-server">The server</a></li>
+<li><a class="reference internal" href="#the-odbc-database">The ODBC database</a></li>
+<li><a class="reference internal" href="#overview-of-the-open-dylan-sql-odbc-library">Overview of the Open Dylan SQL-ODBC library</a></li>
+<li><a class="reference internal" href="#implementing-corba-objects-in-a-server">Implementing CORBA objects in a server</a><ul>
+<li><a class="reference internal" href="#object-adapters">Object adapters</a></li>
+<li><a class="reference internal" href="#the-servers-perspective">The server’s perspective</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#requirements-for-implementing-the-bank-server">Requirements for implementing the bank server</a><ul>
+<li><a class="reference internal" href="#the-bank-server-gui">The bank server GUI</a></li>
+<li><a class="reference internal" href="#the-bank-server-library-and-module">The bank server library and module</a></li>
+<li><a class="reference internal" href="#implementing-the-servant-classes">Implementing the servant classes</a></li>
+<li><a class="reference internal" href="#implementing-the-servant-methods">Implementing the servant methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#implementing-corba-initialization-for-the-bank-server">Implementing CORBA initialization for the bank server</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=55d3bea0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=4e2eecee"></script>
+    </body>
+</html>

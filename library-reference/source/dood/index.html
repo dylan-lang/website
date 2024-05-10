@@ -1,0 +1,1384 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="The dylan Library" href="../dylan/index.html" /><link rel="prev" title="The transcendentals Module" href="../common-dylan/transcendentals.html" />
+
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/><!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
+        <title>The DOOD library - Open Dylan</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" /
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">Open Dylan</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../../../_static/images/opendylan-light.png" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../../../_static/images/opendylan-dark.png" alt="Dark Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../community/index.html">Get Involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../download/index.html">Download</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../hacker-guide/source/index.html">Hacker Guide</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Hacker Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../hacker-guide/source/documentation/index.html">Writing Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Writing Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/documentation/guidelines.html">Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/documentation/generating.html">Generating Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/documentation/doctower.html">Doctower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/documentation/example.html">Example documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hacker-guide/source/build-system.html">Jam-based Build System</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../hacker-guide/source/compiler/index.html">DFMC, The Dylan Flow Machine Compiler</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of DFMC, The Dylan Flow Machine Compiler</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/compiler/notes-warnings-errors.html">Notes, Warnings and Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/compiler/old/design.html">Compiler Design (Old)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/compiler/old/internals.html">Compiler Internals (Old)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../hacker-guide/source/runtime/index.html">The Runtime</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of The Runtime</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/runtime/object-representation.html">Object Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/runtime/calling-convention.html">Calling Convention</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/runtime/special-features.html">Special Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/runtime/mangling.html">Name Mangling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/runtime/threads.html">Compiler Support for Threads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/runtime/startup.html">Startup</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../hacker-guide/source/runtime-manager/index.html">Runtime Manager</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Runtime Manager</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/runtime-manager/access-path.html">The ACCESS-PATH library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/runtime-manager/debugger-manager.html">The DEBUGGER-MANAGER library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hacker-guide/source/duim/index.html">DUIM - Dylan User Interface Manager</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../hacker-guide/source/topics/index.html">Topics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Topics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/topics/method-dispatch.html">Method Dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/topics/debugging.html">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/topics/porting.html">Porting to a New Target Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/topics/ppml.html">The PPML library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hacker-guide/source/topics/making-a-release.html">Release Check-list</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hacker-guide/source/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hacker-guide/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../proposals/index.html">Enhancement Proposals</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Enhancement Proposals</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../proposals/dep-0001-dep-process.html">DEP Purpose and Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../proposals/dep-0002-define-function.html">Define Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../proposals/dep-0003-c3-linearization.html">C3 superclass linearization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../proposals/dep-0004-strings-library.html">New strings Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../proposals/dep-0005-subclass-function.html">Subclass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../proposals/dep-0006-single-file-library.html">Single File Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../proposals/dep-0007-collection-type-safety.html">Type-Safe Limited Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../proposals/dep-0008-multi-line-strings.html">Multi-line Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../proposals/dep-0010-element-otherwise.html">Defaulted Element Reference Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../proposals/dep-0011-numeric-literal-syntax.html">Numeric Literal Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../proposals/dep-0012-string-literals.html">String Literal Syntax</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Learning</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../about/index.html">Tour of Dylan</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Tour of Dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/examples/hello_world.html">Hello, World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/examples/everything_value.html">Everything is a value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/examples/classes.html">Classes &amp; Instantiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/examples/generic_functions.html">Generic Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/examples/getters_setters_functions.html">Getters &amp; Setters are functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/examples/keyword_arguments.html">Keyword Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/examples/limited_types.html">Limited Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/examples/macros.html">Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/examples/multiple_return_values.html">Multiple Return Values</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../getting-started-cli/source/index.html">Getting Started Guide</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Getting Started Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started-cli/source/hello-world.html">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started-cli/source/source-registries.html">Using Source Registries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started-cli/source/managing-dependencies.html">Managing Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started-cli/source/quick-tips.html">A Few More Quick Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started-cli/source/dylan-compiler.html">Using dylan-compiler interactively</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started-cli/source/dylan-environment.html">An example of dylan-environment interactive functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started-cli/source/editor-support.html">Editor Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started-cli/source/dylan-mode-for-emacs.html">Dylan Interactor Mode for Emacs (DIME)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started-cli/source/debugging-with-gdb-lldb.html">Debugging with GDB or LLDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started-cli/source/windows.html">Notes for Windows Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started-cli/source/environment-variables.html">Environment Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started-cli/source/cross-compilation.html">Cross Compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started-cli/source/platform-specific.html">Platform Specific Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started-cli/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://opendylan.org/books/dpg/">Dylan Programming Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://play.opendylan.org">Dylan Playground</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="https://opendylan.org/books/drm/">Dylan Reference Manual</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../package/index.html">Package Docs</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Package Docs</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../package/base64/index.html">Base64</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of Base64</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/base64/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/base64/reference.html">Base64 library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/base64/author.html">Author</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../package/base64/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../package/binary-data/index.html">binary-data</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of binary-data</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/binary-data/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/binary-data/reference.html">API Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/binary-data/internals.html">Internals</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../package/command-interface/index.html">Welcome to Command interface’s documentation!</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of Welcome to Command interface’s documentation!</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../package/command-interface/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../package/command-line-parser/index.html">command-line-parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../package/concurrency/index.html">concurrency</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../package/data-analysis/index.html">data-analysis</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of data-analysis</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/data-analysis/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/data-analysis/statistics.html">The STATISTICS library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/data-analysis/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../package/deft/index.html">deft</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of deft</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/deft/pacman.html">The pacman Package Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../package/dylan-tool/index.html">dylan-tool</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of dylan-tool</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/dylan-tool/pacman.html">The pacman Package Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../package/hash-algorithms/index.html">hash-algorithms</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../package/http/index.html">http</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of http</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../package/http/server/index.html">HTTP Server</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle navigation of HTTP Server</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../package/http/server/quickstart/index.html">Dylan Web in 60 Seconds</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle navigation of Dylan Web in 60 Seconds</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../package/http/server/quickstart/static-content.html">Serving Static Content</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../package/http/server/quickstart/dynamic-content.html">Serving Dynamic Content</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../package/http/server/quickstart/static-routing.html">Static URL Routing</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../package/http/server/configuration.html">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../package/http/server/routing.html">URL Routing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../package/http/server/dylan-server-pages.html">Dylan Server Pages (DSP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../package/http/server/stand-alone-server-app.html">Stand-Alone Server App</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/http/client/index.html">HTTP Client</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../package/http/reference/index.html">Reference</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle navigation of Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../package/http/reference/server.html">The HTTP-SERVER library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../package/http/reference/common.html">The HTTP-COMMON library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../package/http/reference/dsp.html">The DSP library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../package/http/reference/client.html">The HTTP-CLIENT library</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/http/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../package/logging/index.html">logging</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../package/lsp-dylan/index.html">lsp-dylan</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle navigation of lsp-dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../package/melange/index.html">melange</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle navigation of melange</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/concrete-example.html">A Concrete Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/basic-use.html">Basic Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/importing-headers.html">Importing Header Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/specifying-object-names.html">Specifying Object Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/type-definitions.html">Type Definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/translating-object-representations.html">Translating Object Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/other-file-options.html">Other File Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/function-clauses.html">Function Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/struct-union-clauses.html">Struct and Union Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/pointer-clauses.html">Pointer Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/constant-clauses.html">Constant Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/variable-clauses.html">Variable Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/low-level-support.html">Low level support facilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/known-limitations.html">Known limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/proposed-modifications.html">Proposed modifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/historical-notes.html">Historical Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/melange/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../package/meta/index.html">meta</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle navigation of meta</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/meta/copyright.html">Copyright</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/meta/meta.html">The Meta Library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../package/objc-dylan/index.html">objc-dylan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../package/regular-expressions/index.html">regular-expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../package/sphinx-extensions/index.html">sphinx-extensions</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../package/strings/index.html">strings</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle navigation of strings</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../package/testworks/index.html">testworks</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle navigation of testworks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/testworks/usage.html">Testworks Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/testworks/reference.html">Testworks Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/testworks/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../package/time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../package/tracing/index.html">tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../package/uuid/index.html">uuid</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../package/v3d/index.html">v3d</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle navigation of v3d</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../package/v3d/v3d.html">The v3d library</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Open Dylan Libraries</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle navigation of Open Dylan Libraries</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../language-extensions/index.html">Dylan Language Extensions</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle navigation of Dylan Language Extensions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../language-extensions/language-differences.html">Language Differences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../language-extensions/define-function.html">Function Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../language-extensions/for-iteration.html">Extensions to the FOR iteration construct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../language-extensions/weak-tables.html">Weak tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../language-extensions/inlining.html">Inlining adjectives for methods, constants, functions, and slots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../language-extensions/numbers.html">Integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../language-extensions/object-with-elements.html">object-with-elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../language-extensions/macro-system-extensions.html">Macro System Extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../language-extensions/parser-expansions.html">Parser Expansions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../language-extensions/alternative-curry-syntax.html">Alternative Curry Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../language-extensions/numeric-literals.html">Numeric Literal Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../language-extensions/string-literals.html">String Literal Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../lid.html">LID File Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c-ffi/index.html">The c-ffi Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../collections/index.html">The collections Library</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle navigation of The collections Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../collections/bit-set.html">The bit-set Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../collections/bit-vector.html">The bit-vector Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../collections/collectors.html">The collectors Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../collections/plists.html">The plists Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../collections/set.html">The set Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../collections/table-extensions.html">The table-extensions Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../coloring-stream/index.html">The coloring-stream Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../common-dylan/index.html">The common-dylan Library</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><div class="visually-hidden">Toggle navigation of The common-dylan Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../common-dylan/byte-vector.html">The byte-vector Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common-dylan/common-extensions.html">The common-extensions Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common-dylan/machine-words.html">The machine-words Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common-dylan/simple-format.html">The simple-format Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common-dylan/simple-profiling.html">The simple-profiling Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common-dylan/simple-random.html">The simple-random Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common-dylan/simple-timers.html">The simple-timers Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common-dylan/transcendentals.html">The transcendentals Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">The DOOD library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dylan/index.html">The dylan Library</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><div class="visually-hidden">Toggle navigation of The dylan Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dylan/finalization.html">The finalization Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dylan/primitives.html">The dylan-primitives Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dylan/threads.html">The threads Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../io/index.html">The io Library</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><div class="visually-hidden">Toggle navigation of The io Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../io/format.html">The format Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../io/format-out.html">The format-out Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../io/print.html">The print and pprint Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../io/streams.html">The streams Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../io/standard-io.html">The standard-io Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">The network Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../progress-stream/index.html">The progress-stream Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql/index.html">The sql Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../system/index.html">The system Library</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><div class="visually-hidden">Toggle navigation of The system Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../system/date.html">The date Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../system/locators.html">The locators Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../system/file-system.html">The file-system Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../system/operating-system.html">The operating-system Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../t-lists/index.html">The t-lists Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../win32/index.html">The Win32 API Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../documentation/index.html">All Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><div class="visually-hidden">Toggle navigation of All Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/index.html">News</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../documentation/cheatsheets/index.html">Cheat Sheets</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><div class="visually-hidden">Toggle navigation of Cheat Sheets</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../documentation/cheatsheets/syntax.html">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../documentation/cheatsheets/conditionals.html">Conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../documentation/cheatsheets/collections.html">Collections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../documentation/cheatsheets/iteration.html">Iteration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../documentation/cheatsheets/scheme.html">For Schemers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../documentation/publications.html">Publications</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../intro-dylan/source/index.html">Intro to Dylan</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><div class="visually-hidden">Toggle navigation of Intro to Dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../intro-dylan/source/why-dylan.html">Why Dylan?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../intro-dylan/source/expressions-variables.html">Expressions &amp; Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../intro-dylan/source/methods-generic-functions.html">Methods &amp; Generic Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../intro-dylan/source/objects.html">Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../intro-dylan/source/multiple-dispatch.html">Multiple Dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../intro-dylan/source/modules-libraries.html">Modules &amp; Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../intro-dylan/source/conditions.html">Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../intro-dylan/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../corba-guide/source/index.html">CORBA Guide</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" role="switch" type="checkbox"/><label for="toctree-checkbox-37"><div class="visually-hidden">Toggle navigation of CORBA Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../corba-guide/source/preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../corba-guide/source/intro.html">About Open Dylan CORBA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../corba-guide/source/getstart.html">Quick Start Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../corba-guide/source/bank-setup.html">Setting up the Bank Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../corba-guide/source/bank-idl.html">Writing and Compiling IDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../corba-guide/source/bank-client.html">The Bank Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../corba-guide/source/bank-server.html">The Bank Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../corba-guide/source/projects.html">Creating CORBA Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../corba-guide/source/rundebug.html">Running and Debugging CORBA Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../corba-guide/source/scepter.html">Using the Dylan IDL Compiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../corba-guide/source/idl-app.html">An IDL Binding for Dylan</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../building-with-duim/source/index.html">DUIM Guide</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" role="switch" type="checkbox"/><label for="toctree-checkbox-38"><div class="visually-hidden">Toggle navigation of DUIM Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../building-with-duim/source/preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../building-with-duim/source/intro.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../building-with-duim/source/design.html">Designing A Simple DUIM Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../building-with-duim/source/improve.html">Improving The Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../building-with-duim/source/menus.html">Adding Menus To The Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../building-with-duim/source/callbacks.html">Adding Callbacks to the Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../building-with-duim/source/commands.html">Using Command Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../building-with-duim/source/tour.html">A Tour of the DUIM Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../building-with-duim/source/source.html">Source Code For The Task List Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../building-with-duim/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../duim-reference/source/index.html">DUIM Reference</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" role="switch" type="checkbox"/><label for="toctree-checkbox-39"><div class="visually-hidden">Toggle navigation of DUIM Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../duim-reference/source/conventions.html">Conventions in this Manual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../duim-reference/source/geom.html">DUIM-Geometry Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../duim-reference/source/ext-geom.html">DUIM-Extended-Geometry Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../duim-reference/source/dcs.html">DUIM-DCs Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../duim-reference/source/sheets.html">DUIM-Sheets Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../duim-reference/source/graphics.html">DUIM-Graphics Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../duim-reference/source/layouts.html">DUIM-Layouts Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../duim-reference/source/gadgets.html">DUIM-Gadgets Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../duim-reference/source/frames.html">DUIM-Frames Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../duim-reference/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../getting-started-ide/source/index.html">Getting Started / IDE</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" role="switch" type="checkbox"/><label for="toctree-checkbox-40"><div class="visually-hidden">Toggle navigation of Getting Started / IDE</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting-started-ide/source/preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting-started-ide/source/quick-start.html">Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting-started-ide/source/expanding.html">Fixing Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting-started-ide/source/model.html">Programming in Open Dylan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting-started-ide/source/projects.html">Creating and Using Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting-started-ide/source/browsing.html">Learning More About an Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting-started-ide/source/debug.html">Debugging and Interactive Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting-started-ide/source/remotedbg.html">Remote Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting-started-ide/source/coloring.html">Dispatch Optimization Coloring in the Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting-started-ide/source/delivery.html">Delivering Dylan Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting-started-ide/source/editopt.html">The Interactive Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting-started-ide/source/com-projects.html">Creating COM Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting-started-ide/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../release-notes/source/index.html">Release Notes</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" role="switch" type="checkbox"/><label for="toctree-checkbox-41"><div class="visually-hidden">Toggle navigation of Release Notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release-notes/source/2024.1.html">Open Dylan 2024.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release-notes/source/2023.1.html">Open Dylan 2023.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release-notes/source/2022.1.html">Open Dylan 2022.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release-notes/source/2020.1.html">Open Dylan 2020.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release-notes/source/2019.1.html">Open Dylan 2019.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release-notes/source/2014.1.html">Open Dylan 2014.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release-notes/source/2013.2.html">Open Dylan 2013.2 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release-notes/source/2013.1.html">Open Dylan 2013.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release-notes/source/2012.1.html">Open Dylan 2012.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release-notes/source/2011.1.html">Open Dylan 2011.1 Release Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sphinx-extensions/documentation/source/index.html">Sphinx Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../style-guide/source/index.html">Style Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Full Index</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/dylan-lang/website/blob/master/source/library-reference/source/dood/index.rst?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/dylan-lang/website/edit/master/source/library-reference/source/dood/index.rst" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="the-dood-library">
+<h1>The DOOD library<a class="headerlink" href="#the-dood-library" title="Link to this heading">¶</a></h1>
+<section id="the-dylan-object-oriented-database">
+<h2>The Dylan Object Oriented Database<a class="headerlink" href="#the-dylan-object-oriented-database" title="Link to this heading">¶</a></h2>
+<p>The Dylan Object Oriented Database (DOOD) is a simple mechanism for
+storing arbitrary objects and lazily loading them. During dump time,
+DOOD traverses a graph of objects and encodes the objects as a
+sequence of bytes. These bytes are later interpreted by DOOD during
+load time reconstructing an isomorphic object-graph in which cyclic
+structures and shared references are preserved. DOOD provides ways to
+control what slots in objects should be stored, and to decide what
+objects should be stored by proxies.</p>
+<p>DOOD was meant to be a very simple Dylan object store that supported:</p>
+<ul class="simple">
+<li><p>pay as you go</p></li>
+<li><p>incremental loading,</p></li>
+<li><p>flexible proxies, and</p></li>
+<li><p>non-corrupting commits</p></li>
+</ul>
+<p>DOOD was not meant to provide:</p>
+<ul class="simple">
+<li><p>multiuser support,</p></li>
+<li><p>full blown transaction support,</p></li>
+<li><p>incremental writes,</p></li>
+<li><p>schema evolution, nor</p></li>
+<li><p>client/server support</p></li>
+</ul>
+<p>In order to add persistence to a program, the easiest thing is to
+just save and load the data completely:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">dump-data</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">locator</span><span class="p">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">dood</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;dood&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">locator:</span><span class="w"> </span><span class="n">locator</span><span class="p">,</span><span class="w"> </span><span class="k">direction:</span><span class="w"> </span><span class="ss">#&quot;output&quot;</span><span class="p">,</span>
+<span class="w">                  </span><span class="k">if-exists:</span><span class="w"> </span><span class="ss">#&quot;replace&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">dood-root</span><span class="p">(</span><span class="n">dood</span><span class="p">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">  </span><span class="n">dood-commit</span><span class="p">(</span><span class="n">dood</span><span class="p">);</span>
+<span class="w">  </span><span class="n">dood-close</span><span class="p">(</span><span class="n">dood</span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">load-data</span><span class="w"> </span><span class="p">(</span><span class="n">locator</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">dood</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;dood&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">locator:</span><span class="w"> </span><span class="n">locator</span><span class="p">,</span><span class="w"> </span><span class="k">direction:</span><span class="w"> </span><span class="ss">#&quot;input&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dood-root</span><span class="p">(</span><span class="n">dood</span><span class="p">);</span>
+<span class="w">  </span><span class="n">dood-close</span><span class="p">(</span><span class="n">dood</span><span class="p">);</span>
+<span class="w">  </span><span class="n">data</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This works great for simple applications. More complicated
+applications potentially require support for data compression, special
+reinitialization, lazy loading of data, and multiple databases. Data
+can be compressed by being able to specify that only a subset of an
+object’s slots are saved (for example, an object may cache information
+in a slot) or more generally by dumping the object’s information in a
+completely different format on disk. The former technique is described
+in the schema section below and the latter technique is described in
+the proxy section below.</p>
+<section id="the-dood-module">
+<h3>The DOOD module<a class="headerlink" href="#the-dood-module" title="Link to this heading">¶</a></h3>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:[dood]">
+<span class="sig-name descname"><span class="pre">&lt;dood&gt;</span></span> <em class="property"><span class="pre">Open</span> <span class="pre">Primary</span> <span class="pre">Class</span></em><a class="headerlink" href="#dood:dood:[dood]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code></p>
+</dd>
+<dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>if-exists</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.  Specifies
+the actions to take during creation of a file
+stream when the <code class="docutils literal notranslate"><span class="pre">locator:</span></code> init-keyword is
+specified. If <code class="docutils literal notranslate"><span class="pre">if-exists:</span></code>
+init-keyword specifies
+<code class="docutils literal notranslate"><span class="pre">#&quot;replace&quot;</span></code> then the database
+is considered empty.</p></li>
+<li><p><strong>backups?</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;boolean&gt;</span></code>. Specifies
+whether a new file is used during a
+commit. <code class="docutils literal notranslate"><span class="pre">backups?</span></code> is always false when the
+<code class="docutils literal notranslate"><span class="pre">stream:</span></code> init-keyword is specified.</p></li>
+<li><p><strong>batch-mode?</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;boolean&gt;</span></code>.</p></li>
+<li><p><strong>default-segment</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood-segment&gt;</span></code>.</p></li>
+<li><p><strong>locator</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>. Should be a
+object valid for opening a stream with a
+<code class="docutils literal notranslate"><span class="pre">locator:</span></code> init-keyword.</p></li>
+<li><p><strong>name</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>. Usually a string
+or symbol but user-controlled.</p></li>
+<li><p><strong>read-only?</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;boolean&gt;</span></code>.</p></li>
+<li><p><strong>segments</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;simple-object-vector&gt;</span></code>.</p></li>
+<li><p><strong>stream</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">false-or(&lt;stream&gt;)</span></code>.</p></li>
+<li><p><strong>version</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code>. Specifies a
+version that can be used for version
+control. Upon opening of an existing database,
+the specified version is compared against the
+stored version, and if they are different a
+<a class="reference internal" href="#dood:dood:[dood-user-version-warning]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood-user-version-warning&gt;</span></code></a> condition is
+signaled.</p></li>
+<li><p><strong>world</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood-world&gt;</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This class can be user subclassed and used as the basis for specialized
+loading and dumping behavior.</p>
+</dd></dl>
+
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:[dood-opening-warning]">
+<span class="sig-name descname"><span class="pre">&lt;dood-opening-warning&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dood:dood:[dood-opening-warning]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood-warning&gt;</span></code></p>
+</dd>
+<dt class="field-even">Init-Keywords<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>dood</strong> (<em>required</em>) – An instance of <a class="reference internal" href="#dood:dood:[dood]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Superclass of all dood warnings.</p>
+</dd></dl>
+
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:[dood-corruption-warning]">
+<span class="sig-name descname"><span class="pre">&lt;dood-corruption-warning&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dood:dood:[dood-corruption-warning]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dood:dood:[dood-opening-warning]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood-opening-warning&gt;</span></code></a></p>
+</dd>
+</dl>
+<p>Signaled if DOOD data is found to be corrupted.</p>
+</dd></dl>
+
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:[dood-version-warning]">
+<span class="sig-name descname"><span class="pre">&lt;dood-version-warning&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dood:dood:[dood-version-warning]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dood:dood:[dood-opening-warning]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood-opening-warning&gt;</span></code></a></p>
+</dd>
+</dl>
+<p>Signaled if the current DOOD version is different from the saved
+DOOD version.</p>
+</dd></dl>
+
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:[dood-user-version-warning]">
+<span class="sig-name descname"><span class="pre">&lt;dood-user-version-warning&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dood:dood:[dood-user-version-warning]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dood:dood:[dood-version-warning]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood-version-warning&gt;</span></code></a></p>
+</dd>
+</dl>
+<p>Signaled if the specified user version is different from the saved
+user version.</p>
+</dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-name([dood])">
+<span class="sig-name descname"><span class="pre">dood-name(&lt;dood&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dood:dood:dood-name([dood])" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the name of the specified dood.</p>
+</dd></dl>
+
+<dl class="dylan generic-function">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-root">
+<span class="sig-name descname"><span class="pre">dood-root</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dood:dood:dood-root" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dood-root (object) =&gt; (value)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>object</strong> – An instance of <a class="reference internal" href="#dood:dood:[dood]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood&gt;</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns the one distinguished root of the specified dood. It is
+defaulted to be <a class="reference external" href="https://opendylan.org/books/drm/Other_Built-In_Objects_Defined#false"><code class="xref drm docutils literal notranslate"><span class="pre">#f</span></code></a> when a new dood is created.</p>
+</dd></dl>
+
+<dl class="dylan generic-function">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-root-setter">
+<span class="sig-name descname"><span class="pre">dood-root-setter</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dood:dood:dood-root-setter" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dood-root-setter (value object) =&gt; (value)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>value</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+<li><p><strong>object</strong> – An instance of <code class="docutils literal notranslate"><span class="pre">{&lt;dood&gt;</span> <span class="pre">in</span> <span class="pre">dood}</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Sets the one distinguished root of the specified dood.</p>
+</dd></dl>
+
+<dl class="dylan generic-function">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-commit">
+<span class="sig-name descname"><span class="pre">dood-commit</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dood:dood:dood-commit" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dood-commit (dood #key flush? dump? break? parents? clear? stats? size) =&gt; ()</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>dood</strong> – An instance of <a class="reference internal" href="#dood:dood:[dood]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood&gt;</span></code></a>.</p></li>
+<li><p><strong>flush?</strong> (<em>#key</em>) – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+<li><p><strong>dump?</strong> (<em>#key</em>) – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+<li><p><strong>break?</strong> (<em>#key</em>) – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+<li><p><strong>parents?</strong> (<em>#key</em>) – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+<li><p><strong>clear?</strong> (<em>#key</em>) – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+<li><p><strong>stats?</strong> (<em>#key</em>) – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+<li><p><strong>size</strong> (<em>#key</em>) – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Saves the data reachable from <a class="reference internal" href="#dood:dood:dood-root"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">dood-root</span></code></a>. When the <code class="docutils literal notranslate"><span class="pre">backups?:</span></code>
+init-keyword is specified to be true, the data is first written to
+a new file. The new file is named the same as the specified locator
+but with its suffix changed to “new”. Upon success, the original
+data file is replaced with the new file. Upon failure the new file
+is just removed and the original data file is untouched.</p>
+</dd></dl>
+
+<dl class="dylan generic-function">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-size">
+<span class="sig-name descname"><span class="pre">dood-size</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dood:dood:dood-size" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dood-size (dood) =&gt; (res)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>dood</strong> – An instance of <a class="reference internal" href="#dood:dood:[dood]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>res</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns the size in bytes of the data file.</p>
+</dd></dl>
+
+<dl class="dylan generic-function">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-close">
+<span class="sig-name descname"><span class="pre">dood-close</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dood:dood:dood-close" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dood-close (dood #rest all-keys #key abort?) =&gt; ()</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>dood</strong> – An instance of <a class="reference internal" href="#dood:dood:[dood]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood&gt;</span></code></a>.</p></li>
+<li><p><strong>all-keys</strong> (<em>#rest</em>) – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+<li><p><strong>abort?</strong> (<em>#key</em>) – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Closes the specified database and underlying file stream if created
+with <code class="docutils literal notranslate"><span class="pre">locator:</span></code> init-keyword. If the <code class="docutils literal notranslate"><span class="pre">stream:</span></code> init-keyword was
+specified then it is the user’s responsibility to close this
+stream. Abort is passed through to close an underlying file stream.</p>
+</dd></dl>
+
+</section>
+<section id="schemas">
+<h3>Schemas<a class="headerlink" href="#schemas" title="Link to this heading">¶</a></h3>
+<p>Schemas are declarative descriptions of how objects are persistently
+dumped and loaded. In the current version of DOOD, schemas are not
+themselves persistently stored. User versions can be used to manually
+ensure compatible schemas.</p>
+<dl class="dylan macro">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-class-definer">
+<span class="sig-name descname"><span class="pre">dood-class-definer</span></span> <em class="property"><span class="pre">Macro</span></em><a class="headerlink" href="#dood:dood:dood-class-definer" title="Link to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">dood-class-definer</span></code> macro defines a dylan class with extra
+slot adjectives specifying the dumping and loading behavior of the
+corresponding slot. The default DOOD treatment of a slot, called
+<code class="docutils literal notranslate"><span class="pre">deep</span></code>, is that its contents is recursively dumped and eagerly
+loaded. There are three dood slot adjectives that modify this
+behavior: <code class="docutils literal notranslate"><span class="pre">lazy</span></code>, <code class="docutils literal notranslate"><span class="pre">disk</span></code>, and <code class="docutils literal notranslate"><span class="pre">weak.</span></code> A <code class="docutils literal notranslate"><span class="pre">lazy</span></code> slot’s
+contents is recursively dumped and lazily loaded, that is, loaded
+from disk upon first access. A <code class="docutils literal notranslate"><span class="pre">disk</span></code> slot’s contents is
+recursively dumped and is always loaded from disk when and only
+when explicitly accessed and is never written back to the slot. A
+<code class="docutils literal notranslate"><span class="pre">weak</span></code> slot’s contents is never dumped and a user can specify a
+<code class="docutils literal notranslate"><span class="pre">reinit-expression</span></code> to be used instead during loading. A
+<code class="docutils literal notranslate"><span class="pre">reinit-expression</span></code> must be specified even if an
+<code class="docutils literal notranslate"><span class="pre">init-expression</span></code> is the same, otherwise reinitialization will
+not occur and the slot will be unbound. In the current version of
+DOOD, the <code class="docutils literal notranslate"><span class="pre">reinit-expression</span></code> must appear as the first slot
+keyword parameter if at all. Accessing <code class="docutils literal notranslate"><span class="pre">lazy</span></code> slot values in a
+closed database will signal a <code class="docutils literal notranslate"><span class="pre">dood-proxy-error</span></code> (see below).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">dood-class</span><span class="w"> </span><span class="nc">&lt;computation&gt;</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;object&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">lazy</span><span class="w"> </span><span class="nb">slot</span><span class="w"> </span><span class="n">computation-source-location</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nb">false-or</span><span class="p">(</span><span class="nc">&lt;source-location&gt;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="l">#f</span><span class="p">,</span>
+<span class="w">    </span><span class="k">init-keyword:</span><span class="w"> </span><span class="k">source-location:</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">slot</span><span class="w"> </span><span class="n">computation-previous</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;compution&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">previous:</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">slot</span><span class="w"> </span><span class="n">computation-next</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;computation&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">previous:</span><span class="p">;</span>
+<span class="w">  </span><span class="n">weak</span><span class="w"> </span><span class="nb">slot</span><span class="w"> </span><span class="n">computation-type</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nb">false-or</span><span class="p">(</span><span class="nc">&lt;type-estimate&gt;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="l">#f</span><span class="p">,</span>
+<span class="w">    </span><span class="k">reinit-expression:</span><span class="w"> </span><span class="l">#f</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="n">dood-class</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="reading">
+<h3>Reading<a class="headerlink" href="#reading" title="Link to this heading">¶</a></h3>
+<p>Internally DOOD loads objects by instantiation and slot assignment. An
+object is instantiated via the internal system allocator, which
+returns an uninitialized instance, and then initialized by applying
+the setters of an object’s class.</p>
+<dl class="dylan generic-function">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-reinitialize">
+<span class="sig-name descname"><span class="pre">dood-reinitialize</span></span> <em class="property"><span class="pre">Open</span> <span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dood:dood:dood-reinitialize" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dood-reinitialize (dood object) =&gt; ()</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>dood</strong> – An instance of <a class="reference internal" href="#dood:dood:[dood]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood&gt;</span></code></a>.</p></li>
+<li><p><strong>object</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p>For some objects the simple instantiation and slot assignment
+approach will not produce a well-formed object. <a class="reference internal" href="#dood:dood:dood-reinitialize"><code class="xref dylan dylan-gf docutils literal notranslate"><span class="pre">dood-reinitialize</span></code></a>
+gives objects a chance to correct any reconstruction problems. This
+function is called on an object immediately after the object has
+been loaded from disk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">dood-class</span><span class="w"> </span><span class="nc">&lt;rectangle&gt;</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;object&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">slot</span><span class="w"> </span><span class="n">rectangle-height</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;integer&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">height:</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">slot</span><span class="w"> </span><span class="n">rectangle-width</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;integer&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">width:</span><span class="p">;</span>
+<span class="w">  </span><span class="n">weak</span><span class="w"> </span><span class="n">rectangle-area</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;integer&gt;</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="n">dood-class</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">dood-reinitialize</span><span class="w"> </span><span class="p">(</span><span class="n">dood</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;dood&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;rectangle&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">next-method</span><span class="p">();</span>
+<span class="w">  </span><span class="n">rectangle-area</span><span class="p">(</span><span class="n">object</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:=</span><span class="w"> </span><span class="n">rectangle-height</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rectangle-width</span><span class="p">(</span><span class="n">object</span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="tables">
+<h3>Tables<a class="headerlink" href="#tables" title="Link to this heading">¶</a></h3>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:[dood-lazy-symbol-table]">
+<span class="sig-name descname"><span class="pre">&lt;dood-lazy-symbol-table&gt;</span></span> <em class="property"><span class="pre">Class</span></em><a class="headerlink" href="#dood:dood:[dood-lazy-symbol-table]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood-lazy-key-table&gt;</span></code></p>
+</dd>
+</dl>
+<p>Provide a mechanism for indexes. The keys are symbols and are
+loaded lazily using a binary search. This is known to be an
+inferior layout strategy and will be replaced by b*-trees in the
+future.</p>
+</dd></dl>
+
+<dl class="dylan generic-function">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-lazy-forward-iteration-protocol">
+<span class="sig-name descname"><span class="pre">dood-lazy-forward-iteration-protocol</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dood:dood:dood-lazy-forward-iteration-protocol" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dood-lazy-forward-iteration-protocol (table) =&gt; (#rest results)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>table</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>#rest results</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Used for walking only keys presently loaded. The standard
+<a class="reference external" href="https://opendylan.org/books/drm/Collection_Operations#forward-iteration-protocol"><code class="xref drm docutils literal notranslate"><span class="pre">forward-iteration-protocol</span></code></a> will load all keys and values
+into memory.</p>
+</dd></dl>
+
+</section>
+<section id="proxies">
+<h3>Proxies<a class="headerlink" href="#proxies" title="Link to this heading">¶</a></h3>
+<p>Sometimes users need more control over how objects are dumped to
+disk. DOOD provide a general mechanism called a proxy, which provides
+both a disk representation of an object and a reconstruction
+policy. The basic idea is that during the dumping process each memory
+object is given a chance to provide a disk object (a proxy) to be used
+for dumping and then upon loading, a loaded disk object is given a
+chance to map back to its original memory object. Proxies can be used
+for mapping objects back to unique runtime objects, for compressing
+objects, for looking up objects in external databases, etc.</p>
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:[dood-proxy]">
+<span class="sig-name descname"><span class="pre">&lt;dood-proxy&gt;</span></span> <em class="property"><span class="pre">Open</span> <span class="pre">Class</span></em><a class="headerlink" href="#dood:dood:[dood-proxy]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood-mapped-and-owned-object&gt;</span></code></p>
+</dd>
+</dl>
+<p>This is the superclass of all proxy objects. Users must subclass
+this class in order to define a new kind of proxy.</p>
+</dd></dl>
+
+<dl class="dylan generic-function">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-disk-object">
+<span class="sig-name descname"><span class="pre">dood-disk-object</span></span> <em class="property"><span class="pre">Open</span> <span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dood:dood:dood-disk-object" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dood-disk-object (dood object) =&gt; (disk-object)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>dood</strong> – An instance of <a class="reference internal" href="#dood:dood:[dood]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood&gt;</span></code></a>.</p></li>
+<li><p><strong>object</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>disk-object</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Users write methods on this generic when they want an object to
+have a proxy. It returns a disk-object which is dumped in lieu of
+the memory-object.</p>
+</dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-disk-object([dood],[object])">
+<span class="sig-name descname"><span class="pre">dood-disk-object(&lt;dood&gt;,</span> <span class="pre">&lt;object&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dood:dood:dood-disk-object([dood],[object])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-disk-object([dood],[dood-mapped-and-owned-object])">
+<span class="sig-name descname"><span class="pre">dood-disk-object(&lt;dood&gt;,</span> <span class="pre">&lt;dood-mapped-and-owned-object&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dood:dood:dood-disk-object([dood],[dood-mapped-and-owned-object])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-disk-object([dood],[generic-function])">
+<span class="sig-name descname"><span class="pre">dood-disk-object(&lt;dood&gt;,</span> <span class="pre">&lt;generic-function&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dood:dood:dood-disk-object([dood],[generic-function])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-disk-object([dood],[function])">
+<span class="sig-name descname"><span class="pre">dood-disk-object(&lt;dood&gt;,</span> <span class="pre">&lt;function&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dood:dood:dood-disk-object([dood],[function])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-disk-object([dood],[class])">
+<span class="sig-name descname"><span class="pre">dood-disk-object(&lt;dood&gt;,</span> <span class="pre">&lt;class&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dood:dood:dood-disk-object([dood],[class])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-disk-object([dood],[integer])">
+<span class="sig-name descname"><span class="pre">dood-disk-object(&lt;dood&gt;,</span> <span class="pre">&lt;integer&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dood:dood:dood-disk-object([dood],[integer])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan generic-function">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-restore-proxy">
+<span class="sig-name descname"><span class="pre">dood-restore-proxy</span></span> <em class="property"><span class="pre">Open</span> <span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#dood:dood:dood-restore-proxy" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dood-restore-proxy (dood proxy) =&gt; (memory-object)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>dood</strong> – An instance of <a class="reference internal" href="#dood:dood:[dood]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood&gt;</span></code></a>.</p></li>
+<li><p><strong>proxy</strong> – An instance of <a class="reference internal" href="#dood:dood:[dood-proxy]"><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;dood-proxy&gt;</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>memory-object</strong> – An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This function is called immediately after a proxy is reconstructed
+with instantiation and slot assignment. Its job is to map from a
+disk-object back to its memory-object.</p>
+</dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-restore-proxy([dood],[dood-program-module-proxy])">
+<span class="sig-name descname"><span class="pre">dood-restore-proxy(&lt;dood&gt;,</span> <span class="pre">&lt;dood-program-module-proxy&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dood:dood:dood-restore-proxy([dood],[dood-program-module-proxy])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-restore-proxy([dood],[dood-program-binding-proxy])">
+<span class="sig-name descname"><span class="pre">dood-restore-proxy(&lt;dood&gt;,</span> <span class="pre">&lt;dood-program-binding-proxy&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dood:dood:dood-restore-proxy([dood],[dood-program-binding-proxy])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan method">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:dood-restore-proxy([dood],[dood-class-program-binding-proxy])">
+<span class="sig-name descname"><span class="pre">dood-restore-proxy(&lt;dood&gt;,</span> <span class="pre">&lt;dood-class-program-binding-proxy&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#dood:dood:dood-restore-proxy([dood],[dood-class-program-binding-proxy])" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="dylan class">
+<dt class="sig sig-object dylan-api dylan" id="dood:dood:[dood-proxy-error]">
+<span class="sig-name descname"><span class="pre">&lt;dood-proxy-error&gt;</span></span> <em class="property"><span class="pre">Open</span> <span class="pre">Class</span></em><a class="headerlink" href="#dood:dood:[dood-proxy-error]" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Superclasses<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;error&gt;</span></code></p>
+</dd>
+</dl>
+<p>Signaled when proxy is restored from closed database.</p>
+</dd></dl>
+
+</section>
+<section id="proxy-examples">
+<h3>Proxy examples<a class="headerlink" href="#proxy-examples" title="Link to this heading">¶</a></h3>
+<section id="dump-by-reference">
+<h4>Dump by Reference<a class="headerlink" href="#dump-by-reference" title="Link to this heading">¶</a></h4>
+<p>The first example shows how proxies can be used to dump objects by
+reference back to objects in a user’s program. This is necessary when
+the data can not be dumped by DOOD (e.g., functions).</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">constant</span><span class="w"> </span><span class="no">$boot-objects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;table&gt;</span><span class="p">);</span>
+<span class="k">define</span><span class="w"> </span><span class="nb">class</span><span class="w"> </span><span class="nc">&lt;boot-object&gt;</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;object&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">slot</span><span class="w"> </span><span class="n">boot-id</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;integer&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">id:</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">slot</span><span class="w"> </span><span class="n">boot-function</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;function&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">function:</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">class</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="nb">initialize</span><span class="w"> </span><span class="p">(</span><span class="n">object</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;boot-object&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">#key</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="k">#all-keys</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">next-method</span><span class="p">();</span>
+<span class="w">  </span><span class="no">$boot-objects</span><span class="p">[</span><span class="n">id</span><span class="p">]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">object</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">class</span><span class="w"> </span><span class="nc">&lt;boot-proxy&gt;</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;dood-proxy&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">slot</span><span class="w"> </span><span class="n">boot-id</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;integer&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">id:</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">class</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">dood-disk-object</span>
+<span class="w">    </span><span class="p">(</span><span class="n">dood</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;dood&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;boot-object&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">proxy</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;boot-proxy&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;boot-proxy&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">id:</span><span class="w"> </span><span class="n">boot-id</span><span class="p">(</span><span class="n">object</span><span class="p">))</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">dood-restore-proxy</span>
+<span class="w">    </span><span class="p">(</span><span class="n">dood</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;dood&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">proxy</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;boot-proxy&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">object</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;boot-object&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="no">$boot-objects</span><span class="p">[</span><span class="n">boot-id</span><span class="p">(</span><span class="n">proxy</span><span class="p">)]</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="compression">
+<h4>Compression<a class="headerlink" href="#compression" title="Link to this heading">¶</a></h4>
+<p>The second example shows how proxies can be used to compress an object’s
+disk representation.</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">class</span><span class="w"> </span><span class="nc">&lt;person&gt;</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;object&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">slot</span><span class="w"> </span><span class="n">person-gender</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nb">one-of</span><span class="p">(</span><span class="ss">#&quot;male&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">#&quot;female&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">gender:</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">slot</span><span class="w"> </span><span class="n">person-height</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;integer&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">height:</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">class</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">constant</span><span class="w"> </span><span class="nc">&lt;person-code&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">&lt;integer&gt;</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">encode-person</span><span class="w"> </span><span class="p">(</span><span class="n">person</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;person&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">code</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;person-code&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">person-gender</span><span class="p">(</span><span class="n">person</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">#&quot;male&quot;</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">end</span>
+<span class="w">      </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">person-height</span><span class="p">(</span><span class="n">person</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">decode-person</span><span class="w"> </span><span class="p">(</span><span class="n">code</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;person-code&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">person</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;person&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">person-gender</span><span class="p">(</span><span class="n">person</span><span class="p">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">even?</span><span class="p">(</span><span class="n">code</span><span class="p">))</span><span class="w"> </span><span class="ss">#&quot;male&quot;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="ss">#&quot;female&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="n">person-height</span><span class="p">(</span><span class="n">person</span><span class="p">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">truncate/</span><span class="p">(</span><span class="n">code</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">class</span><span class="w"> </span><span class="nc">&lt;person-proxy&gt;</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;dood-proxy&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">slot</span><span class="w"> </span><span class="n">person-code</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;person-code&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">code:</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">class</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">dood-disk-object</span>
+<span class="w">    </span><span class="p">(</span><span class="n">dood</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;dood&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;person&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">proxy</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;person-proxy&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;person-proxy&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">code:</span><span class="w"> </span><span class="n">encode-person</span><span class="p">(</span><span class="n">object</span><span class="p">))</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">dood-restore-proxy</span>
+<span class="w">    </span><span class="p">(</span><span class="n">dood</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;dood&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">proxy</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;person-proxy&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">object</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;person&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;person&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">decode-person</span><span class="p">(</span><span class="n">person-code</span><span class="p">(</span><span class="n">object</span><span class="p">)))</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="multiple-databases">
+<h4>Multiple Databases<a class="headerlink" href="#multiple-databases" title="Link to this heading">¶</a></h4>
+<p>The third example demonstrates how to use proxies for interdatabase
+references. Suppose that each database is registered in a symbol-table
+of databases and that each object stored in these databases knows both
+its name and to which database it belongs. Furthermore, suppose that
+each database has a lazy symbol-table stored as its distinguished
+root.</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">class</span><span class="w"> </span><span class="nc">&lt;dooded-object&gt;</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;object&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">slot</span><span class="w"> </span><span class="n">object-dood-name</span><span class="p">,</span><span class="w">    </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">dood-name:</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">slot</span><span class="w"> </span><span class="n">object-binding-name</span><span class="p">,</span><span class="w"> </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">binding-name:</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">class</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">class</span><span class="w"> </span><span class="nc">&lt;dood-cross-binding-proxy&gt;</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;dood-proxy&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">slot</span><span class="w"> </span><span class="n">proxy-dood-name</span><span class="p">,</span><span class="w">    </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">dood-name:</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">slot</span><span class="w"> </span><span class="n">proxy-binding-name</span><span class="p">,</span><span class="w"> </span><span class="k">required-init-keyword:</span><span class="w"> </span><span class="k">binding-name:</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">class</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">dood-external-object</span><span class="w"> </span><span class="p">(</span><span class="n">dood</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;dood&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;symbol&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">symbol-table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dood-root</span><span class="p">(</span><span class="n">dood</span><span class="p">);</span>
+<span class="w">  </span><span class="nb">element</span><span class="p">(</span><span class="n">symbol-table</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">default:</span><span class="w"> </span><span class="l">#f</span><span class="p">)</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">constant</span><span class="w"> </span><span class="no">$doods</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;table&gt;</span><span class="p">);</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">lookup-dood</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;symbol&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">dood</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;dood&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">element</span><span class="p">(</span><span class="no">$doods</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">default:</span><span class="w"> </span><span class="l">#f</span><span class="p">)</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="nb">element</span><span class="p">(</span><span class="no">$doods</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="w">       </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;dood&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">locator:</span><span class="w"> </span><span class="nb">as</span><span class="p">(</span><span class="nc">&lt;string&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">),</span><span class="w"> </span><span class="k">direction:</span><span class="w"> </span><span class="ss">#&quot;input&quot;</span><span class="p">))</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">dood-restore-proxy</span>
+<span class="w">    </span><span class="p">(</span><span class="n">dood</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;dood&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">proxy</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;dood-cross-binding-proxy&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">object</span><span class="p">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">external-dood</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lookup-dood</span><span class="p">(</span><span class="n">proxy-dood-name</span><span class="p">(</span><span class="n">proxy</span><span class="p">);</span>
+<span class="w">  </span><span class="n">dood-external-object</span><span class="p">(</span><span class="n">external-dood</span><span class="p">,</span><span class="w"> </span><span class="n">proxy-binding-name</span><span class="p">(</span><span class="n">proxy</span><span class="p">))</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">dood-disk-object</span>
+<span class="w">    </span><span class="p">(</span><span class="n">dood</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;dood&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;dooded-object&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">disk-object</span><span class="p">)</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dood-name</span><span class="p">(</span><span class="n">dood</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">object-dood-name</span><span class="p">(</span><span class="n">object</span><span class="p">))</span><span class="w"> </span><span class="c1">// local?</span>
+<span class="w">    </span><span class="n">object</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;dood-cross-binding-proxy&gt;</span><span class="p">,</span>
+<span class="w">      </span><span class="k">dood-name:</span><span class="w">    </span><span class="n">dood-name</span><span class="p">(</span><span class="n">dood</span><span class="p">),</span>
+<span class="w">      </span><span class="k">binding-name:</span><span class="w"> </span><span class="n">object-binding-name</span><span class="p">(</span><span class="n">object</span><span class="p">))</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../dylan/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">The dylan Library</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../common-dylan/transcendentals.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">The transcendentals Module</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2011-2023, Dylan Hackers
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">The DOOD library</a><ul>
+<li><a class="reference internal" href="#the-dylan-object-oriented-database">The Dylan Object Oriented Database</a><ul>
+<li><a class="reference internal" href="#the-dood-module">The DOOD module</a></li>
+<li><a class="reference internal" href="#schemas">Schemas</a></li>
+<li><a class="reference internal" href="#reading">Reading</a></li>
+<li><a class="reference internal" href="#tables">Tables</a></li>
+<li><a class="reference internal" href="#proxies">Proxies</a></li>
+<li><a class="reference internal" href="#proxy-examples">Proxy examples</a><ul>
+<li><a class="reference internal" href="#dump-by-reference">Dump by Reference</a></li>
+<li><a class="reference internal" href="#compression">Compression</a></li>
+<li><a class="reference internal" href="#multiple-databases">Multiple Databases</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../../_static/documentation_options.js?v=55d3bea0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/furo.js?v=4e2eecee"></script>
+    </body>
+</html>

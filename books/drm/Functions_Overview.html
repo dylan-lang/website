@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Functions" />
+    <link rel="prev" href="Functions" />
+    <link rel="next" href="Parameter_Lists" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Overview &mdash; 6. Functions &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Functions"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Parameter_Lists"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Functions"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li class="current parent"><a href="Functions">Functions</a>
+	      <ul class="sections">
+		<li id="current" class="subsections"><a href="Functions_Overview">Overview</a>
+		  <ul class="page-TOC">
+		    <li><a href="#HEADING-48-7">Generic Functions</a></li>
+		    <li><a href="#HEADING-48-17">Methods</a></li>
+		  </ul>
+		</li>
+		<li><a href="Parameter_Lists">Parameter Lists</a></li>
+		<li><a href="Method_Dispatch">Method Dispatch</a></li>
+		<li><a href="Operations_on_Functions">Operations on Functions</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 6</p>
+	<p id="section-name">Functions</p>
+      </div>
+
+      <a name="HEADING-48-0"></a>
+      <a name="UID-Functions-2150"></a>
+      <h1 class="section-title"><a name="IX-745">Overview</a></h1>
+      <p>All operations in Dylan are functions.</p>
+      <p><a name="IX-746">Functions accept zero or more arguments, and return zero or more
+	values.</a> The <dfn id="IX-747">parameter list</dfn> of the function describes the number
+	and types of the arguments that the function accepts, and the number and types of the values
+	it returns.</p>
+      <p>There are two kinds of functions, methods and generic functions. Both are invoked in the
+	same way. The caller does not need to know whether the function it is calling is a method or
+	a generic function.</p>
+      <p><a name="IX-748">A method is the basic unit of executable code.</a> A method accepts
+	a number of arguments, creates local bindings for them, executes an implicit body in the
+	scope of these bindings, and then returns a number of values.</p>
+      <p><a name="IX-749">A generic function contains a number of methods.</a> When a generic
+	function is called, it compares the arguments it received with the parameter lists of the
+	methods it contains. It selects the most appropriate method and invokes it on the
+	arguments. This technique of <dfn id="IX-750">method dispatch</dfn> is the basic
+	mechanism of polymorphism in Dylan.</p>
+      <p>All Dylan functions are objects, instances
+	of <code id="IX-751">&lt;function&gt;</code>. Generic functions are instances
+	of <code id="IX-752">&lt;generic-function&gt;</code> and methods are instances
+	of <code id="IX-753">&lt;method&gt;</code>.</p>
+      <a name="HEADING-48-7"></a>
+      <a name="UID-Functions-2158"></a>
+      <h2 class="subsection-title"><a name="IX-754">Generic Functions</a></h2>
+      <p><a name="IX-755">Generic functions can be created with <code>define generic</code> or by
+	calling <code id="IX-756">make</code> on the
+	class <code>&lt;generic-function&gt;</code>.</a> They are most often created
+	with <code>define generic</code>.</p>
+      <p>Generic functions may also be <a name="IX-757">created implicitly</a>
+	by <code id="IX-758">define method</code> or by <a name="IX-759">slot specifications</a> in
+	class definitions.</p>
+      <p>A generic function definition includes a <a name="IX-760">parameter list</a>, which
+	constrains the methods that can be added to the generic function; some aspects of the
+	parameter list must be matched by any method added. In addition, a generic function
+	parameter list may specify that all keyword arguments are permitted in a call to the generic
+	function.</p>
+      <p>Parameter list congruency is described on <a href="Parameter_Lists#XREF-837">page
+	  93</a>. The complete syntax of <code>define generic</code> is given
+	  on <a href="Definition_Macros#XREF-2007">page 376</a>.</p>
+      <p>The following definition defines a generic function that accepts a single required
+	argument. All methods added to this generic function must also accept a single required
+	argument.</p>
+      <pre class="code">
+define generic double (thing)
+</pre>
+      <p>The following definition defines a generic function that accepts two arguments of
+	type <code>&lt;number&gt;</code>. All methods added to the generic function must accept two
+	required arguments of type <code>&lt;number&gt;</code> or subtype
+	of <code>&lt;number&gt;</code>.</p>
+      <pre class="code">
+define generic average (n1 :: &lt;number&gt;, n2 :: &lt;number&gt;)
+</pre>
+      <p>Generic functions created with <code>define generic</code> may be sealed or open. For
+	details of this option,
+	see <a href="Declaring_Characteristics_of_Generic_Functions#XREF-1116"><q>Declaring
+	    Characteristics of Generic Functions</q> on page 135</a>.<a name="IX-761"></a></p>
+      <a name="HEADING-48-17"></a>
+      <a name="UID-Functions-2162"></a>
+      <h2 class="subsection-title"><a name="XREF-762"></a><a name="IX-763">Methods</a></h2>
+      <p>Methods can be created with <code id="IX-764">define
+	  method</code>, <code id="IX-765">local</code>, and <code id="IX-766">method</code> program
+	constituents. <code>define method</code> is used to define a method and add it to a
+	generic function in a module binding. <code>local</code> is used to create local bindings
+	that contain self-recursive and mutually recursive methods. <code>method</code> is used to
+	create and return methods for immediate application, for use as function arguments, or for
+	storage in a variable or other data structure. Methods are also created for slot getters
+	and setters when a class is created.</p>
+      <p>Methods cannot be created with <code>make</code>.</p>
+      <p><a name="IX-767">The parameters and return values of a method are described in
+	its parameter list.</a> The specializers in the parameter list declare the types of the
+	arguments acceptable to the method. The method can be called only with arguments that match
+	the specializers of the parameters. A complete description of parameter lists is given
+	in <a href="Parameter_Lists#XREF-782"><q>Parameter Lists</q> on page 84</a>.</p>
+      <p>When the method is invoked, it executes its implicit body. Statements in the implicit body
+	are executed in order, in an environment that contains the parameters bound to the
+	arguments.</p>
+      <p>Methods may be invoked directly (used as functions), or indirectly through the invocation
+	of a generic function.</p>
+      <a name="HEADING-48-23"></a>
+      <h3 class="sub-subsection-title">Methods in Generic Functions</h3>
+      <p><code id="IX-768">define method</code> creates a method and adds it to a generic
+	function in a module variable. If the module variable indicated is not already defined, it
+	is defined as with <code>define generic</code>. Thus, <code>define method</code> will create
+	a new generic function or extend an old one, as needed. Methods added to a generic function
+	must have parameter lists that are congruent with the generic function's parameter list.</p>
+      <p>The following method accepts a single argument of type <code>&lt;number&gt;</code>, and
+	returns the number doubled. The method will be added to the generic function in the module
+	binding <code>double</code>.</p>
+      <pre class="code">
+define method double (thing :: &lt;number&gt;)
+  =&gt; another-thing :: &lt;number&gt;;
+  thing + thing;
+end method;
+</pre>
+      <p><code>define method</code> allows the programmer to control aspects of the sealing of the
+	generic function to which the method is added. For more details,
+	see <a href="Define_Sealed_Domain#XREF-1131"><q>Abbreviations for Define Sealed
+	    Domain</q> on page 138</a>.</p>
+      <p><a name="IX-769">A generic function with no required parameters</a> can contain a
+	single method. Adding a new method has the effect of replacing the existing method.</p>
+      <p>The complete syntax of <code>define method</code> is given
+	on <a href="Definition_Macros#XREF-2010">page 377</a>.<a name="IX-770"></a></p>
+      <a name="HEADING-48-30"></a>
+      <h3 class="sub-subsection-title">Local Methods</h3>
+      <p><code id="IX-771">local</code> is used for creating methods in local bindings. A
+	single <code>local</code> declaration may create one or more such methods. These methods may
+	be self-recursive and they may be mutually recursive with other methods created by the
+	same <code>local</code> declaration.</p>
+      <p><code>local</code> is similar to <code>let</code> in that it creates local bindings in the
+	current body. The parameters and the bodies of the methods are within the scope of the
+	bindings. In this way, the methods can refer to themselves and to other methods created by
+	the same <code>local</code> declaration.</p>
+      <p>The complete syntax of <code>local</code> is given
+	on <a href="Local_Declaration_Macros#XREF-2035">page 391</a>.</p>
+      <pre class="code">
+define method newtons-sqrt (x :: &lt;number&gt;)
+   local method sqrt1 (guess)
+           // note call to other local method
+           if (close-enough? (guess))
+              guess
+           else
+              sqrt1 (improve (guess))  // note self-recursive call
+           end if
+         end sqrt1,
+         method close-enough? (guess)
+           abs (guess * guess - x) &lt; .0001
+         end close-enough?,
+         method improve (guess)
+           (guess + (x / guess)) / 2
+         end improve;
+    sqrt1 (1)
+end method newtons-sqrt;<a name="IX-772"></a>
+</pre>
+      <a name="HEADING-48-35"></a>
+      <h3 class="sub-subsection-title"><a name="IX-773">Bare Methods</a></h3>
+      <p><a name="IX-774"></a>Methods can also be created and used directly with
+	the <code id="IX-775">method</code> statement.</p>
+      <p>Methods created directly can be stored in module variables, passed as arguments to generic
+	functions, stored in data structures, or immediately invoked.</p>
+      <p>The following example creates a method and stores it in the module variable square. It is
+	appropriate to define a method in this way (rather than with define method) when the
+	protocol of the function being defined does not require multiple methods.</p>
+      <pre class="code">
+define constant square = method (n :: &lt;number&gt;)
+                           n * n;
+                           end method;
+</pre>
+      <p>It is sometimes useful to create a method inline and pass it directly to another function
+	that accepts a method as an argument, as in the following example.</p>
+      <pre class="code">
+// sort accepts a test argument, which defaults to \&lt;
+sort(person-list,
+     test: method(person1, person2)
+             person1.age &lt; person2.age
+            end method)
+</pre>
+      <p>Methods created directly with the <code>method</code> statement may be called directly or
+	they may be added to generic functions. Usually, however, when you want to add a method to a
+	generic function, you create and add the method in a single declarative step,
+	with <code>define method</code>.<a name="IX-776"></a></p>
+      <a name="HEADING-48-43"></a>
+      <h3 class="sub-subsection-title"><a name="IX-777">Closures</a></h3>
+      <p>Methods created with <code>method</code> or <code>local</code> can be passed to functions
+	and returned from functions. In both cases, the methods retain access to the lexical context
+	in which they were created. Such methods are called <dfn>closures</dfn>.</p>
+      <p><a name="IX-778"></a>The following example defines a function that returns score-card
+	methods. The method that is returned is <dfn id="IX-779">closed over</dfn>
+	the <code>score</code> parameter. Each time this method is called, it updates
+	the <code>score</code> parameter and returns its new value.</p>
+      <pre class="code">
+define method make-score (score :: &lt;number&gt;)
+  method (increase :: &lt;number&gt;)
+    score := score + increase;
+  end method;
+end method make-score;
+
+define constant score-david = make-score(100);
+
+define constant score-diane = make-score(400);
+
+score-david(0)
+ &rArr;  100
+score-david(10)
+ &rArr;  110
+score-david(10)
+ &rArr;  120
+score-diane(10)
+ &rArr;  410
+score-david(0)
+ &rArr;  120
+</pre>
+      <p>Each invocation of <code>make-score</code> creates a new binding for <code>score</code>, so
+	each closure returned by <code>make-score</code> refers to a different binding. In this way,
+	assignments to the variable made by one closure do not affect the value of the variable
+	visible to other closures.</p>
+      <p class="errata-note" id="errata-p83-1">
+	<a class="note-tag" href="Errata#p83-1"><strong>Errata:</strong></a> In the published book,
+	the <code>score</code> parameter is incorrectly written as <code>points</code>
+	in <code>method make-score</code>.
+      </p>
+      <p>The following example defines a method for <code>double</code> that works on
+	functions. When you double a function, you get back a method that accepts arguments and
+	calls the function twice, passing the same arguments both times. The method that is returned
+	is closed over the function that was passed in as an argument.</p>
+      <pre class="code">
+define method double (internal-method :: &lt;function&gt;)
+  method (#rest args)
+    apply (internal-method, args);
+    apply (internal-method, args);
+    #f
+  end method
+end method;
+
+define constant double-david = double(score-david);
+
+score-david(0)
+ &rArr;  120
+double-david(10)
+ &rArr;  140
+score-david(0)
+ &rArr;  140<a name="IX-780"></a><a name="IX-781"></a>
+</pre>
+      
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Functions"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Parameter_Lists"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Functions"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

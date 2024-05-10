@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Built-In_Classes" />
+    <link rel="prev" href="Simple_Object_Classes" />
+    <link rel="next" href="Collection_Classes" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="contents" href="Copyrights" />
+    <link rel="copyright" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Numbers &mdash; 11. The Built-In Classes &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Simple_Object_Classes"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Collection_Classes"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Built-In_Classes"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li class="current parent"><a href="Built-In_Classes">The Built-In Classes</a>
+	      <ul class="sections">
+		<li><a href="Built-In_Classes_Overview">Overview</a></li>
+		<li><a href="Object_Classes">Objects</a></li>
+		<li><a href="Type_Classes">Types</a></li>
+		<li><a href="Simple_Object_Classes">Simple Objects</a></li>
+		<li id="current" class="subsections"><a href="Number_Classes">Numbers</a>
+		  <ul class="page-TOC">
+		    <li class="subsections"><a href="#HEADING-92-4">General Numbers</a>
+		      <ul>
+			<li><a href="#HEADING-92-5"><code>&lt;number&gt;</code><span class="attributes-summary"> [Open Abstract Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-92-12">Complex Numbers</a>
+		      <ul>
+			<li><a href="#HEADING-92-13"><code>&lt;complex&gt;</code><span class="attributes-summary"> [Sealed Abstract Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-92-138">Reals</a>
+		      <ul>
+			<li><a href="#HEADING-92-139"><code>&lt;real&gt;</code><span class="attributes-summary"> [Sealed Abstract Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-92-409">Floats</a>
+		      <ul>
+			<li><a href="#HEADING-92-412"><code>&lt;float&gt;</code><span class="attributes-summary"> [Sealed Abstract Class]</span></a></li>
+			<li><a href="#HEADING-92-418"><code>&lt;single-float&gt;</code><span class="attributes-summary"> [Sealed Class]</span></a></li>
+			<li><a href="#HEADING-92-424"><code>&lt;double-float&gt;</code><span class="attributes-summary"> [Sealed Class]</span></a></li>
+			<li><a href="#HEADING-92-430"><code>&lt;extended-float&gt;</code><span class="attributes-summary"> [Sealed Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-92-436">Rationals</a>
+		      <ul>
+			<li><a href="#HEADING-92-437"><code>&lt;rational&gt;</code><span class="attributes-summary"> [Sealed Abstract Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-92-443">Integers</a>
+		      <ul>
+			<li><a href="#HEADING-92-444"><code>&lt;integer&gt;</code><span class="attributes-summary"> [Sealed Class]</span></a></li>
+		      </ul>
+		    </li>
+		  </ul>
+		</li>
+		<li><a href="Collection_Classes">Collections</a></li>
+		<li><a href="Function_Classes">Functions</a></li>
+		<li><a href="Condition_Classes">Conditions</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 11</p>
+	<p id="section-name">The Built-In Classes</p>
+      </div>
+
+      <a name="HEADING-92-0"></a>
+      <a name="UID-Built-In_Classes-395"></a>
+      <h1 class="section-title"><a name="IX-1381">Numbers</a></h1>
+      <p>Dylan provides a variety of numeric classes. Classes under <code>&lt;complex&gt;</code> are
+	sealed, so that numeric operations on them can be highly optimized. User defined numeric
+	classes will be subclasses of <code>&lt;number&gt;</code>.</p>
+      <p><a href="#XREF-1382">Figure 11-3</a> shows the built-in number classes and some of
+	their characteristics.</p>
+      <p class="figure"><strong>Figure</strong> <strong>11-3</strong>
+	<a name="XREF-1382">The Number Classes</a></p>
+      
+      <div class="figure wide" style="min-width: 616px">
+	<!-- min-width is necessary to prevent the surrounding box from being layed out narrower
+	     than the image in smaller viewports -->
+	<map id="number-classes-map" name="number-classes-map">
+	  <!-- The redundant NAME attribute is necessary for compatibility with some buggy user
+	       agents that don't find the map by ID and associate it with the image. -->
+	  <!-- This map is adapted from drm_Figure_11-3_Number_Classes_map.html, which is generated
+	       from the corresponding OmniGraffle file. If the .graffle file is updated, export to
+	       HTML and update the map areas here. Be sure to add " /" at the end of the AREA tags
+	       to make it valid XHTML. -->
+	  <area alt="class integer" coords="488,397,614,440" href="#HEADING-92-444" />
+	  <area alt="class extended-float" coords="326,397,452,440" href="#HEADING-92-430" />
+	  <area alt="class double-float" coords="164,397,290,440" href="#HEADING-92-424" />
+	  <area alt="class single-float" coords="2,397,128,440" href="#HEADING-92-418" />
+	  <area alt="class rational" coords="488,318,614,361" href="#HEADING-92-437" />
+	  <area alt="class float" coords="164,318,290,361" href="#HEADING-92-412" />
+	  <area alt="class real" coords="326,239,452,282" href="#HEADING-92-139" />
+	  <area alt="class complex" coords="326,160,452,203" href="#HEADING-92-13" />
+	  <area alt="class number" coords="326,81,452,124" href="#HEADING-92-5" />
+	  <area alt="class object" coords="326,2,452,45" href="Object_Classes#HEADING-89-1" />
+	</map>
+	<img alt="Number Class Hierarchy" src="images/drm_Figure_11-3_Number_Classes"
+	     width="616" height="442" usemap="#number-classes-map" />
+	
+	<table class="class-attributes-legend">
+	  <tr>
+	    <td>S</td> <td class="description">&ndash; Sealed</td>
+	    <td>P</td> <td class="description">&ndash; Primary</td>
+	    <td>C</td> <td class="description">&ndash; Concrete</td>
+	    <td>I</td> <td class="description">&ndash; Instantiable</td>
+	  </tr>
+	  <tr>
+	    <td>O</td> <td class="description">&ndash; Open</td>
+	    <td>F</td> <td class="description">&ndash; Free</td>
+	    <td>A</td> <td class="description">&ndash; Abstract</td>
+	    <td>U</td> <td class="description">&ndash; Uninstantiable</td>
+	  </tr>
+	</table>
+      </div>
+
+      <p class="errata-note" id="errata-p198-1">
+	<a class="note-tag" href="Errata#p198-1"><strong>Errata:</strong></a> In the published
+	book, <code>&lt;complex&gt;</code> is incorrectly identified
+	as <code>&lt;complex-number&gt;</code> in Figure 11-3.
+      </p>
+      
+      <a name="HEADING-92-4"></a>
+      <a name="UID-Built-In_Classes-795"></a>
+      <h2 class="subsection-title">General Numbers</h2>
+      <a name="HEADING-92-5"></a>
+      <h4 class="item-title" id="number"><a class="here" title="Link to here" href="#number"></a> <span class="signature"><code id="IX-1383">&lt;number&gt;</code></span> <span class="attributes-summary">[Open Abstract Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of all numbers.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;object&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class of all numbers.</p>
+	  <p>The class <code>&lt;number&gt;</code> is open, to allow programmers to create
+	    additional numeric classes. <a name="IX-1384">The built-in numeric operations</a>
+	    do not provide default implementations for <code>&lt;number&gt;</code>, but
+	    for <code>&lt;complex&gt;</code>, a sealed subclass
+	    of <code>&lt;number&gt;</code>.</p></dd>
+      </dl>
+      <a name="HEADING-92-12"></a>
+      <a name="UID-Built-In_Classes-15908"></a>
+      <h2 class="subsection-title">Complex Numbers</h2>
+      <a name="HEADING-92-13"></a>
+      <h4 class="item-title" id="complex"><a class="here" title="Link to here" href="#complex"></a> <span class="signature"><code id="IX-1385">&lt;complex&gt;</code></span> <span class="attributes-summary">[Sealed Abstract Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of complex numbers.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;number&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The sealed superclass of all built-in numbers, including real numbers. There are no
+	    non-real subclasses of <code>&lt;complex&gt;</code> defined by the language, but
+	    implementations may define such subclasses. Because <code>&lt;complex&gt;</code> and all
+	    its defined subclasses are sealed, implementation-defined subclasses may be added
+	    efficiently.</p>
+	  <p>Many built-in functions are defined to have methods
+	    on <code>&lt;complex&gt;</code>. This means that the function is defined on all built-in
+	    subclasses of <code>&lt;complex&gt;</code>. It does not imply that there is a single
+	    method specialized on the <code>&lt;complex&gt;</code> class.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd><p>The class &lt;complex&gt; provides implementations for the following functions:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-10</strong> Methods on &lt;complex&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>=</code></p></td>
+	      <td><p><a href="Equality_and_Comparison#XREF-1584">Compares two objects for
+		    equality.</a></p></td>
+	      <td><p><a href="Equality_and_Comparison#XREF-1584">269</a></p></td>
+	    </tr><tr>
+	      <td><p><code>zero?</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1610">Tests for the property of being
+		    equal to zero.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1610">275</a></p></td>
+	    </tr><tr>
+	      <td><p><code>+</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1619">Returns the sum of its
+		    arguments.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1619">277</a></p></td>
+	    </tr><tr>
+	      <td><p><code>*</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1621">Returns the product of its
+		    arguments.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1621">277</a></p></td>
+	    </tr><tr>
+	      <td><p><code>-</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1623">Returns the difference of its
+		    arguments.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1623">278</a></p></td>
+	    </tr><tr>
+	      <td><p><code>/</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1625">Returns the quotient of its
+		    arguments.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1625">278</a></p></td>
+	    </tr><tr>
+	      <td><p><code>^</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1651">Raises an object to a specified
+		    power.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1651">283</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-92-138"></a>
+      <a name="UID-Built-In_Classes-11427"></a>
+      <h2 class="subsection-title">Reals</h2>
+      <a name="HEADING-92-139"></a>
+      <h4 class="item-title" id="real"><a class="here" title="Link to here" href="#real"></a> <span class="signature"><code id="IX-1386">&lt;real&gt;</code></span> <span class="attributes-summary">[Sealed Abstract Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of real numbers.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;complex&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>The class of real numbers.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;real&gt;</code> provides implementations for the following
+	    functions:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-11</strong> Functions on &lt;real&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>floor</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1631">Truncates a real number toward
+		    negative infinity.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1631">279</a></p></td>
+	    </tr><tr>
+	      <td><p><code>ceiling</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1633">Truncates a real number toward
+		    positive infinity.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1633">280</a></p></td>
+	    </tr><tr>
+	      <td><p><code>round</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1635">Rounds a real number toward the
+		    nearest mathematical integer.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1635">280</a></p></td>
+	    </tr><tr>
+	      <td><p><code>truncate</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1637">Truncates a real number toward
+		    zero.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1637">280</a></p></td>
+	    </tr><tr>
+	      <td><p><code>floor/</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1639">Returns the floor of the quotient
+		    of two numbers.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1639">281</a></p></td>
+	    </tr><tr>
+	      <td><p><code>ceiling/</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1641">Returns the ceiling of the
+		    quotient of two numbers.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1641">281</a></p></td>
+	    </tr><tr>
+	      <td><p><code>round/</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1643">Rounds off the quotient of two
+		    numbers.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1643">282</a></p></td>
+	    </tr><tr>
+	      <td><p><code>truncate/</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1645">Returns the truncated quotient of
+		    two numbers.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1645">282</a></p></td>
+	    </tr><tr>
+	      <td><p><code>modulo</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1647">Returns the second value
+		    of <code>floor/</code>.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1647">282</a></p></td>
+	    </tr><tr>
+	      <td><p><code>remainder</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1649">Returns the second value
+		    of <code>truncate/</code>.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1649">283</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-12</strong> Methods on &lt;real&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>&lt;</code></p></td>
+	      <td><p><a href="Equality_and_Comparison#XREF-1589">Returns true if its first
+		    operand is less than its second operand.</a></p></td>
+	      <td><p><a href="Equality_and_Comparison#XREF-1589">271</a></p></td>
+	    </tr><tr>
+	      <td><p><code>abs</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1654">Returns the absolute value of its
+		    argument.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1654">284</a></p></td>
+	    </tr><tr>
+	      <td><p><code>positive?</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1612">Tests for the property of being
+		    positive.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1612">276</a></p></td>
+	    </tr><tr>
+	      <td><p><code>negative?</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1614">Tests for the property of being
+		    negative.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1614">276</a></p></td>
+	    </tr><tr>
+	      <td><p><code>integral?</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1616">Tests for the property of being
+		    integral.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1616">276</a></p></td>
+	    </tr><tr>
+	      <td><p><code>negative</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1629">Returns the negation of an
+		    object.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1629">279</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-92-409"></a>
+      <a name="UID-Built-In_Classes-9235"></a>
+      <h2 class="subsection-title"><a name="IX-1387">Floats</a></h2>
+      <p>The classes <code>&lt;single-float&gt;</code>
+	and <code>&lt;double-float&gt;</code> are intended but not required to be the corresponding
+	IEEE types. The class <code>&lt;extended-float&gt;</code> is intended but not required to
+	have more range and/or precision than <code>&lt;double-float&gt;</code>.</p>
+      <p>If an implementation has fewer than three floating point classes, the
+	names <code>&lt;single-float&gt;</code>, <code>&lt;double-float&gt;</code>
+	and <code>&lt;extended-float&gt;</code> may all refer to the same object.</p>
+      <a name="HEADING-92-412"></a>
+      <h4 class="item-title" id="float"><a class="here" title="Link to here" href="#float"></a> <span class="signature"><code id="IX-1388">&lt;float&gt;</code></span> <span class="attributes-summary">[Sealed Abstract Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of floating-point numbers.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;real&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>The class of all floating-point numbers. This class is abstract. All floating point
+	    numbers will be instances of some concrete subclass of this class.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd><p>None.</p></dd>
+      </dl>
+      <a name="HEADING-92-418"></a>
+      <h4 class="item-title" id="single-float"><a class="here" title="Link to here" href="#single-float"></a> <span class="signature"><code id="IX-1389">&lt;single-float&gt;</code></span> <span class="attributes-summary">[Sealed Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of single-precision floating-point numbers.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;float&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>The class of single-precision floating-point numbers. This class is intended but not
+	    required to correspond to IEEE single-precision.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd><p>None.</p></dd>
+      </dl>
+      <a name="HEADING-92-424"></a>
+      <h4 class="item-title" id="double-float"><a class="here" title="Link to here" href="#double-float"></a> <span class="signature"><code id="IX-1390">&lt;double-float&gt;</code></span> <span class="attributes-summary">[Sealed Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of double-precision floating-point numbers.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;float&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>The class of double-precision floating-point numbers. This class is intended but not
+	    required to correspond to IEEE double-precision.<a name="IX-1391"></a></p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd><p>None.</p></dd>
+      </dl>
+      <a name="HEADING-92-430"></a>
+      <h4 class="item-title" id="extended-float"><a class="here" title="Link to here" href="#extended-float"></a> <span class="signature"><code id="IX-1392">&lt;extended-float&gt;</code></span> <span class="attributes-summary">[Sealed Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of extended-precision floating-point numbers.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;float&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>The class of extended-precision floating-point numbers. This class is intended but
+	    not required to provide more precision than <code>&lt;double-float&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd><p>None.</p></dd>
+      </dl>
+      <a name="HEADING-92-436"></a>
+      <a name="UID-Built-In_Classes-412"></a>
+      <h2 class="subsection-title">Rationals</h2>
+      <a name="HEADING-92-437"></a>
+      <h4 class="item-title" id="rational"><a class="here" title="Link to here" href="#rational"></a> <span class="signature"><code id="IX-1393">&lt;rational&gt;</code></span> <span class="attributes-summary">[Sealed Abstract Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of rational numbers.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;real&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>The class of rational numbers.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd><p>None.</p></dd>
+      </dl>
+      <a name="HEADING-92-443"></a>
+      <a name="UID-Built-In_Classes-414"></a>
+      <h2 class="subsection-title">Integers</h2>
+      <a name="HEADING-92-444"></a>
+      <h4 class="item-title" id="integer"><a class="here" title="Link to here" href="#integer"></a> <span class="signature"><code id="IX-1394">&lt;integer&gt;</code></span> <span class="attributes-summary">[Sealed Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of integers.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;rational&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class of integers.</p>
+	  <p><a name="IX-1395">Implementations are required to support integers with at
+	    least 28 bits of precision.</a> The overflow and underflow behavior is
+	    implementation-defined. (Some implementations may choose to have integers of unlimited
+	    size, but this is not required.)</p>
+	  <p><a name="IX-1396">The result of dividing two integers with / is
+	    implementation defined.</a> Portable programs should
+	    use <code>floor/</code>, <code>ceiling/</code>, <code>round/</code>,
+	    or <code>truncate/</code> to divide two integers.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;integer&gt;</code> provides the following operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-13</strong> Functions on &lt;integer&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>odd?</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1606">Tests for the property of being
+		    an odd number.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1606">275</a></p></td>
+	    </tr><tr>
+	      <td><p><code>even?</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1608">Tests for the property of being
+		    an even number.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1608">275</a></p></td>
+	    </tr><tr>
+	      <td><p><code>logior</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1656">Returns the bitwise inclusive or
+		    of its integer arguments.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1656">284</a></p></td>
+	    </tr><tr>
+	      <td><p><code>logxor</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1659">Returns the bitwise exclusive or
+		    of its integer arguments.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1659">284</a></p></td>
+	    </tr><tr>
+	      <td><p><code>logand</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1661">Returns the bitwise and of its
+		    integer arguments.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1661">285</a></p></td>
+	    </tr><tr>
+	      <td><p><code>lognot</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1663">Returns the bitwise not of its
+		    integer argument.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1663">285</a></p></td>
+	    </tr><tr>
+	      <td><p><code>logbit?</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1665">Tests the value of a particular
+		    bit in its integer argument.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1665">285</a></p></td>
+	    </tr><tr>
+	      <td><p><code>ash</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1667">Performs an arithmetic shift on
+		    its first argument.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1667">286</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-14</strong> Methods on &lt;integer&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>lcm</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1670">Returns the least common multiple
+		    of its two arguments.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1670">286</a></p></td>
+	    </tr><tr>
+	      <td><p><code>gcd</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1672">Returns the greatest common
+		    divisor of its two arguments.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#XREF-1672">287</a></p></td>
+	    </tr>
+	  </table><p class="Anchor"><a name="IX-1397"></a></p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-15</strong> Methods on singleton(&lt;integer&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>limited</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">Returns a
+		    limited subtype of a class.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">263</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Simple_Object_Classes"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Collection_Classes"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Built-In_Classes"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

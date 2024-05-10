@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Syntax" />
+    <link rel="prev" href="Parameter_Lists_Syntax" />
+    <link rel="next" href="Special_Treatment_of_Names" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Lexical Syntax &mdash; 2. Syntax &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Parameter_Lists_Syntax"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Special_Treatment_of_Names"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Syntax"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li class="current parent"><a href="Syntax">Syntax</a>
+	      <ul class="sections">
+		<li><a href="Syntax_Overview">Overview</a></li>
+		<li><a href="Libraries_and_Modules">Libraries and Modules</a></li>
+		<li><a href="Bindings">Bindings</a></li>
+		<li><a href="Macros_Syntax">Macros</a></li>
+		<li><a href="Bodies">Bodies</a></li>
+		<li><a href="Definitions">Definitions</a></li>
+		<li><a href="Local_Declarations">Local Declarations</a></li>
+		<li><a href="Expressions">Expressions</a></li>
+		<li><a href="Statements">Statements</a></li>
+		<li><a href="Parameter_Lists_Syntax">Parameter Lists</a></li>
+		<li id="current"><a href="Lexical_Syntax">Lexical Syntax</a></li>
+		<li><a href="Special_Treatment_of_Names">Special Treatment of Names</a></li>
+		<li><a href="Top-Level_Definitions">Top-Level Definitions</a></li>
+		<li><a href="Dylan_Interchange_Format">Dylan Interchange Format</a></li>
+		<li><a href="Naming_Conventions">Naming Conventions</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 2</p>
+	<p id="section-name">Syntax</p>
+      </div>
+
+      <a name="HEADING-20-0"></a>
+      <a name="UID-Syntax-1520"></a>
+      <h1 class="section-title"><a name="IX-275">Lexical Syntax</a></h1>
+      <p>Dylan source code is a sequence of tokens. <a name="IX-276">Whitespace is required between
+	tokens if the tokens would otherwise blend together.</a> Whitespace is optional between
+	self-delimiting tokens. Alphabetic case is not significant except within character and
+	string literals.</p>
+      <p><dfn id="IX-277">Whitespace</dfn> can be a space character, a tab character, a
+	newline character, or a comment. Implementations can define additional whitespace
+	characters.</p>
+      <p>A <dfn id="IX-278">comment</dfn> can be single-line or delimited. Although comments
+	count as whitespace, the beginning of a comment can blend with a preceding token, so in
+	general comments should be surrounded by genuine whitespace.</p>
+      <p>A <dfn id="IX-279">single-line comment</dfn> consists of two slash characters in a
+	row, followed by any number of characters up to and including the first newline character or
+	the end of the source record. For example, <code id="IX-280">// This line is a
+	kludge!</code></p>
+      <p>A <dfn id="IX-281">delimited comment</dfn> consists of a slash character immediately
+	followed by a star character, any number of characters (including complete single-line and
+	complete delimited comments), and finally a star character immediately followed by a slash
+	character. For example, <code id="IX-282">/* set x to 3 */</code>.</p>
+      <p>A single-line comment may appear within a delimited comment; occurrences of slash-star or
+	star-slash within the single line comment are ignored.<a name="IX-283"></a></p>
+      <p>A <dfn id="IX-284">token</dfn> is a name, a #-word, an operator, a number, a
+	character literal, a string literal, a symbol literal, or punctuation.</p>
+      <p>A <dfn id="IX-285">name</dfn> is one of the following four possibilities:</p>
+      <ul>
+	<li>An alphabetic character followed by zero or more name characters.</li>
+	<li>A numeric character followed by two or more name characters including at least two
+	  alphabetic characters in a row.</li>
+	<li>A graphic character followed by one or more name characters including at least one
+	  alphabetic character.</li>
+	<li>A <q>\</q> (backslash) followed by a function operator or another name. </li>
+      </ul>
+      <p class="Default"><a name="IX-286"></a>An <dfn id="IX-287">alphabetic
+	  character</dfn> is any of the 26 letters of the Roman alphabet in upper and lower
+	case.</p>
+      <p>A <dfn id="IX-288">numeric character</dfn> is any of the 10 digits.</p>
+      <p>A <dfn id="IX-289">graphic character</dfn> is one of the following:</p>
+      <p><code>!</code> <code>&amp;</code> <code>*</code> <code>&lt;</code> <code>=</code> <code>&gt;</code> <code>|</code> <code>^</code> <code>$</code> <code>%</code> <code>@</code> <code>_</code></p>
+      <p>A <dfn id="IX-290">name character</dfn> is an alphabetic character, a numeric
+	character, a graphic character, or one of the following:</p>
+      <p><code>-</code> <code>+</code> <code>~</code> <code>?</code> <code>/</code></p>
+      <p>The rich set of name characters means that name and operator tokens can blend. Thus Dylan
+	programs usually set off operators with whitespace.</p>
+      <p>Implementations can add additional characters but programs using them will not be
+	portable.<a name="IX-291"></a></p>
+      <p>A <dfn id="IX-292">#-word</dfn> is one
+	of <code>#t</code>, <code>#f</code>, <code>#next</code>, <code>#rest</code>, <code>#key</code>,
+	or <code>#all-keys</code>. The first two are literal constants, the others are used in
+	parameter lists. Implementations can add additional implementation-defined #-words, but
+	programmers cannot add their own #-words.</p>
+      <p>An <dfn id="IX-293">operator</dfn> is one of the following:</p>
+      <table>
+	<tr><td><code>+</code></td><td>addition</td></tr>
+	<tr><td><code>-</code></td><td>subtraction and negation</td></tr>
+	<tr><td><code>*</code></td><td>multiplication</td></tr>
+	<tr><td><code>/</code></td><td>division</td></tr>
+	<tr><td><code>^</code></td><td>exponentiation</td></tr>
+	<tr><td><code>=</code></td><td>equality</td></tr>
+	<tr><td><code>==</code></td><td>identity</td></tr>
+	<tr><td><code>&lt;</code></td><td>less than</td></tr>
+	<tr><td><code>&gt;</code></td><td>greater than</td></tr>
+	<tr><td><code>&lt;=</code></td><td>less than or equal</td></tr>
+	<tr><td><code>&gt;=</code></td><td>greater than or equal</td></tr>
+	<tr><td><code>~=</code></td><td>not equal</td></tr>
+	<tr><td><code>~==</code></td><td>not identical</td></tr>
+	<tr><td><code>&amp;</code></td><td>logical and</td></tr>
+	<tr><td><code>|</code></td><td>logical or</td></tr>
+	<tr><td><code>:=</code></td><td>assignment</td></tr>
+	<tr><td><code>~</code></td><td>logical negation</td></tr>
+      </table>
+      <p>Programmers cannot add their own operators.</p>
+      <p>A <dfn id="IX-294">number</dfn> is a decimal integer with an optional leading sign, a
+	binary integer, an octal integer, a hexadecimal integer, a ratio of two decimal integers
+	with an optional leading sign, or a floating-point number. The complete syntax of numbers is
+	given in <a href="Lexical_Grammar#XREF-2105"><q>Numbers</q> on page 418</a>. Note that
+	the ratios are not included in the Dylan language. The ratio syntax is reserved for future
+	expansion and for implementation-specific extensions.</p>
+      <p>A <dfn id="IX-295">character literal</dfn> is a printing character (including space,
+	but not <code>'</code> or <code>\</code>) or a backslash escape sequence enclosed in a pair
+	of single-quote characters '.</p>
+      <p>A <dfn id="IX-296">string literal</dfn> is a sequence of printing characters
+	(including space, but not <code>&quot;</code> or <code>\</code>) and backslash escape
+	sequences enclosed in a pair of double-quote characters &quot;.</p>
+      <p>A <dfn id="IX-297">backslash escape sequence</dfn> is a backslash followed by a
+	character or character code. A backslash escape sequence in character and string literals
+	allows quoting of the special characters ', &quot;, and \, provides names for control
+	characters, and allows Unicode characters to be specified by their hexadecimal codes.</p>
+      <p>The <a name="IX-298">control characters</a> are:</p>
+      <table>
+	<tr><td><code>a</code></td><td>alarm</td></tr>
+	<tr><td><code>b</code></td><td>backspace</td></tr>
+	<tr><td><code>e</code></td><td>escape</td></tr>
+	<tr><td><code>f</code></td><td>form feed</td></tr>
+	<tr><td><code>n</code></td><td>newline</td></tr>
+	<tr><td><code>r</code></td><td>carriage return</td></tr>
+	<tr><td><code>t</code></td><td>tab</td></tr>
+	<tr><td><code>0</code></td><td>null</td></tr>
+      </table>
+      <p><a name="IX-299">Unicode characters are represented by a series of hexadecimal digits
+	enclosed in angle brackets.</a> If Unicode does not explicitly define the character
+	represented by the hexadecimal digits, the meaning in Dylan is undefined. If an
+	implementation is not able to represent the entire Unicode character set, and the number
+	specifies a character that is not representable in the implementation, an error must be
+	signaled.</p>
+      <p>For example: <code>"\&lt;44&gt;\&lt;79&gt;\&lt;6c&gt;\&lt;61&gt;\&lt;6e&gt;" = "Dylan"</code></p>
+      <p>A <dfn id="IX-300">symbol literal</dfn> is a keyword or a unique
+	string. A <dfn id="IX-301">keyword</dfn> is a name followed immediately by a colon
+	character <q>:</q>. A <dfn id="IX-302">unique string</dfn> is a sharp sign <q>#</q>
+	followed immediately by a string literal.</p>
+      <p><dfn id="IX-303">Punctuation</dfn> is one of the following:</p>
+      <table>
+	<tr><td><code>(</code> <code>)</code></td><td>parentheses</td></tr>
+	<tr><td><code>[</code> <code>]</code></td><td>square brackets</td></tr>
+	<tr><td><code>{</code> <code>}</code></td><td>curly brackets</td></tr>
+	<tr><td><code>,</code></td><td>comma</td></tr>
+	<tr><td><code>.</code></td><td>period</td></tr>
+	<tr><td><code>;</code></td><td>semicolon</td></tr>
+	<tr><td><code>=</code></td><td>defaulting/initialization</td></tr>
+	<tr><td><code>::</code></td><td>type specialization</td></tr>
+	<tr><td><code>==</code></td><td>singleton specialization</td></tr>
+	<tr><td><code>=&gt;</code></td><td>arrow</td></tr>
+	<tr><td><code>#(</code></td><td>list/pair literal</td></tr>
+	<tr><td><code>#[</code></td><td>vector literal</td></tr>
+	<tr><td><code>?</code>, <code>??</code></td><td>macro pattern variables</td></tr>
+	<tr><td><code>...</code></td><td>macro ellipsis</td></tr>
+      </table>
+      <p>Note that some tokens are both punctuation and operators. This ambiguity is resolved by
+	grammatical context.</p>
+      <p><a name="IX-304">Note also that some punctuation tokens (for example, period and equal
+	sign) are capable of blending into some other tokens.</a> Where this can occur, whitespace
+	must be inserted to delimit the token boundary.<a name="IX-305"></a></p>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Parameter_Lists_Syntax"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Special_Treatment_of_Names"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Syntax"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

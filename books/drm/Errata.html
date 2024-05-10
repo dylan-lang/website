@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>DRM Errata</title>
+    <meta name="Author" content="Andrew Shalit" />
+    <meta name="Description" content="Assorted prose, poetry, activities, and other random links, composed by someone you may or may not know." />
+  </head>
+
+  <body class="content">
+    <h1>DRM Errata</h1>
+    <blockquote>
+      <p>This page contains a listing of typos and other errors in the Dylan Reference Manual. If
+        you find additional errors, please let us know
+        at <a href="mailto:dylan-lang@googlegroups.com">dylan-lang@googlegroups.com</a>. Questions
+        about Dylan, suggestions for improvements to the language, and general discussion should
+        be directed to one of the communications channels listed
+        on <a href="http://opendylan.org/community">the opendylan.org community page</a>.</p>
+      <p>This page was originally created by Andrew Shalit (and was extended by the Gwydion Dylan
+        Maintainers later on). He writes:</p>
+      <blockquote><p>Thanks go to <a href="mailto:tree@tiac.net">Tom Emerson</a>, for suggesting that I
+        put together this page, and for supplying me with an initial list of typos.</p></blockquote>
+    </blockquote>
+    <hr />
+    <h2>Semantically Significant Errors</h2>
+
+    <ul>
+      <li id="p37-1"><a href="Operators#errata-p37-1">p. 37</a> should include a horizontal rule
+        immediately above the entry for <tt>:=</tt>. In other words, the precedence of <tt>:=</tt>
+        is lower than that of <tt>|</tt> and <tt>&amp;</tt>.</li>
+
+      <li id="p43-1"><a href="Multiple_Values#errata-p43-1">p. 43</a>, in the example of multiple
+        values with a rest-binding, a comma is missing between <tt>one</tt>
+        and <tt>#rest</tt>.</li>
+      
+      <li id="p69-1"><a href="Instance_Creation_and_Initialization#errata-p69-1">p. 69</a>, the
+        definition of class <tt>&lt;person&gt;</tt> is missing a comma between <tt>slot name</tt>
+        and <tt>required-init-keyword:</tt>. The definition of class <tt>&lt;astronaut&gt;</tt>
+        is missing commas in its keyword descriptors, between the keyword and <tt>init-value:</tt>.</li>
+      
+      <li id="p73-1"><a href="Union_Types#errata-p73-1">p. 73</a>, the last paragraph explaining the
+        subtype relationships of <tt>type-union</tt> reads
+
+        <blockquote>
+          <p>
+          <code>subtype?(type-union*(s<sub>1</sub>...s<sub>m</sub>)  type-union*(t<sub>1</sub>...t<sub>n</sub>))</code>
+          </p>
+        </blockquote>
+        
+        <p>is missing a comma and should read</p>
+
+        <blockquote>
+          <p>
+            <code>subtype?(type-union*(s<sub>1</sub>...s<sub>m</sub>), type-union*(t<sub>1</sub>...t<sub>n</sub>))</code>
+          </p>
+        </blockquote>
+      </li>
+      
+      <li id="p73-2"><a href="Limited_Types#errata-p73-2">p. 73</a>, the example code illustrating
+        limited types reads
+
+        <blockquote>
+          <p>
+            <tt>limited(&lt;integer&gt; ,min: 0 max: 255)</tt>
+          </p>
+        </blockquote>
+        
+        <p>it should read</p>
+
+        <blockquote>
+          <p>
+            <tt>limited(&lt;integer&gt;, min: 0, max: 255)</tt>
+          </p>
+        </blockquote>
+      </li>
+      
+      <li id="p83-1"><a href="Functions_Overview#errata-p83-1">p. 83</a>, <q>Closures</q>. The
+        second paragraph in this section talks about the <tt>score</tt> parameter, while the code
+        actually uses a parameter called <tt>points</tt>.</li>
+
+      <li id="p93-1"><a href="Parameter_Lists#errata-p93-1">p. 93</a>, in the second definition of
+        method <tt>average</tt>, the return value declaration is incorrect; it contains both a
+        binding name and a type
+        
+        <blockquote>
+          <p>
+            <tt> =&gt; avg :: &lt;number&gt;;</tt>
+          </p>
+        </blockquote>
+
+        <p>but the example is meant to illustrate how, if you do not provide both, the first word is
+          parsed as the binding name even if it appears to be the name of a type. The return value
+          declaration should read</p>
+        
+        <blockquote>
+          <p>
+            <tt> =&gt; &lt;number&gt;;</tt>
+          </p>
+        </blockquote>
+      </li>
+      
+      <li id="p129-1"><a href="Limited_Collection_Types#errata-p129-1">p. 129</a>, <q>Instantiable
+          Limited Collection Types</q>. <code>&lt;deque&gt;</code> is missing from the list of
+          instantiable limited collection types. There is a method specialized
+          on <code>&lt;deque&gt;</code> in the list of methods
+          for <a href="Constructing_and_Initializing_Instances#limited"><code>limited</code></a>,
+          below <tt>&lt;stretchy-vector&gt;</tt> on page 265, the discussion of which indicates
+          that it is instantiable.</li>
+
+      <li id="p136-1"><a href="Define_Sealed_Domain#errata-p136-1">p. 136</a>, the illustration of
+        the third constraint implied by <tt>define sealed domain</tt> should include open
+        declarations for the initial classes and the generic function, as follows
+        
+        <blockquote>
+          <p>
+          <tt>define open generic m ( x ) ;<br />
+            define open class &lt;t&gt; ( &lt;object&gt;) end class
+            &lt;t&gt;;<br />
+            define open class &lt;s&gt; ( &lt;object&gt;) end class
+            &lt;s&gt;;<br />
+            define method m ( s :: &lt;s&gt; ) end method m ;<br />
+            define sealed domain m ( &lt;t&gt; );<br />
+            &nbsp;<br />
+            define class &lt;c&gt; ( &lt;s&gt; , &lt;t&gt; ) end;
+          </tt>
+          </p>
+        </blockquote>
+        
+        <p>In addition, the phrase, <q>The definition of <tt>&lt;c&gt;</tt> would be valid if it
+            appeared in the same library as the preceding definitions or in a library used by
+            them&hellip;</q> is not meant to imply that <tt>&lt;c&gt;</tt> could be defined in a
+          library used by the library in which <tt>&lt;t&gt;</tt> and <tt>&lt;s&gt;</tt> are
+          defined. This is clearly impossible because of the prohibition against circular library
+          use paths. Rather, this phrase refers to the following possible scenario:</p>
+        
+        <blockquote>
+          <p>Library L1<br />
+            <tt>define open class &lt;t&gt; ( .. ) ... end;<br />
+              define open class &lt;s&gt; ( .. ) ... end;</tt></p>
+          
+          <p>L2 (uses L1)<br />
+            <tt>define class &lt;c&gt; (&lt;s&gt;, &lt;t&gt;) end;</tt></p>
+          
+          <p>L3 (uses L1)<br />
+            <tt>define generic m (x);<br />
+              define method m (s :: &lt;s&gt;) ... end;<br />
+              define sealed domain m (&lt;t&gt;);</tt></p>
+        </blockquote>
+        
+        <p>These libraries can only be used together if L3 also uses (directly or indirectly) L2,
+          and therefore has access to the class <tt>&lt;c&gt;</tt> before the domain is sealed.</p>
+      </li>
+      
+      <li id="p140-1"><a href="Define_Sealed_Domain#errata-p140-1">p. 140</a>, the classes and
+        generic function should be declared <tt>open</tt>.</li>
+      
+      <li id="p140-2"><a href="Define_Sealed_Domain#errata-p140-2">p. 140</a>, the final method
+        should be defined on <tt>&lt;c1&gt;</tt>, not on <tt>&lt;c&gt;</tt>.</li>
+      
+      <li id="p198-1"><a href="Number_Classes#errata-p198-1">p. 198</a>, the number classes diagram
+        shows a <tt>&lt;complex-number&gt;</tt> class. This class is actually
+        named <tt>&lt;complex&gt;</tt>.</li>
+      
+      <li id="p207-1"><a href="Collection_Classes#errata-p207-1">p. 207</a>, the collection classes
+        diagram has an arrow leading to various vector &amp; string classes
+        from <tt>&lt;empty-list&gt;</tt>. It should actually lead from <tt>&lt;vector&gt;</tt>.</li>
+
+      <li id="p224-1"><a href="Collection_Classes#errata-p224-1">p. 224</a>, the description of
+        <tt>&lt;stretchy-vector&gt;</tt> says "the element type of <tt>&lt;simple-vector&gt;</tt>"
+        where it should say "the element type of <tt>&lt;stretchy-vector&gt;</tt>."</li>
+
+      <li id="p263-1"><a href="Constructing_and_Initializing_Instances#errata-p263-1">p. 263</a>,
+        the default value for the <i>by</i> argument to <tt>make</tt> of <tt>&lt;range&gt;</tt>
+        should be <tt>1</tt>, not <tt>0</tt>.</li>
+      
+      <li id="p309-1"><a href="Collection_Operations#errata-p309-1">p. 309</a>, in the example for
+        tail-setter, the final value of <tt>x</tt> should be <tt>#(4&nbsp;.&nbsp;"dot")</tt>,
+        not <tt>#(4,&nbsp;9,&nbsp;8, .  "dot")</tt>.</li>
+      
+      <li id="p325-1"><a href="Collection_Operations#errata-p325-1">p. 325</a>, in the description
+        of <tt>replace-subsequence!</tt>, the parameter <i>target-sequence</i> is erroneously
+        refered to as <i>source-sequence</i> in the last paragraph.</li>
+      
+      <li id="p326-1"><a href="Collection_Operations#errata-p326-1">p. 326</a>, in the example
+        calls of <tt>replace-subsequence!</tt>, each call ends with an extra right parenthesis.</li>
+      
+      <li id="p329-1"><a href="Collection_Operations#errata-p329-1">p. 329</a>, in the example
+        for <tt>map-as</tt>, the return value should be <tt>#[101, 102, 203, 204]</tt> rather
+        than <tt>#(101, 102, 203, 204)</tt>.</li>
+      
+      <li id="p335-1"><a href="Collection_Operations#errata-p335-1">p. 335</a>, in the signature
+        of <tt>find-key</tt>, the argument <var>predicate</var> is incorrectly named
+        <var>function</var>.</li>
+      
+      <li id="p341-1"><a href="Collection_Operations#errata-p341-1">p. 341</a>, in the example
+        method definition of <tt>table-protocol</tt>, the method signature has two return values, so
+        they should be in parentheses.</li>
+      
+      <li id="p351-1"><a href="Function_Application#errata-p351-1">p. 351</a>, the second use
+        of <tt>apply</tt> reads
+        
+        <blockquote>
+          <p>
+            <tt>apply(min 5, 7 list(3, 1, 4))</tt>
+          </p>
+        </blockquote>
+        
+        <p>it should read</p>
+        
+        <blockquote>
+          <p>
+            <tt>apply(min, 5, 7, list(3, 1, 4))</tt>
+          </p>
+        </blockquote>
+        
+        <p>(Note the additional comma after the number <tt>7</tt> in the correct version.)</p>
+      </li>
+      
+      <li id="p354-1"><a href="Reflective_Operations_on_Functions#errata-p354-1">p. 354</a>, in the
+        description of the third value returned by <tt>function-arguments</tt>, the obsolete binding
+        name <tt>&lt;keyword&gt;</tt> is used. The name <tt>&lt;symbol&gt;</tt> should be
+        substituted for the name <tt>&lt;keyword&gt;</tt>.</li>
+      
+      <li id="p377-1"><a href="Definition_Macros#errata-p377-1">p. 377</a>, the use of the
+        word <q>permit</q> in the last sentence describing the final example is incorrect. The
+        word <q>recognize</q> should be used instead, yielding
+        
+        <blockquote>
+          <p>
+          Methods added to the generic function must have one required parameter, they must
+          accept keyword arguments, and they must recognize the keyword
+          argument <tt>strength:</tt>.
+          </p>
+        </blockquote>
+        
+        <p>This change follows the definitions of the terms <q>permit</q> and <q>recognize</q> as
+          given on page 94, in the description of parameter list congruency.</p>
+      </li>
+
+      <li id="p406-1"><a href="Statement_Macros#errata-p406-1">p. 406</a>, in the second code
+        example of the <tt>block</tt> statement, the <tt>cleanup</tt> and <tt>exception</tt> clauses
+        are incorrectly ordered. <tt>cleanup</tt> must come before <tt>exception</tt> clauses.
+      </li>
+    </ul>
+
+    <hr />
+    <h2>Simple Typos</h2>
+
+    <ul>
+      <li>p. 42, the first occurrence of the two characters <tt>=&gt;</tt> should be a double-arrow
+        &rArr;.</li>
+
+      <li>p. 44, the sentence describing execution order of operator calls reads
+        
+        <blockquote>
+          <p>
+            The time of the binding specified by the operand (e.g. <tt>+</tt> or <tt>*</tt>) is
+            unspecified.
+          </p>
+        </blockquote>
+        
+        <p><q>operand</q> should be <q>operator</q>, yielding</p>
+        
+        <blockquote>
+          <p>
+            The time of the binding specified by the operator (e.g. <tt>+</tt> or <tt>*</tt>) is
+            unspecified.
+          </p>
+        </blockquote>
+      </li>
+      
+      <li>p. 79, in this sentence about Generic Function signatures
+        
+        <blockquote>
+          A generic function definition includes a parameter list, which
+          constrains the methods that can be added to the generic function; some
+          aspects of the parameter must be matched by any method added.
+        </blockquote>
+
+        the phrase <q>&hellip;some aspects of the parameter must&hellip;</q>
+        should refer to the parameter <em>list</em>, i.e., <q>&hellip;some
+        aspects of the parameter list must be matched by any method added.</q>
+        
+      </li>
+      
+      <li>p. 83, the two constant definitions should end with semicolons.</li>
+
+      <li>p. 88, the sentence before the enumerated list reads
+        
+        <blockquote>
+          <p>
+            Specialization is useful in three way:
+          </p>
+        </blockquote>
+        
+        <p>it is missing an <q>s</q> and should read</p>
+        
+        <blockquote>
+          <p>
+            Specialization is useful in three ways:
+          </p>
+        </blockquote>
+      </li>
+
+      <li>p. 94, there should be a colon at the end of
+
+        <blockquote>
+          <p>
+            If the generic function's parameter list does not contain a rest value declaration, then
+          </p>
+        </blockquote>
+      </li>
+
+      <li>p. 157, there should not be a space between <q>fragment</q> and <q>(4)</q>.</li>
+      
+      <li>p. 165, line two includes a superfluous right parenthesis.</li>
+      
+      <li>p. 192, there's a missing period after <q>There is no default</q> in the description
+        of <tt>init-function:</tt>.</li>
+      
+      <li>p. 203, the description of <tt>&lt;extended-float&gt;</tt> reads
+        
+        <blockquote>
+          <p>
+            This class is intended but not required to provide more precision
+            that <tt>&lt;double-float&gt;</tt>.
+          </p>
+        </blockquote>
+        
+        <p><q>that</q> should be <q>than</q>, yielding</p>
+        
+        <blockquote>
+          <p>
+            This class is intended but not required to provide more precision
+            than <tt>&lt;double-float&gt;</tt>.
+          </p>
+        </blockquote>
+      </li>
+      
+      <li>p. 219, the word <q>When</q> is misspelled <q>Whe</q>.</li>
+      
+      <li>p. 220, the first paragraph ends with two colons <q>::</q>.</li>
+      
+      <li>p. 261, <q>Tests whether a slot has been initialized</q> is missing a period at the end of
+        the sentence.</li>
+      
+      <li>p. 261, <tt>slot-initialized?</tt>, the description of the <var>instance</var> argument
+        says, <q>of of</q>.</li>
+      
+      <li>p. 262, the signature of <tt>pair</tt> contains a comma between the two arguments.</li>
+      
+      <li>p. 288, the interactive example given for <tt>values</tt> contains a semicolon at the end
+        of the input. This is unusual. See <tt>as</tt> on the following page for a comparison.</li>
+      
+      <li>p. 326, the examples calls of <tt>replace-subsequence!</tt> are missing
+        double-arrows (&rArr;) at the start of the result lines.</li>
+      
+      <li>p. 344, the summary of <tt>all-superclasses</tt> reads
+        
+        <blockquote>
+          <p>
+            Returns the class precedence list a class
+          </p>
+        </blockquote>
+        
+        <p>it is missing the word <q>of</q> and should read</p>
+        
+        <blockquote>
+          <p>
+            Returns the class precedence list of a class
+          </p>
+        </blockquote>
+      </li>
+      
+      <li>p. 382, the sentence fragment reading
+        <blockquote>
+          <p>
+            same binding to imported
+          </p>
+        </blockquote>
+
+        <p>should read</p>
+
+        <blockquote>
+          <p>
+            same binding to be imported
+          </p>
+        </blockquote>
+      </li>
+
+      <li>p. 383, There should be a period at the end of the parenthetical sentence
+        <blockquote>
+          <p>
+            (There is no option to rename on export)
+          </p>
+        </blockquote>
+      </li>
+
+      <li>p. 389, the sentence fragment reading
+        
+        <blockquote>
+          <p>
+            so it cannot being excluded
+          </p>
+        </blockquote>
+        
+        <p>should read</p>
+        
+        <blockquote>
+          <p>
+            so it cannot be excluded
+          </p>
+        </blockquote>
+      </li>
+
+      <li>p. 391, there should be a space between <q><tt>let</tt></q> and <q><tt>(</tt></q> here:
+
+        <blockquote>
+          <p>
+            <tt>let(whole-part :: &lt;integer&gt;, remainder :: &lt;real&gt;) = truncate(amount);</tt>
+          </p>
+        </blockquote>
+      </li>
+      
+      <li>p. 393, the second paragraph begins
+        
+        <blockquote>
+          <p>
+            The <i>handler</i> is function
+          </p>
+        </blockquote>
+        
+        <p>it is missing the word <q>a</q> and should read</p>
+        
+        <blockquote>
+          <p>
+            The <i>handler</i> is a function
+          </p>
+        </blockquote>
+      </li>
+
+      <li>p. 400, the text <q><tt>(</tt> <i>test</i> <tt>)</tt></q> should not be in
+        the <tt>until</tt> heading.
+      </li>
+
+      <li>p. 411, the word <q>executation</q> should be <q>execution</q>.</li>
+      
+      <li>p. 434, <q><tt> $permanent-hash-state</tt></q> has a leading space character (it
+        shouldn't).</li>
+      
+      <li>p. 456, the index entry for <tt>define inert domain</tt> should be an entry for <tt>define
+          sealed domain</tt>; <q>inert</q> was an early term for what later became known
+          as <q>sealed</q> and is not used in the DRM.</li>
+
+      <li>p. 461, the index entry for <q>BNF of [lexical syntax]</q> should capitalize BNF (it is
+        written <q>bnf of</q>.)
+      </li>
+    </ul>
+
+    <hr />
+    <h2>Typesetting and Layout Errors</h2>
+
+    <ul>
+      <li>p. 73, the first occurrence of <q>x</q> should be set in italic.</li>
+      <li>p. 148, the parenthesis in the <i>function-macro-call</i> definition should be set in
+        bold, as in the BNF appendix (A).</li>
+      <li>p. 151, the commas and trailing spaces in <q><tt>?, ??, </tt>and</q> should be set in body
+        font, not monospaced font.</li>
+      <li>p. 160, in <q>A reference to NAME</q>, <q>name</q> should be set in small caps instead of
+        regular capitals.</li>
+      <li>p. 208, the <tt>&lt;collection&gt;</tt> heading should be set in monospaced font.</li>
+      <li>p. 211, the <tt>&lt;sequence&gt;</tt> heading should be set in monospaced font.</li>
+      <li>p. 245, the <tt>&lt;condition&gt;</tt> heading should be set in monospaced font.</li>
+      <li>p. 247, the <tt>&lt;serious-condition&gt;</tt> heading should be set in monospaced
+        font.</li>
+      <li>p. 257-369, all of the identifier headings should be set in bold font, as done everywhere
+        else, instead of normal weight.</li>
+      <li>p. 289, the interactive examples given for <tt>as</tt> contain a space between function
+        name and opening parenthesis. This is unusual. See <tt>values</tt> on the preceding page for
+        a comparison. (Looking at it, there are lots of inconsistencies of this kind all around.
+        Can we settle on the space-less form, uniformly?)</li>
+      <li>p. 303, in <q>array is modified by this operation.</q>, <q>array</q> should be in
+        italics.</li>
+      <li>p. 335, in the description of the <tt>member?</tt> method at the top of the page,
+        the <q>I</q> of <q>If</q> is in Courier, and not the standard body font.</li>
+      <li>p. 376, the <tt>define generic</tt> heading should be set in monospaced font.</li>
+      <li>p. 389, the <tt>define macro</tt> heading should be set in monospaced font.</li>
+      <li>p. 416, the backslashes \ before <q>unary-operator</q> and <q>binary-operator</q> should
+        be set in bold.</li>
+      <li>p. 416, the colon : after <q>word</q> should be set in normal, not italic.</li>
+      <li>p. 418, the angle brackets &lt; &gt; around <q>hex-digits</q> should be set in bold.</li>
+      <li>p. 420, there is a spurious vertical space above <q>parsed-macro-call</q>.</li>
+      <li>p. 428, BNF ellipsis used instead of literal ellipsis in <q>pattern-variable</q>,
+        see <q>substitution</q> (p. 429) for the correct one.</li>
+    </ul>
+
+  </body>
+</html>

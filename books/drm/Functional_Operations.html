@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Built-In_Functions" />
+    <link rel="prev" href="Reflective_Operations_on_Types" />
+    <link rel="next" href="Function_Application" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Functional Operations &mdash; 12. The Built-in Functions &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Reflective_Operations_on_Types"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Function_Application"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Built-In_Functions"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li class="current parent"><a href="Built-In_Functions">The Built-In Functions</a>
+	      <ul class="sections">
+		<li><a href="Built-In_Functions_Overview">Overview</a></li>
+		<li><a href="Constructing_and_Initializing_Instances">Constructing and Initializing Instances</a></li>
+		<li><a href="Equality_and_Comparison">Equality and Comparison</a></li>
+		<li><a href="Arithmetic_Operations">Arithmetic Operations</a></li>
+		<li><a href="Coercing_and_Copying_Objects">Coercing and Copying Objects</a></li>
+		<li><a href="Collection_Operations">Collection Operations</a></li>
+		<li><a href="Reflective_Operations_on_Types">Reflective Operations on Types</a></li>
+		<li id="current"><a href="Functional_Operations">Functional Operations</a>
+		  <ul class="page-TOC">
+		    <li><a href="#HEADING-104-2"><code>compose</code><span class="attributes-summary"> [Function]</span></a></li>
+		    <li><a href="#HEADING-104-13"><code>complement</code><span class="attributes-summary"> [Function]</span></a></li>
+		    <li><a href="#HEADING-104-20"><code>disjoin</code><span class="attributes-summary"> [Function]</span></a></li>
+		    <li><a href="#HEADING-104-29"><code>conjoin</code><span class="attributes-summary"> [Function]</span></a></li>
+		    <li><a href="#HEADING-104-38"><code>curry</code><span class="attributes-summary"> [Function]</span></a></li>
+		    <li><a href="#HEADING-104-47"><code>rcurry</code><span class="attributes-summary"> [Function]</span></a></li>
+		    <li><a href="#HEADING-104-57"><code>always</code><span class="attributes-summary"> [Function]</span></a></li>
+		  </ul>
+		</li>
+		<li><a href="Function_Application">Function Application</a></li>
+		<li><a href="Reflective_Operations_on_Functions">Reflective Operations on Functions</a></li>
+		<li><a href="Operations_on_Conditions">Operations on Conditions</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 12</p>
+	<p id="section-name">The Built-In Functions</p>
+      </div>
+
+      <a name="HEADING-104-0"></a>
+      <a name="UID-Built-In_Functions-420"></a>
+      <h1 class="section-title"><a name="XREF-1873"></a><a name="IX-1874">Functional Operations</a></h1>
+      <p>The following operations are used to create new functions from other functions or
+	objects. Often the Dylan compiler will have special knowledge of these operations to allow
+	for efficient in-line compilation.</p>
+      <a name="HEADING-104-2"></a>
+      <h4 class="item-title" id="compose"><a class="here" title="Link to here" href="#compose"></a> <span class="signature"><code id="IX-1875">compose</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1755">Returns the composition of one or
+	more functions.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>compose <var>function1</var> #rest <var>more-functions</var> </code>
+	    &rArr;<code> <var>function</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>function1</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>.</p></dd>
+	    <dt><var>more-functions</var></dt>
+	    <dd><p>Instances of <code>&lt;function&gt;</code>.</p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>When called with just a single argument, <code>compose</code> returns that
+	    argument.</p>
+	  <p>When called with two arguments, <code>compose</code> returns a function that applies
+	    the second function to its arguments and then applies the first function to the (single)
+	    result value.</p>
+	  <p>With three or more arguments, <code>compose</code> composes pairs of argument
+	    functions, until a single composite function is obtained. (It doesn't matter if the
+	    pairings are done from the left or from the right, as long as the order of application
+	    is preserved.)</p>
+	  <pre class="code">
+define constant number-of-methods =
+  compose(size, generic-function-methods)
+define constant root-position = compose(position, root-view) </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-104-13"></a>
+      <h4 class="item-title" id="complement"><a class="here" title="Link to here" href="#complement"></a> <span class="signature"><code id="IX-1877">complement</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1878">Returns a function that expresses the
+	complement of a predicate.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>complement <var>predicate</var> </code>
+	    &rArr;<code> <var>function</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>predicate</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a function that applies <var>predicate </var> to its arguments. If
+	    the <var>predicate </var>returns <code>#f</code>, the complement
+	    returns <code>#t</code>; otherwise, the complement returns <code>#f</code>. For
+	    example, <code>odd?</code> could be defined as <code>complement(even?)</code>.</p>
+	  <pre class="code">
+choose(complement(zero?), #(1, 3, 0, 4, 0, 0, 3))
+  &rArr;  #(1, 3, 4, 3) </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-104-20"></a>
+      <h4 class="item-title" id="disjoin"><a class="here" title="Link to here" href="#disjoin"></a> <span class="signature"><code id="IX-1879">disjoin</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1880">Returns a function that expresses the
+	disjunction of one or more predicates.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>disjoin <var>predicate1</var> #rest <var>more-predicates</var> </code>
+	    &rArr;<code> <var>function</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>predicate1</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>.</p></dd>
+	    <dt><var>more-predicates</var></dt>
+	    <dd><p>Functions.</p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a single function, termed the disjunction of its argument functions. The
+	    disjunction accepts any number of arguments and operates by applying the predicates, in
+	    order, to the arguments. If any of the predicates returns true, the remaining predicates
+	    (if any) are not applied, and the true result is returned. Otherwise, all the predicates
+	    will be applied, and <code>#f</code> returned.</p>
+	  <p>A disjunction is similar to an <code>|</code> expression of calls to the
+	    predicates.</p>
+	  <pre class="code">
+define constant nonzero? = disjoin(positive?, negative?);
+nonzero?(4)
+<code> &rArr;</code>  #t </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-104-29"></a>
+      <h4 class="item-title" id="conjoin"><a class="here" title="Link to here" href="#conjoin"></a> <span class="signature"><code id="IX-1881">conjoin</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1882">Returns a function that expresses the
+	conjunction of one or more predicates.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>conjoin <var>predicate1</var> #rest <var>more-predicates</var> </code>
+	    &rArr;<code> <var>function</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>predicate1</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>.</p></dd>
+	    <dt><var>more-predicates</var></dt>
+	    <dd><p>Instances of <code>&lt;function&gt;</code>.</p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a single function, termed the conjunction of its argument functions. The
+	    conjunction accepts any number of arguments and operates by applying the predicates, in
+	    order, to the arguments. If any of the predicates returns <code>#f</code>, the remaining
+	    predicates (if any) are not applied and <code>#f</code> is immediately
+	    returned. Otherwise, all the predicates will be applied, and the result of the last
+	    application is returned.</p>
+	  <p>A conjunction is similar to an <code>&amp;</code> expression of calls to the
+	    predicates.</p>
+	  <pre class="code">
+choose(conjoin(positive?, integral?), #(-1, -3, 5, -3.7, 3.5, 7))
+  &rArr; #(5, 7) </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-104-38"></a>
+      <h4 class="item-title" id="curry"><a class="here" title="Link to here" href="#curry"></a> <span class="signature"><code id="IX-1883">curry</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1884">Returns a function based on an
+	existing function and a number of default initial arguments.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>curry <var>function</var> #rest <var>curried-args</var> </code>
+	    &rArr;<code> <var>new-function</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>function</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>.</p></dd>
+	    <dt><var>curried-args</var></dt>
+	    <dd><p>Instances of <code>&lt;object&gt;</code>.</p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a function that applies <var>function</var> to <var>curried-args</var> plus its
+	    own arguments, in that order. For example <code>curry (\&gt;, 6)</code> is a predicate
+	    that returns true for values less than 6; <code>curry (\=, "x")</code> is a predicate
+	    that tests for equality with the string <code>"x"</code>; <code>curry (\+, 1)</code> is
+	    an incrementing function; <code>curry (concatenate, "set-")</code> is a function that
+	    concatenates the string <code>"set-"</code> to any additional sequences it is
+	    passed.</p>
+	  <pre class="code">
+define constant all-odd? = curry(every?, odd?)
+all-odd?(list(1, 3, 5))
+<code> &rArr;</code> #t
+define constant less-than-10? = curry(\&gt;, 10)
+less-than-10?(4)
+<code> &rArr;</code> #t </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-104-47"></a>
+      <h4 class="item-title" id="rcurry"><a class="here" title="Link to here" href="#rcurry"></a> <span class="signature"><code id="IX-1885">rcurry</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1886">Returns a function based on an
+	existing function and a number of default final arguments.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>rcurry <var>function</var> #rest <var>curried-args</var> </code>
+	    &rArr;<code> <var>new-function</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>function</var></dt>
+	    <dd><p>An instance of <code>&lt;function&gt;</code>.</p></dd>
+	    <dt><var>curried-args</var></dt>
+	    <dd><p>Instances of <code>&lt;object&gt;</code>.</p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a function that applies <var>function</var> to <var>curried-args</var> plus its
+	    own arguments, with the <var>curried-args</var> occurring last.</p>
+	  <p><code>rcurry</code> ("right" curry) operates just like <code>curry</code>, except it
+	    allows the rightmost arguments of <var>function </var>to be specified in advance,
+	    rather than the leftmost arguments. For example, <code>rcurry (\&gt;, 6)</code> is a
+	    predicate that returns true for values greater than 6.</p>
+	  <pre class="code">
+define constant number? = rcurry(instance?, &lt;number&gt;)
+number?(4) 
+<code> &rArr;</code> #t
+number?("string")
+<code> &rArr;</code> #f
+define constant greater-than-10? = rcurry(\&gt;, 10)
+greater-than-10?(4)
+<code> &rArr;</code> #f </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-104-57"></a>
+      <h4 class="item-title" id="always"><a class="here" title="Link to here" href="#always"></a> <span class="signature"><code id="IX-1887">always</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1888">Returns a function that always returns a
+	particular object.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>always <var>object</var> </code>
+	    &rArr;<code> <var>function</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a function that can be called with any number of arguments. The function
+	    ignores its arguments and always returns <var>object</var>.</p>
+	  <pre class="code">
+define constant menu = always("spam!")
+menu("today") 
+<code> &rArr;</code> "spam!"
+menu("tomorrow")  
+<code> &rArr;</code> "spam!"
+menu(4, 5, 6)
+<code> &rArr;</code> "spam!" </pre>
+	</dd>
+      </dl>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Reflective_Operations_on_Types"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Function_Application"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Built-In_Functions"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

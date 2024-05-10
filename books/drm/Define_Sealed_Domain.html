@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Sealing" />
+    <link rel="prev" href="Declaring_Characteristics_of_Generic_Functions" />
+    <link rel="next" href="Macros" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Define Sealed Domain &mdash; 9. Sealing &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Declaring_Characteristics_of_Generic_Functions"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Macros"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Sealing"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li class="current parent"><a href="Sealing">Sealing</a>
+	      <ul class="sections">
+		<li><a href="Sealing_Overview">Overview</a></li>
+		<li><a href="Explicitly_Known_Objects">Explicitly Known Objects</a></li>
+		<li><a href="Declaring_Characteristics_of_Classes">Declaring Characteristics of Classes</a></li>
+		<li><a href="Declaring_Characteristics_of_Generic_Functions">Declaring Characteristics of Generic Functions</a></li>
+		<li id="current" class="subsections"><a href="Define_Sealed_Domain">Define Sealed Domain</a>
+		  <ul class="page-TOC">
+		    <li><a href="#HEADING-75-13">Rationale</a></li>
+		    <li><a href="#HEADING-75-24">Pseudosubtype Examples</a></li>
+		    <li><a href="#HEADING-75-27">Abbreviations for Define Sealed Domain</a></li>
+		    <li><a href="#HEADING-75-38">Implied Restrictions on Method Definitions</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 9</p>
+	<p id="section-name">Sealing</p>
+      </div>
+
+      <a name="HEADING-75-0"></a>
+      <a name="UID-Sealing-2976"></a>
+      <h1 class="section-title"><a name="XREF-1123"></a><a name="IX-1124">Define Sealed Domain</a></h1>
+      <p><code><a name="IX-1125">define sealed domain</a></code> is used to make specific portions
+	of a generic function and of the class hierarchy invariant without disallowing all future
+	changes. The arguments to <code>define sealed domain</code> are an explicitly known generic
+	function and a series of types, one for each required argument of the generic function.</p>
+      <p>The complete syntax of <code>define</code> <code>sealed domain</code> is given
+	on <a href="Definition_Macros#XREF-2024">page 388</a>.</p>
+      <p>A <code>define sealed domain</code> definition in a library <var>L</var> for a generic
+	function <var>G</var> with
+	types <var>T<em><sub>1</sub></em>&hellip;T<em><sub>n</sub></em></var> imposes the
+	following <a name="IX-1126">constraints on programs</a>:</p>
+      <ol>
+	<li>A method <var>M</var> that is congruent to <var>G</var> and that is not an explicitly
+	  known method in <var>L</var> may be added to <var>G</var> only if at least one of the
+	  specializers for <var>M</var> is disjoint from the corresponding <var>T</var>.</li>
+	<li>A method <var>M</var> may be removed from <var>G</var> only if at least one of the
+	  specializers for <var>M</var> is disjoint from the corresponding <var>T</var>.</li>
+	<li>A class <var>C</var> (with direct
+	  superclasses <var>D<em><sub>1</sub></em></var>&hellip;<var>D<em><sub>m</sub></em></var>)
+	  that is not explicitly known in <var>L</var> may be created only if no method
+	  in <var>G</var> actually blocks <var>C</var>.
+	  <ul>
+	    <li>A method <var>M</var> (with
+	      specializers <var>S<em><sub>1</sub></em></var>&hellip;<var>S<em><sub>n</sub></em></var>)
+	      in <var>G</var> potentially blocks <var>C</var> at argument position <var>i</var> if
+	      there exist <var>j</var> and <var>k</var> such that <var>D<em><sub>j</sub></em></var>
+	      is a pseudosubtype
+	      of <var>S<em><sub>i</sub></em></var>, <var>D<em><sub>k</sub></em></var> is a
+	      pseudosubtype of <var>T<em><sub>i</sub></em></var>,
+	      and <var>D<em><sub>k</sub></em></var> is not a pseudosubtype
+	      of <var>S<em><sub>i</sub></em></var>.</li>
+	    <li>A method <var>M</var> actually blocks <var>C</var> if <var>M</var> potentially
+	      blocks <var>C</var> at some argument position, and for every argument
+	      position <var>i</var> where <var>S<em><sub>i</sub></em></var>
+	      and <var>T<em><sub>i</sub></em></var> are disjoint, <var>M</var> potentially
+	      blocks <var>C</var> at <var>i</var>.</li>
+	  </ul>
+	</li>
+      </ol>
+      <p>The third constraint is illustrated by the following example:</p>
+      <pre class="code">
+define open generic m (x);
+define open class &lt;t&gt; (&lt;object&gt;) end class &lt;t&gt;;
+define open class &lt;s&gt; (&lt;object&gt;) end class &lt;s&gt;;
+define method m (s :: &lt;s&gt;) end method m;
+define sealed domain m (&lt;t&gt;);
+
+define class &lt;c&gt; (&lt;s&gt;, &lt;t&gt;) end class &lt;c&gt;;
+</pre>
+      <p>The definition of class <code>&lt;c&gt;</code> would be valid if it appeared in the same
+	library as the preceding definitions or in a library used by them, but invalid if it
+	appeared in a different library. The reason is that without the definition
+	of <code>&lt;c&gt;</code>, the method defined on <code>m</code> is not within the domain
+	declared by the <code>define sealed domain</code>, but with the definition
+	of <code>&lt;c&gt;</code> the method is within that domain.</p>
+      <p class="errata-note" id="errata-p136-1">
+	<a class="note-tag" href="Errata#p136-1"><strong>Errata:</strong></a> In the published
+	book, <code>open</code> is missing from the definitions of <code>generic m</code>,
+	<code>class &lt;t&gt;</code>, and <code>class &lt;s&gt;</code>.
+      </p>
+      <a name="HEADING-75-13"></a>
+      <a name="UID-Sealing-2154"></a>
+      <h2 class="subsection-title">Rationale</h2>
+      <p><code id="IX-1127">define sealed domain</code> permits the compiler to assume certain
+	properties of the program that can be computed based on explicitly known classes and
+	methods, with a guarantee that an attempt to violate any of those assumptions will be
+	detected.</p>
+      <p>The goal of rule 3 is that the creation of the class <var>C</var> must not make any
+	method <var>M</var> applicable to a part of the sealed domain to which it was not previously
+	applicable.</p>
+      <p>The <q>potentially blocks</q> concept describes the mechanism for testing whether the set
+	of objects that are instances of both <var>S<em><sub>i</sub></em></var>
+	and <var>T<em><sub>i</sub></em></var> (i.e., to which the method is applicable at
+	the <var>i</var>th argument position and that are within the sealed domain at that argument
+	position) would change as a result of creating <var>C</var>. By specifying what valid
+	programs are allowed to do, rule 3 implicitly specifies the assumptions a compiler can
+	make. A <code>define sealed domain</code> definition accomplishes this by permitting the
+	compiler to eliminate some of the known methods on a generic function from the set of
+	methods that might be applicable to a particular call at runtime. For example, if this
+	leaves exactly one applicable method, the compiler can eliminate a run-time method dispatch
+	and consider additional optimizations such as inlining.</p>
+      <p>Specifically, suppose the compiler is compiling a call to <var>G</var> and has determined
+	that the argument at position <var>i</var> is an instance of some type <var>U</var>
+	(where <var>U</var> is not necessarily a standard Dylan type, but could instead be a
+	compiler-internal extension to the type system, such as a difference of two types). For the
+	compiler to be able to rely on the <code>define sealed domain</code>
+	definition, <var>U</var> must be a subtype of <var>T<em><sub>i</sub></em></var>. For the
+	compiler to determine that <var>M</var> is not applicable, <var>U</var> must be disjoint
+	with <var>S<em><sub>i</sub></em></var>. Creating <var>C</var> can't change
+	whether <var>U</var> is a subtype of <var>T<em><sub>i</sub></em></var>, but it can change
+	whether <var>U</var> is disjoint with <var>S<em><sub>i</sub></em></var>. If there could be
+	an object that is simultaneously an instance of <var>U</var>, <var>C</var>,
+	and <var>S<em><sub>i</sub></em></var>, it would violate the compiler's assumption
+	that <var>M</var> is not applicable in the call to <var>G</var>, and therefore
+	creating <var>C</var> would be a sealing violation. If there can't be such an object, then
+	creating <var>C</var> is allowed.</p>
+      <p>This maps onto rule 3 as follows (ignoring for the moment the added complication of limited
+	types that lead to the use of the pseudosubtype relationship rather than subtype):</p>
+      <p><var>U</var> is a subtype of <var>D<em><sub>k</sub></em></var> and therefore is a subtype
+	of <var>T<em><sub>i</sub></em></var>, because subtype is transitive.</p>
+      <p><var>D<em><sub>k</sub></em></var> is not a subtype of <var>S<em><sub>i</sub></em></var>,
+	because if it were then <var>U</var> could not be disjoint
+	from <var>S<em><sub>i</sub></em></var>.</p>
+      <p><var>D<em><sub>j</sub></em></var> is a subtype of <var>S<em><sub>i</sub></em></var>.</p>
+      <p>If <var>U</var> and <var>C</var> would have a nonempty intersection, then the creation
+	of <var>C</var> must be prevented, else <var>U</var> would no longer be disjoint
+	from <var>S<em><sub>i</sub></em></var>. One possible <var>U</var> is the set of all general
+	instances of <var>D<em><sub>k</sub></em></var> that are not also general instances of any of
+	the explicitly known direct subclasses
+	of <var>D<em><sub>k</sub></em></var>. That <var>U</var> would indeed have a non-empty
+	intersection with <var>C</var>. The existence of this <var>U</var> makes the proposed rule 3
+	necessary.</p>
+      <p>Rule 3 does not need to address the possibility of multiple inheritance being used to
+	combine classes involved in the element types of limited collection classes. Changes to the
+	disjointness relationships between element types does not affect the relationships between
+	collection types with those element types.<a name="IX-1128"></a></p>
+      <a name="HEADING-75-24"></a>
+      <a name="UID-Sealing-2173"></a>
+      <h2 class="subsection-title"><a name="IX-1129">Pseudosubtype Examples</a></h2>
+      <p>Suppose <var>A</var> and <var>B</var> are disjoint subclasses
+	of <code>&lt;collection&gt;</code>, <var>S<em><sub>i</sub></em></var>
+	is <code>limited(<var>A</var>, of: <var>T</var>)</code>,
+	and <var>T<em><sub>i</sub></em></var> is <code>limited(<var>B</var>,
+	of: <var>T</var>)</code>. Thus, <var>S<em><sub>i</sub></em></var>
+	and <var>T<em><sub>i</sub></em></var> are disjoint and <var>M</var> is outside the sealed
+	domain. If <var>C</var> inherits from <var>A</var> and <var>B</var> it should be potentially
+	blocked by <var>M</var>, because an instance of <code>limited(<var>C</var>,
+	of: <var>T</var>)</code> would be an instance of both <var>S<em><sub>i</sub></em></var>
+	and <var>T<em><sub>i</sub></em></var>. Since <var>B</var> is not a subtype
+	of <var>T<em><sub>i</sub></em></var>, there would be no blockage if the constraints in rule
+	3 were defined in terms of <code>subtype</code>. However, <var>B</var> is a pseudosubtype
+	of <var>T<em><sub>i</sub></em></var>, so specifying rule 3 using the pseudosubtype
+	relationship correctly causes <var>M</var> to potentially block <var>C</var>.</p>
+      <p>Suppose <var>S<em><sub>i</sub></em></var> is <code>limited(&lt;stretchy-vector&gt;, of:
+	  &lt;integer&gt;)</code> and <var>T<em><sub>i</sub></em></var>
+	  is <code>limited(&lt;sequence&gt;, of: &lt;integer&gt;)</code>. It should be possible to
+	  create <code>&lt;stretchy-string&gt;</code>, a direct subclass
+	  of <code>&lt;stretchy-vector&gt;</code> and <code>&lt;string&gt;</code>. The element-type
+	  of <code>&lt;stretchy-string&gt;</code> must be a subtype
+	  of <code>&lt;character&gt;</code>, therefore, assuming <code>&lt;integer&gt;</code>
+	  and <code>&lt;character&gt;</code> are disjoint, <code>&lt;stretchy-string&gt;</code> is
+	  disjoint from both <var>S<em><sub>i</sub></em></var>
+	  and <var>T<em><sub>i</sub></em></var>, and so is not blocked. This example shows the need
+	  for the non-disjointness requirement in the definition of
+	  pseudosubtype.<a name="IX-1130"></a></p>
+      <a name="HEADING-75-27"></a>
+      <a name="UID-Sealing-1419"></a>
+      <h2 class="subsection-title"><a name="XREF-1131"></a><a name="IX-1133">Abbreviations for Define Sealed Domain</a></h2>
+      <p><code><a name="IX-1132">define sealed method</a></code> defines a method on a generic
+	function and also seals the generic function for the types that are the specializers of the
+	method.</p>
+      <p>The following two program fragments are equivalent: </p>
+      <pre>
+define sealed method insert (source :: &lt;list&gt;, i :: &lt;object&gt;)
+  =&gt; (result :: &lt;list&gt;)
+  &hellip;
+end method insert;</pre>
+      <p>and</p>
+      <pre class="code">
+define method insert (source :: &lt;list&gt;, i :: &lt;object&gt;)
+  =&gt; (result :: &lt;list&gt;)
+  &hellip;
+end method insert;
+define sealed domain insert (&lt;list&gt;, &lt;object&gt;);
+</pre>
+      <p>The <code id="IX-1134">sealed slot</code> option to <code>define class</code> defines
+	a slot and also makes the getter generic function sealed over the class, and the setter
+	generic function, if there is one, sealed over the type of the slot and the class.</p>
+      <p>The following two program fragments are equivalent:</p>
+      <pre class="code">
+define class &lt;polygon&gt; (&lt;shape&gt;)
+  sealed slot sides :: &lt;integer&gt;, required-init-keyword: sides:;
+end class &lt;polygon&gt;;
+</pre>
+      <p>and</p>
+      <pre class="code">
+define class &lt;polygon&gt; (&lt;shape&gt;)
+  slot sides :: &lt;integer&gt;, required-init-keyword: sides:;
+end class &lt;polygon&gt;;
+define sealed domain sides (&lt;polygon&gt;);
+define sealed domain sides-setter (&lt;integer&gt;, &lt;polygon&gt;);<a name="IX-1135"></a>
+</pre>
+      <a name="HEADING-75-38"></a>
+      <a name="UID-Sealing-1853"></a>
+      <h2 class="subsection-title"><a name="IX-1136">Implied Restrictions on Method Definitions</a></h2>
+      <p>To avoid potential <a name="IX-1137">sealing violations</a> among separately developed
+	libraries, one of the following conditions should be true for every method <var>M</var>
+	defined in a library <var>L</var>:</p>
+      <ul>
+	<li>Either the generic function to which <var>M</var> is added should be defined in the
+	  library <var>L</var>, or</li>
+	<li>One of the specializers of <var>M</var> should be a subtype of a class defined in
+	  library <var>L</var>.</li>
+      </ul>
+      <p>The following example illustrates why this condition is necessary.</p>
+      <p>Library <var>L<em><sub>1</sub></em></var> defines and exports the following:</p>
+      <pre class="code">
+define open generic g (x)
+define open class &lt;c1&gt; (&lt;object&gt;) end class &lt;c1&gt;;
+</pre>
+      <p>Library <var>L<em><sub>2</sub></em></var> uses <var>L<em><sub>1</sub></em></var> and
+	defines the following</p>
+      <pre class="code">
+define open class &lt;c2&gt; (&lt;c1&gt;) end class &lt;c2&gt;;
+define method g (x :: &lt;c2&gt;) end method;
+define sealed domain g (&lt;c2&gt;)
+</pre>
+      <p>Library <var>L<em><sub>3</sub></em></var> uses <var>L<em><sub>1</sub></em></var> and
+	defines the following</p>
+      <pre class="code">
+define method g (x :: &lt;c1&gt;) end method;
+</pre>
+      <p>Libraries <var>L<em><sub>2</sub></em></var> and <var>L<em><sub>3</sub></em></var> are
+	developed independently, and have no knowledge of each other. An application that attempts
+	to use both <var>L<em><sub>2</sub></em></var> and <var>L<em><sub>3</sub></em></var> contains
+	a sealing violation. <var>L<em><sub>2</sub></em></var> is clearly
+	valid. Therefore, <var>L<em><sub>3</sub></em></var> is at fault for the sealing
+	violation. Because the compiler cannot prove that use of <var>L<em><sub>3</sub></em></var>
+	will lead to an error (and indeed, it will only lead to an error in the presence
+	of <var>L<em><sub>2</sub></em></var>), it is appropriate to issue a warning but not disallow
+	the compilation
+	of <var>L<em><sub>3</sub></em></var>.<a
+	name="IX-1138"></a><a name="IX-1139"></a></p>
+      <p class="errata-note" id="errata-p140-1">
+	<a class="note-tag" href="Errata#p140-1"><strong>Errata:</strong></a> In the published
+	book, <code>open</code> is missing from the definitions of <code>generic g</code>,
+	<code>class &lt;c1&gt;</code>, and <code>class &lt;c2&gt;</code>.
+      </p>
+      <p class="errata-note" id="errata-p140-2">
+	<a class="note-tag" href="Errata#p140-2"><strong>Errata:</strong></a> In the published book,
+	<code>method g (x :: &lt;c1&gt;)</code> is incorrectly specialized
+	on <code>&lt;c&gt;</code>.
+      </p>
+      <a name="LINK-Sealing-lastpage"></a><a name="LINK-MacrosTOC-firstpage"></a><a name="UID-MacrosTOC-714"></a>
+      <a name="LINK-MacrosTOC-lastpage"></a>
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Declaring_Characteristics_of_Generic_Functions"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Macros"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Sealing"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

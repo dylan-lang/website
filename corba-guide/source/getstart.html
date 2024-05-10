@@ -1,0 +1,1408 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Setting up the Bank Example" href="bank-setup.html" /><link rel="prev" title="About Open Dylan CORBA" href="intro.html" />
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
+        <title>Quick Start Tutorial - Open Dylan</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" /
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Open Dylan</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../../_static/images/opendylan-light.png" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../../_static/images/opendylan-dark.png" alt="Dark Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../community/index.html">Get Involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../download/index.html">Download</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hacker-guide/source/index.html">Hacker Guide</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Hacker Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/documentation/index.html">Writing Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Writing Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/guidelines.html">Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/generating.html">Generating Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/doctower.html">Doctower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/example.html">Example documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/build-system.html">Jam-based Build System</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/compiler/index.html">DFMC, The Dylan Flow Machine Compiler</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of DFMC, The Dylan Flow Machine Compiler</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/compiler/notes-warnings-errors.html">Notes, Warnings and Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/compiler/old/design.html">Compiler Design (Old)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/compiler/old/internals.html">Compiler Internals (Old)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/runtime/index.html">The Runtime</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of The Runtime</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/object-representation.html">Object Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/calling-convention.html">Calling Convention</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/special-features.html">Special Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/mangling.html">Name Mangling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/threads.html">Compiler Support for Threads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/startup.html">Startup</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/runtime-manager/index.html">Runtime Manager</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Runtime Manager</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime-manager/access-path.html">The ACCESS-PATH library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime-manager/debugger-manager.html">The DEBUGGER-MANAGER library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/duim/index.html">DUIM - Dylan User Interface Manager</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/topics/index.html">Topics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Topics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/method-dispatch.html">Method Dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/debugging.html">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/porting.html">Porting to a New Target Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/ppml.html">The PPML library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/making-a-release.html">Release Check-list</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../proposals/index.html">Enhancement Proposals</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Enhancement Proposals</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0001-dep-process.html">DEP Purpose and Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0002-define-function.html">Define Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0003-c3-linearization.html">C3 superclass linearization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0004-strings-library.html">New strings Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0005-subclass-function.html">Subclass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0006-single-file-library.html">Single File Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0007-collection-type-safety.html">Type-Safe Limited Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0008-multi-line-strings.html">Multi-line Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0010-element-otherwise.html">Defaulted Element Reference Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0011-numeric-literal-syntax.html">Numeric Literal Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0012-string-literals.html">String Literal Syntax</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Learning</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../about/index.html">Tour of Dylan</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Tour of Dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/hello_world.html">Hello, World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/everything_value.html">Everything is a value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/classes.html">Classes &amp; Instantiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/generic_functions.html">Generic Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/getters_setters_functions.html">Getters &amp; Setters are functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/keyword_arguments.html">Keyword Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/limited_types.html">Limited Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/macros.html">Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/multiple_return_values.html">Multiple Return Values</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting-started-cli/source/index.html">Getting Started Guide</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Getting Started Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/hello-world.html">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/source-registries.html">Using Source Registries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/managing-dependencies.html">Managing Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/quick-tips.html">A Few More Quick Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/dylan-compiler.html">Using dylan-compiler interactively</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/dylan-environment.html">An example of dylan-environment interactive functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/editor-support.html">Editor Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/dylan-mode-for-emacs.html">Dylan Interactor Mode for Emacs (DIME)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/debugging-with-gdb-lldb.html">Debugging with GDB or LLDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/windows.html">Notes for Windows Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/environment-variables.html">Environment Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/cross-compilation.html">Cross Compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/platform-specific.html">Platform Specific Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://opendylan.org/books/dpg/">Dylan Programming Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://play.opendylan.org">Dylan Playground</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="https://opendylan.org/books/drm/">Dylan Reference Manual</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../package/index.html">Package Docs</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Package Docs</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/base64/index.html">Base64</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of Base64</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/base64/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/base64/reference.html">Base64 library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/base64/author.html">Author</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/base64/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/binary-data/index.html">binary-data</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of binary-data</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/binary-data/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/binary-data/reference.html">API Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/binary-data/internals.html">Internals</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/command-interface/index.html">Welcome to Command interface’s documentation!</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of Welcome to Command interface’s documentation!</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/command-interface/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/command-line-parser/index.html">command-line-parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/concurrency/index.html">concurrency</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/data-analysis/index.html">data-analysis</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of data-analysis</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/data-analysis/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/data-analysis/statistics.html">The STATISTICS library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/data-analysis/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/deft/index.html">deft</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of deft</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/deft/pacman.html">The pacman Package Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/dylan-tool/index.html">dylan-tool</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of dylan-tool</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/dylan-tool/pacman.html">The pacman Package Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/hash-algorithms/index.html">hash-algorithms</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/http/index.html">http</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of http</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../package/http/server/index.html">HTTP Server</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle navigation of HTTP Server</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../package/http/server/quickstart/index.html">Dylan Web in 60 Seconds</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle navigation of Dylan Web in 60 Seconds</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../package/http/server/quickstart/static-content.html">Serving Static Content</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../package/http/server/quickstart/dynamic-content.html">Serving Dynamic Content</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../package/http/server/quickstart/static-routing.html">Static URL Routing</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/server/configuration.html">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/server/routing.html">URL Routing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/server/dylan-server-pages.html">Dylan Server Pages (DSP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/server/stand-alone-server-app.html">Stand-Alone Server App</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/http/client/index.html">HTTP Client</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../package/http/reference/index.html">Reference</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle navigation of Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/reference/server.html">The HTTP-SERVER library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/reference/common.html">The HTTP-COMMON library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/reference/dsp.html">The DSP library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/reference/client.html">The HTTP-CLIENT library</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/http/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/logging/index.html">logging</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/lsp-dylan/index.html">lsp-dylan</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle navigation of lsp-dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/melange/index.html">melange</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle navigation of melange</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/concrete-example.html">A Concrete Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/basic-use.html">Basic Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/importing-headers.html">Importing Header Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/specifying-object-names.html">Specifying Object Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/type-definitions.html">Type Definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/translating-object-representations.html">Translating Object Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/other-file-options.html">Other File Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/function-clauses.html">Function Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/struct-union-clauses.html">Struct and Union Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/pointer-clauses.html">Pointer Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/constant-clauses.html">Constant Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/variable-clauses.html">Variable Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/low-level-support.html">Low level support facilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/known-limitations.html">Known limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/proposed-modifications.html">Proposed modifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/historical-notes.html">Historical Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/meta/index.html">meta</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle navigation of meta</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/meta/copyright.html">Copyright</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/meta/meta.html">The Meta Library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/objc-dylan/index.html">objc-dylan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/regular-expressions/index.html">regular-expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/sphinx-extensions/index.html">sphinx-extensions</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/strings/index.html">strings</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle navigation of strings</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/testworks/index.html">testworks</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle navigation of testworks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/testworks/usage.html">Testworks Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/testworks/reference.html">Testworks Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/testworks/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/tracing/index.html">tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/uuid/index.html">uuid</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/v3d/index.html">v3d</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle navigation of v3d</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/v3d/v3d.html">The v3d library</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../library-reference/source/index.html">Open Dylan Libraries</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle navigation of Open Dylan Libraries</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/language-extensions/index.html">Dylan Language Extensions</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle navigation of Dylan Language Extensions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/language-differences.html">Language Differences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/define-function.html">Function Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/for-iteration.html">Extensions to the FOR iteration construct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/weak-tables.html">Weak tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/inlining.html">Inlining adjectives for methods, constants, functions, and slots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/numbers.html">Integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/object-with-elements.html">object-with-elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/macro-system-extensions.html">Macro System Extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/parser-expansions.html">Parser Expansions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/alternative-curry-syntax.html">Alternative Curry Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/numeric-literals.html">Numeric Literal Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/string-literals.html">String Literal Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/lid.html">LID File Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/c-ffi/index.html">The c-ffi Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/collections/index.html">The collections Library</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle navigation of The collections Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/bit-set.html">The bit-set Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/bit-vector.html">The bit-vector Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/collectors.html">The collectors Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/plists.html">The plists Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/set.html">The set Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/table-extensions.html">The table-extensions Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/coloring-stream/index.html">The coloring-stream Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/common-dylan/index.html">The common-dylan Library</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><div class="visually-hidden">Toggle navigation of The common-dylan Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/byte-vector.html">The byte-vector Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/common-extensions.html">The common-extensions Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/machine-words.html">The machine-words Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-format.html">The simple-format Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-profiling.html">The simple-profiling Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-random.html">The simple-random Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-timers.html">The simple-timers Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/transcendentals.html">The transcendentals Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/dood/index.html">The DOOD library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/dylan/index.html">The dylan Library</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><div class="visually-hidden">Toggle navigation of The dylan Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/dylan/finalization.html">The finalization Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/dylan/primitives.html">The dylan-primitives Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/dylan/threads.html">The threads Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/io/index.html">The io Library</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><div class="visually-hidden">Toggle navigation of The io Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/format.html">The format Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/format-out.html">The format-out Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/print.html">The print and pprint Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/streams.html">The streams Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/standard-io.html">The standard-io Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/network/index.html">The network Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/progress-stream/index.html">The progress-stream Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/sql/index.html">The sql Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/system/index.html">The system Library</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><div class="visually-hidden">Toggle navigation of The system Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/date.html">The date Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/locators.html">The locators Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/file-system.html">The file-system Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/operating-system.html">The operating-system Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/t-lists/index.html">The t-lists Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/win32/index.html">The Win32 API Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../documentation/index.html">All Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><div class="visually-hidden">Toggle navigation of All Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../news/index.html">News</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../documentation/cheatsheets/index.html">Cheat Sheets</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><div class="visually-hidden">Toggle navigation of Cheat Sheets</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/syntax.html">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/conditionals.html">Conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/collections.html">Collections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/iteration.html">Iteration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/scheme.html">For Schemers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../documentation/publications.html">Publications</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../intro-dylan/source/index.html">Intro to Dylan</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><div class="visually-hidden">Toggle navigation of Intro to Dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/why-dylan.html">Why Dylan?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/expressions-variables.html">Expressions &amp; Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/methods-generic-functions.html">Methods &amp; Generic Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/objects.html">Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/multiple-dispatch.html">Multiple Dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/modules-libraries.html">Modules &amp; Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/conditions.html">Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">CORBA Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" role="switch" type="checkbox"/><label for="toctree-checkbox-37"><div class="visually-hidden">Toggle navigation of CORBA Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro.html">About Open Dylan CORBA</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Quick Start Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bank-setup.html">Setting up the Bank Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bank-idl.html">Writing and Compiling IDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bank-client.html">The Bank Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bank-server.html">The Bank Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="projects.html">Creating CORBA Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rundebug.html">Running and Debugging CORBA Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scepter.html">Using the Dylan IDL Compiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idl-app.html">An IDL Binding for Dylan</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../building-with-duim/source/index.html">DUIM Guide</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" role="switch" type="checkbox"/><label for="toctree-checkbox-38"><div class="visually-hidden">Toggle navigation of DUIM Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/intro.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/design.html">Designing A Simple DUIM Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/improve.html">Improving The Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/menus.html">Adding Menus To The Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/callbacks.html">Adding Callbacks to the Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/commands.html">Using Command Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/tour.html">A Tour of the DUIM Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/source.html">Source Code For The Task List Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../duim-reference/source/index.html">DUIM Reference</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" role="switch" type="checkbox"/><label for="toctree-checkbox-39"><div class="visually-hidden">Toggle navigation of DUIM Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/conventions.html">Conventions in this Manual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/geom.html">DUIM-Geometry Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/ext-geom.html">DUIM-Extended-Geometry Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/dcs.html">DUIM-DCs Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/sheets.html">DUIM-Sheets Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/graphics.html">DUIM-Graphics Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/layouts.html">DUIM-Layouts Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/gadgets.html">DUIM-Gadgets Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/frames.html">DUIM-Frames Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../getting-started-ide/source/index.html">Getting Started / IDE</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" role="switch" type="checkbox"/><label for="toctree-checkbox-40"><div class="visually-hidden">Toggle navigation of Getting Started / IDE</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/quick-start.html">Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/expanding.html">Fixing Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/model.html">Programming in Open Dylan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/projects.html">Creating and Using Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/browsing.html">Learning More About an Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/debug.html">Debugging and Interactive Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/remotedbg.html">Remote Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/coloring.html">Dispatch Optimization Coloring in the Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/delivery.html">Delivering Dylan Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/editopt.html">The Interactive Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/com-projects.html">Creating COM Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../release-notes/source/index.html">Release Notes</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" role="switch" type="checkbox"/><label for="toctree-checkbox-41"><div class="visually-hidden">Toggle navigation of Release Notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2024.1.html">Open Dylan 2024.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2023.1.html">Open Dylan 2023.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2022.1.html">Open Dylan 2022.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2020.1.html">Open Dylan 2020.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2019.1.html">Open Dylan 2019.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2014.1.html">Open Dylan 2014.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2013.2.html">Open Dylan 2013.2 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2013.1.html">Open Dylan 2013.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2012.1.html">Open Dylan 2012.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2011.1.html">Open Dylan 2011.1 Release Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../sphinx-extensions/documentation/source/index.html">Sphinx Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../style-guide/source/index.html">Style Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Full Index</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/dylan-lang/website/blob/master/source/corba-guide/source/getstart.rst?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/dylan-lang/website/edit/master/source/corba-guide/source/getstart.rst" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="quick-start-tutorial">
+<h1>Quick Start Tutorial<a class="headerlink" href="#quick-start-tutorial" title="Link to this heading">¶</a></h1>
+<section id="about-this-chapter">
+<h2>About this chapter<a class="headerlink" href="#about-this-chapter" title="Link to this heading">¶</a></h2>
+<p>In this chapter, we develop a simple example application that
+illustrates the basics of writing CORBA-based applications using Open
+Dylan.</p>
+<p>The aim of this chapter is to show the sort of coding involved in
+using CORBA with Open Dylan, and get a client/server application
+up and running quickly. It is not concerned so much with explaining
+how things work. Subsequent chapters go into more detail, using a
+deeper example, and explaining the approach we have taken to
+implementing the CORBA architecture for Dylan.</p>
+</section>
+<section id="a-corba-based-hello-world">
+<h2>A CORBA-based Hello World<a class="headerlink" href="#a-corba-based-hello-world" title="Link to this heading">¶</a></h2>
+<p>This chapter’s example is an implementation of the standard Hello
+World application, using Dylan and CORBA. In this version of Hello
+World, a client application asks a server application for a
+string. When the client receives the string, it prints it to the
+standard output, and then exits.</p>
+<p>These are the basic steps we will take to create this application:</p>
+<ol class="arabic">
+<li><p>Create the projects.</p>
+<p>We use the Open Dylan IDE New Project wizard to create client and
+server CORBA projects.</p>
+</li>
+<li><p>Define the interface.</p>
+<p>We define the interface to the server using OMG’s Interface
+Definition Language (IDL).</p>
+</li>
+<li><p>Implement the client.</p></li>
+<li><p>Implement the server.</p></li>
+<li><p>Build and test the application.</p></li>
+</ol>
+</section>
+<section id="creating-the-projects">
+<h2>Creating the projects<a class="headerlink" href="#creating-the-projects" title="Link to this heading">¶</a></h2>
+<p>In this section we create projects for the client and server parts of
+our CORBA-based Hello World application.</p>
+<p>To create these projects we use the New Project wizard. For CORBA
+projects, the wizard can create either a client project, a server
+project, or both at once. Since we are writing both the client and the
+server, we are going to ask the wizard to create both our projects at
+once.</p>
+<ol class="arabic">
+<li><p>Select <span class="menuselection">File ‣ New…</span> from the Open Dylan main
+window, or click the New Project button on the toolbar.</p>
+<p>The New Project wizard appears.</p>
+<p>We are going to choose “CORBA Client and/or Server” as the project
+type. In the wizard, a CORBA project is a project defined relative
+to an IDL file. The IDL file is a file containing a declaration of
+the CORBA interfaces that the server implements and the client
+accesses, written in OMG’s Interface Definition Language.</p>
+</li>
+<li><p>Select “CORBA Client and/or Server” in the Project type section.</p></li>
+<li><p>Click <span class="guilabel">Next</span>.</p>
+<p>The wizard moves to a second page.</p>
+<figure class="align-default" id="id1">
+<img alt="../../_images/getstart-new-project.png" src="../../_images/getstart-new-project.png" />
+<figcaption>
+<p><span class="caption-text">The CORBA project page in the New Project wizard</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The second page, shown in Figure 2.1, has several options for
+building CORBA projects. This is where we can specify whether to
+create a client project, a server project, or both. We can also
+choose an IDL file to base projects upon, or let the wizard create
+an empty one that we can edit after the projects themselves have
+been created.</p>
+<p>If you choose a CORBA IDL file on which to base the project, by
+default the file is copied into the project folder that you choose
+on the next page (or is left there if it is already in that
+folder). You can explicitly choose to leave an existing IDL file
+where it is and the generated projects will refer to it.</p>
+<p>For the sake of this example, however, we will let the wizard
+generate a blank IDL file for us, and then we will write the IDL by
+hand.</p>
+</li>
+<li><p>Uncheck the “Use existing IDL file” check box.</p></li>
+<li><p>Check the “Client” box and the “Server” box.</p>
+<p>Next to the “Client” and “Server” check boxes are options for the
+kind of supporting code we want to generate. Like other IDL
+compilers, Open Dylan’s can create CORBA client stub and server
+skeleton code from IDL declarations. This stub and skeleton code,
+which is generated in the form of separate libraries, takes care of
+the details of communication between CORBA clients and servers.</p>
+<p>The IDL compiler (which we call Scepter) also generates a protocol
+library that represents the spirit of the IDL declarations in
+Dylan, using generic function declarations, class declarations, and
+so on.</p>
+<p>The protocol library is the public interface to the service
+provided by the servers and used by the clients, and is used by the
+stub and skeleton code libraries. On the server side, the protocol
+defines what you must implement by extending the skeleton
+implementation in the normal way, by adding methods, subclassing,
+and so on. On the client side, you use the protocol to invoke
+operations on the CORBA objects you have implemented in the server.</p>
+<p>We will see more about protocol, stub, and skeleton libraries in
+<a class="reference internal" href="bank-idl.html"><span class="doc">Writing and Compiling IDL</span></a>.</p>
+</li>
+<li><p>Make sure the “Client using” setting is “protocol and stubs” and
+the “Server using” setting is “protocol, stubs, and skeletons”.</p>
+<p>The wizard will set up the client and server projects so that, when
+they are built, the IDL compiler will be invoked automatically to
+read the IDL and create stub, skeleton, and protocol projects.</p>
+</li>
+<li><p>Click <span class="guilabel">Next</span>.</p>
+<p>The wizard moves to a third page. This page is the wizard’s
+standard page for entering the project name and location.</p>
+<p>On this page we enter the name used to create the client and server
+projects. Because the wizard is going to create two projects, it
+uses the name we enter as the stem of each project name, and adds a
+suffix to identify the project as a client (<code class="docutils literal notranslate"><span class="pre">-client</span></code>) or server
+(<code class="docutils literal notranslate"><span class="pre">-server</span></code>).</p>
+</li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">my-hello-world</span></code> into the <span class="guilabel">Name</span> field.</p>
+<p>From this name, the wizard generates projects called
+My-Hello-World-Client and My-Hello-World-Server.</p>
+</li>
+<li><p>Click <span class="guilabel">Advanced…</span></p>
+<p>The <span class="guilabel">Advanced Project Settings</span> dialog appears.</p>
+</li>
+<li><p>Change the “Windows Subsystem” setting to “Windows Console” and
+click OK.</p>
+<p>This step is necessary because the application is going to run in
+console mode, that is, without windowing.</p>
+</li>
+<li><p>Click <span class="guilabel">Next</span>.</p>
+<p>The wizard moves to a fourth page. This page is the wizard’s
+standard page for specifying how you want to choose libraries for
+your project.</p>
+</li>
+<li><p>Select the “Minimal” option.</p>
+<p>The choice of “Minimal” makes the Hello World projects use only two
+libraries: the <code class="docutils literal notranslate"><span class="pre">common-dylan</span></code> library, which provides the Dylan
+language and basic extensions, and the <code class="docutils literal notranslate"><span class="pre">dylan-orb</span></code> library, which
+provides the Open Dylan ORB implementation.</p>
+</li>
+<li><p>Click <span class="guilabel">Next</span>.</p>
+<p>The wizard moves to a fifth and final page. This page is the
+wizard’s standard page for entering source file header keywords.</p>
+</li>
+<li><p>Make any header keyword changes you want.</p></li>
+<li><p>Click <span class="guilabel">Finish</span>.</p></li>
+</ol>
+<p>The client and server projects are now fully defined. After you click
+Finish, the wizard creates the appropriate project files on disk. Then
+two project windows appear: one for the client project,
+My-Hello-World-Client, and one for the server project,
+My-Hello-World-Server.</p>
+</section>
+<section id="defining-the-interface">
+<h2>Defining the interface<a class="headerlink" href="#defining-the-interface" title="Link to this heading">¶</a></h2>
+<p>In this section we declare the IDL interface that the Hello World
+client and server will communicate across. This is the usual first
+step in developing a CORBA-based application in Dylan.</p>
+<p>We declare the interface in a single file that must have the extension
+<code class="docutils literal notranslate"><span class="pre">.idl</span></code>. Recall that when creating the client and server projects, we
+unchecked the “Use existing IDL file” option on the second wizard
+page. Instead of letting the client and server projects refer to an
+existing IDL file, the wizard created a dummy file into which we can
+write our IDL interface.</p>
+<p>Both the client and server projects point to the dummy IDL file via a
+file called <code class="file docutils literal notranslate"><span class="pre">my-hello-world.spec</span></code>. Spec files, or Open Dylan
+Tool Specification files, contain special information for building
+projects. The file <code class="file docutils literal notranslate"><span class="pre">my-hello-world.spec</span></code> is part of each project’s list
+of sources, but it is a different file in each project.</p>
+<ol class="arabic">
+<li><p>Double-click on <code class="file docutils literal notranslate"><span class="pre">my-hello-world.spec</span></code> in the Sources page of either
+project window.</p>
+<p>The spec file opens in an editor window.</p>
+<p>The client project’s spec file looks like this:</p>
+<div class="highlight-dylan-lid notranslate"><div class="highlight"><pre><span></span><span class="na">Origin</span><span class="o">:</span><span class="w"> </span><span class="s">OMG-IDL</span>
+<span class="na">Idl-File</span><span class="o">:</span><span class="w"> </span><span class="s">..\my-hello-world.idl</span>
+<span class="na">Stubs</span><span class="o">:</span><span class="w"> </span><span class="s">yes</span>
+</pre></div>
+</div>
+<p>The server project’s spec file looks like this:</p>
+<div class="highlight-dylan-lid notranslate"><div class="highlight"><pre><span></span><span class="na">Origin</span><span class="o">:</span><span class="w"> </span><span class="s">OMG-IDL</span>
+<span class="na">Idl-File</span><span class="o">:</span><span class="w"> </span><span class="s">..\my-hello-world.idl</span>
+<span class="na">Skeletons</span><span class="o">:</span><span class="w"> </span><span class="s">yes</span>
+</pre></div>
+</div>
+<p>Both spec files contain an <code class="docutils literal notranslate"><span class="pre">Idl-File:</span></code> keyword statement saying
+that the file <code class="file docutils literal notranslate"><span class="pre">my-hello-world.idl</span></code>, which is in the parent
+folder of both My-Hello-World-Client and My-Hello-World-Server,
+should be compiled along with each project’s Dylan sources. We can
+ignore the other details for the moment.</p>
+</li>
+<li><p>Choose <span class="menuselection">File ‣ Open…</span> in either project window,
+and navigate to the project’s parent folder containing
+<code class="file docutils literal notranslate"><span class="pre">my-hello-world.idl</span></code>.</p>
+<p>Hint: clicking the General tab in either the client or server project
+window shows where the project resides on your machine.</p>
+</li>
+<li><p>Select <code class="file docutils literal notranslate"><span class="pre">my-hello-world.idl</span></code> and click Open.</p>
+<p>The dummy IDL file opens in an editor window.</p>
+<p>The dummy IDL file initially contains only a comment and no IDL
+declarations. We must write these ourselves. For Hello World, the IDL
+is simply:</p>
+<div class="highlight-idl notranslate"><div class="highlight"><pre><span></span>interface<span class="w"> </span>world<span class="w"> </span>{
+<span class="w">  </span><span class="nb">string</span><span class="w"> </span>hello();
+};
+</pre></div>
+</div>
+<p>This IDL declaration says there are CORBA objects of a kind called
+<code class="docutils literal notranslate"><span class="pre">world</span></code>, and that there is an operation called <code class="docutils literal notranslate"><span class="pre">hello</span></code> on
+<code class="docutils literal notranslate"><span class="pre">world</span></code> objects that takes no arguments and returns a
+string. Servers implement <code class="docutils literal notranslate"><span class="pre">world</span></code> and clients call <code class="docutils literal notranslate"><span class="pre">hello</span></code> on
+instances of <code class="docutils literal notranslate"><span class="pre">world</span></code>.</p>
+</li>
+<li><p>Enter the IDL declaration above into the <code class="file docutils literal notranslate"><span class="pre">my-hello-world.idl</span></code>
+file.</p></li>
+<li><p>Save <code class="file docutils literal notranslate"><span class="pre">my-hello-world.idl</span></code> with <span class="menuselection">File ‣ Save</span>.</p></li>
+</ol>
+<p>Now that we have written the IDL, we can run the IDL compiler over it
+to produce stub, skeleton, and protocol code for the client and server
+parts of the application.</p>
+<section id="generating-stub-skeleton-protocol-code-from-idl">
+<h3>Generating stub, skeleton, protocol code from IDL<a class="headerlink" href="#generating-stub-skeleton-protocol-code-from-idl" title="Link to this heading">¶</a></h3>
+<p>There are two ways of generating the stub, skeleton, and protocol code
+for a CORBA application. We can either run the IDL compiler on the
+command-line, or we can run it within the Open Dylan development
+environment. The second option is more convenient given that we are
+already using the environment.</p>
+<ol class="arabic">
+<li><p>Go to the project window for the My-Hello-World-Client project.</p>
+<p>Simply building the project in the normal way is enough to invoke
+the IDL compiler. This convenience is thanks to the spec file in
+the project Sources list: when the build gets to the spec file, the
+build system looks in it to see what to do with it. The spec file
+in My-Hello-World-Client states with the <code class="docutils literal notranslate"><span class="pre">Origin:</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Idl-File:</span></code> keywords that there is a OMG IDL file to compile, and
+with the <code class="docutils literal notranslate"><span class="pre">Stubs:</span></code> keyword that a project containing client stub
+code should be generated.</p>
+<p>If we build My-Hello-World-Client now, the IDL compiler will read
+the IDL file and create the stubs code. Meanwhile the rest of the
+Dylan code in the project is also compiled.</p>
+</li>
+<li><p>Select <span class="menuselection">Project ‣ Build</span> from the project window’s menu.</p>
+<p>The spec file in My-Hello-World-Server is similar, but asks for
+skeletons instead of stubs.</p>
+</li>
+<li><p>Select <span class="menuselection">Project ‣ Build</span> in the
+My-Hello-World-Server project window.</p></li>
+</ol>
+<p>After the build, each project’s Sources page is updated to include new
+subprojects. The subprojects are as follows.</p>
+<p>In the client project:</p>
+<dl class="simple">
+<dt>My-Hello-World-Stubs</dt><dd><p>The stubs project contains implementation glue code that enables a
+client application to call a CORBA object in a server application
+over a network, using a Dylan protocol generated from the IDL.</p>
+</dd>
+</dl>
+<p>In the server project:</p>
+<dl class="simple">
+<dt>My-Hello-World-Skeletons</dt><dd><p>The skeletons project contains implementation glue code that
+enables server applications implementing CORBA objects to be called
+over a network by the Dylan protocol functions generated from
+the IDL.</p>
+</dd>
+</dl>
+<p>In addition, a protocol subproject appears in both the stubs and the skeletons projects:</p>
+<dl class="simple">
+<dt>My-Hello-World-Protocol</dt><dd><p>The protocol project contains open classes and generic functions,
+representing the spirit of the IDL declarations in Dylan. It is
+used in clients to call operations on CORBA objects in a server,
+and in a server as the basis of the implementation of those
+objects.</p>
+</dd>
+</dl>
+</section>
+<section id="a-browsing-detour">
+<h3>A browsing detour<a class="headerlink" href="#a-browsing-detour" title="Link to this heading">¶</a></h3>
+<p>The next step would be to implement the client and server. But it is
+instructive to take a brief detour and look at what is inside the new
+projects that we gained by compiling our small IDL file.</p>
+<ol class="arabic">
+<li><p>Go to the My-Hello-World-Client project window and select the Sources
+page.</p></li>
+<li><p>Expand the My-Hello-World-Stubs subproject.</p>
+<p>As expected, the My-Hello-World-Stubs project contains the protocol
+project, My-Hello-World-Protocol.</p>
+</li>
+<li><p>Expand the My-Hello-World-Protocol subproject.</p>
+<p>The <code class="file docutils literal notranslate"><span class="pre">my-hello-world-protocol.dylan</span></code> file contains the
+automatically generated Dylan protocol representing our IDL for
+Hello World.</p>
+</li>
+<li><p>Expand the <code class="file docutils literal notranslate"><span class="pre">my-hello-world-protocol.dylan</span></code> file.</p></li>
+<li><p>Double-click on the generic function for <code class="docutils literal notranslate"><span class="pre">world/hello</span></code>.</p>
+<p>The browser appears.</p>
+<figure class="align-default" id="id2">
+<img alt="../../_images/getstart-browsing.png" src="../../_images/getstart-browsing.png" />
+<figcaption>
+<p><span class="caption-text">A Dylan generic function mapped from an IDL declaration.</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Notice how the Dylan code has been mapped from the IDL. An IDL
+operation whose full name was <code class="docutils literal notranslate"><span class="pre">world::hello</span></code> has been mapped to a
+Dylan open generic function whose name is <code class="docutils literal notranslate"><span class="pre">world/hello</span></code>. The
+mapping rules are part of what is called an IDL binding for
+Dylan. There is a draft standard for the Dylan IDL binding in
+<a class="reference internal" href="idl-app.html"><span class="doc">An IDL Binding for Dylan</span></a>.</p>
+</li>
+<li><p>Select the browser’s Methods page.</p></li>
+<li><p>Double-click on the only method listed.</p></li>
+</ol>
+<p>The browser now shows the source of the method that takes care of
+bundling up arguments into a request and invoking the ORB in order to
+send it to the server. This method was generated automatically from
+the IDL, and “just works” — you do not have to worry about it, or
+other such methods that the compiler generates.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since the compiler will regenerate these files if the IDL is
+changed, you should not edit them by hand.</p>
+</div>
+</section>
+</section>
+<section id="implementing-the-client">
+<h2>Implementing the client<a class="headerlink" href="#implementing-the-client" title="Link to this heading">¶</a></h2>
+<p>In this section we implement the client side of the Hello World
+application.</p>
+<p>The basic requirements for a client are to initialize an ORB, then
+obtain references to the CORBA objects that it wants to invoke
+operations upon. The client can then proceed with execution in the
+normal way; as necessary, it can invoke the operations on the CORBA
+objects to which it has references.</p>
+<section id="initializing-the-orb">
+<h3>Initializing the ORB<a class="headerlink" href="#initializing-the-orb" title="Link to this heading">¶</a></h3>
+<p>The first thing our client needs to do is to initialize the Open Dylan
+ORB. CORBA provides a standard operation for this, called
+<code class="docutils literal notranslate"><span class="pre">orb_init</span></code>. This is just one of many operations that ORBs must
+offer. The name is an IDL-style name (in fact it is a pseudo-IDL or
+PIDL name) that is mapped to Dylan just like the IDL we wrote for
+Hello World earlier. In the Open Dylan ORB this operation is
+invoked as <code class="docutils literal notranslate"><span class="pre">corba/orb-init</span></code>.</p>
+<p>An ORB initialization call looks like this:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">orb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">corba/orb-init</span><span class="p">(</span><span class="nb">make</span><span class="p">(</span><span class="n">corba/&lt;arg-list&gt;</span><span class="p">),</span>
+<span class="w">                         </span><span class="s">&quot;Open Dylan ORB&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ignore the arguments for the moment — they are explained in
+Chapter 5. The call returns an object of class <code class="docutils literal notranslate"><span class="pre">corba/&lt;orb&gt;</span></code>. We need
+to keep our ORB reference around, so we bind this value to the name
+<code class="docutils literal notranslate"><span class="pre">orb</span></code>.</p>
+</section>
+<section id="obtaining-an-object-reference">
+<h3>Obtaining an object reference<a class="headerlink" href="#obtaining-an-object-reference" title="Link to this heading">¶</a></h3>
+<p>The next thing our client needs to do is to get a reference to a CORBA
+object implementing Hello World. Recall from <a class="reference internal" href="#defining-the-interface">Defining the interface</a>
+that our IDL defined CORBA objects of a kind called <code class="docutils literal notranslate"><span class="pre">world</span></code>:</p>
+<div class="highlight-idl notranslate"><div class="highlight"><pre><span></span>interface<span class="w"> </span>world<span class="w"> </span>{
+<span class="w">  </span><span class="nb">string</span><span class="w"> </span>hello();
+}
+</pre></div>
+</div>
+<p>The client needs a reference to a <code class="docutils literal notranslate"><span class="pre">world</span></code> object. An object
+reference is just CORBA’s way of allowing CORBA objects to be
+identified and communicated with. Once our client has a reference to a
+<code class="docutils literal notranslate"><span class="pre">world</span></code> object it can call the <code class="docutils literal notranslate"><span class="pre">hello</span></code> operation and get the string it
+needs to print out.</p>
+<p>There is more to say about object references and how they are
+obtained. For now, all we need to know is one way that clients can
+obtain object references is by reading them from files, where servers
+have placed them in a string form — a so-called <em>stringified object
+reference</em>. The client can get the string and convert it into a Dylan
+object that represents object references. To do this, it uses a Dylan
+ORB utility called <code class="docutils literal notranslate"><span class="pre">corba/orb/file-to-object</span></code>.</p>
+<p>Thus, given a shared file <code class="file docutils literal notranslate"><span class="pre">hello.ior</span></code>, located as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="p">:</span>\<span class="n">temp</span>\<span class="n">hello</span><span class="o">.</span><span class="n">ior</span>
+</pre></div>
+</div>
+<p>Our client can get a reference as follows:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">world</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">as</span><span class="p">(</span><span class="nc">&lt;world&gt;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">corba/orb/file-to-object</span><span class="p">(</span><span class="n">orb</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c:</span><span class="se">\\</span><span class="s">temp</span><span class="se">\\</span><span class="s">hello.ior&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">corba/orb/file-to-object</span></code> method could have been implemented as
+follows using the standard ORB utility <code class="docutils literal notranslate"><span class="pre">corba/orb/string-to-object</span></code>,
+but <code class="docutils literal notranslate"><span class="pre">corba/orb/file-to-object</span></code> is provided as a convenience.</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">corba/orb/file-to-object</span><span class="w"> </span><span class="p">(</span><span class="n">orb</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">corba/&lt;orb&gt;</span><span class="p">,</span>
+<span class="w">                                        </span><span class="n">file</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;string&gt;</span><span class="p">)</span>
+<span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">object</span><span class="p">)</span>
+<span class="w">  </span><span class="n">with-open-file</span><span class="p">(</span><span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="k">direction:</span><span class="w"> </span><span class="ss">#&quot;input&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">corba/orb/string-to-object</span><span class="p">(</span><span class="n">orb</span><span class="p">,</span><span class="w"> </span><span class="nb">as</span><span class="p">(</span><span class="nc">&lt;string&gt;</span><span class="p">,</span>
+<span class="w">                                       </span><span class="n">stream-contents</span><span class="p">(</span><span class="n">stream</span><span class="p">)));</span>
+<span class="w">  </span><span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">world</span> <span class="pre">...</span></code> expression takes the name of the shared file,
+and passes it (and the ORB value we obtained earlier) to the helper
+method <code class="docutils literal notranslate"><span class="pre">file-to-object</span></code>. The <code class="docutils literal notranslate"><span class="pre">file-to-object</span></code> method calls
+<code class="docutils literal notranslate"><span class="pre">corba/orb/string-to-object</span></code> to obtain the reference and make a
+Dylan object representing it. Then the returned Dylan object is
+coerced into an instance of the class <code class="docutils literal notranslate"><span class="pre">&lt;world&gt;</span></code>. That class is one
+of the protocol library classes generated from the IDL, and was
+intended to represent world objects in Dylan. (In fact the object is
+coerced to be an instance of an internal concrete subclass of
+<code class="docutils literal notranslate"><span class="pre">&lt;world&gt;</span></code> — <code class="docutils literal notranslate"><span class="pre">&lt;world&gt;</span></code> is just the public protocol class.)</p>
+<p>The extra backslashes in the file name string serve as escape
+characters.</p>
+</section>
+<section id="invoking-an-operation">
+<h3>Invoking an operation<a class="headerlink" href="#invoking-an-operation" title="Link to this heading">¶</a></h3>
+<p>Our client has now initialized the ORB and obtained the <code class="docutils literal notranslate"><span class="pre">world</span></code>
+object reference it required. It is ready to invoke the <code class="docutils literal notranslate"><span class="pre">hello</span></code>
+operation and receive the string that it needs to print out.</p>
+<p>Because all the initialization work is complete, this step is
+trivial. We simply call the <code class="docutils literal notranslate"><span class="pre">hello</span></code> operation directly, and let the
+underlying stub code deal with the business of sending the request to
+the server and receiving the response.</p>
+<p>The IDL for hello was translated into the Dylan protocol library,
+My-Hello-World-Protocol, as <code class="docutils literal notranslate"><span class="pre">world/hello</span></code>. Though in IDL the operation
+did not have any arguments, when calling it from the Dylan client we
+do need to pass the reference of the CORBA object we are invoking the
+operation upon, since ORBs need to know which object, of perhaps many
+the client has references to, is actually being called.</p>
+<p>The call is therefore simply:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">world/hello</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The implementation of the client is therefore complete after the
+following call:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">format-out</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">world/hello</span><span class="p">(</span><span class="n">world</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>This code gets the string and then prints it to the standard output.</p>
+</section>
+<section id="complete-code-for-the-client">
+<h3>Complete code for the client<a class="headerlink" href="#complete-code-for-the-client" title="Link to this heading">¶</a></h3>
+<p>The following code is the complete implementation of the client. Enter
+it into the file my-hello-world-client.dylan in the
+My-Hello-World-Client project.</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="na">Module</span><span class="o">:</span><span class="w">   </span><span class="s">corba-hello-world-client</span>
+<span class="na">Synopsis</span><span class="o">:</span><span class="w"> </span><span class="s">Distributed Hello World</span>
+<span class="na">Author</span><span class="o">:</span><span class="w">   </span><span class="s">Jason Trenouth</span>
+<span class="na">Copyright</span><span class="o">:</span><span class="w">    </span><span class="s">Original Code is Copyright (c) 1995-2004 Functional Objects, Inc.</span>
+<span class="s">              All rights reserved.</span>
+<span class="na">License</span><span class="o">:</span><span class="w">      </span><span class="s">See License.txt in this distribution for details.</span>
+<span class="na">Warranty</span><span class="o">:</span><span class="w">     </span><span class="s">Distributed WITHOUT WARRANTY OF ANY KIND</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">constant</span><span class="w"> </span><span class="no">$hello-world-ior-file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello.ior&quot;</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">orb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">corba/orb-init</span><span class="p">(</span><span class="nb">make</span><span class="p">(</span><span class="n">corba/&lt;arg-list&gt;</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;Open Dylan ORB&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">world</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">as</span><span class="p">(</span><span class="nc">&lt;world&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">corba/orb/file-to-object</span><span class="p">(</span><span class="n">orb</span><span class="p">,</span><span class="w"> </span><span class="no">$hello-world-ior-file</span><span class="p">));</span>
+<span class="w">  </span><span class="n">format-out</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">world/hello</span><span class="p">(</span><span class="n">world</span><span class="p">));</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">main</span><span class="p">;</span>
+
+<span class="k">begin</span>
+<span class="w">  </span><span class="n">main</span><span class="p">();</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="implementing-the-server">
+<h2>Implementing the server<a class="headerlink" href="#implementing-the-server" title="Link to this heading">¶</a></h2>
+<p>In this section we implement the server side of the Hello World application.</p>
+<p>There are two parts to implementing a server. We need to implement the
+CORBA objects that the server offers, and we also need to perform ORB
+initialization and other administrative tasks that get the server
+ready to service potential clients.</p>
+<section id="a-note-on-terminology">
+<h3>A note on terminology<a class="headerlink" href="#a-note-on-terminology" title="Link to this heading">¶</a></h3>
+<p>CORBA objects are what CORBA servers implement and provide to CORBA
+clients. In CORBA, an object is basically a collection of code that
+supports an interface declared as an IDL interface .</p>
+<p>Because server applications are typically not much more than the
+infrastructural wrapper around the code that implements the CORBA
+object, it is often convenient to talk of a server as if it is the
+CORBA object, or a collection of CORBA objects. Here and elsewhere, we
+occasionally use the term “CORBA object” where “server” might also be
+applicable.</p>
+</section>
+<section id="implementing-the-servers-corba-objects">
+<h3>Implementing the server’s CORBA objects<a class="headerlink" href="#implementing-the-servers-corba-objects" title="Link to this heading">¶</a></h3>
+<p>According to the IDL we wrote, the server is supposed to provide
+<code class="docutils literal notranslate"><span class="pre">world</span></code> objects, which have an operation called <code class="docutils literal notranslate"><span class="pre">hello</span></code>. How do we
+implement <code class="docutils literal notranslate"><span class="pre">world</span></code> and <code class="docutils literal notranslate"><span class="pre">hello</span></code> in the server?</p>
+<p>An IDL interface, such as <code class="docutils literal notranslate"><span class="pre">world</span></code>, is represented in Dylan using a
+class. Operations in an interface are represented as methods on the
+class representing the interface.</p>
+<p>The server skeletons library we generated by compiling our IDL file
+contains the underlying CORBA framework for <code class="docutils literal notranslate"><span class="pre">world</span></code> objects. This
+framework is represented by the <code class="docutils literal notranslate"><span class="pre">&lt;world-servant&gt;</span></code> Dylan class.</p>
+<p>A <em>servant</em> is the CORBA way of connecting a request to an object
+implementation. In this case the mapping will be one-to-one: a servant
+will be the object implementation. However, many objects could be
+implemented by one servant, or conversely, many servants could
+implement a single object. These more complicated applications of
+servants need not concern us now.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;world-servant&gt;</span></code> class is a subclass of <code class="docutils literal notranslate"><span class="pre">&lt;world&gt;</span></code> (again from
+the protocol library) and another class that provides CORBA
+functionality. By extending <code class="docutils literal notranslate"><span class="pre">&lt;world-servant&gt;</span></code> we provide a Dylan
+implementation of world and inherit the CORBA functionality that our
+objects will need in order to communicate with their clients:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">class</span><span class="w"> </span><span class="nc">&lt;world-implementation&gt;</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;world-servant&gt;</span><span class="p">)</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">class</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>As noted in <a class="reference internal" href="#invoking-an-operation">Invoking an operation</a>, the <code class="docutils literal notranslate"><span class="pre">hello</span></code> operation
+name was mapped into Dylan as the <code class="docutils literal notranslate"><span class="pre">world/hello</span></code> generic function,
+defined on <code class="docutils literal notranslate"><span class="pre">&lt;world&gt;</span></code>. To implement <code class="docutils literal notranslate"><span class="pre">hello</span></code>, we write a <code class="docutils literal notranslate"><span class="pre">world/hello</span></code>
+method on <code class="docutils literal notranslate"><span class="pre">&lt;world-implementation&gt;</span></code>:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">world/hello</span>
+<span class="w">    </span><span class="p">(</span><span class="n">world</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;world-implementation&gt;</span><span class="p">)</span>
+<span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">hello</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;string&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="s">&quot;Hello World!&quot;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This method returns the string that will be passed back to the
+client. With this, the Dylan implementation of the <code class="docutils literal notranslate"><span class="pre">world</span></code>
+object type we described in IDL is complete.</p>
+</section>
+<section id="orb-and-object-initialization">
+<h3>ORB and object initialization<a class="headerlink" href="#orb-and-object-initialization" title="Link to this heading">¶</a></h3>
+<p>The other part of writing the server is to perform the initializations
+necessary for the server to ready itself for CORBA-based interactions
+with a client.</p>
+<p>Some of this coding is similar to what we did on the client side. The
+first thing we do is initialize, and get a reference to, the Open
+Dylan ORB. This step is exactly the same as on the client side:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">orb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">corba/orb-init</span><span class="p">(</span><span class="nb">make</span><span class="p">(</span><span class="n">corba/&lt;arg-list&gt;</span><span class="p">),</span>
+<span class="w">                         </span><span class="s">&quot;Open Dylan ORB&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, we can make an instance of the object (servant) class:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">impl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;world-implementation&gt;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To make this object instance accessible to clients using CORBA, it has
+to be visible in the CORBA world, not just in the Dylan server
+application that instantiated it. To do this we use an object adapter
+— part of an ORB that deals with activating CORBA objects and
+connecting them to the outside world.</p>
+<p>The Open Dylan ORB supports CORBA’s portable object adapter (POA)
+standard. To start the business of activating our <code class="docutils literal notranslate"><span class="pre">world</span></code> object, we
+get a reference to the POA:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">poa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">corba/orb/resolve-initial-references</span><span class="p">(</span><span class="n">orb</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;RootPOA&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This is another call to a standard CORBA operation. The operation
+<code class="docutils literal notranslate"><span class="pre">resolve_initial_references</span></code> takes an ORB reference and a list of
+string names for CORBA services, and returns object references for
+them.</p>
+<p>The name used in the call above is the Dylan translation of the
+pseudo-IDL name <code class="docutils literal notranslate"><span class="pre">CORBA::ORB::resolve_initial_references</span></code>. The call
+resolves the name <code class="docutils literal notranslate"><span class="pre">&quot;RootPOA&quot;</span></code>, which is the standard name for the
+basic POA service, into an object reference.</p>
+<p>The next step is to get the POA to create a reference for our world
+object instance that can be given to a client. There are several ways
+to get object references from a POA; this is one of them:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">world</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">portableserver/poa/servant-to-reference</span><span class="p">(</span><span class="n">poa</span><span class="p">,</span><span class="w"> </span><span class="n">impl</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Next, we want to publish the reference where the client can find
+it. Recall that the client looks for the reference in
+c:temphello.ior , expecting to find a string there to translate back
+into a reference with the ORB utility
+<code class="docutils literal notranslate"><span class="pre">corba/orb/file-to-object</span></code>. The ORB also offers the opposite
+operation, available in Dylan as <code class="docutils literal notranslate"><span class="pre">corba/orb/object-to-file</span></code>, Thus
+the next piece of code is:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">corba/orb/object-to-file</span><span class="p">(</span><span class="n">orb</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c:</span><span class="se">\\</span><span class="s">temp</span><span class="se">\\</span><span class="s">hello.ior&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">world</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">corba/orb/object-to-file</span></code> method could have been defined using
+the standard ORB operation <code class="docutils literal notranslate"><span class="pre">corba/orb/object-to-string</span></code> as follows,
+but <code class="docutils literal notranslate"><span class="pre">corba/orb/object-to-file</span></code> is provided by the Dylan ORB as a
+convenience.</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">corba/orb/object-to-file</span><span class="w"> </span><span class="p">(</span><span class="n">orb</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">corba/&lt;orb&gt;</span><span class="p">,</span>
+<span class="w">                                        </span><span class="n">file</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;string&gt;</span><span class="p">,</span>
+<span class="w">                                        </span><span class="n">object</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">corba/&lt;object&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">with-open-file</span><span class="p">(</span><span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="k">direction:</span><span class="w"> </span><span class="ss">#&quot;output&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">write</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="n">corba/orb/object-to-string</span><span class="p">(</span><span class="n">orb</span><span class="p">,</span><span class="w"> </span><span class="n">object</span><span class="p">));</span>
+<span class="w">  </span><span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Next, we have to allow the POA manager managing this POA to start
+processing requests. (A POA manager is an object that allows us to
+control the operation of a POA.) We use these standard POA calls:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">manager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">portableserver/poa/the-poamanager</span><span class="p">(</span><span class="n">poa</span><span class="p">);</span>
+<span class="n">portableserver/poamanager/activate</span><span class="p">(</span><span class="n">manager</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Finally, on the servant side we need to set the ORB running to receive
+client requests:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">corba/orb/run</span><span class="p">(</span><span class="n">orb</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="complete-code-for-the-server">
+<h3>Complete code for the server<a class="headerlink" href="#complete-code-for-the-server" title="Link to this heading">¶</a></h3>
+<p>The following code is the complete implementation of the server. Enter
+it into the file <code class="file docutils literal notranslate"><span class="pre">my-hello-world-server.dylan</span></code> in the
+My-Hello-World-Server project.</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="na">Module</span><span class="o">:</span><span class="w">   </span><span class="s">corba-hello-world-server</span>
+<span class="na">Synopsis</span><span class="o">:</span><span class="w"> </span><span class="s">Distributed Hello World</span>
+<span class="na">Author</span><span class="o">:</span><span class="w">   </span><span class="s">Jason Trenouth</span>
+<span class="na">Copyright</span><span class="o">:</span><span class="w">    </span><span class="s">Original Code is Copyright (c) 1995-2004 Functional Objects, Inc.</span>
+<span class="s">              All rights reserved.</span>
+<span class="na">License</span><span class="o">:</span><span class="w">      </span><span class="s">See License.txt in this distribution for details.</span>
+<span class="na">Warranty</span><span class="o">:</span><span class="w">     </span><span class="s">Distributed WITHOUT WARRANTY OF ANY KIND</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">constant</span><span class="w"> </span><span class="no">$hello-world-ior-file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello.ior&quot;</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">class</span><span class="w"> </span><span class="nc">&lt;world-implementation&gt;</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;world-servant&gt;</span><span class="p">)</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">class</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">world/hello</span><span class="w"> </span><span class="p">(</span><span class="n">world</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;world-implementation&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">hello</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;string&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="s">&quot;Hello World!&quot;</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">orb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">corba/orb-init</span><span class="p">(</span><span class="nb">make</span><span class="p">(</span><span class="n">corba/&lt;arg-list&gt;</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;Open Dylan ORB&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">poa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">corba/orb/resolve-initial-references</span><span class="p">(</span><span class="n">orb</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;RootPOA&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">impl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;world-implementation&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">world</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">portableserver/poa/servant-to-reference</span><span class="p">(</span><span class="n">poa</span><span class="p">,</span><span class="w"> </span><span class="n">impl</span><span class="p">);</span>
+<span class="w">  </span><span class="n">corba/orb/object-to-file</span><span class="p">(</span><span class="n">orb</span><span class="p">,</span><span class="w"> </span><span class="no">$hello-world-ior-file</span><span class="p">,</span><span class="w"> </span><span class="n">world</span><span class="p">);</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">manager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">portableserver/poa/the-poamanager</span><span class="p">(</span><span class="n">poa</span><span class="p">);</span>
+<span class="w">  </span><span class="n">portableserver/poamanager/activate</span><span class="p">(</span><span class="n">manager</span><span class="p">);</span>
+<span class="w">  </span><span class="n">corba/orb/run</span><span class="p">(</span><span class="n">orb</span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">main</span><span class="p">;</span>
+
+<span class="k">begin</span>
+<span class="w">  </span><span class="n">main</span><span class="p">();</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="building-and-testing-the-application">
+<h2>Building and testing the application<a class="headerlink" href="#building-and-testing-the-application" title="Link to this heading">¶</a></h2>
+<p>In this section we build and test the completed CORBA-based Hello
+World application.</p>
+<p>Once you have replaced the dummy code in
+<code class="file docutils literal notranslate"><span class="pre">my-hello-world-client.dylan</span></code> with the code in section 2.5.4,
+and the dummy code in <code class="file docutils literal notranslate"><span class="pre">my-hello-world-server.dylan</span></code> with the
+code in section 2.6.4, the client and server applications are ready to
+build again.</p>
+<ol class="arabic">
+<li><p>Choose <span class="menuselection">Project ‣ Build</span> in the
+My-Hello-World-Client project.</p></li>
+<li><p>Choose <span class="menuselection">Project ‣ Build</span> the My-Hello-World-Server
+project.</p>
+<p>Now, you can run the application to test that it works. You need to
+run the server first so that it is waiting to receive calls from
+the client by the time the client makes its call.</p>
+</li>
+<li><p>Choose <span class="menuselection">Project ‣ Start</span> in the
+My-Hello-World-Server project.</p>
+<p>Wait until a console window appears. The server is now running.</p>
+</li>
+<li><p>Choose <span class="menuselection">Project ‣ Start</span> in the
+My-Hello-World-Client project.</p></li>
+</ol>
+<p>The client pops up another console window, into which it prints
+<code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World!</span></code> before the development environment traps its exit and
+presents a confirmation dialog.</p>
+<p>Try quitting the client by clicking OK, and then running it
+repeatedly. Each time it gets a string from the same server, which
+keeps running all the while.</p>
+<p>An interesting exercise is to set breakpoints in the client and server
+code to trap the request and open debugger windows as the request
+passes from client to server.</p>
+<p>This concludes the first example.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="bank-setup.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Setting up the Bank Example</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="intro.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">About Open Dylan CORBA</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2011-2023, Dylan Hackers
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Quick Start Tutorial</a><ul>
+<li><a class="reference internal" href="#about-this-chapter">About this chapter</a></li>
+<li><a class="reference internal" href="#a-corba-based-hello-world">A CORBA-based Hello World</a></li>
+<li><a class="reference internal" href="#creating-the-projects">Creating the projects</a></li>
+<li><a class="reference internal" href="#defining-the-interface">Defining the interface</a><ul>
+<li><a class="reference internal" href="#generating-stub-skeleton-protocol-code-from-idl">Generating stub, skeleton, protocol code from IDL</a></li>
+<li><a class="reference internal" href="#a-browsing-detour">A browsing detour</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#implementing-the-client">Implementing the client</a><ul>
+<li><a class="reference internal" href="#initializing-the-orb">Initializing the ORB</a></li>
+<li><a class="reference internal" href="#obtaining-an-object-reference">Obtaining an object reference</a></li>
+<li><a class="reference internal" href="#invoking-an-operation">Invoking an operation</a></li>
+<li><a class="reference internal" href="#complete-code-for-the-client">Complete code for the client</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#implementing-the-server">Implementing the server</a><ul>
+<li><a class="reference internal" href="#a-note-on-terminology">A note on terminology</a></li>
+<li><a class="reference internal" href="#implementing-the-servers-corba-objects">Implementing the server’s CORBA objects</a></li>
+<li><a class="reference internal" href="#orb-and-object-initialization">ORB and object initialization</a></li>
+<li><a class="reference internal" href="#complete-code-for-the-server">Complete code for the server</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#building-and-testing-the-application">Building and testing the application</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=55d3bea0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=4e2eecee"></script>
+    </body>
+</html>

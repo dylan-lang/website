@@ -1,0 +1,1203 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Testworks Reference" href="reference.html" /><link rel="prev" title="Testworks" href="index.html" />
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
+        <title>Testworks Usage - Open Dylan</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" /
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Open Dylan</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../../_static/images/opendylan-light.png" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../../_static/images/opendylan-dark.png" alt="Dark Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../community/index.html">Get Involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../download/index.html">Download</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hacker-guide/source/index.html">Hacker Guide</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Hacker Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/documentation/index.html">Writing Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Writing Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/guidelines.html">Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/generating.html">Generating Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/doctower.html">Doctower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/example.html">Example documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/build-system.html">Jam-based Build System</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/compiler/index.html">DFMC, The Dylan Flow Machine Compiler</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of DFMC, The Dylan Flow Machine Compiler</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/compiler/notes-warnings-errors.html">Notes, Warnings and Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/compiler/old/design.html">Compiler Design (Old)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/compiler/old/internals.html">Compiler Internals (Old)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/runtime/index.html">The Runtime</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of The Runtime</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/object-representation.html">Object Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/calling-convention.html">Calling Convention</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/special-features.html">Special Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/mangling.html">Name Mangling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/threads.html">Compiler Support for Threads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/startup.html">Startup</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/runtime-manager/index.html">Runtime Manager</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Runtime Manager</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime-manager/access-path.html">The ACCESS-PATH library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime-manager/debugger-manager.html">The DEBUGGER-MANAGER library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/duim/index.html">DUIM - Dylan User Interface Manager</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/topics/index.html">Topics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Topics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/method-dispatch.html">Method Dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/debugging.html">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/porting.html">Porting to a New Target Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/ppml.html">The PPML library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/making-a-release.html">Release Check-list</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../proposals/index.html">Enhancement Proposals</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Enhancement Proposals</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0001-dep-process.html">DEP Purpose and Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0002-define-function.html">Define Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0003-c3-linearization.html">C3 superclass linearization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0004-strings-library.html">New strings Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0005-subclass-function.html">Subclass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0006-single-file-library.html">Single File Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0007-collection-type-safety.html">Type-Safe Limited Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0008-multi-line-strings.html">Multi-line Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0010-element-otherwise.html">Defaulted Element Reference Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0011-numeric-literal-syntax.html">Numeric Literal Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0012-string-literals.html">String Literal Syntax</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Learning</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../about/index.html">Tour of Dylan</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Tour of Dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/hello_world.html">Hello, World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/everything_value.html">Everything is a value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/classes.html">Classes &amp; Instantiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/generic_functions.html">Generic Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/getters_setters_functions.html">Getters &amp; Setters are functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/keyword_arguments.html">Keyword Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/limited_types.html">Limited Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/macros.html">Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/multiple_return_values.html">Multiple Return Values</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting-started-cli/source/index.html">Getting Started Guide</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Getting Started Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/hello-world.html">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/source-registries.html">Using Source Registries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/managing-dependencies.html">Managing Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/quick-tips.html">A Few More Quick Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/dylan-compiler.html">Using dylan-compiler interactively</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/dylan-environment.html">An example of dylan-environment interactive functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/editor-support.html">Editor Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/dylan-mode-for-emacs.html">Dylan Interactor Mode for Emacs (DIME)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/debugging-with-gdb-lldb.html">Debugging with GDB or LLDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/windows.html">Notes for Windows Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/environment-variables.html">Environment Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/cross-compilation.html">Cross Compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/platform-specific.html">Platform Specific Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://opendylan.org/books/dpg/">Dylan Programming Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://play.opendylan.org">Dylan Playground</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="https://opendylan.org/books/drm/">Dylan Reference Manual</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Package Docs</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Package Docs</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../base64/index.html">Base64</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of Base64</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../base64/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../base64/reference.html">Base64 library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../base64/author.html">Author</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../base64/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../binary-data/index.html">binary-data</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of binary-data</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../binary-data/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../binary-data/reference.html">API Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../binary-data/internals.html">Internals</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../command-interface/index.html">Welcome to Command interface’s documentation!</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of Welcome to Command interface’s documentation!</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../command-interface/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command-line-parser/index.html">command-line-parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concurrency/index.html">concurrency</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../data-analysis/index.html">data-analysis</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of data-analysis</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../data-analysis/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data-analysis/statistics.html">The STATISTICS library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data-analysis/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../deft/index.html">deft</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of deft</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../deft/pacman.html">The pacman Package Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dylan-tool/index.html">dylan-tool</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of dylan-tool</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dylan-tool/pacman.html">The pacman Package Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hash-algorithms/index.html">hash-algorithms</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../http/index.html">http</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of http</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../http/server/index.html">HTTP Server</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle navigation of HTTP Server</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../http/server/quickstart/index.html">Dylan Web in 60 Seconds</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle navigation of Dylan Web in 60 Seconds</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../http/server/quickstart/static-content.html">Serving Static Content</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../http/server/quickstart/dynamic-content.html">Serving Dynamic Content</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../http/server/quickstart/static-routing.html">Static URL Routing</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../http/server/configuration.html">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/server/routing.html">URL Routing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/server/dylan-server-pages.html">Dylan Server Pages (DSP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/server/stand-alone-server-app.html">Stand-Alone Server App</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../http/client/index.html">HTTP Client</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../http/reference/index.html">Reference</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle navigation of Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../http/reference/server.html">The HTTP-SERVER library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/reference/common.html">The HTTP-COMMON library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/reference/dsp.html">The DSP library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/reference/client.html">The HTTP-CLIENT library</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../http/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../logging/index.html">logging</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lsp-dylan/index.html">lsp-dylan</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle navigation of lsp-dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../melange/index.html">melange</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle navigation of melange</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../melange/introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/concrete-example.html">A Concrete Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/basic-use.html">Basic Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/importing-headers.html">Importing Header Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/specifying-object-names.html">Specifying Object Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/type-definitions.html">Type Definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/translating-object-representations.html">Translating Object Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/other-file-options.html">Other File Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/function-clauses.html">Function Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/struct-union-clauses.html">Struct and Union Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/pointer-clauses.html">Pointer Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/constant-clauses.html">Constant Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/variable-clauses.html">Variable Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/low-level-support.html">Low level support facilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/known-limitations.html">Known limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/proposed-modifications.html">Proposed modifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/historical-notes.html">Historical Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melange/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../meta/index.html">meta</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle navigation of meta</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../meta/copyright.html">Copyright</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../meta/meta.html">The Meta Library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../objc-dylan/index.html">objc-dylan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regular-expressions/index.html">regular-expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx-extensions/index.html">sphinx-extensions</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../strings/index.html">strings</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle navigation of strings</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">testworks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle navigation of testworks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Testworks Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference.html">Testworks Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tracing/index.html">tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uuid/index.html">uuid</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../v3d/index.html">v3d</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle navigation of v3d</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../v3d/v3d.html">The v3d library</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../library-reference/source/index.html">Open Dylan Libraries</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle navigation of Open Dylan Libraries</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/language-extensions/index.html">Dylan Language Extensions</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle navigation of Dylan Language Extensions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/language-differences.html">Language Differences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/define-function.html">Function Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/for-iteration.html">Extensions to the FOR iteration construct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/weak-tables.html">Weak tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/inlining.html">Inlining adjectives for methods, constants, functions, and slots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/numbers.html">Integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/object-with-elements.html">object-with-elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/macro-system-extensions.html">Macro System Extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/parser-expansions.html">Parser Expansions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/alternative-curry-syntax.html">Alternative Curry Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/numeric-literals.html">Numeric Literal Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/string-literals.html">String Literal Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/lid.html">LID File Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/c-ffi/index.html">The c-ffi Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/collections/index.html">The collections Library</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle navigation of The collections Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/bit-set.html">The bit-set Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/bit-vector.html">The bit-vector Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/collectors.html">The collectors Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/plists.html">The plists Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/set.html">The set Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/table-extensions.html">The table-extensions Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/coloring-stream/index.html">The coloring-stream Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/common-dylan/index.html">The common-dylan Library</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><div class="visually-hidden">Toggle navigation of The common-dylan Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/byte-vector.html">The byte-vector Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/common-extensions.html">The common-extensions Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/machine-words.html">The machine-words Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-format.html">The simple-format Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-profiling.html">The simple-profiling Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-random.html">The simple-random Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-timers.html">The simple-timers Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/transcendentals.html">The transcendentals Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/dood/index.html">The DOOD library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/dylan/index.html">The dylan Library</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><div class="visually-hidden">Toggle navigation of The dylan Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/dylan/finalization.html">The finalization Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/dylan/primitives.html">The dylan-primitives Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/dylan/threads.html">The threads Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/io/index.html">The io Library</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><div class="visually-hidden">Toggle navigation of The io Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/format.html">The format Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/format-out.html">The format-out Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/print.html">The print and pprint Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/streams.html">The streams Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/standard-io.html">The standard-io Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/network/index.html">The network Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/progress-stream/index.html">The progress-stream Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/sql/index.html">The sql Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/system/index.html">The system Library</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><div class="visually-hidden">Toggle navigation of The system Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/date.html">The date Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/locators.html">The locators Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/file-system.html">The file-system Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/operating-system.html">The operating-system Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/t-lists/index.html">The t-lists Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/win32/index.html">The Win32 API Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../documentation/index.html">All Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><div class="visually-hidden">Toggle navigation of All Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/index.html">News</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../documentation/cheatsheets/index.html">Cheat Sheets</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><div class="visually-hidden">Toggle navigation of Cheat Sheets</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/syntax.html">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/conditionals.html">Conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/collections.html">Collections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/iteration.html">Iteration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/scheme.html">For Schemers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../documentation/publications.html">Publications</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../intro-dylan/source/index.html">Intro to Dylan</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><div class="visually-hidden">Toggle navigation of Intro to Dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/why-dylan.html">Why Dylan?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/expressions-variables.html">Expressions &amp; Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/methods-generic-functions.html">Methods &amp; Generic Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/objects.html">Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/multiple-dispatch.html">Multiple Dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/modules-libraries.html">Modules &amp; Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/conditions.html">Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../corba-guide/source/index.html">CORBA Guide</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" role="switch" type="checkbox"/><label for="toctree-checkbox-37"><div class="visually-hidden">Toggle navigation of CORBA Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/intro.html">About Open Dylan CORBA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/getstart.html">Quick Start Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/bank-setup.html">Setting up the Bank Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/bank-idl.html">Writing and Compiling IDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/bank-client.html">The Bank Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/bank-server.html">The Bank Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/projects.html">Creating CORBA Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/rundebug.html">Running and Debugging CORBA Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/scepter.html">Using the Dylan IDL Compiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/idl-app.html">An IDL Binding for Dylan</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../building-with-duim/source/index.html">DUIM Guide</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" role="switch" type="checkbox"/><label for="toctree-checkbox-38"><div class="visually-hidden">Toggle navigation of DUIM Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/intro.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/design.html">Designing A Simple DUIM Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/improve.html">Improving The Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/menus.html">Adding Menus To The Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/callbacks.html">Adding Callbacks to the Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/commands.html">Using Command Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/tour.html">A Tour of the DUIM Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/source.html">Source Code For The Task List Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../building-with-duim/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../duim-reference/source/index.html">DUIM Reference</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" role="switch" type="checkbox"/><label for="toctree-checkbox-39"><div class="visually-hidden">Toggle navigation of DUIM Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/conventions.html">Conventions in this Manual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/geom.html">DUIM-Geometry Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/ext-geom.html">DUIM-Extended-Geometry Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/dcs.html">DUIM-DCs Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/sheets.html">DUIM-Sheets Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/graphics.html">DUIM-Graphics Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/layouts.html">DUIM-Layouts Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/gadgets.html">DUIM-Gadgets Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/frames.html">DUIM-Frames Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../getting-started-ide/source/index.html">Getting Started / IDE</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" role="switch" type="checkbox"/><label for="toctree-checkbox-40"><div class="visually-hidden">Toggle navigation of Getting Started / IDE</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/quick-start.html">Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/expanding.html">Fixing Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/model.html">Programming in Open Dylan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/projects.html">Creating and Using Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/browsing.html">Learning More About an Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/debug.html">Debugging and Interactive Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/remotedbg.html">Remote Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/coloring.html">Dispatch Optimization Coloring in the Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/delivery.html">Delivering Dylan Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/editopt.html">The Interactive Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/com-projects.html">Creating COM Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../release-notes/source/index.html">Release Notes</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" role="switch" type="checkbox"/><label for="toctree-checkbox-41"><div class="visually-hidden">Toggle navigation of Release Notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2024.1.html">Open Dylan 2024.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2023.1.html">Open Dylan 2023.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2022.1.html">Open Dylan 2022.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2020.1.html">Open Dylan 2020.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2019.1.html">Open Dylan 2019.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2014.1.html">Open Dylan 2014.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2013.2.html">Open Dylan 2013.2 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2013.1.html">Open Dylan 2013.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2012.1.html">Open Dylan 2012.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2011.1.html">Open Dylan 2011.1 Release Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../sphinx-extensions/documentation/source/index.html">Sphinx Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../style-guide/source/index.html">Style Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Full Index</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/dylan-lang/website/blob/master/source/package/testworks/usage.rst?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/dylan-lang/website/edit/master/source/package/testworks/usage.rst" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="testworks-usage">
+<h1>Testworks Usage<a class="headerlink" href="#testworks-usage" title="Link to this heading">¶</a></h1>
+<p>Testworks is a Dylan unit testing library.</p>
+<p>See also: <a class="reference internal" href="reference.html"><span class="doc">Testworks Reference</span></a></p>
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">¶</a></h2>
+<p>For the impatient (i.e., most of us), this section summarizes most of what you
+need to know to use Testworks.</p>
+<p>Add <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">testworks;</span></code> to both your test library and test module.</p>
+<p>Tests contain arbitrary code and at least one assertion or expectation.</p>
+<p><strong>Terminology:</strong> An assertion failure terminates the test and skips any further
+assertions or expectations.  (This is normally preferred since it prevents
+cascading failures.)  An expectation failure does not terminate the
+test. Assertions are Testworks macros that begin with <code class="docutils literal notranslate"><span class="pre">assert-</span></code> and
+expectations begin with <code class="docutils literal notranslate"><span class="pre">expect-</span></code>. When this documentation refers to
+“assertions” it should be understood to include both kinds of macros.</p>
+<p>Example test:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">test-my-function</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">do-something</span><span class="p">();</span>
+<span class="w">  </span><span class="n">assert-equal</span><span class="p">(</span><span class="s">&quot;expected-value&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">my-function</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
+<span class="w">  </span><span class="n">assert-condition</span><span class="p">(</span><span class="nc">&lt;error&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">my-function</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="k">key:</span><span class="w"> </span><span class="mi">7</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;regression test for bug 12345&quot;</span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If there are no assertions in a test it is considered “NOT IMPLEMENTED”, which
+is displayed in the output (as a reminder to implement it) but is not
+considered a failure.</p>
+<p>See also: <a class="reference internal" href="#assertions">Assertions</a> for other assertion macros.</p>
+<p>Benchmarks do not require any assertions and are automatically given the
+“benchmark” tag:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">benchmark</span><span class="w"> </span><span class="n">fn1-benchmark</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="n">fn1</span><span class="p">()</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>See also, <a class="reference internal" href="reference.html#testworks:testworks:benchmark-repeat"><code class="xref dylan dylan-macro docutils literal notranslate"><span class="pre">benchmark-repeat</span></code></a>.</p>
+<p>If you have a large or complex test library, “suites” may be used to organize
+tests into groups (for example one suite per module) and may be nested
+arbitrarily. This does impose a small maintenance burden of adding each test to
+a suite, and is not required. See <a class="reference internal" href="#suites">Suites</a> for details.</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">suite</span><span class="w"> </span><span class="n">my-library-suite</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="n">suite</span><span class="w"> </span><span class="n">module1-suite</span><span class="p">;</span>
+<span class="w">  </span><span class="n">suite</span><span class="w"> </span><span class="n">module2-suite</span><span class="p">;</span>
+<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="n">some-other-test</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Suites must be defined textually <em>after</em> the other suites and tests
+they contain.</p>
+</div>
+<p>To run your tests of course you need an executable and there are two ways to
+accomplish this:</p>
+<ol class="arabic">
+<li><p>Have your library call <a class="reference internal" href="reference.html#testworks:testworks:run-test-application"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">run-test-application</span></code></a> and compile it as an
+executable. With no arguments <a class="reference internal" href="reference.html#testworks:testworks:run-test-application"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">run-test-application</span></code></a> runs all tests
+and benchmarks, as filtered by the Testworks command-line options.</p>
+<p>If you prefer to manually organize your tests with suites, pass your
+top-level suite to <a class="reference internal" href="reference.html#testworks:testworks:run-test-application"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">run-test-application</span></code></a> and that determines the
+initial set of tests that are filtered by the command line.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you forget to add a test to any suite, the test will not be
+run.</p>
+</div>
+</li>
+<li><p>Compile your test library as a shared library and run it with the
+<code class="docutils literal notranslate"><span class="pre">testworks-run</span></code> application. For example, for the <cite>foo-test</cite> library:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_build</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">testworks</span><span class="o">-</span><span class="n">run</span> <span class="o">--</span><span class="n">load</span> <span class="n">libfoo</span><span class="o">-</span><span class="n">test</span><span class="o">.</span><span class="n">so</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>In both cases <a class="reference internal" href="reference.html#testworks:testworks:run-test-application"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">run-test-application</span></code></a> parses the command line so the
+options are the same. Use <code class="docutils literal notranslate"><span class="pre">--help</span></code> to see all options.</p>
+</section>
+<section id="defining-tests">
+<h2>Defining Tests<a class="headerlink" href="#defining-tests" title="Link to this heading">¶</a></h2>
+<section id="assertions">
+<h3>Assertions<a class="headerlink" href="#assertions" title="Link to this heading">¶</a></h3>
+<p>Assertions come in two forms: <code class="docutils literal notranslate"><span class="pre">assert-*</span></code> macros and <code class="docutils literal notranslate"><span class="pre">expect-*</span></code> macros.
+When an <code class="docutils literal notranslate"><span class="pre">assert-*</span></code> macro fails, it causes the test to fail and the remainder
+of the test to be skipped. This kind of assertion is generally preferred
+because it prevents “cascading failures”. In contrast, when an <code class="docutils literal notranslate"><span class="pre">expect-*</span></code>
+macro fails, it causes a test failure but the test continues running, so there
+may be multiple assertion failures recorded for the test.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may also find <code class="docutils literal notranslate"><span class="pre">check-*</span></code> macros in existing test suites.  These
+are a deprecated form of assertion, replaced by <code class="docutils literal notranslate"><span class="pre">expect-*</span></code>.</p>
+</div>
+<p>The benefit of the <code class="docutils literal notranslate"><span class="pre">expect-*</span></code> macros is that when you’re initially debugging
+the test it may require fewer iterations if you can see multiple failures in
+one pass.</p>
+<p>An assertion accepts an expression to evaluate and report back on, saying if
+the expression passed, failed, or crashed (i.e., signaled an error).  As an
+example, in</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">assert-true</span><span class="p">(</span><span class="n">foo</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">foo</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>the expression <code class="docutils literal notranslate"><span class="pre">foo</span> <span class="pre">&gt;</span> <span class="pre">bar</span></code> is compared to <code class="docutils literal notranslate"><span class="pre">#f</span></code>, and the result is recorded
+by the test harness.</p>
+<p>See the <a class="reference internal" href="reference.html"><span class="doc">Testworks Reference</span></a> for detailed documentation on the
+available assertion macros.</p>
+<p>Each assertion macro accepts an optional description (a format string and
+optional format arguments), after the required arguments, which is displayed if
+the assertion fails.  If the description isn’t provided, Testworks makes one
+from the expressions passed to the assertion macro. For example,
+<code class="docutils literal notranslate"><span class="pre">assert-true(2</span> <span class="pre">&gt;</span> <span class="pre">3)</span></code> produces this failure message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FAILED</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span>
+  <span class="n">expression</span> <span class="s2">&quot;(2 &gt; 3)&quot;</span> <span class="n">evaluates</span> <span class="n">to</span> <span class="c1">#f</span>
+</pre></div>
+</div>
+<p>In general, Testworks should be pretty good at reporting the actual values that
+caused the failure so it shouldn’t be necessary to include them in the
+description all the time. Usually if your test iterates over various inputs
+it’s a good idea to provide a description so the failing input can be easily
+identified.</p>
+<p>If you do provide a description it may either be a single value to display, as
+with <code class="docutils literal notranslate"><span class="pre">format-to-string(&quot;%s&quot;,</span> <span class="pre">v)</span></code>, or a format string and corresponding format
+arguments. These are all valid:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">assert-equal</span><span class="p">(</span><span class="n">want</span><span class="p">,</span><span class="w"> </span><span class="n">got</span><span class="p">);</span><span class="w">       </span><span class="c1">// auto-generated description</span>
+<span class="n">assert-equal</span><span class="p">(</span><span class="n">want</span><span class="p">,</span><span class="w"> </span><span class="n">got</span><span class="p">,</span><span class="w"> </span><span class="n">foo</span><span class="p">);</span><span class="w">  </span><span class="c1">// foo used as description</span>
+<span class="n">assert-equal</span><span class="p">(</span><span class="n">want</span><span class="p">,</span><span class="w"> </span><span class="n">got</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;does %= = %=?&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">  </span><span class="c1">// formatted description</span>
+</pre></div>
+</div>
+</section>
+<section id="tests">
+<h3>Tests<a class="headerlink" href="#tests" title="Link to this heading">¶</a></h3>
+<p>Tests contain assertions and arbitrary code needed to support those
+assertions. Each test may be part of a suite.  Use the
+<a class="reference internal" href="reference.html#testworks:testworks:test-definer"><code class="xref dylan dylan-macro docutils literal notranslate"><span class="pre">test-definer</span></code></a> macro to define a test:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">NAME</span><span class="w"> </span><span class="p">(</span><span class="k">#key</span><span class="w"> </span><span class="n">EXPECTED-FAILURE?</span><span class="p">,</span><span class="w"> </span><span class="n">TAGS</span><span class="p">)</span>
+<span class="w">  </span><span class="n">BODY</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">my-test</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="n">assert-equal</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n">assert-equal</span><span class="p">(</span><span class="l">#f</span><span class="p">,</span><span class="w"> </span><span class="l">#f</span><span class="p">);</span>
+<span class="w">  </span><span class="n">assert-true</span><span class="p">(</span><span class="nb">identity</span><span class="p">(</span><span class="l">#t</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;Check identity function&quot;</span><span class="p">);</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The result looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ _build/bin/my-test-suite
+Running suite my-test-suite:
+Running test my-test:
+  2 = 3: [2 and 3 are not =.]
+   FAILED in 0.000257s and 17KiB
+
+my-test failed
+  #f = #f passed
+  2 = 3 failed [2 and 3 are not =.]
+Ran 2 checks: FAILED (1 failed)
+Ran 1 test: FAILED (1 failed)
+FAILED in 0.000257 seconds
+</pre></div>
+</div>
+<p>Note that the third assertion was not executed since the second one failed and
+terminated <code class="docutils literal notranslate"><span class="pre">my-test</span></code>.</p>
+<p>Tests may be tagged with arbitrary strings, providing a way to select
+or filter out tests to run:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">my-test-2</span><span class="w"> </span><span class="p">(</span><span class="k">tags:</span><span class="w"> </span><span class="p">#[</span><span class="s">&quot;huge&quot;</span><span class="p">])</span>
+<span class="w">  </span><span class="p">...</span><span class="n">huge</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">takes</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="n">time</span><span class="p">...</span>
+<span class="k">end</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">my-test-3</span><span class="w"> </span><span class="p">(</span><span class="k">tags:</span><span class="w"> </span><span class="p">#[</span><span class="s">&quot;huge&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;verbose&quot;</span><span class="p">])</span>
+<span class="w">  </span><span class="p">...</span><span class="n">test</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">lots</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">output</span><span class="p">...</span>
+<span class="k">end</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Tags can then be passed on the Testworks command-line.  For example,
+this skips both of the above tests:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ _build/bin/my-test-suite-app --tag=-huge --tag=-verbose
+</pre></div>
+</div>
+<p>Negative tags take precedence, so <code class="docutils literal notranslate"><span class="pre">--tag=huge</span> <span class="pre">--tag=-verbose</span></code> runs
+<code class="docutils literal notranslate"><span class="pre">my-test-2</span></code> and skips <code class="docutils literal notranslate"><span class="pre">my-test-3</span></code>.</p>
+<p>If the test is expected to fail, or fails under some conditions, Testworks
+can be made aware of this:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">failing-test</span>
+<span class="w">    </span><span class="p">(</span><span class="k">expected-to-fail-reason:</span><span class="w"> </span><span class="s">&quot;bug 1234&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">assert-true</span><span class="p">(</span><span class="l">#f</span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">fails-on-windows</span>
+<span class="w">    </span><span class="p">(</span><span class="k">expected-to-fail?:</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="no">$os-name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">#&quot;win32&quot;</span><span class="w"> </span><span class="k">end</span><span class="p">,</span>
+<span class="w">     </span><span class="k">expected-to-fail-reason:</span><span class="w"> </span><span class="s">&quot;blah is not implemented for WIN32 platform&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="no">$os-name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">#&quot;win32&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">assert-false</span><span class="p">(</span><span class="l">#t</span><span class="p">);</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="n">assert-true</span><span class="p">(</span><span class="l">#t</span><span class="p">);</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>A test that is expected to fail and then fails is considered to be a passing
+test. If the test succeeds unexpectedly, it is considered a failing test. When
+marking a test as expected to fail, <code class="docutils literal notranslate"><span class="pre">expected-to-fail-reason:</span></code> is
+<strong>required</strong> and <code class="docutils literal notranslate"><span class="pre">expected-to-fail?:</span></code> is optional, and normally
+unnecessary. An example of a good reason is a bug URL or other bug reference.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When providing a value for <code class="docutils literal notranslate"><span class="pre">expected-to-fail?:</span></code> always provide a
+method of no arguments. For example, instead of <code class="docutils literal notranslate"><span class="pre">expected-to-fail?:</span>
+<span class="pre">$os-name</span> <span class="pre">==</span> <span class="pre">#&quot;win32&quot;</span></code> use <code class="docutils literal notranslate"><span class="pre">expected-to-fail?:</span> <span class="pre">method</span> <span class="pre">()</span> <span class="pre">$os-name</span> <span class="pre">==</span>
+<span class="pre">#&quot;win32&quot;</span> <span class="pre">end</span></code>. The former is equivalent to <code class="docutils literal notranslate"><span class="pre">expected-to-fail?:</span> <span class="pre">#f</span></code>
+on non-Windows platforms and results in an <code class="docutils literal notranslate"><span class="pre">UNEXPECTED</span> <span class="pre">SUCCESS</span></code>
+result. This is because the (required) reason string is used as
+shorthand to indicate that failure is expected even when
+<code class="docutils literal notranslate"><span class="pre">expected-to-fail?:</span></code> is <code class="docutils literal notranslate"><span class="pre">#f</span></code>.</p>
+</div>
+<p>Test setup and teardown is accomplished with normal Dylan code using
+<code class="docutils literal notranslate"><span class="pre">block</span> <span class="pre">()</span> <span class="pre">...</span> <span class="pre">cleanup</span> <span class="pre">...</span> <span class="pre">end;</span></code>…</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="nb">block</span><span class="w"> </span><span class="p">()</span>
+<span class="w">    </span><span class="n">do-setup-stuff</span><span class="p">();</span>
+<span class="w">    </span><span class="n">assert-equal</span><span class="p">(...);</span>
+<span class="w">    </span><span class="n">assert-equal</span><span class="p">(...);</span>
+<span class="w">  </span><span class="k">cleanup</span>
+<span class="w">    </span><span class="n">do-teardown-stuff</span><span class="p">()</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="benchmarks">
+<h3>Benchmarks<a class="headerlink" href="#benchmarks" title="Link to this heading">¶</a></h3>
+<p>Benchmarks are like tests except for:</p>
+<ul class="simple">
+<li><p>They do not require any assertions. (They pass unless they signal an error.)</p></li>
+<li><p>They are automatically assigned the “benchmark” tag.</p></li>
+</ul>
+<p>The <a class="reference internal" href="reference.html#testworks:testworks:benchmark-definer"><code class="xref dylan dylan-macro docutils literal notranslate"><span class="pre">benchmark-definer</span></code></a> macro is like <a class="reference internal" href="reference.html#testworks:testworks:test-definer"><code class="xref dylan dylan-macro docutils literal notranslate"><span class="pre">test-definer</span></code></a>:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">benchmark</span><span class="w"> </span><span class="n">my-benchmark</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="p">...</span><span class="n">body</span><span class="p">...</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Benchmarks may be added to suites:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">suite</span><span class="w"> </span><span class="n">my-benchmarks-suite</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="n">benchmark</span><span class="w"> </span><span class="n">my-benchmark</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Benchmarks and tests may be combined in the same suite, but this is
+discouraged. It is preferable to have separate libraries for the two since
+benchmarks often take longer to run and may not necessarily need to be run for
+every commit.</p>
+<p>See also, <a class="reference internal" href="reference.html#testworks:testworks:benchmark-repeat"><code class="xref dylan dylan-macro docutils literal notranslate"><span class="pre">benchmark-repeat</span></code></a>.</p>
+</section>
+<section id="suites">
+<h3>Suites<a class="headerlink" href="#suites" title="Link to this heading">¶</a></h3>
+<p>Suites are an optional feature that may be used to organize your tests
+into a hierarchy.  Suites contain tests, benchmarks, and other
+suites. A suite is defined with the <a class="reference internal" href="reference.html#testworks:testworks:suite-definer"><code class="xref dylan dylan-macro docutils literal notranslate"><span class="pre">suite-definer</span></code></a> macro.  The
+format is:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">suite</span><span class="w"> </span><span class="n">NAME</span><span class="w"> </span><span class="p">(</span><span class="k">#key</span><span class="w"> </span><span class="n">setup-function</span><span class="p">,</span><span class="w"> </span><span class="n">cleanup-function</span><span class="p">)</span>
+<span class="w">    </span><span class="n">test</span><span class="w"> </span><span class="n">TEST-NAME</span><span class="p">;</span>
+<span class="w">    </span><span class="n">benchmark</span><span class="w"> </span><span class="n">BENCHMARK-NAME</span><span class="p">;</span>
+<span class="w">    </span><span class="n">suite</span><span class="w"> </span><span class="n">SUITE-NAME</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">suite</span><span class="w"> </span><span class="n">first-suite</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="n">my-test</span><span class="p">;</span>
+<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="n">example-test</span><span class="p">;</span>
+<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="n">my-test-2</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="n">suite</span><span class="w"> </span><span class="n">second-suite</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="n">suite</span><span class="w"> </span><span class="n">first-suite</span><span class="p">;</span>
+<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="n">my-test</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Suites can specify setup and cleanup functions via the keyword
+arguments <code class="docutils literal notranslate"><span class="pre">setup-function</span></code> and <code class="docutils literal notranslate"><span class="pre">cleanup-function</span></code>. These can be
+used for things like establishing database connections, initializing
+sockets and so on.</p>
+<p>A simple example of doing this can be seen in the http-server test
+suite:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">suite</span><span class="w"> </span><span class="n">http-test-suite</span><span class="w"> </span><span class="p">(</span><span class="k">setup-function:</span><span class="w"> </span><span class="n">start-sockets</span><span class="p">)</span>
+<span class="w">  </span><span class="n">suite</span><span class="w"> </span><span class="n">http-server-test-suite</span><span class="p">;</span>
+<span class="w">  </span><span class="n">suite</span><span class="w"> </span><span class="n">http-client-test-suite</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="interface-specification-suites">
+<h3>Interface Specification Suites<a class="headerlink" href="#interface-specification-suites" title="Link to this heading">¶</a></h3>
+<p>The <a class="reference internal" href="reference.html#testworks:testworks:interface-specification-suite-definer"><code class="xref dylan dylan-macro docutils literal notranslate"><span class="pre">interface-specification-suite-definer</span></code></a> macro creates a normal test
+suite, much like <code class="docutils literal notranslate"><span class="pre">define</span> <span class="pre">suite</span></code> does, but based on an interface
+specification. For example,</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">interface-specification-suite</span><span class="w"> </span><span class="n">time-specification-suite</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="nb">sealed</span><span class="w"> </span><span class="n">instantiable</span><span class="w"> </span><span class="nb">class</span><span class="w"> </span><span class="nc">&lt;time&gt;</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;object&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="nb">constant</span><span class="w"> </span><span class="no">$utc</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;zone&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">variable</span><span class="w"> </span><span class="vg">*zone*</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;zone&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">sealed</span><span class="w"> </span><span class="nb">generic</span><span class="w"> </span><span class="nb">function</span><span class="w"> </span><span class="n">in-zone</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;time&gt;</span><span class="p">,</span><span class="w"> </span><span class="nc">&lt;zone&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;time&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="nb">function</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="p">(</span><span class="ss">#&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">#&quot;zone&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;time&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">...</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The specification usually has one clause, or “spec”, for each name exported
+from your public interface module. Each spec creates a test named
+<code class="docutils literal notranslate"><span class="pre">test-{name}-specification</span></code> to verify that the implementation matches the
+spec for <code class="docutils literal notranslate"><span class="pre">{name}</span></code>. For example, by checking that the names are bound, that
+their bindings have the correct types, that functions accept the right number
+and types of arguments, etc.</p>
+<p>Specification suites are otherwise just normal suites. They may include other
+arbitrary tests and child suites if desired:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">interface-specification-suite</span><span class="w"> </span><span class="n">time-suite</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="p">...</span>
+<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="n">test-time-still-moving-forward</span><span class="p">;</span>
+<span class="w">  </span><span class="n">suite</span><span class="w"> </span><span class="n">time-travel-test-suite</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This also means that if your interface is large you may use multiple
+<a class="reference internal" href="reference.html#testworks:testworks:interface-specification-suite-definer"><code class="xref dylan dylan-macro docutils literal notranslate"><span class="pre">interface-specification-suite-definer</span></code></a> forms and then group them
+together.</p>
+<p>See <a class="reference internal" href="reference.html#testworks:testworks:interface-specification-suite-definer"><code class="xref dylan dylan-macro docutils literal notranslate"><span class="pre">interface-specification-suite-definer</span></code></a> for more details on the
+various kinds of specs.</p>
+</section>
+</section>
+<section id="organizing-tests-for-one-library">
+<h2>Organizing Tests for One Library<a class="headerlink" href="#organizing-tests-for-one-library" title="Link to this heading">¶</a></h2>
+<p>If you don’t use suites, the only organization you need is to name
+your tests and benchmarks uniquely, and you can safely skip the rest
+of this section.  If you do use suites, read on….</p>
+<p>Tests are used to combine related assertions into a unit, and suites
+further organize related tests and benchmarks.  Suites may also
+contain other suites.</p>
+<p>It is common for the test suite for library xxx to export a single
+test suite named xxx-test-suite, which is further subdivided into
+sub-suites, tests, and benchmarks as appropriate for that library.
+Some suites may be exported so that they can be included as a
+component suite in combined test suites that cover multiple related
+libraries. (The alternative to this approach is running each library’s
+tests as a separate executable.)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is an error for a test to be included in a suite multiple times,
+even transitively. Doing so would result in a misleading pass/fail
+ratio, and it is more likely to be a mistake than to be intentional.</p>
+</div>
+<p>The overall structure of a test library that is intended to be
+included in a combined test library may look something like this:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="c1">// --- library.dylan ---</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">library</span><span class="w"> </span><span class="n">xxx-tests</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">common-dylan</span><span class="p">;</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">testworks</span><span class="p">;</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">xxx</span><span class="p">;</span><span class="w">                 </span><span class="c1">// the library you are testing</span>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="n">xxx-tests</span><span class="p">;</span><span class="w">        </span><span class="c1">// so other test libs can include it</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">module</span><span class="w"> </span><span class="n">xxx-tests</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">common-dylan</span><span class="p">;</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">testworks</span><span class="p">;</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">xxx</span><span class="p">;</span><span class="w">                 </span><span class="c1">// the module you are testing</span>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="n">xxx-test-suite</span><span class="p">;</span><span class="w">   </span><span class="c1">// so other suites can include it</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="c1">// --- main.dylan ---</span>
+
+<span class="k">define</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">my-awesome-test</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="n">assert-true</span><span class="p">(...);</span>
+<span class="w">  </span><span class="n">assert-equal</span><span class="p">(...);</span>
+<span class="w">  </span><span class="p">...</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="n">benchmark</span><span class="w"> </span><span class="n">my-awesome-benchmark</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="n">awesomely-slow-function</span><span class="p">();</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="n">suite</span><span class="w"> </span><span class="n">xxx-test-suite</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="n">my-awesome-test</span><span class="p">;</span>
+<span class="w">  </span><span class="n">benchmark</span><span class="w"> </span><span class="n">my-awesome-benchmark</span><span class="p">;</span>
+<span class="w">  </span><span class="n">suite</span><span class="w"> </span><span class="n">my-awesome-other-suite</span><span class="p">;</span>
+<span class="w">  </span><span class="p">...</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="running-tests-as-a-stand-alone-application">
+<h2>Running Tests As A Stand-alone Application<a class="headerlink" href="#running-tests-as-a-stand-alone-application" title="Link to this heading">¶</a></h2>
+<p>If you don’t need to export any suites so they can be included in a
+higher-level combined test suite library (i.e., if you’re happy
+running your test suite library as an executable) then you can simply
+call <a class="reference internal" href="reference.html#testworks:testworks:run-test-application"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">run-test-application</span></code></a> to parse the standard testworks
+command-line options and run the specified tests:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run</span><span class="o">-</span><span class="n">test</span><span class="o">-</span><span class="n">application</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>and you can skip the rest of this section.</p>
+<p>If you need to export a suite for use by another library, then you must also
+define a separate executable library, traditionally named “xxx-test-suite-app”,
+which calls <code class="docutils literal notranslate"><span class="pre">run-test-application()</span></code>.</p>
+<p>Here’s an example of such an application library:</p>
+<p>1. The file <code class="docutils literal notranslate"><span class="pre">library.dylan</span></code> which must use at least the library that
+exports the test suite, and <code class="docutils literal notranslate"><span class="pre">testworks</span></code>:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="na">Module</span><span class="o">:</span><span class="w">    </span><span class="s">dylan-user</span>
+<span class="na">Synopsis</span><span class="o">:</span><span class="w">  </span><span class="s">An application library for xxx-test-suite</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">library</span><span class="w"> </span><span class="n">xxx-test-suite-app</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">xxx-test-suite</span><span class="p">;</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">testworks</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">define</span><span class="w"> </span><span class="nb">module</span><span class="w"> </span><span class="n">xxx-test-suite-app</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">xxx-test-suite</span><span class="p">;</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">testworks</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>The file <code class="docutils literal notranslate"><span class="pre">xxx-test-suite-app.dylan</span></code> which simply contains a call to the
+method <a class="reference internal" href="reference.html#testworks:testworks:run-test-application"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">run-test-application</span></code></a>:</p></li>
+</ol>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="na">Module</span><span class="o">:</span><span class="w"> </span><span class="s">xxx-test-suite-app</span>
+
+<span class="n">run-test-application</span><span class="p">();</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>The file <code class="docutils literal notranslate"><span class="pre">xxx-test-suite-app.lid</span></code> which specifies the names of the source
+files:</p></li>
+</ol>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="na">Library</span><span class="o">:</span><span class="w"> </span><span class="s">xxx-test-suite-app</span>
+<span class="na">Target-type</span><span class="o">:</span><span class="w"> </span><span class="s">executable</span>
+<span class="na">Files</span><span class="o">:</span><span class="w"> </span><span class="s">library.dylan</span>
+<span class="s">       xxx-test-suite-app.dylan</span>
+</pre></div>
+</div>
+<p>Once a library has been defined in this fashion it can be compiled
+into an executable with <code class="docutils literal notranslate"><span class="pre">dylan-compiler</span> <span class="pre">-build</span>
+<span class="pre">xxx-test-suite-app.lid</span></code> and run with <code class="docutils literal notranslate"><span class="pre">xxx-test-suite-app</span> <span class="pre">--help</span></code>.</p>
+</section>
+<section id="reports">
+<h2>Reports<a class="headerlink" href="#reports" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">--report</span></code> and <code class="docutils literal notranslate"><span class="pre">--report-file</span></code> options can be used to write a full
+report of test run results so that those results can be compared with
+subsequent test runs, for example to find regressions. These are the available
+report types:</p>
+<dl class="simple">
+<dt>failures (the default)</dt><dd><p>Prints out only the list of failures and a summary, in readable text format.</p>
+</dd>
+<dt>full</dt><dd><p>Like <code class="docutils literal notranslate"><span class="pre">failures</span></code> but prints results whether passing or failing.</p>
+</dd>
+<dt>json</dt><dd><p>Outputs JSON objects that match the suite/test/assertion tree structure,
+with full detail.</p>
+</dd>
+<dt>summary</dt><dd><p>Prints out only a summary of how many assertions, tests and suites
+were executed, passed, failed or crashed.</p>
+</dd>
+<dt>surefire</dt><dd><p>Outputs XML in Surefire format.  This elides information about specific
+assertions.  This format is supported by various tools such as Jenkins.</p>
+</dd>
+<dt>xml</dt><dd><p>Outputs XML that directly matches the suite/test/assertion tree structure,
+with full detail.</p>
+</dd>
+</dl>
+</section>
+<section id="comparing-test-results">
+<h2>Comparing Test Results<a class="headerlink" href="#comparing-test-results" title="Link to this heading">¶</a></h2>
+<p><strong>* To be filled in *</strong></p>
+<p>Quick version:</p>
+<ul class="simple">
+<li><p>(master branch)$ my-test-suite –report json –report-file out1.json</p></li>
+<li><p>(your branch)$ my-test-suite –report json –report-file out2.json</p></li>
+<li><p>$ testworks-report out1.json out2.json</p></li>
+</ul>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="reference.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Testworks Reference</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Testworks</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2011-2023, Dylan Hackers
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Testworks Usage</a><ul>
+<li><a class="reference internal" href="#quick-start">Quick Start</a></li>
+<li><a class="reference internal" href="#defining-tests">Defining Tests</a><ul>
+<li><a class="reference internal" href="#assertions">Assertions</a></li>
+<li><a class="reference internal" href="#tests">Tests</a></li>
+<li><a class="reference internal" href="#benchmarks">Benchmarks</a></li>
+<li><a class="reference internal" href="#suites">Suites</a></li>
+<li><a class="reference internal" href="#interface-specification-suites">Interface Specification Suites</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#organizing-tests-for-one-library">Organizing Tests for One Library</a></li>
+<li><a class="reference internal" href="#running-tests-as-a-stand-alone-application">Running Tests As A Stand-alone Application</a></li>
+<li><a class="reference internal" href="#reports">Reports</a></li>
+<li><a class="reference internal" href="#comparing-test-results">Comparing Test Results</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=55d3bea0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=4e2eecee"></script>
+    </body>
+</html>

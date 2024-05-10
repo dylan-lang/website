@@ -1,0 +1,1365 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Adding Menus To The Application" href="menus.html" /><link rel="prev" title="Designing A Simple DUIM Application" href="design.html" />
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
+        <title>Improving The Design - Open Dylan</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" /
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Open Dylan</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../../_static/images/opendylan-light.png" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../../_static/images/opendylan-dark.png" alt="Dark Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../community/index.html">Get Involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../download/index.html">Download</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hacker-guide/source/index.html">Hacker Guide</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Hacker Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/documentation/index.html">Writing Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Writing Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/guidelines.html">Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/generating.html">Generating Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/doctower.html">Doctower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/documentation/example.html">Example documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/build-system.html">Jam-based Build System</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/compiler/index.html">DFMC, The Dylan Flow Machine Compiler</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of DFMC, The Dylan Flow Machine Compiler</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/compiler/notes-warnings-errors.html">Notes, Warnings and Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/compiler/old/design.html">Compiler Design (Old)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/compiler/old/internals.html">Compiler Internals (Old)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/runtime/index.html">The Runtime</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of The Runtime</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/object-representation.html">Object Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/calling-convention.html">Calling Convention</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/special-features.html">Special Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/mangling.html">Name Mangling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/threads.html">Compiler Support for Threads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime/startup.html">Startup</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/runtime-manager/index.html">Runtime Manager</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Runtime Manager</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime-manager/access-path.html">The ACCESS-PATH library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/runtime-manager/debugger-manager.html">The DEBUGGER-MANAGER library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/duim/index.html">DUIM - Dylan User Interface Manager</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hacker-guide/source/topics/index.html">Topics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Topics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/method-dispatch.html">Method Dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/debugging.html">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/porting.html">Porting to a New Target Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/ppml.html">The PPML library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hacker-guide/source/topics/making-a-release.html">Release Check-list</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacker-guide/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../proposals/index.html">Enhancement Proposals</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Enhancement Proposals</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0001-dep-process.html">DEP Purpose and Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0002-define-function.html">Define Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0003-c3-linearization.html">C3 superclass linearization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0004-strings-library.html">New strings Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0005-subclass-function.html">Subclass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0006-single-file-library.html">Single File Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0007-collection-type-safety.html">Type-Safe Limited Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0008-multi-line-strings.html">Multi-line Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0010-element-otherwise.html">Defaulted Element Reference Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0011-numeric-literal-syntax.html">Numeric Literal Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proposals/dep-0012-string-literals.html">String Literal Syntax</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Learning</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../about/index.html">Tour of Dylan</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Tour of Dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/hello_world.html">Hello, World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/everything_value.html">Everything is a value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/classes.html">Classes &amp; Instantiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/generic_functions.html">Generic Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/getters_setters_functions.html">Getters &amp; Setters are functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/keyword_arguments.html">Keyword Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/limited_types.html">Limited Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/macros.html">Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/examples/multiple_return_values.html">Multiple Return Values</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting-started-cli/source/index.html">Getting Started Guide</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Getting Started Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/hello-world.html">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/source-registries.html">Using Source Registries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/managing-dependencies.html">Managing Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/quick-tips.html">A Few More Quick Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/dylan-compiler.html">Using dylan-compiler interactively</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/dylan-environment.html">An example of dylan-environment interactive functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/editor-support.html">Editor Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/dylan-mode-for-emacs.html">Dylan Interactor Mode for Emacs (DIME)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/debugging-with-gdb-lldb.html">Debugging with GDB or LLDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/windows.html">Notes for Windows Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/environment-variables.html">Environment Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/cross-compilation.html">Cross Compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/platform-specific.html">Platform Specific Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started-cli/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://opendylan.org/books/dpg/">Dylan Programming Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://play.opendylan.org">Dylan Playground</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="https://opendylan.org/books/drm/">Dylan Reference Manual</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../package/index.html">Package Docs</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Package Docs</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/base64/index.html">Base64</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of Base64</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/base64/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/base64/reference.html">Base64 library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/base64/author.html">Author</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/base64/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/binary-data/index.html">binary-data</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of binary-data</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/binary-data/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/binary-data/reference.html">API Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/binary-data/internals.html">Internals</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/command-interface/index.html">Welcome to Command interface’s documentation!</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of Welcome to Command interface’s documentation!</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/command-interface/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/command-line-parser/index.html">command-line-parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/concurrency/index.html">concurrency</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/data-analysis/index.html">data-analysis</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of data-analysis</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/data-analysis/usage.html">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/data-analysis/statistics.html">The STATISTICS library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/data-analysis/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/deft/index.html">deft</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of deft</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/deft/pacman.html">The pacman Package Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/dylan-tool/index.html">dylan-tool</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of dylan-tool</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/dylan-tool/pacman.html">The pacman Package Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/hash-algorithms/index.html">hash-algorithms</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/http/index.html">http</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of http</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../package/http/server/index.html">HTTP Server</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle navigation of HTTP Server</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../package/http/server/quickstart/index.html">Dylan Web in 60 Seconds</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle navigation of Dylan Web in 60 Seconds</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../package/http/server/quickstart/static-content.html">Serving Static Content</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../package/http/server/quickstart/dynamic-content.html">Serving Dynamic Content</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../package/http/server/quickstart/static-routing.html">Static URL Routing</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/server/configuration.html">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/server/routing.html">URL Routing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/server/dylan-server-pages.html">Dylan Server Pages (DSP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/server/stand-alone-server-app.html">Stand-Alone Server App</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/http/client/index.html">HTTP Client</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../package/http/reference/index.html">Reference</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle navigation of Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/reference/server.html">The HTTP-SERVER library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/reference/common.html">The HTTP-COMMON library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/reference/dsp.html">The DSP library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../package/http/reference/client.html">The HTTP-CLIENT library</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/http/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/logging/index.html">logging</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/lsp-dylan/index.html">lsp-dylan</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle navigation of lsp-dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/melange/index.html">melange</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle navigation of melange</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/concrete-example.html">A Concrete Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/basic-use.html">Basic Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/importing-headers.html">Importing Header Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/specifying-object-names.html">Specifying Object Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/type-definitions.html">Type Definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/translating-object-representations.html">Translating Object Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/other-file-options.html">Other File Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/function-clauses.html">Function Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/struct-union-clauses.html">Struct and Union Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/pointer-clauses.html">Pointer Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/constant-clauses.html">Constant Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/variable-clauses.html">Variable Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/low-level-support.html">Low level support facilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/known-limitations.html">Known limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/proposed-modifications.html">Proposed modifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/historical-notes.html">Historical Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/melange/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/meta/index.html">meta</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle navigation of meta</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/meta/copyright.html">Copyright</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/meta/meta.html">The Meta Library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/objc-dylan/index.html">objc-dylan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/regular-expressions/index.html">regular-expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/sphinx-extensions/index.html">sphinx-extensions</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/strings/index.html">strings</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle navigation of strings</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/testworks/index.html">testworks</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle navigation of testworks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/testworks/usage.html">Testworks Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/testworks/reference.html">Testworks Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../package/testworks/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/tracing/index.html">tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../package/uuid/index.html">uuid</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../package/v3d/index.html">v3d</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle navigation of v3d</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../package/v3d/v3d.html">The v3d library</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../library-reference/source/index.html">Open Dylan Libraries</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle navigation of Open Dylan Libraries</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/language-extensions/index.html">Dylan Language Extensions</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle navigation of Dylan Language Extensions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/language-differences.html">Language Differences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/define-function.html">Function Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/for-iteration.html">Extensions to the FOR iteration construct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/weak-tables.html">Weak tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/inlining.html">Inlining adjectives for methods, constants, functions, and slots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/numbers.html">Integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/object-with-elements.html">object-with-elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/macro-system-extensions.html">Macro System Extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/parser-expansions.html">Parser Expansions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/alternative-curry-syntax.html">Alternative Curry Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/numeric-literals.html">Numeric Literal Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/language-extensions/string-literals.html">String Literal Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/lid.html">LID File Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/c-ffi/index.html">The c-ffi Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/collections/index.html">The collections Library</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle navigation of The collections Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/bit-set.html">The bit-set Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/bit-vector.html">The bit-vector Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/collectors.html">The collectors Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/plists.html">The plists Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/set.html">The set Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/collections/table-extensions.html">The table-extensions Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/coloring-stream/index.html">The coloring-stream Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/common-dylan/index.html">The common-dylan Library</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><div class="visually-hidden">Toggle navigation of The common-dylan Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/byte-vector.html">The byte-vector Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/common-extensions.html">The common-extensions Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/machine-words.html">The machine-words Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-format.html">The simple-format Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-profiling.html">The simple-profiling Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-random.html">The simple-random Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/simple-timers.html">The simple-timers Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/common-dylan/transcendentals.html">The transcendentals Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/dood/index.html">The DOOD library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/dylan/index.html">The dylan Library</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><div class="visually-hidden">Toggle navigation of The dylan Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/dylan/finalization.html">The finalization Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/dylan/primitives.html">The dylan-primitives Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/dylan/threads.html">The threads Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/io/index.html">The io Library</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><div class="visually-hidden">Toggle navigation of The io Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/format.html">The format Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/format-out.html">The format-out Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/print.html">The print and pprint Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/streams.html">The streams Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/io/standard-io.html">The standard-io Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/network/index.html">The network Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/progress-stream/index.html">The progress-stream Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/sql/index.html">The sql Library</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../library-reference/source/system/index.html">The system Library</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><div class="visually-hidden">Toggle navigation of The system Library</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/date.html">The date Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/locators.html">The locators Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/file-system.html">The file-system Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library-reference/source/system/operating-system.html">The operating-system Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/t-lists/index.html">The t-lists Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/win32/index.html">The Win32 API Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library-reference/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../documentation/index.html">All Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><div class="visually-hidden">Toggle navigation of All Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../news/index.html">News</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../documentation/cheatsheets/index.html">Cheat Sheets</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><div class="visually-hidden">Toggle navigation of Cheat Sheets</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/syntax.html">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/conditionals.html">Conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/collections.html">Collections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/iteration.html">Iteration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../documentation/cheatsheets/scheme.html">For Schemers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../documentation/publications.html">Publications</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../intro-dylan/source/index.html">Intro to Dylan</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><div class="visually-hidden">Toggle navigation of Intro to Dylan</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/why-dylan.html">Why Dylan?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/expressions-variables.html">Expressions &amp; Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/methods-generic-functions.html">Methods &amp; Generic Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/objects.html">Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/multiple-dispatch.html">Multiple Dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/modules-libraries.html">Modules &amp; Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/conditions.html">Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intro-dylan/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../corba-guide/source/index.html">CORBA Guide</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" role="switch" type="checkbox"/><label for="toctree-checkbox-37"><div class="visually-hidden">Toggle navigation of CORBA Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/intro.html">About Open Dylan CORBA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/getstart.html">Quick Start Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/bank-setup.html">Setting up the Bank Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/bank-idl.html">Writing and Compiling IDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/bank-client.html">The Bank Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/bank-server.html">The Bank Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/projects.html">Creating CORBA Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/rundebug.html">Running and Debugging CORBA Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/scepter.html">Using the Dylan IDL Compiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../corba-guide/source/idl-app.html">An IDL Binding for Dylan</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">DUIM Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" role="switch" type="checkbox"/><label for="toctree-checkbox-38"><div class="visually-hidden">Toggle navigation of DUIM Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design.html">Designing A Simple DUIM Application</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Improving The Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="menus.html">Adding Menus To The Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="callbacks.html">Adding Callbacks to the Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="commands.html">Using Command Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tour.html">A Tour of the DUIM Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source.html">Source Code For The Task List Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../duim-reference/source/index.html">DUIM Reference</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" role="switch" type="checkbox"/><label for="toctree-checkbox-39"><div class="visually-hidden">Toggle navigation of DUIM Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/conventions.html">Conventions in this Manual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/geom.html">DUIM-Geometry Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/ext-geom.html">DUIM-Extended-Geometry Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/dcs.html">DUIM-DCs Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/sheets.html">DUIM-Sheets Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/graphics.html">DUIM-Graphics Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/layouts.html">DUIM-Layouts Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/gadgets.html">DUIM-Gadgets Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/frames.html">DUIM-Frames Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../duim-reference/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../getting-started-ide/source/index.html">Getting Started / IDE</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" role="switch" type="checkbox"/><label for="toctree-checkbox-40"><div class="visually-hidden">Toggle navigation of Getting Started / IDE</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/preface.html">Preface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/quick-start.html">Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/expanding.html">Fixing Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/model.html">Programming in Open Dylan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/projects.html">Creating and Using Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/browsing.html">Learning More About an Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/debug.html">Debugging and Interactive Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/remotedbg.html">Remote Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/coloring.html">Dispatch Optimization Coloring in the Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/delivery.html">Delivering Dylan Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/editopt.html">The Interactive Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/com-projects.html">Creating COM Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started-ide/source/copyright.html">Copyright</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../release-notes/source/index.html">Release Notes</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" role="switch" type="checkbox"/><label for="toctree-checkbox-41"><div class="visually-hidden">Toggle navigation of Release Notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2024.1.html">Open Dylan 2024.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2023.1.html">Open Dylan 2023.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2022.1.html">Open Dylan 2022.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2020.1.html">Open Dylan 2020.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2019.1.html">Open Dylan 2019.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2014.1.html">Open Dylan 2014.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2013.2.html">Open Dylan 2013.2 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2013.1.html">Open Dylan 2013.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2012.1.html">Open Dylan 2012.1 Release Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-notes/source/2011.1.html">Open Dylan 2011.1 Release Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../sphinx-extensions/documentation/source/index.html">Sphinx Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../style-guide/source/index.html">Style Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Full Index</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/dylan-lang/website/blob/master/source/building-with-duim/source/improve.rst?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/dylan-lang/website/edit/master/source/building-with-duim/source/improve.rst" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="improving-the-design">
+<h1>Improving The Design<a class="headerlink" href="#improving-the-design" title="Link to this heading">¶</a></h1>
+<p>The simple layout hierarchy described in <a class="reference external" href="design.html#creating-the-basic-sheet-hierarchy">Creating the basic sheet
+hierarchy</a> has a
+number of problems associated with it, all of which revolve around the
+fact that the task list manager does not yet look very much like a
+standard Windows application. Although it is a simple design that does
+not warrant a complicated user interface, the design you have already
+seen looks more like a dialog box than an application window.</p>
+<p>This section shows you how to improve on the basic design, adding a menu
+bar and replacing the buttons with a proper tool bar. It also shows you
+how to move the text field into a separate dialog that pops up when you
+click the <em>Add task</em> button in the tool bar.</p>
+<p>From this point on, the interface is defined more formally, using
+frames. Up to now, the layout hierarchy has been presented informally,
+and you have used <code class="docutils literal notranslate"><span class="pre">contain</span></code> to display the layout interactively. This is
+fine for code that you want to evaluate once only, perhaps using the
+interactor, but for permanent code, a more rigorous framework is
+preferable.</p>
+<section id="defining-a-project">
+<span id="index-0"></span><h2>Defining a project<a class="headerlink" href="#defining-a-project" title="Link to this heading">¶</a></h2>
+<p>From this point on, you should put the code for the task list manager
+into a project, rather than evaluating pieces of code using the
+interactor. Please refer to the <em>Getting Started with Open Dylan</em>
+for complete details on how to manage projects using the environment;
+this section provides brief details that tell you how to create a
+project specifically for the task list manager application. Use the New
+Project wizard to create a GUI application, and call the project
+<code class="docutils literal notranslate"><span class="pre">task-list</span></code> when prompted. The New Project wizard offers the option of
+generating template source code to help you get started. For
+this example, you must ensure that this option is switched <em>off</em> (this
+is the default setting).</p>
+<p>Two versions of the task list manager are included with Open Dylan,
+so that you can load the code straight into the environment if you wish.
+These are available in the Open Example Project dialog, in the
+Documentation category. You can display this dialog by choosing <strong>Tools &gt;
+Open Example Project</strong> from the environment. The two versions included
+represent the state of the task list manager at the end of
+<a class="reference internal" href="callbacks.html"><span class="doc">Adding Callbacks to the Application</span></a>, and at the end of <a class="reference internal" href="commands.html"><span class="doc">Using Command Tables</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note that both projects have the same name within the
+source code— <code class="docutils literal notranslate"><span class="pre">task-list</span></code> —and you should not load them both into
+the environment at the same time.</p>
+</div>
+<p>The number of source code files in a given project, and the names you
+give them, is entirely up to you. For the purposes of this example, you
+will use the files suggested by the New Project wizard. When you use the
+New Project wizard, Open Dylan will create a number of files for a
+project named <code class="docutils literal notranslate"><span class="pre">task-list</span></code>.</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">module.dylan</span></code> and <code class="docutils literal notranslate"><span class="pre">library.dylan</span></code></dt><dd><p>These files define the library and modules for the project. For the
+purposes of this application, you can ignore these files.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">task-list.dylan</span></code></dt><dd><p>Add non-GUI-specific code to this file.</p>
+</dd>
+</dl>
+<p>Finally, you need to create the following new file using <em>File &gt; New</em>,
+and add it to the project using the <em>Project &gt; Insert File</em> command.
+Make sure that this file is the last one listed in the project window.</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">frame.dylan</span></code></dt><dd><p>Add the GUI-specific code to this file.</p>
+</dd>
+</dl>
+</section>
+<section id="starting-the-application">
+<span id="index-1"></span><h2>Starting the application<a class="headerlink" href="#starting-the-application" title="Link to this heading">¶</a></h2>
+<p>As you add source code to the files in your project, there will be times
+when you want to build the project to test it. This section defines some
+methods that let you run the application in a clean way. Add these
+methods to <code class="docutils literal notranslate"><span class="pre">frame.dylan</span></code>.</p>
+<p>The frame class that is used to implement the task list manager is
+called <code class="docutils literal notranslate"><span class="pre">&lt;task-frame&gt;</span></code>. This class will be introduced in <a class="reference internal" href="#defining-a-new-frame-class">Defining a
+new frame class</a>. You can define a method to create an instance of
+<code class="docutils literal notranslate"><span class="pre">&lt;task-frame&gt;</span></code> as follows:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">start-task</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;task-frame&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">start-frame</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">start-task</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This method is provided as a convenient way to create the frame and then
+start its event loop. It returns when the event loop shuts down.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Obviously, you should not call this method until you have
+defined a frame class called <code class="docutils literal notranslate"><span class="pre">&lt;task-frame&gt;</span></code>.</p>
+</div>
+<p>Finally, you can start the application with the following method, and
+its subsequent call:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="p">(</span><span class="n">arguments</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;sequence&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="c1">// handle the arguments</span>
+<span class="w">  </span><span class="n">start-task</span><span class="p">();</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">main</span><span class="p">;</span>
+
+<span class="k">begin</span>
+<span class="w">  </span><span class="n">main</span><span class="p">(</span><span class="n">application-arguments</span><span class="p">())</span><span class="w"> </span><span class="c1">// Start the application!</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Make sure that this is the very last definition in the file
+<code class="docutils literal notranslate"><span class="pre">frame.dylan</span></code>, and remember that <code class="docutils literal notranslate"><span class="pre">frame.dylan</span></code> should itself be the
+last file listed in the project window.</p>
+<p>Once you have added these methods to your code, you can compile and link
+the code, and run the application to test it, using the appropriate
+commands in the Dylan environment.</p>
+<p>Note that, unlike languages such as C, Dylan does not insist on a single
+entrance point to an application such as the one given here. All the
+same, it is still good practice to define one if you can. The main
+difference between the use of the method <code class="docutils literal notranslate"><span class="pre">main</span></code> here, and the use of the
+<code class="docutils literal notranslate"><span class="pre">main</span></code> function in C, is in the arguments that need to be passed. In C,
+you need to pass two generic arguments: <code class="docutils literal notranslate"><span class="pre">argc</span></code>, which specifies the
+number of arguments you are passing, and <code class="docutils literal notranslate"><span class="pre">argv</span></code>, an array of strings
+that define the arguments themselves. In Dylan, however, you only need
+to pass the second of these arguments; since any Dylan collection
+already knows its own size, you do not need to pass the number of
+arguments as an additional parameter.</p>
+</section>
+<section id="adding-a-default-callback">
+<span id="index-2"></span><h2>Adding a default callback<a class="headerlink" href="#adding-a-default-callback" title="Link to this heading">¶</a></h2>
+<p>Nothing is more frustrating than designing a user interface that does
+not respond to user input. Although, in the early stages at least, the
+user interface does nothing particularly useful, you can at least define
+a “not yet implemented” message that can be used until you define real
+behavior for the application.</p>
+<p>The definition of the function that gives you this default behavior is
+as follows:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">function</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="w"> </span><span class="p">(</span><span class="n">gadget</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nc">&lt;gadget&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">()</span>
+<span class="w">  </span><span class="n">notify-user</span><span class="p">(</span><span class="s">&quot;Not yet implemented!&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">owner:</span><span class="w"> </span><span class="n">sheet-frame</span><span class="p">(</span><span class="n">gadget</span><span class="p">))</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">function</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Add this function to <code class="docutils literal notranslate"><span class="pre">frame.dylan</span></code>.</p>
+<p>You can call this function from any gadget in the task list manager by
+defining it as the activate callback for each gadget. There are several
+types of callback, and this is the type that is used most in the task
+list manager. You can define the activate callback for any gadget using
+the <code class="docutils literal notranslate"><span class="pre">activate-callback:</span></code> init-keyword. More information about callbacks
+is given in <a class="reference internal" href="callbacks.html"><span class="doc">Adding Callbacks to the Application</span></a>, in which some real callbacks are
+defined, to make the task list manager do something more substantial.</p>
+</section>
+<section id="defining-a-new-frame-class">
+<span id="index-3"></span><h2>Defining a new frame class<a class="headerlink" href="#defining-a-new-frame-class" title="Link to this heading">¶</a></h2>
+<p>To begin with, define a frame class using the layout hierarchy you have
+already created. Although it might seem redundant to implement an
+inelegant layout again, it is easier to illustrate the basic techniques
+using a design you are already familiar with. In addition, there are
+several elements in the design that can be reused successfully.</p>
+<p>Add the code described in this section to <code class="docutils literal notranslate"><span class="pre">frame.dylan</span></code>.</p>
+<p id="index-4">Defining a new class of frame is just like defining any Dylan class,
+except that there are several extra options available beyond the slot
+options normally available to <code class="docutils literal notranslate"><span class="pre">define</span> <span class="pre">class</span></code>. Each of these extra
+options lets you describe a particular aspect of the user interface. To
+define the new frame class, use the following structure:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="nc">&lt;task-frame&gt;</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;simple-frame&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="c1">// definitions of frame slots and options go here</span>
+<span class="k">end</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="nc">&lt;task-frame&gt;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In this case, <code class="docutils literal notranslate"><span class="pre">&lt;task-frame&gt;</span></code> is the name of the new class of frame,
+and``&lt;simple-frame&gt;`` is its superclass. Like ordinary Dylan classes,
+frame classes can have any number of superclasses, with multiple
+superclasses separated by commas. The superclass of any “standard” frame
+is usually <code class="docutils literal notranslate"><span class="pre">&lt;simple-frame&gt;</span></code>. If you were designing a dialog box, its
+superclass would be <code class="docutils literal notranslate"><span class="pre">&lt;dialog-frame&gt;</span></code>. If you were designing a wizard,
+its superclass would be <code class="docutils literal notranslate"><span class="pre">&lt;wizard-frame&gt;</span></code>.</p>
+<p>Adding slots to a frame class is exactly the same as adding slots to a
+standard Dylan class. You can define slot names, init-keywords,
+init-functions, default values, and so on. For this example, you are not
+defining any slots.</p>
+<p>Each user interface element in the new class of frame is specified as a
+pane with a name and a definition. A pane is a sheet within a layout,
+and you can think of panes as sheets that represent concrete classes in
+an interface (as opposed to abstract classes). In effect, specifying a
+pane allows you to group together existing gadgets into some meaningful
+relationship that effectively creates a new gadget, without actually
+defining a gadget class.</p>
+<p>The name is used to refer to the pane, both from within the frame
+definition itself, and from other code. The pane definition includes
+code to create the interface element. A pane specification also includes
+a place to declare a local variable that can be used within the pane’s
+definition to refer to the surrounding frame.</p>
+<p>The following code fragment defines the two buttons, the text field, the
+radio box, and the list box from the initial design:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">pane</span><span class="w"> </span><span class="n">add-button</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;push-button&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">label:</span><span class="w"> </span><span class="s">&quot;Add task&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+<span class="n">pane</span><span class="w"> </span><span class="n">remove-button</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;push-button&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">label:</span><span class="w"> </span><span class="s">&quot;Remove task&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+<span class="n">pane</span><span class="w"> </span><span class="n">task-text</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;text-field&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">label:</span><span class="w"> </span><span class="s">&quot;Task text:&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+<span class="n">pane</span><span class="w"> </span><span class="n">priority-box</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">make</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;radio-box&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">label:</span><span class="w"> </span><span class="s">&quot;Priority:&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="k">items:</span><span class="w"> </span><span class="p">#(</span><span class="s">&quot;High&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Medium&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Low&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="k">orientation:</span><span class="w"> </span><span class="ss">#&quot;vertical&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+<span class="n">pane</span><span class="w"> </span><span class="n">task-list</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;list-box&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">items:</span><span class="w"> </span><span class="p">#(),</span><span class="w"> </span><span class="k">lines:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
+<span class="w">       </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Note that the definition of each element is identical to the
+definitions included in the original layout described in <a class="reference external" href="design.html#creating-the-basic-sheet-hierarchy">Creating the
+basic sheet hierarchy</a> (except that
+activate callbacks have been added to the code). Adding <code class="docutils literal notranslate"><span class="pre">(frame)</span></code>
+immediately after the name of each pane lets you refer to the frame
+itself within the frame definition using a local variable. This means
+that you can refer to any pane within the frame using normal slot
+syntax; that is, a pane called <code class="docutils literal notranslate"><span class="pre">my-pane</span></code> can be referred to as
+<code class="docutils literal notranslate"><span class="pre">frame.my-pane</span></code> throughout all of the definition of the frame
+class. This ability is essential when you come to layout each pane in
+the frame itself.</p>
+<p>In addition, you need to define the layout in which to place these
+panes. This is itself just another pane, and its definition is again
+identical to the original layout described in <a class="reference external" href="design.html#creating-the-basic-sheet-hierarchy">Creating the basic
+sheet hierarchy</a>,
+with one exception; rather than defining each element explicitly, you
+just include a reference to the relevant pane that you have already
+defined using normal slot syntax, thus:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">pane</span><span class="w"> </span><span class="n">task-layout</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">  </span><span class="n">horizontally</span><span class="w"> </span><span class="p">()</span>
+<span class="w">    </span><span class="n">frame</span><span class="p">.</span><span class="n">task-list</span><span class="p">;</span>
+<span class="w">    </span><span class="n">vertically</span><span class="w"> </span><span class="p">()</span>
+<span class="w">      </span><span class="n">horizontally</span><span class="w"> </span><span class="p">()</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="n">task-text</span><span class="p">;</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="n">add-button</span><span class="p">;</span>
+<span class="w">      </span><span class="k">end</span><span class="p">;</span>
+<span class="w">    </span><span class="n">frame</span><span class="p">.</span><span class="n">remove-button</span><span class="p">;</span>
+<span class="w">    </span><span class="n">frame</span><span class="p">.</span><span class="n">priority-box</span><span class="p">;</span>
+<span class="w">  </span><span class="k">end</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>To describe the top-level layout for the frame, you need to refer to
+this pane using the <code class="docutils literal notranslate"><span class="pre">layout</span></code> option, as follows:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">layout</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span><span class="w"> </span><span class="n">frame</span><span class="p">.</span><span class="n">task-layout</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>You actually have a certain amount of freedom when choosing what to
+define as a pane in the definition of a frame class. For example, the
+layout in the <code class="docutils literal notranslate"><span class="pre">task-layout</span></code> pane actually contains a number of
+sub-layouts. If you wanted, each one of these sub-layouts could be
+defined as a separate pane within the frame definition. Note, however,
+that you only have to “activate” the top-most layout; there should only
+be one use of the <code class="docutils literal notranslate"><span class="pre">layout</span></code> option.</p>
+<p>Similarly, you are free to use whatever programming constructs you like
+when defining elements in your code. Just as in the earlier examples,
+you could define the layouts with explicit calls to <code class="docutils literal notranslate"><span class="pre">make</span></code>, rather than
+by using the <code class="docutils literal notranslate"><span class="pre">horizontally</span></code> and <code class="docutils literal notranslate"><span class="pre">vertically</span></code> macros. Thus, the following
+definition of <code class="docutils literal notranslate"><span class="pre">task-layout</span></code> is just as valid as the one above:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">pane</span><span class="w"> </span><span class="n">task-layout</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;row-layout&gt;</span><span class="p">,</span>
+<span class="w">       </span><span class="k">children:</span><span class="w"> </span><span class="nb">vector</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">task-list</span><span class="p">,</span>
+<span class="w">                        </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;column-layout&gt;</span><span class="p">,</span>
+<span class="w">                             </span><span class="k">children:</span><span class="w"> </span><span class="nb">vector</span><span class="p">(</span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;row-layout&gt;</span><span class="p">,</span>
+<span class="w">                                              </span><span class="k">children:</span><span class="w"> </span><span class="nb">vector</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">task-text</span><span class="p">,</span><span class="w"> </span><span class="n">frame</span><span class="p">.</span><span class="n">add-button</span><span class="p">))))));</span>
+</pre></div>
+</div>
+<p>Notice that this construct is rather more complicated than the one using
+macros!</p>
+<p>Throughout this section, you may have noticed that you can identify a
+sequence of steps that need to occur inside the definition of a frame.
+It is good practice to keep this sequence in mind when writing your own
+frame-based code:</p>
+<ol class="arabic simple">
+<li><p>Define the content panes</p></li>
+<li><p>Define the layout panes</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">layout</span></code> option</p></li>
+</ol>
+<p>If you glue all the code defined in this section together, you end up
+with the following complete definition of a frame class.</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="nc">&lt;task-frame&gt;</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;simple-frame&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">pane</span><span class="w"> </span><span class="n">add-button</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;push-button&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">label:</span><span class="w"> </span><span class="s">&quot;Add task&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pane</span><span class="w"> </span><span class="n">remove-button</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;push-button&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">label:</span><span class="w"> </span><span class="s">&quot;Remove task&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pane</span><span class="w"> </span><span class="n">task-text</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;text-field&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">label:</span><span class="w"> </span><span class="s">&quot;Task text:&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pane</span><span class="w"> </span><span class="n">priority-box</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;radio-box&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">label:</span><span class="w"> </span><span class="s">&quot;Priority:&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="k">items:</span><span class="w"> </span><span class="p">#(</span><span class="s">&quot;High&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Medium&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Low&quot;</span><span class="p">),</span>
+<span class="w">         </span><span class="k">orientation:</span><span class="w"> </span><span class="ss">#&quot;vertical&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pane</span><span class="w"> </span><span class="n">task-list</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">make</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;list-box&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">items:</span><span class="w"> </span><span class="p">#(),</span><span class="w"> </span><span class="k">lines:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
+<span class="w">          </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pane</span><span class="w"> </span><span class="n">task-layout</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">    </span><span class="n">horizontally</span><span class="w"> </span><span class="p">()</span>
+<span class="w">      </span><span class="n">frame</span><span class="p">.</span><span class="n">task-list</span><span class="p">;</span>
+<span class="w">      </span><span class="n">vertically</span><span class="w"> </span><span class="p">()</span>
+<span class="w">        </span><span class="n">horizontally</span><span class="w"> </span><span class="p">()</span>
+<span class="w">          </span><span class="n">frame</span><span class="p">.</span><span class="n">task-text</span><span class="p">;</span>
+<span class="w">          </span><span class="n">frame</span><span class="p">.</span><span class="n">add-button</span><span class="p">;</span>
+<span class="w">        </span><span class="k">end</span><span class="p">;</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="n">remove-button</span><span class="p">;</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="n">priority-box</span><span class="p">;</span>
+<span class="w">      </span><span class="k">end</span><span class="p">;</span>
+<span class="w">    </span><span class="k">end</span><span class="p">;</span>
+<span class="w">  </span><span class="n">layout</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span><span class="w"> </span><span class="n">frame</span><span class="p">.</span><span class="n">task-layout</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">keyword</span><span class="w"> </span><span class="k">title:</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Task List Manager&quot;</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="nc">&lt;task-frame&gt;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Note the addition of a <code class="docutils literal notranslate"><span class="pre">title:</span></code> keyword at the end of the definition.
+This can be used to give any instance of the frame class a title that is
+displayed in the title bar of the frame’s window when it is mapped to
+the screen.</p>
+<p>At this stage, the application still has no real functionality, and
+there is no improvement in the interface compared to the initial design,
+but by defining a frame class, the implementation is inherently more
+robust, making it easier to modify and, eventually, maintain.</p>
+<p>If you want to try running your code, remember that you need to define
+some additional methods to create a frame instance and exit it cleanly.
+Methods for doing this were provided in <a class="reference internal" href="#starting-the-application">Starting the
+application</a>. If you define these methods now, you
+can create running versions of each successive generation of the
+application as it is developed.</p>
+</section>
+<section id="adding-a-tool-bar">
+<span id="index-5"></span><h2>Adding a tool bar<a class="headerlink" href="#adding-a-tool-bar" title="Link to this heading">¶</a></h2>
+<p>So far, you have seen how to experiment interactively to create an
+initial interface design. You have also seen how you can take that
+initial design and turn it into a more rigorous definition, for use
+within project source code, using a frame class. However, the design of
+the interface still leaves a lot to be desired, and the application
+still does not do anything. In this section, you start to look at
+improving the overall design of the interface.</p>
+<p>To begin with, add a tool bar to the interface of the application. Most
+modern applications have a tool bar that runs along the top edge of the
+main application window, beneath the application menu bar. Tool bars
+contain a number of buttons that give you quick access to some of the
+most common commands in the application. Each button has a label that
+designates its use, or, more often, a small icon. Although you have
+already added buttons to the interface that perform important tasks,
+they have the appearance of buttons in a dialog box, rather than buttons
+in the main window of an application. The solution is to use a tool bar.</p>
+<p>Adding a tool bar to the definition of a frame class is very similar to
+defining the overall layout of the panes in a frame class. You need to
+create the tool bar as a pane in the frame definition, and then
+incorporate it using the <code class="docutils literal notranslate"><span class="pre">tool-bar</span></code> clause, as shown below:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">pane</span><span class="w"> </span><span class="n">task-tool-bar</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;tool-bar&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">child:</span><span class="w"> </span><span class="p">...);</span>
+<span class="c1">// ...more definitions here...</span>
+<span class="n">tool-bar</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span><span class="w"> </span><span class="n">frame</span><span class="p">.</span><span class="n">task-tool-bar</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>A tool bar has a layout as its child, and each button in the tool bar is
+defined as a child of that layout. You can either define each button
+within the definition of the tool bar itself, or, more appropriately,
+define each button as a pane in the frame, and then refer to the names
+of these panes in the tool bar definition.</p>
+<p>In fact, the buttons you defined in the earlier interface design can be
+used just as easily in a tool bar as they can within the main layout of
+the application itself. However, first you must remove the buttons from
+the task-layout pane of the definition of <code class="docutils literal notranslate"><span class="pre">&lt;task-frame&gt;</span></code>. (If you fail
+to do this, DUIM attempts to use the same buttons in two different parts
+of the interface, with undefined results.) A complete definition of a
+simple tool bar containing two buttons is as follows:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">pane</span><span class="w"> </span><span class="n">task-tool-bar</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;tool-bar&gt;</span><span class="p">,</span>
+<span class="w">       </span><span class="k">child:</span><span class="w"> </span><span class="n">horizontally</span><span class="w"> </span><span class="p">()</span>
+<span class="w">                </span><span class="n">frame</span><span class="p">.</span><span class="n">add-button</span><span class="p">;</span>
+<span class="w">                </span><span class="n">frame</span><span class="p">.</span><span class="n">remove-button</span>
+<span class="w">              </span><span class="k">end</span><span class="p">);</span>
+<span class="c1">// ...more definitions here...</span>
+<span class="n">tool-bar</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span><span class="w"> </span><span class="n">frame</span><span class="p">.</span><span class="n">task-tool-bar</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>A tool bar that only contains two buttons is on the lean side, however,
+so let’s add two more buttons to open a file and save a file to disk.</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">pane</span><span class="w"> </span><span class="n">open-button</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;push-button&gt;</span><span class="p">,</span>
+<span class="w">       </span><span class="k">label:</span><span class="w"> </span><span class="s">&quot;Open file&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+<span class="n">pane</span><span class="w"> </span><span class="n">save-button</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;push-button&gt;</span><span class="p">,</span>
+<span class="w">       </span><span class="k">label:</span><span class="w"> </span><span class="s">&quot;Save file&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+<span class="c1">// ...more definitions here...</span>
+<span class="n">pane</span><span class="w"> </span><span class="n">task-tool-bar</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;tool-bar&gt;</span><span class="p">,</span>
+<span class="w">       </span><span class="k">child:</span><span class="w"> </span><span class="n">horizontally</span><span class="w"> </span><span class="p">()</span>
+<span class="w">                </span><span class="n">frame</span><span class="p">.</span><span class="n">open-button</span><span class="p">;</span>
+<span class="w">                </span><span class="n">frame</span><span class="p">.</span><span class="n">save-button</span><span class="p">;</span>
+<span class="w">                </span><span class="n">frame</span><span class="p">.</span><span class="n">add-button</span><span class="p">;</span>
+<span class="w">                </span><span class="n">frame</span><span class="p">.</span><span class="n">remove-button</span>
+<span class="w">              </span><span class="k">end</span><span class="p">);</span>
+<span class="c1">// ...more definitions here...</span>
+<span class="n">tool-bar</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span><span class="w"> </span><span class="n">frame</span><span class="p">.</span><span class="n">task-tool-bar</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>More commonly, an icon is used to label buttons in a tool bar, rather
+than a text label. You can do this by supplying an instance of <code class="docutils literal notranslate"><span class="pre">&lt;image&gt;</span></code>
+to the <code class="docutils literal notranslate"><span class="pre">label:</span></code> init-keyword when you define the button, rather than an
+instance of <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a>.</p>
+<p>So now the application has a tool bar. Somewhat oddly, it does not yet
+have a menu bar or a system of menus — most tool bars represent a subset
+of the commands already available from the application’s menu system. A
+menu system is added to the task list manager in <a class="reference internal" href="menus.html"><span class="doc">Adding Menus To The Application</span></a>.</p>
+</section>
+<section id="adding-a-status-bar">
+<span id="index-6"></span><h2>Adding a status bar<a class="headerlink" href="#adding-a-status-bar" title="Link to this heading">¶</a></h2>
+<p>As well as a tool bar, most applications have a status bar. This is a
+bar that runs along the bottom edge of the main application window, and
+displays information about the current status of the application. At its
+most basic, a status bar provides a label that displays text of some
+sort. In many applications, status bars contain a number of different
+fields, providing a wide range of functionality. At their most complex,
+a status bar may have several different labels that display information
+about the current state of the application, and labels that display help
+for the currently selected menu command.</p>
+<p>It is worth adding a very simple status bar to the task list
+application. This contains a label that could eventually be used to
+display the name of the file currently loaded into the application.
+Adding a status bar to the definition of a frame class is very similar
+to adding a tool bar: you need to define a pane that describes the
+status bar, and then you need to incorporate it using the <code class="docutils literal notranslate"><span class="pre">status-bar</span></code>
+clause.</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">pane</span><span class="w"> </span><span class="n">task-status-bar</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;status-bar&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">label:</span><span class="w"> </span><span class="s">&quot;Task Manager&quot;</span><span class="p">);</span>
+<span class="c1">// ...more definitions here...</span>
+<span class="n">status-bar</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span><span class="w"> </span><span class="n">frame</span><span class="p">.</span><span class="n">task-status-bar</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Now you have added a status bar to the application. The next step is to
+glue all the pieces together once again to create your modified frame
+design.</p>
+</section>
+<section id="gluing-the-new-design-together">
+<span id="index-7"></span><h2>Gluing the new design together<a class="headerlink" href="#gluing-the-new-design-together" title="Link to this heading">¶</a></h2>
+<p>In improving the initial design of the application, you have added a
+tool bar and a status bar. Adding a tool bar, in particular, has
+obviated the need for some of the elements that you added to the earlier
+version of the frame design. In this section, you throw away those
+elements that are no longer needed, and add in the new elements, to
+create a new, improved design for the frame class.</p>
+<p>One part of the initial design you have not yet improved on is the radio
+box that shows the priority of any task in the list. Ideally, rather
+than using a radio box, you would display the priority of each task
+alongside the task itself, within the list box. For now, however, keep
+the radio box.</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="n">pane</span><span class="w"> </span><span class="n">priority-box</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;radio-box&gt;</span><span class="p">,</span>
+<span class="w">       </span><span class="k">items:</span><span class="w"> </span><span class="no">$priority-items</span><span class="p">,</span>
+<span class="w">       </span><span class="k">orientation:</span><span class="w"> </span><span class="ss">#&quot;horizontal&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="k">label-key:</span><span class="w"> </span><span class="nb">first</span><span class="p">,</span>
+<span class="w">       </span><span class="k">value-key:</span><span class="w"> </span><span class="nb">second</span><span class="p">,</span>
+<span class="w">       </span><span class="k">value:</span><span class="w"> </span><span class="ss">#&quot;medium&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Notice that the orientation is no longer constrained to be vertical. In
+the new design, a horizontal radio box looks better. By default, the
+orientation of a radio box is horizontal, so you could just completely
+remove the initialization of the <code class="docutils literal notranslate"><span class="pre">orientation:</span></code> init-keyword from the
+definition of the pane. In general, though, if you care about the
+orientation of a gadget, you should specify it explicitly, so leave the
+init-keyword in the pane definition, and change its value, as shown
+above.</p>
+<p>Next, notice that the items are now specified using a named constant,
+rather than by embedding literals in the pane definition. The definition
+of this constant is as follows:</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">constant</span><span class="w"> </span><span class="no">$priority-items</span>
+<span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">#(#(</span><span class="s">&quot;Low&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">#&quot;low&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="p">#(</span><span class="s">&quot;Medium&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">#&quot;medium&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="p">#(</span><span class="s">&quot;High&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">#&quot;high&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>Add the definition for this constant to <code class="docutils literal notranslate"><span class="pre">frame.dylan</span></code>.</p>
+<p>Using lists of string and symbol values in this constant lets you assign
+values to the individual components of the radio box elegantly, in
+conjunction with the other improvements to the definition of
+<code class="docutils literal notranslate"><span class="pre">priority-box</span></code>.</p>
+<ul>
+<li><p>The <em>label key</em> is a function which is passed an entry from the sequence
+and returns a string to use as the label.</p>
+<p>Assigning <code class="docutils literal notranslate"><span class="pre">first</span></code> to the label key of <code class="docutils literal notranslate"><span class="pre">priority-box</span></code> ensures that the
+first element from each sub-list of <code class="docutils literal notranslate"><span class="pre">$priority-items</span></code> (the string) is
+used as the label for the appropriate item. Thus, the first button in
+priority box is labeled “Low”.</p>
+</li>
+<li><p>The <em>value key</em> is a function which is passed an entry and returns the
+logical value of the entry.</p>
+<p>Assigning <code class="docutils literal notranslate"><span class="pre">second</span></code> to the value key of <code class="docutils literal notranslate"><span class="pre">priority-box</span></code> ensures that the
+second element from each sub-list of <code class="docutils literal notranslate"><span class="pre">$priority-items</span></code> (the symbol) is
+used as the value for the appropriate item. Thus, the first button in
+priority box has the value <code class="docutils literal notranslate"><span class="pre">#&quot;low&quot;</span></code>.</p>
+</li>
+</ul>
+<p>Lastly, <code class="docutils literal notranslate"><span class="pre">priority-box</span></code> is given a default value: <code class="docutils literal notranslate"><span class="pre">#&quot;medium&quot;</span></code>. This
+ensures that the button labeled “Medium” is selected by default whenever
+<code class="docutils literal notranslate"><span class="pre">priority-box</span></code> is first created.</p>
+<p>The definitions for <code class="docutils literal notranslate"><span class="pre">add-button</span></code>, <code class="docutils literal notranslate"><span class="pre">remove-button</span></code>, and <code class="docutils literal notranslate"><span class="pre">task-list</span></code>
+remain unchanged from the initial design. In addition, you need to add
+the definitions for <code class="docutils literal notranslate"><span class="pre">open-button</span></code> and <code class="docutils literal notranslate"><span class="pre">save-button</span></code> described in
+<a class="reference internal" href="#adding-a-tool-bar">Adding a tool bar</a>.</p>
+<p>You also need to add in the definitions for the tool bar and status bar
+themselves, as described in <a class="reference internal" href="#adding-a-tool-bar">Adding a tool bar</a>
+and <a class="reference internal" href="#adding-a-status-bar">Adding a status bar</a>.</p>
+<p>The definition for <code class="docutils literal notranslate"><span class="pre">task-layout</span></code> has become much simpler. Because you
+have added buttons to the tool bar, the main layout for the application
+has reduced to a single column layout whose children are <code class="docutils literal notranslate"><span class="pre">task-list</span></code> and
+<code class="docutils literal notranslate"><span class="pre">priority-box</span></code>.</p>
+<p>The definition for the new design of the frame class now looks as
+follows (button definitions vary slightly for the Task List 2 project,
+see <a class="reference external" href="source.html#a-task-list-manager-using-command-tables">A task list manager using command tables</a>):</p>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="nc">&lt;task-frame&gt;</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;simple-frame&gt;</span><span class="p">)</span>
+<span class="w">  </span><span class="c1">// definition of buttons</span>
+<span class="w">  </span><span class="n">pane</span><span class="w"> </span><span class="n">add-button</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;push-button&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">label:</span><span class="w"> </span><span class="s">&quot;Add task&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pane</span><span class="w"> </span><span class="n">remove-button</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;push-button&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">label:</span><span class="w"> </span><span class="s">&quot;Remove task&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pane</span><span class="w"> </span><span class="n">open-button</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;push-button&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">label:</span><span class="w"> </span><span class="s">&quot;Open file&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pane</span><span class="w"> </span><span class="n">save-button</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;push-button&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">label:</span><span class="w"> </span><span class="s">&quot;Save file&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// definition of radio box</span>
+<span class="w">  </span><span class="n">pane</span><span class="w"> </span><span class="n">priority-box</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">make</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;radio-box&gt;</span><span class="p">,</span>
+<span class="w">          </span><span class="k">items:</span><span class="w"> </span><span class="no">$priority-items</span><span class="p">,</span>
+<span class="w">          </span><span class="k">orientation:</span><span class="w"> </span><span class="ss">#&quot;horizontal&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="k">label-key:</span><span class="w"> </span><span class="nb">first</span><span class="p">,</span>
+<span class="w">          </span><span class="k">value-key:</span><span class="w"> </span><span class="nb">second</span><span class="p">,</span>
+<span class="w">          </span><span class="k">value:</span><span class="w"> </span><span class="ss">#&quot;medium&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// definition of tool bar</span>
+<span class="w">  </span><span class="n">pane</span><span class="w"> </span><span class="n">task-tool-bar</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;tool-bar&gt;</span><span class="p">,</span>
+<span class="w">         </span><span class="k">child:</span><span class="w"> </span><span class="n">horizontally</span><span class="w"> </span><span class="p">()</span>
+<span class="w">           </span><span class="n">frame</span><span class="p">.</span><span class="n">open-button</span><span class="p">;</span>
+<span class="w">           </span><span class="n">frame</span><span class="p">.</span><span class="n">save-button</span><span class="p">;</span>
+<span class="w">           </span><span class="n">frame</span><span class="p">.</span><span class="n">add-button</span><span class="p">;</span>
+<span class="w">           </span><span class="n">frame</span><span class="p">.</span><span class="n">remove-button</span>
+<span class="w">         </span><span class="k">end</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// definition of status bar</span>
+<span class="w">  </span><span class="n">pane</span><span class="w"> </span><span class="n">task-status-bar</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;status-bar&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">label:</span><span class="w"> </span><span class="s">&quot;Task Manager&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// definition of list</span>
+<span class="w">  </span><span class="n">pane</span><span class="w"> </span><span class="n">task-list</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">make</span><span class="w"> </span><span class="p">(</span><span class="nc">&lt;list-box&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">items:</span><span class="w"> </span><span class="p">#(),</span><span class="w"> </span><span class="k">lines:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
+<span class="w">          </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">not-yet-implemented</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// main layout</span>
+<span class="w">  </span><span class="n">pane</span><span class="w"> </span><span class="n">task-layout</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="w">    </span><span class="n">vertically</span><span class="w"> </span><span class="p">()</span>
+<span class="w">      </span><span class="n">frame</span><span class="p">.</span><span class="n">task-list</span><span class="p">;</span>
+<span class="w">      </span><span class="n">frame</span><span class="p">.</span><span class="n">priority-box</span><span class="p">;</span>
+<span class="w">    </span><span class="k">end</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// activation of frame elements</span>
+<span class="w">  </span><span class="n">layout</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span><span class="w"> </span><span class="n">frame</span><span class="p">.</span><span class="n">task-layout</span><span class="p">;</span>
+<span class="w">  </span><span class="n">tool-bar</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span><span class="w"> </span><span class="n">frame</span><span class="p">.</span><span class="n">task-tool-bar</span><span class="p">;</span>
+<span class="w">  </span><span class="n">status-bar</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">)</span><span class="w"> </span><span class="n">frame</span><span class="p">.</span><span class="n">task-status-bar</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// frame title</span>
+<span class="w">  </span><span class="nb">keyword</span><span class="w"> </span><span class="k">title:</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Task List Manager&quot;</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="nc">&lt;task-frame&gt;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Note that this definition does not incorporate the original <code class="docutils literal notranslate"><span class="pre">task-text</span></code>
+pane defined in <a class="reference internal" href="#defining-a-new-frame-class">Defining a new frame class</a>. In fact, this part of the
+original interface is handled differently in the final design, and is
+re-implemented in <a class="reference internal" href="#creating-a-dialog-for-adding-new-items">Creating a dialog for adding new items</a>.</p>
+</section>
+<section id="creating-a-dialog-for-adding-new-items">
+<span id="index-8"></span><h2>Creating a dialog for adding new items<a class="headerlink" href="#creating-a-dialog-for-adding-new-items" title="Link to this heading">¶</a></h2>
+<p>You may be wondering what has happened to <code class="docutils literal notranslate"><span class="pre">task-text</span></code>, the text field
+in which you typed the text of each new task. In the new design, this is
+moved to a new dialog box that is popped up whenever you choose a
+command to add a new task to the list. This section shows you how to
+define this dialog.</p>
+<p>The method <code class="docutils literal notranslate"><span class="pre">prompt-for-task</span></code> below creates and displays a dialog that
+asks the user to type the text for a new task. The definition of
+<code class="docutils literal notranslate"><span class="pre">task-text</span></code> is very similar to the definition you provided in the
+initial design, with the exception that the activate callback exits the
+dialog, rather than calling the <code class="docutils literal notranslate"><span class="pre">not-yet-implemented</span></code> function.</p>
+<figure class="align-center" id="id4">
+<span id="index-9"></span><img alt="../../_images/new-task.png" src="../../_images/new-task.png" />
+<figcaption>
+<p><span class="caption-text">The dialog box created by the prompt-for-task method</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The method takes two keyword arguments: a title, which is assigned a
+value by default, and an owner, which is used as the owner for the
+dialog that is displayed by <code class="docutils literal notranslate"><span class="pre">prompt-for-task</span></code>. Note that the title is
+never explicitly set by any calls to <code class="docutils literal notranslate"><span class="pre">prompt-for-task</span></code> in the task list
+manager; it is provided here as an illustration of how you can provide a
+default value for a keyword argument, rather than requiring that it
+either always be passed in the call to the method, or that it be
+hard-wired into the code.</p>
+<p>The method returns two values: the name of the new task, that is, the
+text that the user types into the text field, and the priority of the
+new task.</p>
+<p>Add this method to <code class="docutils literal notranslate"><span class="pre">frame.dylan</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The definition of the <code class="docutils literal notranslate"><span class="pre">prompt-for-task</span></code> method uses the
+<code class="docutils literal notranslate"><span class="pre">&lt;priority&gt;</span></code> type. Note that this type is defined in <a class="reference external" href="callbacks.html#defining-the-underlying-data-structures-for-tasks">Defining
+the underlying data structures for tasks</a>. Until
+the relevant code in <a class="reference external" href="callbacks.html#defining-the-underlying-data-structures-for-tasks">Defining the underlying data structures for
+tasks</a>
+is added to your project, any attempt to build it will generate a
+serious warning.</p>
+</div>
+<div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">define</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">prompt-for-task</span>
+<span class="w">    </span><span class="p">(</span><span class="k">#key</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Type text of new task&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">owner</span><span class="p">)</span>
+<span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nb">false-or</span><span class="p">(</span><span class="nc">&lt;string&gt;</span><span class="p">),</span>
+<span class="w">  </span><span class="n">priority</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="nb">false-or</span><span class="p">(</span><span class="nc">&lt;priority&gt;</span><span class="p">))</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">task-text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;text-field&gt;</span><span class="p">,</span>
+<span class="w">                       </span><span class="k">label:</span><span class="w"> </span><span class="s">&quot;Task text:&quot;</span><span class="p">,</span>
+<span class="w">                       </span><span class="k">activate-callback:</span><span class="w"> </span><span class="n">exit-dialog</span><span class="p">);</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">priority-field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;radio-box&gt;</span><span class="p">,</span>
+<span class="w">                            </span><span class="k">items:</span><span class="w"> </span><span class="no">$priority-items</span><span class="p">,</span>
+<span class="w">                            </span><span class="k">label-key:</span><span class="w"> </span><span class="nb">first</span><span class="p">,</span>
+<span class="w">                            </span><span class="k">value-key:</span><span class="w"> </span><span class="nb">second</span><span class="p">,</span>
+<span class="w">                            </span><span class="k">value:</span><span class="w"> </span><span class="ss">#&quot;medium&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">frame-add-task-dialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="nc">&lt;dialog-frame&gt;</span><span class="p">,</span>
+<span class="w">                                   </span><span class="k">title:</span><span class="w"> </span><span class="n">title</span><span class="p">,</span>
+<span class="w">                                   </span><span class="k">owner:</span><span class="w"> </span><span class="n">owner</span><span class="p">,</span>
+<span class="w">                                   </span><span class="k">layout:</span><span class="w"> </span><span class="n">vertically</span><span class="w"> </span><span class="p">()</span>
+<span class="w">                                     </span><span class="n">task-text</span><span class="p">;</span>
+<span class="w">                                     </span><span class="n">priority-field</span>
+<span class="w">                                   </span><span class="k">end</span><span class="p">,</span>
+<span class="w">                                   </span><span class="k">input-focus:</span><span class="w"> </span><span class="n">task-text</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">start-dialog</span><span class="p">(</span><span class="n">frame-add-task-dialog</span><span class="p">))</span>
+<span class="w">    </span><span class="nb">values</span><span class="p">(</span><span class="n">gadget-value</span><span class="p">(</span><span class="n">task-text</span><span class="p">),</span><span class="w"> </span><span class="n">gadget-value</span><span class="p">(</span><span class="n">priority-field</span><span class="p">))</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span><span class="w"> </span><span class="nb">method</span><span class="w"> </span><span class="n">prompt-for-task</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Notice that the dialog used in the <code class="docutils literal notranslate"><span class="pre">prompt-for-task</span></code> method is created
+inline within the method definition. In this particular case, the dialog
+is only ever needed within the context of <code class="docutils literal notranslate"><span class="pre">prompt-for-task</span></code> and so it is
+not necessary to use <code class="docutils literal notranslate"><span class="pre">define</span> <span class="pre">frame</span></code> to create a distinct class of frame
+specifically for this dialog.</p>
+<p>Note also that <em>OK</em> and <em>Cancel</em> buttons are generated automatically for
+a dialog box; you do not need to define them explicitly.</p>
+<p>Later on, the activate callback you define for the <code class="docutils literal notranslate"><span class="pre">add-button</span></code> pane
+calls this method, then inserts the return value into the list
+<code class="docutils literal notranslate"><span class="pre">task-list</span></code>.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="menus.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Adding Menus To The Application</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="design.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Designing A Simple DUIM Application</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2011-2023, Dylan Hackers
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Improving The Design</a><ul>
+<li><a class="reference internal" href="#defining-a-project">Defining a project</a></li>
+<li><a class="reference internal" href="#starting-the-application">Starting the application</a></li>
+<li><a class="reference internal" href="#adding-a-default-callback">Adding a default callback</a></li>
+<li><a class="reference internal" href="#defining-a-new-frame-class">Defining a new frame class</a></li>
+<li><a class="reference internal" href="#adding-a-tool-bar">Adding a tool bar</a></li>
+<li><a class="reference internal" href="#adding-a-status-bar">Adding a status bar</a></li>
+<li><a class="reference internal" href="#gluing-the-new-design-together">Gluing the new design together</a></li>
+<li><a class="reference internal" href="#creating-a-dialog-for-adding-new-items">Creating a dialog for adding new items</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=55d3bea0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=4e2eecee"></script>
+    </body>
+</html>

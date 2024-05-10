@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Types_and_Classes" />
+    <link rel="prev" href="Types_and_Classes_Overview" />
+    <link rel="next" href="Classes" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>The Type Protocol &mdash; 5. Types and Classes &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Types_and_Classes_Overview"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Classes"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Types_and_Classes"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li class="current parent"><a href="Types_and_Classes">Types and Classes</a>
+	      <ul class="sections">
+		<li><a href="Types_and_Classes_Overview">Overview</a></li>
+		<li id="current" class="subsections"><a href="Type_Protocol">The Type Protocol</a>
+		  <ul class="page-TOC">
+		    <li><a href="#HEADING-40-14">Base Types and Pseudosubtypes</a></li>
+		    <li><a href="#HEADING-40-19">Type Disjointness</a></li>
+		  </ul>
+		</li>
+		<li><a href="Classes">Classes</a></li>
+		<li><a href="Slots">Slots</a></li>
+		<li><a href="Instance_Creation_and_Initialization">Instance Creation and Initialization</a></li>
+		<li><a href="Singletons">Singletons</a></li>
+		<li><a href="Union_Types">Union Types</a></li>
+		<li><a href="Limited_Types">Limited Types</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 5</p>
+	<p id="section-name">Types and Classes</p>
+      </div>
+
+      <a name="HEADING-40-0"></a>
+      <a name="UID-Types_and_Classes-1198"></a>
+      <h1 class="section-title"><a name="XREF-536"></a><a name="IX-537">The Type Protocol</a></h1>
+      <p>The type protocol comprises the following:</p>
+      <ul>
+	<li>All <a name="IX-538">types may be used as specializers</a> for method parameters,
+	  bindings, and slots.</li>
+	<li><code><a name="IX-539">instance?</a>(<var>object</var>, <var>type</var>)</code>
+	  tests type membership.</li>
+	<li><code><a name="IX-540">subtype?</a>(<var>type1</var>, <var>type2</var>)</code>
+	  tests type inclusion.</li>
+	<li><code><a name="IX-541">make</a>(<var>type</var> <var>&hellip;</var>)</code> makes
+	  an instance. This operation is only supported if the type is instantiable.</li>
+	<li><a name="IX-542">Type objects are immutable.</a></li>
+	<li><a name="IX-543">If two type objects are equivalent and are not classes, it is
+	  unspecified whether they are <code>==</code>.</a></li>
+      </ul>
+      <p>The following is an informal description of <a name="IX-544">type relationships</a>:
+	The function <code id="IX-545">subtype?</code> defines a partial ordering of all
+	types. Type <var>t<em><sub>1</sub></em></var> is a subtype of
+	type <var>t<em><sub>2</sub></em></var>
+	(i.e., <code>subtype?(<var>t<em><sub>1</sub></em></var>, <var>t<em><sub>2</sub></em></var>)</code>
+	is true) if it is impossible to encounter an object that is an instance
+	of <var>t<em><sub>1</sub></em></var> but not an instance
+	of <var>t<em><sub>2</sub></em></var>. It follows that every type is a subtype of itself. Two
+	types <var>t<em><sub>1</sub></em></var> and <var>t<em><sub>2</sub></em></var> are said to
+	be <dfn id="IX-546">equivalent types</dfn>
+	if <code>subtype?(<var>t<em><sub>1</sub></em></var>, <var>t<em><sub>2</sub></em></var>)</code>
+	and <code>subtype?(<var>t<em><sub>2</sub></em></var>, <var>t<em><sub>1</sub></em></var>)</code>
+	are both true. <var>t<em><sub>1</sub></em></var> is said to be
+	a <dfn id="IX-547">proper subtype</dfn> of <var>t<em><sub>2</sub></em></var>
+	if <var>t<em><sub>1</sub></em></var> is a subtype of <var>t<em><sub>2</sub></em></var>
+	and <var>t<em><sub>2</sub></em></var> is not a subtype
+	of <var>t<em><sub>1</sub></em></var>.</p>
+      <p><code>subtype?</code> on classes is defined by inheritance. A class is a subtype of itself
+	and of its general superclasses.</p>
+      <p><a name="IX-548"><code>subtype?</code> on singletons</a> is defined by object type
+	and identity. If <var>x</var> is an object and <var>t</var> is a
+	type, <code>subtype?(singleton(<var>x</var>), <var>t</var>)</code> will be true only
+	if <code>instance?(<var>x</var>, <var>t</var>)</code> is true.</p>
+      <p><code>subtype?</code> rules for union types are given
+	in <a href="Union_Types#XREF-701"><q>Union Types</q> on page
+	  72</a>. <code>subtype?</code> rules for limited integer types are given
+	in <a href="Limited_Types#XREF-710"><q>Limited Integer Types</q> on page
+	  74</a>. <code>subtype?</code> rules for limited collection types are given
+	in <a href="Limited_Collection_Types#XREF-1060"><q>Limited Collection Types</q> on page
+	  126</a>.</p>
+      <p><code id="IX-549">&lt;object&gt;</code> is the root of the type hierarchy. All
+	objects are instances of <code>&lt;object&gt;</code>, and all types are subtypes
+	of <code>&lt;object&gt;</code>.</p>
+      <p>A number of operations on types are described
+	in <a href="Reflective_Operations_on_Types#XREF-1858"><q>Reflective Operations on
+	    Types</q> on page 343</a>.</p>
+      <a name="HEADING-40-14"></a>
+      <a name="UID-Types_and_Classes-4914"></a>
+      <h2 class="subsection-title"><a name="IX-550">Base Types and Pseudosubtypes</a></h2>
+      <p>Every type has a <dfn>base type</dfn>. The base type for a class is the class itself. The
+	base type of a singleton is the singleton itself. The base type of a union is the union of
+	the base types of its component types. The base type of a limited
+	type <code>limited(<var>C</var>, <var>&hellip;</var>)</code> is <var>C</var>.</p>
+      <p>The type <var>t<em><sub>1</sub></em></var> is a <dfn>pseudosubtype</dfn> of the
+	type <var>t<em><sub>2</sub></em></var> if <var>t<em><sub>1</sub></em></var> is a subtype of
+	the base type of <var>t<em><sub>2</sub></em></var> and <var>t<em><sub>1</sub></em></var>
+	and <var>t<em><sub>2</sub></em></var> are not disjoint.</p>
+      <p>Note that<var> t<em><sub>1</sub></em></var> being a subtype
+	of <var>t<em><sub>2</sub></em></var> implies that <var>t<em><sub>1</sub></em></var> is a
+	pseudosubtype of <var>t<em><sub>2</sub></em></var>, but <var>t<em><sub>1</sub></em></var>
+	being a pseudosubtype of <var>t<em><sub>2</sub></em></var> does not imply
+	that <var>t<em><sub>1</sub></em></var> is a subtype
+	of <var>t<em><sub>2</sub></em></var>. Note also that if <var>t<em><sub>2</sub></em></var> is
+	not a limited type or some other nonstandard type, then pseudosubtype is the same as
+	subtype.</p>
+      <p>Base types and pseudosubtypes are used in the rules for sealing, described
+	in <a href="Sealing">Chapter 9, <q>Sealing.</q></a><a name="IX-551"></a></p>
+      <a name="HEADING-40-19"></a>
+      <a name="UID-Types_and_Classes-4893"></a>
+      <h2 class="subsection-title"><a name="XREF-553"></a><a name="IX-552">Type Disjointness</a></h2>
+      <p>Informally, two types are disjoint if there can be no object that is an instance of both
+	types. Formally, the disjointness of types is specified by the following set of rules. (Some
+	of these rules reference definitions given
+	in <a href="Limited_Types#XREF-710"><q>Limited Integer Types</q> on page
+	  74</a>, <a href="Element_Types#XREF-1051"><q>Element Types</q> on page 124</a>
+	and <a href="Limited_Collection_Types#XREF-1060"><q>Limited Collection Types</q> on page
+	  126</a>.)</p>
+      <ul>
+	<li>Two <a name="IX-554">classes are disjoint</a> if they have no common subclasses.</li>
+	<li>A <a name="IX-555">union type is disjoint</a> from another type if all of the union
+	  type's component types are disjoint from that other type.</li>
+	<li>A <a name="IX-556">singleton type is disjoint</a> from another type if the singleton's
+	  object is not an instance of that other type.</li>
+	<li>A <a name="IX-557">limited collection type is disjoint</a> from a class if their base
+	  types are disjoint, or the class is a subclass of <code>&lt;collection&gt;</code> and its
+	  element type is definite and not equivalent to the limited collection type's element type,
+	  or the class is a subclass of <code>&lt;collection&gt;</code> and its element type is
+	  indefinite and not a supertype of the limited collection type's element type.</li>
+	<li>A limited collection type is disjoint from a limited integer type because the
+	  classes <code>&lt;collection&gt;</code> and <code>&lt;integer&gt;</code> are
+	  disjoint.</li>
+	<li>Two limited collection types are disjoint if their base types are disjoint, or their
+	  element types are not equivalent, or their sizes are not compatible. Two sizes are
+	  compatible if either is <code>#f</code>, or they are <code>=</code> to each other, or one
+	  is a sequence of integers and the other is the product of those integers.</li>
+	<li>Two limited integer types are disjoint if the minimum value of one is greater than the
+	  maximum value for the other.</li>
+	<li>A limited integer type is disjoint from a class if their base types are disjoint or the
+	  class is a subclass of <code>&lt;integer&gt;</code> whose range is disjoint from the
+	  limited integer type's range.
+	  <a name="IX-558"></a><a name="IX-559"></a><a name="IX-560"></a></li>
+      </ul>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Types_and_Classes_Overview"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Classes"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Types_and_Classes"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

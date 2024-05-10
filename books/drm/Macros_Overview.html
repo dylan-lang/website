@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Macros" />
+    <link rel="prev" href="Macros" />
+    <link rel="next" href="Extensible_Grammar" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Overview &mdash; 10. Macros &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Macros"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Extensible_Grammar"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Macros"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li class="current parent"><a href="Macros">Macros</a>
+	      <ul class="sections">
+		<li id="current" class="subsections"><a href="Macros_Overview">Overview</a>
+		  <ul class="page-TOC">
+		    <li><a href="#HEADING-77-3">Compilation and Macro Processing</a></li>
+		  </ul>
+		</li>
+		<li><a href="Extensible_Grammar">Extensible Grammar</a></li>
+		<li><a href="Macro_Names">Macro Names</a></li>
+		<li><a href="Rewrite_Rules">Rewrite Rules</a></li>
+		<li><a href="Patterns">Patterns</a></li>
+		<li><a href="Pattern_Variable_Constraints">Pattern Variable Constraints</a></li>
+		<li><a href="Templates">Templates</a></li>
+		<li><a href="Auxiliary_Rule_Sets">Auxiliary Rule Sets</a></li>
+		<li><a href="Hygiene">Hygiene</a></li>
+		<li><a href="Rewrite_Rule_Examples">Rewrite Rule Examples</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 10</p>
+	<p id="section-name">Macros</p>
+      </div>
+
+      <a name="HEADING-77-0"></a>
+      <a name="UID-Macros-2598"></a>
+      <h1 class="section-title"><a name="IX-1175">Overview</a></h1>
+      <p>A <a name="IX-1176"></a>macro is an extension to the core language that can be defined by
+	the user, by the implementation, or as part of the Dylan language specification. Much of
+	the <a name="IX-1177">grammatical structure of Dylan</a> is built with macros. A macro
+	defines the meaning of one construct in terms of another construct. The compiler substitutes
+	the new construct for the original. The purpose of macros is to allow programmers to extend
+	the Dylan language, for example by creating new control structures or new
+	definitions. <a name="IX-1178">Unlike C, Dylan does not intend macros to be used to optimize
+	code by inlining.</a> Other parts of the language, such as sealing and <code>define
+	constant</code>, address that need.</p>
+      <p>Throughout this chapter, <var>italic font</var> and <em class="BNFCaps">small caps</em> are
+	used to indicate references to the formal grammar given in <a href="BNF">Appendix
+	  A, <q>BNF.</q></a></p>
+      <a name="HEADING-77-3"></a>
+      <a name="UID-Macros-5923"></a>
+      <h2 class="subsection-title"><a name="IX-1179">Compilation and Macro Processing</a></h2>
+      <p>Compilation consists of six conceptual phases:</p>
+      <ol>
+	<li><a name="IX-1180">Parsing a stream of characters into tokens</a>, according to the
+	  lexical grammar in <a href="BNF">Appendix A, <q>BNF.</q></a></li>
+	<li><a name="IX-1181">Parsing a stream of tokens into a program</a>, according to the phrase
+	  grammar in <a href="BNF">Appendix A, <q>BNF.</q></a></li>
+	<li>Macro expansion, which translates the program to a core language.</li>
+	<li><a name="IX-1182">Definition processing</a>, which recognizes special and built-in
+	  definitions and builds a compile-time model of the static structure of the program.</li>
+	<li>Optimization, which rewrites the program for improved performance.</li>
+	<li>Code generation, which translates the program to executable form.</li>
+      </ol>
+      <p>Portions of a program can be <a name="IX-1183">macro calls</a>. <a name="IX-1184">Macro
+	expansion</a> replaces a macro call with another construct, which can itself be a macro call
+	or contain macro calls. This expansion process repeats until there are no macro calls
+	remaining in the program, thus macros have no space or speed cost at run time. Of course,
+	expanding macros affects the speed and space cost of compilation.</p>
+      <p>A <a name="IX-1185">macro definition</a> describes both the syntax of a macro call and the
+	process for creating a new construct to replace the macro call. Typically the new construct
+	contains portions of the old one, which can be regarded as <a name="IX-1186">arguments</a>
+	to the macro. A macro definition consists of a sequence of rewrite rules. The left-hand side
+	of each rule is a pattern that matches a macro call. The right-hand side is
+	a <a name="IX-1187">template</a> for the expansion of a matching
+	call. <a name="IX-1188">Pattern variables</a> appearing in the left-hand side act as names
+	for macro arguments. Pattern variables appearing in the right-hand side substitute arguments
+	into the expansion. Macro arguments can be constrained to match specified elements of the
+	Dylan grammar. Auxiliary rule sets enhance the rewrite rule notation with named
+	subrules.</p>
+      <p>Some implementations and a future version of the Dylan language specification might allow
+	macro expansions to be produced by compile-time computation using the full Dylan language
+	and an object-oriented representation for programs. Such a <q>procedural macro</q> facility
+	is not part of Dylan at this time.</p>
+      <p>The input to, and output from, macro expansion is a <a name="IX-1189">fragment</a>, which
+	is a sequence of elementary fragments. An elementary fragment is one of the following:</p>
+      <ul>
+	<li>A token: the output of the lexical grammar. The bracket
+	  tokens <code>(</code>, <code>)</code>, <code>[</code>, <code>]</code>, <code>{</code>, <code>}</code>, <code>#(</code>,
+	  and <code>#[</code> are not allowed. Core reserved words
+	  (except <code>otherwise</code>), <em class="BNFCaps">begin-words</em>,
+	  and <em class="BNFCaps">function-words</em> are not allowed unless quoted with
+	  backslash.</li>
+	<li>A bracketed fragment: balanced brackets ( <code>()</code>, <code>[]</code>,
+	  or <code>{}</code> ) enclosing a fragment.</li>
+	<li>A macro call fragment: a macro call.</li>
+	<li>A parsed fragment: a single unit that is not decomposable into its component tokens. It
+	  has been fully parsed by the phrase grammar. A parsed fragment is either a function call,
+	  a list constant, a vector constant, a definition, or a local declaration.</li>
+      </ul>
+      <p>The second and third phases of compilation (parsing and macro expansion) are interleaved,
+	not sequential. The parsing phase of the compiler parses a macro call just enough to find
+	its end. See <var>definition-macro-call, statement, function-macro-call, body-fragment,
+	  list-fragment,</var> and <var>basic-fragment</var> in <a href="BNF">Appendix
+	  A, <q>BNF.</q></a> This process of parsing a macro call also parses any macro calls nested
+	inside it. The result is a macro call fragment.</p>
+      <p>This loose grammar for macro calls gives users a lot of flexibility to choose the grammar
+	that their macros will accept. For example, the grammar of macro calls doesn't care whether
+	a bracketed fragment will be interpreted as an argument list, a parameter list, a set
+	of <code>for</code> clauses, or a module import list.</p>
+      <p><a name="IX-1190">The compiler delays computing the expansion of a macro call fragment
+	until it is needed.</a> If an argument to a macro is a macro call, the outer macro call is
+	always expanded first. When the compiler computes the expansion of a macro call fragment, it
+	obeys the macro's definition. Constraints on pattern variables can cause reparsing of
+	portions of the macro call.</p>
+      <p><a name="IX-1191"></a>A <var>constituent</var>, <var>operand</var>,
+	or <var>leaf</var> that is a macro call expands the macro during or before the definition
+	processing and optimization phases. The compiler brackets the expansion
+	in <code>begin</code> &hellip; <code>end</code>, using the standard binding
+	of <code>begin</code> in the Dylan module, and then reparses it as
+	a <var>statement</var>. This reparsing may discover more macro calls. A parse error while
+	reparsing a macro expansion could indicate an invalid macro definition or an incorrect call
+	to the macro that was not detected during pattern matching. Once the cycle of macro
+	expansion and reparsing has been completed, no tokens, bracketed fragments, or macro call
+	fragments remain and the entire source record has become one parsed fragment.</p>
+      <p>This <code id="IX-1192">begin</code> &hellip; <code>end</code> bracketing ensures
+	that the expansion of a macro call will not be broken apart by operator precedence rules
+	when the macro call is a subexpression. Similarly, it ensures that the scopes of local
+	declarations introduced by a macro will not extend outside that macro expansion when the
+	macro call is a statement in a body.</p>
+      <p>The fragment produced by <a name="IX-1193">parsing a macro call</a>, which is the input to
+	macro expansion, is as follows:</p>
+      <ul>
+	<li><a name="IX-1194">Local declarations</a>
+	  and <a name="IX-1196"></a><a name="IX-1195">special definitions</a> are parsed
+	  fragments.</li>
+	<li>Calls to macros are macro call fragments.</li>
+	<li><a name="IX-1197">List constants and vector constants</a> are parsed fragments.</li>
+	<li>Anything in brackets is a <a name="IX-1198">bracketed fragment</a>.</li>
+	<li>If the macro call was not the result of macro expansion, everything else is represented
+	  as sequences of tokens. There are a few restrictions on the tokens, for example semicolons
+	  must appear in certain places and bare brackets cannot appear; for details see the
+	  definition of <var>body-fragment</var> and <var>list-fragment</var>
+	  in <a href="BNF">Appendix A, <q>BNF.</q></a></li>
+	<li>In a macro call that is the result of macro expansion, additional items can be parsed
+	  fragments, due to pattern-variable substitution.</li>
+	<li>Many built-in macros expand into implementation-specific parsed fragments.</li>
+      </ul>
+      <p><a name="XREF-1199"></a>The fragment produced by parsing an expression is as
+	follows:</p>
+      <ul>
+	<li>An expression consisting of a single token returns a one-token fragment. This will be a
+	  variable-name, noncollection literal, or <em class="BNFCaps">symbol</em>.</li>
+	<li>An expression consisting of just a <a name="IX-1200">string literal</a> returns a
+	  one-token fragment. If the string literal consists of
+	  multiple <em class="BNFCaps">string</em> tokens, they are concatenated into a
+	  single <em class="BNFCaps">string</em> token.</li>
+	<li>An expression consisting of just a <a name="IX-1201">list constant</a> or
+	  a <a name="IX-1202">vector constant</a> returns a list constant or vector constant
+	  fragment.</li>
+	<li>An expression consisting of just a <a name="IX-1203">statement</a>
+	  or <a name="IX-1204">function-macro-call</a> returns a macro call fragment.</li>
+	<li>An <a name="IX-1205">operator call</a>, <a name="IX-1206">slot reference</a>,
+	  or <a name="IX-1207">element reference</a> that calls a function macro returns a macro
+	  call fragment.</li>
+	<li>A function call, operator call, slot reference, or element reference that calls
+	  something other than a function macro returns a function call fragment.</li>
+	<li>Enclosing an expression in parentheses does not change how it parses.</li>
+      </ul>
+      <p>The term <q><a name="IX-1208">parsed expression fragment</a></q> refers to any of the
+	above.</p>
+      <p>The parser recognizes parsed fragments as well as raw tokens. The
+	nonterminals <var>definition</var> and <var>local-declaration</var> in the phrase grammar
+	accept parsed fragments of the same kind. The nonterminal <var>operand</var> accepts parsed
+	function call fragments and macro call fragments. The nonterminal <var>literal</var> accepts
+	list constant and vector constant fragments. The nonterminal <var>simple-fragment</var>
+	accepts parsed function call fragments and macro call fragments. The
+	nonterminal <var>macro</var> accepts macro call fragments. The parser expands bracketed
+	fragments into their constituent tokens before parsing them.<a name="IX-1209"></a></p>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Macros"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Extensible_Grammar"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Macros"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

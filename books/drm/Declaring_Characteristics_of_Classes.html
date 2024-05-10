@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Sealing" />
+    <link rel="prev" href="Explicitly_Known_Objects" />
+    <link rel="next" href="Declaring_Characteristics_of_Generic_Functions" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Declaring Characteristics of Classes &mdash; 9. Sealing &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Explicitly_Known_Objects"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Declaring_Characteristics_of_Generic_Functions"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Sealing"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li class="current parent"><a href="Sealing">Sealing</a>
+	      <ul class="sections">
+		<li><a href="Sealing_Overview">Overview</a></li>
+		<li><a href="Explicitly_Known_Objects">Explicitly Known Objects</a></li>
+		<li id="current"><a href="Declaring_Characteristics_of_Classes">Declaring Characteristics of Classes</a></li>
+		<li><a href="Declaring_Characteristics_of_Generic_Functions">Declaring Characteristics of Generic Functions</a></li>
+		<li><a href="Define_Sealed_Domain">Define Sealed Domain</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 9</p>
+	<p id="section-name">Sealing</p>
+      </div>
+
+      <a name="HEADING-73-0"></a>
+      <a name="UID-Sealing-1209"></a>
+      <h1 class="section-title"><a name="XREF-1106"></a><a name="IX-1107">Declaring Characteristics of Classes</a></h1>
+      <p>A class definition may include the
+	adjectives <code>sealed</code>, <code>open</code>, <code>primary</code>, <code>free</code>, <code>abstract</code>,
+	or <code>concrete</code>. These <a name="IX-1108">adjectives</a> declare characteristics of
+	the class.</p>
+      <p>Additional restrictions on the ability to subclass classes may be imposed by <code>define
+	  sealed domain</code>.</p>
+      <ul>
+	<li>An explicitly defined class can be declared to be either
+	  <a name="IX-1109">sealed or open</a>. If a class is sealed then no additional direct
+	  subclasses other than those explicitly known in the same library may be created. Thus, it
+	  is an error to define a direct subclass of a sealed class in some library other than the
+	  one that defined the sealed class, or to use <code>make</code>
+	  of <code>&lt;class&gt;</code> with a sealed class included in the direct superclasses
+	  specified by the <code>superclasses:</code> initialization argument. An open class does
+	  not prohibit such operations.<br />When explicitly defining a class, the default is for
+	  the class to be sealed. This may be overriden by explicitly specifying that it is open. A
+	  class created using <code id="IX-1110">make</code> of <code>&lt;class&gt;</code> is
+	  open. There is no specified way to create a sealed class using <code>make</code>.</li>
+	<li>An explicitly defined class may be declared to be either <a name="IX-1111">primary or
+	  free</a>. The default is free. Each primary superclass of a class must be either a
+	  subclass or a superclass of all the other primary superclasses of the class. (This
+	  essentially restricts primary classes to forming a <a name="IX-1112">single
+	  inheritance</a> chain.) <a name="IX-1113">Slots</a> defined in a primary class may be
+	  accessed more efficiently than slots defined in a free class. </li>
+	<li>An explicitly defined class may be defined to be either <a name="IX-1114">abstract or
+	  concrete</a>. The default is concrete. The superclasses of an abstract class must be
+	  abstract. The default method on <code>make</code> will signal an error if passed an
+	  abstract class. For an abstract class to be instantiable, it must define a method
+	  on <code>make</code> that delegates to a concrete subclass.<a name="IX-1115"></a></li>
+      </ul>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Explicitly_Known_Objects"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Declaring_Characteristics_of_Generic_Functions"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Sealing"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

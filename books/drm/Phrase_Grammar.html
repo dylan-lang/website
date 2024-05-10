@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="BNF" />
+    <link rel="prev" href="Lexical_Grammar" />
+    <link rel="next" href="Exported_Names" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Phrase Grammar &mdash; A. BNF &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Lexical_Grammar"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Exported_Names"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="BNF"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li class="current parent"><a href="BNF">BNF</a>
+	      <ul class="sections">
+		<li><a href="BNF#HEADING-116-1">General Notes</a></li>
+		<li><a href="BNF#HEADING-116-11">Lexical Notes</a></li>
+		<li><a href="Lexical_Grammar">Lexical Grammar</a></li>
+		<li id="current" class="subsections"><a href="Phrase_Grammar">Phrase Grammar</a>
+		  <ul class="page-TOC">
+		    <li><a href="#HEADING-118-1">Program Structure</a></li>
+		    <li><a href="#HEADING-118-8">Property Lists</a></li>
+		    <li><a href="#HEADING-118-13">Fragments</a></li>
+		    <li><a href="#HEADING-118-24">Definitions</a></li>
+		    <li><a href="#HEADING-118-30">Local Declarations</a></li>
+		    <li><a href="#HEADING-118-41">Expressions</a></li>
+		    <li><a href="#HEADING-118-56">Statements</a></li>
+		    <li><a href="#HEADING-118-62">Methods</a></li>
+		    <li class="subsections"><a href="#HEADING-118-75">Macro Definitions</a>
+		      <ul>
+			<li><a href="#HEADING-118-85">Patterns</a></li>
+			<li><a href="#HEADING-118-96">Templates</a></li>
+			<li><a href="#HEADING-118-104">Auxiliary Rule Sets</a></li>
+			<li><a href="#HEADING-118-109">Parsed Fragments</a></li>
+		      </ul>
+		    </li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Appendix A</p>
+	<p id="section-name">BNF</p>
+      </div>
+
+      <div class="BNF">
+	<a name="HEADING-118-0"></a>
+	<a name="UID-BNF_Appendix-564"></a>
+	<h1 class="section-title">Phrase Grammar</h1>
+	<a name="HEADING-118-1"></a>
+	<h2 class="subsection-title"><a name="IX-2107">Program Structure</a></h2>
+	<dl>
+	  <dt><var>source-record:</var></dt>
+	  <dd>
+	    <p><i>body<em><sub>opt</sub></em></i></p>
+	  </dd>
+	  <dt><var>body:</var></dt>
+	  <dd>
+	    <p><var>constituents</var> <code>;<i><em><sub>opt</sub></em></i></code></p>
+	  </dd>
+	  <dt><var>constituents:</var></dt>
+	  <dd>
+	    <p><var>constituent</var> <code>;</code> &hellip;</p>
+	  </dd>
+	  <dt><var>constituent:</var></dt>
+	  <dd>
+	    <p><var>definition</var></p>
+	    <p><var>local-declaration</var></p>
+	    <p><var>expression</var></p>
+	  </dd>
+	  <dt><var>macro:</var></dt>
+	  <dd>
+	    <p><var>definition-macro-call</var></p>
+	    <p><var>statement</var></p>
+	    <p><var>function-macro-call</var></p>
+	    <p><var>parsed-macro-call</var></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-118-8"></a>
+	<h2 class="subsection-title"><a name="IX-2108">Property Lists</a></h2>
+	<dl>
+	  <dt><var>comma-property-list:</var></dt>
+	  <dd>
+	    <p><code>,</code> <var>property-list</var></p>
+	  </dd>
+	  <dt><var>property-list:</var></dt>
+	  <dd>
+	    <p><var>property</var> <code>,</code> &hellip;</p>
+	  </dd>
+	  <dt><var>property:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">symbol</em> <var>value</var></p>
+	  </dd>
+	  <dt><var>value:</var></dt>
+	  <dd>
+	    <p><var>basic-fragment</var></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-118-13"></a>
+	<h2 class="subsection-title"><a name="IX-2109">Fragments</a></h2>
+	<dl>
+	  <dt><var>body-fragment:</var></dt>
+	  <dd>
+	    <p><var>non-statement-body-fragment</var></p>
+	    <p><var>statement</var> <i>non-statement-body-fragment<em><sub>opt</sub></em></i></p>
+	  </dd>
+	  <dt><var>list-fragment:</var></dt>
+	  <dd>
+	    <p><var>non-statement-list-fragment</var></p>
+	    <p><var>statement</var> <i>non-statement-list-fragment<em><sub>opt</sub></em></i></p>
+	  </dd>
+	  <dt><var>basic-fragment:</var></dt>
+	  <dd>
+	    <p><var>non-statement-basic-fragment</var></p>
+	    <p><var>statement</var> <i>non-statement-basic-fragment<em><sub>opt</sub></em></i></p>
+	  </dd>
+	  <dt><var>non-statement-body-fragment:</var></dt>
+	  <dd>
+	    <p><var>definition</var> <i>semicolon-fragment<em><sub>opt</sub></em></i></p>
+	    <p><var>local-declaration</var> <i>semicolon-fragment<em><sub>opt</sub></em></i></p>
+	    <p><var>simple-fragment</var> <i>body-fragment<em><sub>opt</sub></em></i></p>
+	    <p><code>,</code> <i>body-fragment<em><sub>opt</sub></em></i></p>
+	    <p><code>;</code> <i>body-fragment<em><sub>opt</sub></em></i></p>
+	  </dd>
+	  <dt><var>semicolon-fragment:</var></dt>
+	  <dd>
+	    <p><code>;</code> <i>body-fragment<em><sub>opt</sub></em></i></p>
+	  </dd>
+	  <dt><var>non-statement-list-fragment:</var></dt>
+	  <dd>
+	    <p><var>simple-fragment</var> <i>list-fragment<em><sub>opt</sub></em></i></p>
+	    <p><code>,</code> <i>list-fragment<em><sub>opt</sub></em></i></p>
+	  </dd>
+	  <dt><var>non-statement-basic-fragment:</var></dt>
+	  <dd>
+	    <p><var>simple-fragment</var> <i>basic-fragment<em><sub>opt</sub></em></i></p>
+	  </dd>
+	  <dt><var>simple-fragment:</var></dt>
+	  <dd>
+	    <p><var>variable-name</var></p>
+	    <p><var>constant-fragment</var></p>
+	    <p><em class="BNFCaps">binary-operator</em></p>
+	    <p><em class="BNFCaps">unary-operator</em></p>
+	    <p><var>bracketed-fragment</var></p>
+	    <p><var>function-macro-call</var></p>
+	    <p><var>#-word</var></p>
+	    <p><span class="one-of">one of</span>
+	      <code>. :: =&gt; ? ?? ?= ... ## otherwise</code></p>
+	    <p><var>parsed-function-call</var></p>
+	    <p><var>parsed-macro-call</var></p>
+	  </dd>
+	  <dt><var>bracketed-fragment:</var></dt>
+	  <dd>
+	    <p><code>(</code> <i>body-fragment<em><sub>opt</sub></em></i> <code>)</code></p>
+	    <p><code>[</code> <i>body-fragment<em><sub>opt</sub></em></i> <code>]</code></p>
+	    <p><code>{</code> <i>body-fragment<em><sub>opt</sub></em></i> <code>}</code></p>
+	  </dd>
+	  <dt><var>constant-fragment:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">number</em></p>
+	    <p><em class="BNFCaps">character-literal</em></p>
+	    <p><em class="BNFCaps">string</em></p>
+	    <p><em class="BNFCaps">symbol</em></p>
+	    <p><code>#(</code> <var>constants</var> <code>.</code> <var>constant</var> <code>)</code></p>
+	    <p><code>#(</code> <i>constants<em><sub>opt</sub></em></i> <code>)</code></p>
+	    <p><code>#[</code> <i>constants<em><sub>opt</sub></em></i> <code>]</code></p>
+	    <p><var>parsed-list-constant</var></p>
+	    <p><var>parsed-vector-constant</var></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-118-24"></a>
+	<h2 class="subsection-title"><a name="IX-2110">Definitions</a></h2>
+	<dl>
+	  <dt><var>definition:</var></dt>
+	  <dd>
+	    <p><var>definition-macro-call</var></p>
+	    <p><code>define</code> <code>macro</code> <var>macro-definition</var></p>
+	    <p><var>parsed-definition</var></p>
+	  </dd>
+	  <dt><var>definition-macro-call:</var></dt>
+	  <dd>
+	    <p><code>define</code> <i>modifiers<em><sub>opt</sub></em></i> <em class="BNFCaps">define-body-word</em> <i>body-fragment<em><sub>opt</sub></em></i> <var>definition-tail</var></p>
+	    <p><code>define</code> <i>modifiers<em><sub>opt</sub></em></i> <em class="BNFCaps">define-list-word</em> <i>list-fragment<em><sub>opt</sub></em></i></p>
+	  </dd>
+	  <dt><var>modifier:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">unreserved-name</em></p>
+	  </dd>
+	  <dt><var>modifiers:</var></dt>
+	  <dd>
+	    <p><var>modifier</var> &hellip;</p>
+	  </dd>
+	  <dt><var>definition-tail:</var></dt>
+	  <dd>
+	    <p><code>end</code></p>
+	    <p><code>end</code> <em class="BNFCaps">macro-name</em></p>
+	    <p><code>end</code> <em class="BNFCaps">define-body-word</em> <em class="BNFCaps">macro-name</em></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-118-30"></a>
+	<h2 class="subsection-title"><a name="IX-2111">Local Declarations</a></h2>
+	<dl>
+	  <dt><var>local-declaration:</var></dt>
+	  <dd>
+	    <p><code>let</code> <var>bindings</var></p>
+	    <p><code>let</code> <code>handler</code> <var>condition</var> <code>=</code> <var>handler</var></p>
+	    <p><code>local</code> <var>local-methods</var></p>
+	    <p><var>parsed-local-declaration</var></p>
+	  </dd>
+	  <dt><var>condition:</var></dt>
+	  <dd>
+	    <p><var>type</var></p>
+	    <p><code>(</code> <var>type</var> <var>comma-property-list</var> <code>)</code></p>
+	  </dd>
+	  <dt><var>handler:</var></dt>
+	  <dd>
+	    <p><var>expression</var></p>
+	  </dd>
+	  <dt><var>local-methods:</var></dt>
+	  <dd>
+	    <p><code>method<i><em><sub>opt</sub></em></i></code> <var>method-definition</var> <code>,</code> &hellip;</p>
+	  </dd>
+	  <dt><var>bindings:</var></dt>
+	  <dd>
+	    <p><var>variable</var> <code>=</code> <var>expression</var></p>
+	    <p><code>(</code> <var>variable-list</var> <code>)</code> <code>=</code> <var>expression</var></p>
+	  </dd>
+	  <dt><var>variable-list:</var></dt>
+	  <dd>
+	    <p><var>variables</var></p>
+	    <p><var>variables</var> <code>,</code> <code>#rest</code> <var>variable-name</var></p>
+	    <p><code>#rest</code> <var>variable-name</var></p>
+	  </dd>
+	  <dt><var>variables:</var></dt>
+	  <dd>
+	    <p><var>variable</var> <code>,</code> &hellip;</p>
+	  </dd>
+	  <dt><var>variable:</var></dt>
+	  <dd>
+	    <p><var>variable-name</var></p>
+	    <p><var>variable-name</var> <code>::</code> <var>type</var></p>
+	  </dd>
+	  <dt><var>variable-name:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">ordinary-name</em></p>
+	  </dd>
+	  <dt><var>type:</var></dt>
+	  <dd>
+	    <p><var>operand</var></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-118-41"></a>
+	<h2 class="subsection-title"><a name="IX-2112">Expressions</a></h2>
+	<dl>
+	  <dt><var>expressions:</var></dt>
+	  <dd>
+	    <p><var>expression</var> <code>,</code> &hellip;</p>
+	  </dd>
+	  <dt><var>expression:</var></dt>
+	  <dd>
+	    <p><var>binary-operand</var> <em class="BNFCaps">binary-operator</em> &hellip;</p>
+	  </dd>
+	  <dt><var>expression-no-symbol:</var></dt>
+	  <dd>
+	    <p><var>binary-operand-no-symbol</var></p>
+	    <p><var>binary-operand-no-symbol</var> <em class="BNFCaps">binary-operator</em> <var>expression</var></p>
+	  </dd>
+	  <dt><var>binary-operand-no-symbol:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">unary-operator<i><em><sub>opt</sub></em></i></em> <var>operand</var></p>
+	  </dd>
+	  <dt><var>binary-operand:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">symbol</em></p>
+	    <p><em class="BNFCaps">unary-operator<i><em><sub>opt</sub></em></i></em> <var>operand</var></p>
+	  </dd>
+	  <dt><var>operand:</var></dt>
+	  <dd>
+	    <p><var>operand</var> <code>(</code> <i>arguments<em><sub>opt</sub></em></i> <code>)</code></p>
+	    <p><var>operand</var> <code>[</code> <i>arguments<em><sub>opt</sub></em></i> <code>]</code></p>
+	    <p><var>operand</var> <code>.</code> <var>variable-name</var></p>
+	    <p><var>leaf</var></p>
+	  </dd>
+	  <dt><var>function-macro-call:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">function-word</em> <code>(</code> <i>body-fragment<em><sub>opt</sub></em></i> <code>)</code></p>
+	  </dd>
+	  <dt><var>leaf:</var></dt>
+	  <dd>
+	    <p><var>literal</var></p>
+	    <p><var>variable-name</var></p>
+	    <p><code>(</code> <var>expression</var> <code>)</code></p>
+	    <p><var>function-macro-call</var></p>
+	    <p><var>statement</var></p>
+	    <p><var>parsed-function-call</var></p>
+	    <p><var>parsed-macro-call</var></p>
+	  </dd>
+	  <dt><var>arguments:</var></dt>
+	  <dd>
+	    <p><var>argument</var> <code>,</code> &hellip;</p>
+	  </dd>
+	  <dt><var>argument:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">symbol</em> <var>expression</var></p>
+	    <p><var>expression-no-symbol</var></p>
+	    <p><em class="BNFCaps">symbol</em></p>
+	  </dd>
+	  <dt><var>literal:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">number</em></p>
+	    <p><em class="BNFCaps">character-literal</em></p>
+	    <p><var>string-literal</var></p>
+	    <p><code>#t</code></p>
+	    <p><code>#f</code></p>
+	    <p><code>#(</code> <var>constants</var> <code>.</code> <var>constant</var> <code>)</code></p>
+	    <p><code>#(</code> <i>constants<em><sub>opt</sub></em></i> <code>)</code></p>
+	    <p><code>#[</code> <i>constants<em><sub>opt</sub></em></i> <code>]</code></p>
+	    <p><var>parsed-list-constant</var></p>
+	    <p><var>parsed-vector-constant</var></p>
+	  </dd>
+	  <dt><var>string-literal:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">string</em> &hellip;</p>
+	  </dd>
+	  <dt><var>constants:</var></dt>
+	  <dd>
+	    <p><var>constant</var> <code>,</code> &hellip;</p>
+	  </dd>
+	  <dt><var>constant:</var></dt>
+	  <dd>
+	    <p><var>literal</var></p>
+	    <p><em class="BNFCaps">symbol</em></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-118-56"></a>
+	<h2 class="subsection-title"><a name="IX-2113">Statements</a></h2>
+	<dl>
+	  <dt><var>statement:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">begin-word</em> <i>body-fragment<em><sub>opt</sub></em></i> <var>end-clause</var></p>
+	  </dd>
+	  <dt><var>end-clause:</var></dt>
+	  <dd>
+	    <p><code>end</code> <em class="BNFCaps">begin-word<i><em><sub>opt</sub></em></i></em></p>
+	  </dd>
+	  <dt><var>case-body:</var></dt>
+	  <dd>
+	    <p><var>cases</var> <code>;<i><em><sub>opt</sub></em></i></code></p>
+	  </dd>
+	  <dt><var>cases:</var></dt>
+	  <dd>
+	    <p><var>case-label</var> <i>constituents<em><sub>opt</sub></em></i> <code>;</code> &hellip;</p>
+	  </dd>
+	  <dt><var>case-label:</var></dt>
+	  <dd>
+	    <p><var>expressions</var> <code>=&gt;</code></p>
+	    <p><code>(</code> <var>expression</var> <code>,</code> <var>expressions</var> <code>)</code> <code>=&gt;</code></p>
+	    <p><code>otherwise</code> <code>=&gt;<i><em><sub>opt</sub></em></i></code></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-118-62"></a>
+	<h2 class="subsection-title"><a name="XREF-2115"></a><a name="IX-2114">Methods</a></h2>
+	<dl>
+	  <dt><var>method-definition:</var></dt>
+	  <dd>
+	    <p><var>variable-name</var> <var>parameter-list</var> <i>body<em><sub>opt</sub></em></i> <code>end</code> <code>method<i><em><sub>opt</sub></em></i></code> <i>variable-name<em><sub>opt</sub></em></i></p>
+	  </dd>
+	  <dt><var>parameter-list:</var></dt>
+	  <dd>
+	    <p><code>(</code> <i>parameters<em><sub>opt</sub></em></i> <code>)</code> <code>;<i><em><sub>opt</sub></em></i></code></p>
+	    <p><code>(</code> <i>parameters<em><sub>opt</sub></em></i> <code>)</code> <code>=&gt;</code> <var>variable</var> <code>;</code></p>
+	    <p><code>(</code> <i>parameters<em><sub>opt</sub></em></i> <code>)</code> <code>=&gt;</code> <code>(</code> <i>values-list<em><sub>opt</sub></em></i> <code>)</code> <code>;<i><em><sub>opt</sub></em></i></code></p>
+	  </dd>
+	  <dt><var>parameters:</var></dt>
+	  <dd>
+	    <p><var>required-parameters</var></p>
+	    <p><var>required-parameters</var> <code>,</code> <var>next-rest-key-parameter-list</var></p>
+	    <p><var>next-rest-key-parameter-list</var></p>
+	  </dd>
+	  <dt><var>next-rest-key-parameter-list:</var></dt>
+	  <dd>
+	    <p><code>#next</code> <var>variable-name</var></p>
+	    <p><code>#next</code> <var>variable-name</var> <code>,</code> <var>rest-key-parameter-list</var></p>
+	    <p><var>rest-key-parameter-list</var></p>
+	  </dd>
+	  <dt><var>rest-key-parameter-list:</var></dt>
+	  <dd>
+	    <p><code>#rest</code> <var>variable-name</var></p>
+	    <p><code>#rest</code> <var>variable-name</var> <code>,</code> <var>key-parameter-list</var></p>
+	    <p><var>key-parameter-list</var></p>
+	  </dd>
+	  <dt><var>key-parameter-list:</var></dt>
+	  <dd>
+	    <p><code>#key</code> <i>keyword-parameters<em><sub>opt</sub></em></i></p>
+	    <p><code>#key</code> <i>keyword-parameters<em><sub>opt</sub></em></i> <code>,</code> <code>#all-keys</code></p>
+	  </dd>
+	  <dt><var>required-parameters:</var></dt>
+	  <dd>
+	    <p><var>required-parameter</var> <code>,</code> &hellip;</p>
+	  </dd>
+	  <dt><var>required-parameter:</var></dt>
+	  <dd>
+	    <p><var>variable</var></p>
+	    <p><var>variable-name</var> <code>==</code> <var>expression</var></p>
+	  </dd>
+	  <dt><var>keyword-parameters:</var></dt>
+	  <dd>
+	    <p><var>keyword-parameter</var> <code>,</code> &hellip;</p>
+	  </dd>
+	  <dt><var>keyword-parameter:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">symbol<i><em><sub>opt</sub></em></i></em> <var>variable</var> <i>default<em><sub>opt</sub></em></i></p>
+	  </dd>
+	  <dt><var>default:</var></dt>
+	  <dd>
+	    <p><code>=</code> <var>expression</var></p>
+	  </dd>
+	  <dt><var>values-list:</var></dt>
+	  <dd>
+	    <p><var>variables</var></p>
+	    <p><var>variables</var> <code>,</code> <code>#rest</code> <var>variable</var></p>
+	    <p><code>#rest</code> <var>variable</var></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-118-75"></a>
+	<h2 class="subsection-title"><a name="IX-2116">Macro Definitions</a></h2>
+	<dl>
+	  <dt><var>macro-definition:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">macro-name</em> <var>main-rule-set</var> <i>aux-rule-sets<em><sub>opt</sub></em></i> <code>end</code> <code>macro<em><i><sub>opt</sub></i></em></code> <em class="BNFCaps">macro-name<em><i class="Subscript"><sub>opt</sub></i></em></em></p>
+	  </dd>
+	  <dt><var>main-rule-set:</var></dt>
+	  <dd>
+	    <p><var>body-style-definition-rule</var> &hellip;</p>
+	    <p><var>list-style-definition-rule</var> &hellip;</p>
+	    <p><var>statement-rule</var> &hellip;</p>
+	    <p><var>function-rule</var> &hellip;</p>
+	  </dd>
+	  <dt><var>body-style-definition-rule:</var></dt>
+	  <dd>
+	    <p><code>{</code> <code>define</code> <i>definition-head<em><sub>opt</sub></em></i> <em class="BNFCaps">macro-name</em> <i>pattern<em><sub>opt</sub></em></i> <code>;<em><i><sub>opt</sub></i></em></code> <code>end</code> <code>}</code> <code>=&gt;</code> <var>rhs</var></p>
+	  </dd>
+	  <dt><var>list-style-definition-rule:</var></dt>
+	  <dd>
+	    <p><code>{</code> <code>define</code> <i>definition-head<em><sub>opt</sub></em></i> <em class="BNFCaps">macro-name</em> <i>pattern<em><sub>opt</sub></em></i> <code>}</code> <code>=&gt;</code> <var>rhs</var></p>
+	  </dd>
+	  <dt><var>rhs:</var></dt>
+	  <dd>
+	    <p><code>{</code> <i>template<em><sub>opt</sub></em></i> <code>}</code> <code>;<em><i><sub>opt</sub></i></em></code></p>
+	  </dd>
+	  <dt><i><a name="XREF-2117"></a>definition-head:</i></dt>
+	  <dd>
+	    <p><var>modifier-pattern</var> &hellip;</p>
+	  </dd>
+	  <dt><var>modifier-pattern:</var></dt>
+	  <dd>
+	    <p><var>modifier</var></p>
+	    <p><var>pattern-variable</var></p>
+	  </dd>
+	  <dt><var>statement-rule:</var></dt>
+	  <dd>
+	    <p><code>{</code> <em class="BNFCaps">macro-name</em> <i>pattern<em><sub>opt</sub></em></i> <code>;<em><i><sub>opt</sub></i></em></code> <code>end</code> <code>}</code> <code>=&gt;</code> <var>rhs</var></p>
+	  </dd>
+	  <dt><var>function-rule:</var></dt>
+	  <dd>
+	    <p><code>{</code> <em class="BNFCaps">macro-name</em> <code>(</code> <i>pattern<em><sub>opt</sub></em></i> <code>)</code> <code>}</code> <code>=&gt;</code> <var>rhs</var></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-118-85"></a>
+	<h3 class="sub-subsection-title"><a name="IX-2118">Patterns</a></h3>
+	<dl>
+	  <dt><var>pattern:</var></dt>
+	  <dd>
+	    <p><var>pattern-list</var> <code>;</code> &hellip;</p>
+	  </dd>
+	  <dt><var>pattern-list:</var></dt>
+	  <dd>
+	    <p><var>pattern-sequence </var></p>
+	    <p><var>property-list-pattern</var></p>
+	    <p><var>pattern-sequence</var> <code>,</code> <var>pattern-list</var></p>
+	  </dd>
+	  <dt><var>pattern-sequence:</var></dt>
+	  <dd>
+	    <p><var>simple-pattern</var> &hellip;</p>
+	  </dd>
+	  <dt><var>simple-pattern:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">name-not-end</em></p>
+	    <p><code>=&gt;</code></p>
+	    <p><var>bracketed-pattern</var></p>
+	    <p><var>binding-pattern</var></p>
+	    <p><var>pattern-variable</var></p>
+	  </dd>
+	  <dt><var>bracketed-pattern:</var></dt>
+	  <dd>
+	    <p><code>(</code> <i>pattern<em><sub>opt</sub></em></i> <code>)</code></p>
+	    <p><code>[</code> <i>pattern<em><sub>opt</sub></em></i> <code>]</code></p>
+	    <p><code>{</code> <i>pattern<em><sub>opt</sub></em></i> <code>}</code></p>
+	  </dd>
+	  <dt><var>binding-pattern:</var></dt>
+	  <dd>
+	    <p><var>pattern-variable</var> <code>::</code> <var>pattern-variable</var></p>
+	    <p><var>pattern-variable</var> <code>=</code> <var>pattern-variable</var></p>
+	    <p><var>pattern-variable</var> <code>::</code> <var>pattern-variable</var> <code>=</code> <var>pattern-variable</var></p>
+	  </dd>
+	  <dt><var>pattern-variable:</var></dt>
+	  <dd>
+	    <p><code>?</code> <em class="BNFCaps">name</em></p>
+	    <p><code>?</code> <em class="BNFCaps">constrained-name</em></p>
+	    <p><code>...</code></p>
+	  </dd>
+	  <dt><var>property-list-pattern:</var></dt>
+	  <dd>
+	    <p><code>#rest</code> <var>pattern-variable</var></p>
+	    <p><code>#key</code> <i>pattern-keywords<em><sub>opt</sub></em></i></p>
+	    <p><code>#rest</code> <var>pattern-variable</var> <code>,</code> <code>#key</code> <i>pattern-keywords<em><sub>opt</sub></em></i></p>
+	  </dd>
+	  <dt><var>pattern-keywords:</var></dt>
+	  <dd>
+	    <p><code>#all-keys</code></p>
+	    <p><var>pattern-keyword</var></p>
+	    <p><var>pattern-keyword</var> <code>,</code> <var>pattern-keywords</var></p>
+	  </dd>
+	  <dt><var>pattern-keyword:</var></dt>
+	  <dd>
+	    <p><code>?</code> <em class="BNFCaps">name</em> <i>default<em><sub>opt</sub></em></i></p>
+	    <p><code>?</code> <em class="BNFCaps">constrained-name</em> <i>default<em><sub>opt</sub></em></i></p>
+	    <p><code>??</code> <em class="BNFCaps">name</em> <i>default<em><sub>opt</sub></em></i></p>
+	    <p><code>??</code> <em class="BNFCaps">constrained-name</em> <i>default<em><sub>opt</sub></em></i></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-118-96"></a>
+	<h3 class="sub-subsection-title"><a name="XREF-2119"></a><a name="IX-2120">Templates</a></h3>
+	<dl>
+	  <dt><i><a name="XREF-2121"></a>template:</i></dt>
+	  <dd>
+	    <p><var>template-element</var> &hellip;</p>
+	  </dd>
+	  <dt><var>template-element:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">name</em></p>
+	    <p><em class="BNFCaps">symbol</em></p>
+	    <p><em class="BNFCaps">number</em></p>
+	    <p><em class="BNFCaps">character-literal</em></p>
+	    <p><em class="BNFCaps">string</em></p>
+	    <p><em class="BNFCaps">unary-operator</em></p>
+	    <p><var>separator</var></p>
+	    <p><var>#-word</var></p>
+	    <p><span class="one-of">one of</span> <code>. :: =&gt;</code></p>
+	    <p><code>(</code> <i>template<em><sub>opt</sub></em></i> <code>)</code></p>
+	    <p><code>[</code> <i>template<em><sub>opt</sub></em></i> <code>]</code></p>
+	    <p><code>{</code> <i>template<em><sub>opt</sub></em></i> <code>}</code></p>
+	    <p><code>#(</code> <i>template<em><sub>opt</sub></em></i> <code>)</code></p>
+	    <p><code>#[</code> <i>template<em><sub>opt</sub></em></i> <code>]</code></p>
+	    <p><var>parsed-list-constant</var></p>
+	    <p><var>parsed-vector-constant</var></p>
+	    <p><var>substitution</var></p>
+	  </dd>
+	  <dt><var>separator:</var></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span> <code>; ,</code></p>
+	    <p><em class="BNFCaps">binary-operator</em></p>
+	  </dd>
+	  <dt><var>substitution:</var></dt>
+	  <dd>
+	    <p><i>name-prefix<em><sub>opt</sub></em></i> <code>?</code> <var>name-string-or-symbol</var> <i>name-suffix<em><sub>opt</sub></em></i></p>
+	    <p><code>??</code> <em class="BNFCaps">name</em> <i>separator<em><sub>opt</sub></em></i> <code>...</code></p>
+	    <p><code>...</code></p>
+	    <p><code>?=</code> <em class="BNFCaps">name</em></p>
+	  </dd>
+	  <dt><var>name-prefix:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">string</em> <code>##</code></p>
+	  </dd>
+	  <dt><var>name-suffix:</var></dt>
+	  <dd>
+	    <p><code>##</code> <em class="BNFCaps">string</em></p>
+	  </dd>
+	  <dt><var>name-string-or-symbol:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">name</em></p>
+	    <p><em class="BNFCaps">string</em></p>
+	    <p><em class="BNFCaps">symbol</em></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-118-104"></a>
+	<h3 class="sub-subsection-title"><a name="XREF-2122"></a><a name="IX-2123">Auxiliary Rule Sets</a></h3>
+	<dl>
+	  <dt><var>aux-rule-sets:</var></dt>
+	  <dd>
+	    <p><var>aux-rule-set</var> &hellip;</p>
+	  </dd>
+	  <dt><var>aux-rule-set:</var></dt>
+	  <dd>
+	    <p><em class="BNFCaps">symbol</em> <var>aux-rules</var></p>
+	  </dd>
+	  <dt><var>aux-rules:</var></dt>
+	  <dd>
+	    <p><var>aux-rule</var> &hellip;</p>
+	  </dd>
+	  <dt><var>aux-rule:</var></dt>
+	  <dd>
+	    <p><code>{</code> <i>pattern<em><sub>opt</sub></em></i> <code>}</code> <code>=&gt;</code> <var>rhs</var></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-118-109"></a>
+	<h3 class="sub-subsection-title"><a name="XREF-2124"></a>Parsed Fragments</h3>
+	<dl>
+	  <dt><var>parsed-definition:</var></dt>
+	  <dd>
+	    <p>(no external representation)</p>
+	  </dd>
+	  <dt><var>parsed-local-declaration:</var></dt>
+	  <dd>
+	    <p>(no external representation)</p>
+	  </dd>
+	  <dt><var>parsed-function-call:</var></dt>
+	  <dd>
+	    <p>(no external representation)</p>
+	  </dd>
+	  <dt><var>parsed-macro-call:</var></dt>
+	  <dd>
+	    <p>(no external representation)</p>
+	  </dd>
+	  <dt><var>parsed-list-constant:</var></dt>
+	  <dd>
+	    <p>(no external representation)</p>
+	  </dd>
+	  <dt><var>parsed-vector-constant:</var></dt>
+	  <dd>
+	    <p>(no external representation)<a name="IX-2125"></a></p>
+	  </dd>
+	</dl>
+	<a name="LINK-BNF_Appendix-lastpage"></a>
+      </div>
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Lexical_Grammar"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Exported_Names"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="BNF"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,193 @@
+DirectoryIndex Cover
+AddCharset utf-8 .html
+
+
+# Rewrite old DRM file names to new, to support old links to them.
+
+Options +FollowSymlinks
+RewriteEngine on
+
+# Hint: To do local testing, alter this to your site-specific base path,
+# THEN REMEMBER TO CHANGE IT BACK before commiting any changes to this file!
+RewriteBase /books/drm
+
+# Redirect image references to the images directory.
+RewriteRule ^([^/]*\.(png|jpg|gif))$ images/$1 [R=permanent,L]
+
+# Canonicalize any direct references to index.html to the directory.
+RewriteRule ^index(\.html)?$ . [R=permanent,L]
+
+
+# The following set of RewriteRule's could be simplified if we used a
+# RewriteMap and a separate text map file that just contains the old and
+# new names. Unfortunately, Apache only allows RewriteMap in server config
+# files. Consider doing this in some appropriate config file and removing
+# the individual RewriteRule's below.
+#
+## A rewrite map that maps from all the old base file names (sans ".html") to the new
+#RewriteMap old-to-new txt:rewrite-map.txt
+#
+## Redirect all the old file names to the new
+#RewriteRule ^\(drm_[a-z0-9]+\)(\.html)?$ ${old-to-new:$1|$1$2} [R=permanent,L]
+
+
+# Front matter
+RewriteRule ^drm_1(\.html)?$ Title$1 [R=permanent,L]
+RewriteRule ^drm_2(\.html)?$ Copyrights$1 [R=permanent,L]
+RewriteRule ^drm_3(\.html)?$ Contents$1 [R=permanent,L]
+RewriteRule ^drm_4(\.html)?$ Preface$1 [R=permanent,L]
+
+# Chapter 1: Introduction
+RewriteRule ^drm_5(\.html)?$ Introduction$1 [R=permanent,L]
+RewriteRule ^drm_6(\.html)?$ Background_and_Goals$1 [R=permanent,L]
+RewriteRule ^drm_7(\.html)?$ Language_Overview$1 [R=permanent,L]
+RewriteRule ^drm_8(\.html)?$ Manual_Notation$1 [R=permanent,L]
+
+# Chapter 2: Syntax
+RewriteRule ^drm_9(\.html)?$ Syntax$1 [R=permanent,L]
+RewriteRule ^drm_10(\.html)?$ Syntax_Overview$1 [R=permanent,L]
+RewriteRule ^drm_11(\.html)?$ Libraries_and_Modules$1 [R=permanent,L]
+RewriteRule ^drm_12(\.html)?$ Bindings$1 [R=permanent,L]
+RewriteRule ^drm_13(\.html)?$ Macros_Syntax$1 [R=permanent,L]
+RewriteRule ^drm_14(\.html)?$ Bodies$1 [R=permanent,L]
+RewriteRule ^drm_15(\.html)?$ Definitions$1 [R=permanent,L]
+RewriteRule ^drm_16(\.html)?$ Local_Declarations$1 [R=permanent,L]
+RewriteRule ^drm_17(\.html)?$ Expressions$1 [R=permanent,L]
+RewriteRule ^drm_18(\.html)?$ Statements$1 [R=permanent,L]
+RewriteRule ^drm_19(\.html)?$ Parameter_Lists_Syntax$1 [R=permanent,L]
+RewriteRule ^drm_20(\.html)?$ Lexical_Syntax$1 [R=permanent,L]
+RewriteRule ^drm_21(\.html)?$ Special_Treatment_of_Names$1 [R=permanent,L]
+RewriteRule ^drm_22(\.html)?$ Top-Level_Definitions$1 [R=permanent,L]
+RewriteRule ^drm_23(\.html)?$ Dylan_Interchange_Format$1 [R=permanent,L]
+RewriteRule ^drm_24(\.html)?$ Naming_Conventions$1 [R=permanent,L]
+
+# Chapter 3: Program Structure
+RewriteRule ^drm_25(\.html)?$ Program_Structure$1 [R=permanent,L]
+RewriteRule ^drm_26(\.html)?$ Modules$1 [R=permanent,L]
+RewriteRule ^drm_27(\.html)?$ Libraries$1 [R=permanent,L]
+
+# Chapter 4: Program Control
+RewriteRule ^drm_28(\.html)?$ Program_Control$1 [R=permanent,L]
+RewriteRule ^drm_29(\.html)?$ Program_Control_Overview$1 [R=permanent,L]
+RewriteRule ^drm_30(\.html)?$ Function_Calls$1 [R=permanent,L]
+RewriteRule ^drm_31(\.html)?$ Operators$1 [R=permanent,L]
+RewriteRule ^drm_32(\.html)?$ Assignment$1 [R=permanent,L]
+RewriteRule ^drm_33(\.html)?$ Conditional_Execution$1 [R=permanent,L]
+RewriteRule ^drm_34(\.html)?$ Iteration$1 [R=permanent,L]
+RewriteRule ^drm_35(\.html)?$ Nonlocal_Exits_and_Cleanup_Clauses$1 [R=permanent,L]
+RewriteRule ^drm_36(\.html)?$ Multiple_Values$1 [R=permanent,L]
+RewriteRule ^drm_37(\.html)?$ Order_of_Execution$1 [R=permanent,L]
+
+# Chapter 5: Types and Classes
+RewriteRule ^drm_38(\.html)?$ Types_and_Classes$1 [R=permanent,L]
+RewriteRule ^drm_39(\.html)?$ Types_and_Classes_Overview$1 [R=permanent,L]
+RewriteRule ^drm_40(\.html)?$ Type_Protocol$1 [R=permanent,L]
+RewriteRule ^drm_41(\.html)?$ Classes$1 [R=permanent,L]
+RewriteRule ^drm_42(\.html)?$ Slots$1 [R=permanent,L]
+RewriteRule ^drm_43(\.html)?$ Instance_Creation_and_Initialization$1 [R=permanent,L]
+RewriteRule ^drm_44(\.html)?$ Singletons$1 [R=permanent,L]
+RewriteRule ^drm_45(\.html)?$ Union_Types$1 [R=permanent,L]
+RewriteRule ^drm_46(\.html)?$ Limited_Types$1 [R=permanent,L]
+
+# Chapter 6: Functions
+RewriteRule ^drm_47(\.html)?$ Functions$1 [R=permanent,L]
+RewriteRule ^drm_48(\.html)?$ Functions_Overview$1 [R=permanent,L]
+RewriteRule ^drm_49(\.html)?$ Parameter_Lists$1 [R=permanent,L]
+RewriteRule ^drm_50(\.html)?$ Method_Dispatch$1 [R=permanent,L]
+RewriteRule ^drm_51(\.html)?$ Operations_on_Functions$1 [R=permanent,L]
+
+# Chapter 7: Conditions
+RewriteRule ^drm_52(\.html)?$ Conditions$1 [R=permanent,L]
+RewriteRule ^drm_53(\.html)?$ Conditions_Background$1 [R=permanent,L]
+RewriteRule ^drm_54(\.html)?$ Conditions_Overview$1 [R=permanent,L]
+RewriteRule ^drm_55(\.html)?$ Signalers_Conditions_and_Handlers$1 [R=permanent,L]
+RewriteRule ^drm_56(\.html)?$ Exception_Handling$1 [R=permanent,L]
+RewriteRule ^drm_57(\.html)?$ Condition_Messages$1 [R=permanent,L]
+RewriteRule ^drm_58(\.html)?$ Introspective_Operations_on_Conditions$1 [R=permanent,L]
+
+# Chapter 8: Collections
+RewriteRule ^drm_59(\.html)?$ Collections$1 [R=permanent,L]
+RewriteRule ^drm_60(\.html)?$ Collections_Overview$1 [R=permanent,L]
+RewriteRule ^drm_61(\.html)?$ Collection_Keys$1 [R=permanent,L]
+RewriteRule ^drm_62(\.html)?$ Iteration_Stability_and_Natural_Order$1 [R=permanent,L]
+RewriteRule ^drm_63(\.html)?$ Mutability$1 [R=permanent,L]
+RewriteRule ^drm_64(\.html)?$ Collection_Alteration_and_Allocation$1 [R=permanent,L]
+RewriteRule ^drm_65(\.html)?$ Collection_Alignment$1 [R=permanent,L]
+RewriteRule ^drm_66(\.html)?$ Defining_a_New_Collection_Class$1 [R=permanent,L]
+RewriteRule ^drm_67(\.html)?$ Tables$1 [R=permanent,L]
+RewriteRule ^drm_68(\.html)?$ Element_Types$1 [R=permanent,L]
+RewriteRule ^drm_69(\.html)?$ Limited_Collection_Types$1 [R=permanent,L]
+
+# Chapter 9: Sealing
+RewriteRule ^drm_70(\.html)?$ Sealing$1 [R=permanent,L]
+RewriteRule ^drm_71(\.html)?$ Sealing_Overview$1 [R=permanent,L]
+RewriteRule ^drm_72(\.html)?$ Explicitly_Known_Objects$1 [R=permanent,L]
+RewriteRule ^drm_73(\.html)?$ Declaring_Characteristics_of_Classes$1 [R=permanent,L]
+RewriteRule ^drm_74(\.html)?$ Declaring_Characteristics_of_Generic_Functions$1 [R=permanent,L]
+RewriteRule ^drm_75(\.html)?$ Define_Sealed_Domain$1 [R=permanent,L]
+
+# Chapter 10: Macros
+RewriteRule ^drm_76(\.html)?$ Macros$1 [R=permanent,L]
+RewriteRule ^drm_77(\.html)?$ Macros_Overview$1 [R=permanent,L]
+RewriteRule ^drm_78(\.html)?$ Extensible_Grammar$1 [R=permanent,L]
+RewriteRule ^drm_79(\.html)?$ Macro_Names$1 [R=permanent,L]
+RewriteRule ^drm_80(\.html)?$ Rewrite_Rules$1 [R=permanent,L]
+RewriteRule ^drm_81(\.html)?$ Patterns$1 [R=permanent,L]
+RewriteRule ^drm_82(\.html)?$ Pattern_Variable_Constraints$1 [R=permanent,L]
+RewriteRule ^drm_83(\.html)?$ Templates$1 [R=permanent,L]
+RewriteRule ^drm_84(\.html)?$ Auxiliary_Rule_Sets$1 [R=permanent,L]
+RewriteRule ^drm_85(\.html)?$ Hygiene$1 [R=permanent,L]
+RewriteRule ^drm_86(\.html)?$ Rewrite_Rule_Examples$1 [R=permanent,L]
+
+# Chapter 11: The Built-In Classes
+RewriteRule ^drm_87(\.html)?$ Built-In_Classes$1 [R=permanent,L]
+RewriteRule ^drm_88(\.html)?$ Built-In_Classes_Overview$1 [R=permanent,L]
+RewriteRule ^drm_89(\.html)?$ Object_Classes$1 [R=permanent,L]
+RewriteRule ^drm_90(\.html)?$ Type_Classes$1 [R=permanent,L]
+RewriteRule ^drm_91(\.html)?$ Simple_Object_Classes$1 [R=permanent,L]
+RewriteRule ^drm_92(\.html)?$ Number_Classes$1 [R=permanent,L]
+RewriteRule ^drm_93(\.html)?$ Collection_Classes$1 [R=permanent,L]
+RewriteRule ^drm_94(\.html)?$ Function_Classes$1 [R=permanent,L]
+RewriteRule ^drm_95(\.html)?$ Condition_Classes$1 [R=permanent,L]
+
+# Chapter 12: The Built-In Functions
+RewriteRule ^drm_96(\.html)?$ Built-In_Functions$1 [R=permanent,L]
+RewriteRule ^drm_97(\.html)?$ Built-In_Functions_Overview$1 [R=permanent,L]
+RewriteRule ^drm_98(\.html)?$ Constructing_and_Initializing_Instances$1 [R=permanent,L]
+RewriteRule ^drm_99(\.html)?$ Equality_and_Comparison$1 [R=permanent,L]
+RewriteRule ^drm_100(\.html)?$ Arithmetic_Operations$1 [R=permanent,L]
+RewriteRule ^drm_101(\.html)?$ Coercing_and_Copying_Objects$1 [R=permanent,L]
+RewriteRule ^drm_102(\.html)?$ Collection_Operations$1 [R=permanent,L]
+RewriteRule ^drm_103(\.html)?$ Reflective_Operations_on_Types$1 [R=permanent,L]
+RewriteRule ^drm_104(\.html)?$ Functional_Operations$1 [R=permanent,L]
+RewriteRule ^drm_105(\.html)?$ Function_Application$1 [R=permanent,L]
+RewriteRule ^drm_106(\.html)?$ Reflective_Operations_on_Functions$1 [R=permanent,L]
+RewriteRule ^drm_107(\.html)?$ Operations_on_Conditions$1 [R=permanent,L]
+
+# Chapter 13: Other Built-In Objects
+RewriteRule ^drm_108(\.html)?$ Other_Built-In_Objects$1 [R=permanent,L]
+RewriteRule ^drm_109(\.html)?$ Other_Built-In_Objects_Defined$1 [R=permanent,L]
+
+# Chapter 14: The Built-In Macros and Special Definitions
+RewriteRule ^drm_110(\.html)?$ Built-In_Macros_and_Special_Definitions$1 [R=permanent,L]
+RewriteRule ^drm_111(\.html)?$ Built-In_Macros_and_Special_Definitions_Overview$1 [R=permanent,L]
+RewriteRule ^drm_112(\.html)?$ Definition_Macros$1 [R=permanent,L]
+RewriteRule ^drm_113(\.html)?$ Local_Declaration_Macros$1 [R=permanent,L]
+RewriteRule ^drm_114(\.html)?$ Statement_Macros$1 [R=permanent,L]
+RewriteRule ^drm_115(\.html)?$ Function_Macros$1 [R=permanent,L]
+
+# Appendix A: BNF
+RewriteRule ^drm_116(\.html)?$ BNF$1 [R=permanent,L]
+RewriteRule ^drm_117(\.html)?$ Lexical_Grammar$1 [R=permanent,L]
+RewriteRule ^drm_118(\.html)?$ Phrase_Grammar$1 [R=permanent,L]
+
+# Appendix B: Exported Names
+RewriteRule ^drm_119(\.html)?$ Exported_Names$1 [R=permanent,L]
+
+# Back matter
+RewriteRule ^drm_126(\.html)?$ Glossary$1 [R=permanent,L]
+RewriteRule ^drm_127(\.html)?$ Index$1 [R=permanent,L]
+RewriteRule ^drm_128(\.html)?$ Colophon$1 [R=permanent,L]
+
+# Errata
+RewriteRule ^drm_errata(\.html)?$ Errata$1 [R=permanent,L]

@@ -1,0 +1,2157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Built-In_Classes" />
+    <link rel="prev" href="Number_Classes" />
+    <link rel="next" href="Function_Classes" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="contents" href="Copyrights" />
+    <link rel="copyright" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Collections &mdash; 11. The Built-In Classes &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Number_Classes"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Function_Classes"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Built-In_Classes"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li class="current parent"><a href="Built-In_Classes">The Built-In Classes</a>
+	      <ul class="sections">
+		<li><a href="Built-In_Classes_Overview">Overview</a></li>
+		<li><a href="Object_Classes">Objects</a></li>
+		<li><a href="Type_Classes">Types</a></li>
+		<li><a href="Simple_Object_Classes">Simple Objects</a></li>
+		<li><a href="Number_Classes">Numbers</a></li>
+		<li id="current" class="subsections"><a href="Collection_Classes">Collections</a>
+		  <ul class="page-TOC">
+		    <li class="subsections"><a href="#HEADING-93-5">General Collections</a>
+		      <ul>
+			<li><a href="#HEADING-93-6"><code>&lt;collection&gt;</code><span class="attributes-summary"> [Open Abstract Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-93-374">Explicit Key Collections</a>
+		      <ul>
+			<li><a href="#HEADING-93-375"><code>&lt;explicit-key-collection&gt;</code><span class="attributes-summary"> [Open Abstract Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-93-417">Sequences</a>
+		      <ul>
+			<li><a href="#HEADING-93-418"><code>&lt;sequence&gt;</code><span class="attributes-summary"> [Open Abstract Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-93-837">Mutable Collections</a>
+		      <ul>
+			<li><a href="#HEADING-93-838"><code>&lt;mutable-collection&gt;</code><span class="attributes-summary"> [Open Abstract Class]</span></a></li>
+			<li><a href="#HEADING-93-982"><code>&lt;mutable-explicit-key-collection&gt;</code><span class="attributes-summary"> [Open Abstract Class]</span></a></li>
+			<li><a href="#HEADING-93-1057"><code>&lt;mutable-sequence&gt;</code><span class="attributes-summary"> [Open Abstract Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-93-1194">Stretchy Collections</a>
+		      <ul>
+			<li><a href="#HEADING-93-1195"><code>&lt;stretchy-collection&gt;</code><span class="attributes-summary"> [Open Abstract Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-93-1239">Arrays</a>
+		      <ul>
+			<li><a href="#HEADING-93-1240"><code>&lt;array&gt;</code><span class="attributes-summary"> [Open Abstract Instantiable Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-93-1510">Vectors</a>
+		      <ul>
+			<li><a href="#HEADING-93-1511"><code>&lt;vector&gt;</code><span class="attributes-summary"> [Open Abstract Instantiable Class]</span></a></li>
+			<li><a href="#HEADING-93-1652"><code>&lt;simple-vector&gt;</code><span class="attributes-summary"> [Sealed Abstract Instantiable Class]</span></a></li>
+			<li><a href="#HEADING-93-1761"><code>&lt;simple-object-vector&gt;</code><span class="attributes-summary"> [Sealed Instantiable Class]</span></a></li>
+			<li><a href="#HEADING-93-1770"><code>&lt;stretchy-vector&gt;</code><span class="attributes-summary"> [Open Abstract Instantiable Primary Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-93-1862">Deques</a>
+		      <ul>
+			<li><a href="#HEADING-93-1863"><code>&lt;deque&gt;</code><span class="attributes-summary"> [Open Abstract Instantiable Primary Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-93-2045">Lists</a>
+		      <ul>
+			<li><a href="#HEADING-93-2050"><code>&lt;list&gt;</code><span class="attributes-summary"> [Sealed Instantiable Abstract Class]</span></a></li>
+			<li><a href="#HEADING-93-2266"><code>&lt;pair&gt;</code><span class="attributes-summary"> [Sealed Instantiable Class]</span></a></li>
+			<li><a href="#HEADING-93-2356"><code>&lt;empty-list&gt;</code><span class="attributes-summary"> [Sealed Instantiable Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-93-2363">Ranges</a>
+		      <ul>
+			<li><a href="#HEADING-93-2364"><code>&lt;range&gt;</code><span class="attributes-summary"> [Open Abstract Instantiable Primary Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-93-2560">Strings</a>
+		      <ul>
+			<li><a href="#HEADING-93-2561"><code>&lt;string&gt;</code><span class="attributes-summary"> [Open Abstract Instantiable Class]</span></a></li>
+			<li><a href="#HEADING-93-2695"><code>&lt;byte-string&gt;</code><span class="attributes-summary"> [Sealed Instantiable Class]</span></a></li>
+			<li><a href="#HEADING-93-2752"><code>&lt;unicode-string&gt;</code><span class="attributes-summary"> [Sealed Instantiable Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-93-2809">Tables</a>
+		      <ul>
+			<li><a href="#HEADING-93-2813"><code>&lt;table&gt;</code><span class="attributes-summary"> [Open Abstract Instantiable Primary Class]</span></a></li>
+			<li><a href="#HEADING-93-3023"><code>&lt;object-table&gt;</code><span class="attributes-summary"> [Open Abstract Instantiable Class]</span></a></li>
+		      </ul>
+		    </li>
+		  </ul>
+		</li>
+		<li><a href="Function_Classes">Functions</a></li>
+		<li><a href="Condition_Classes">Conditions</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 11</p>
+	<p id="section-name">The Built-In Classes</p>
+      </div>
+
+      <a name="HEADING-93-0"></a>
+      <a name="UID-Built-In_Classes-9369"></a>
+      <h1 class="section-title"><a name="XREF-1398"></a><a name="IX-1399">Collections</a></h1>
+      <p>This section describes the built-in collections, Dylan's aggregate data structures.</p>
+      <p>Collections are used to hold groups of objects. Collections support iteration as well as
+	random access through collection keys. An overview of collections is given
+	in <a href="Collections">Chapter 8, <q>Collections.</q></a></p>
+      <p><a href="#XREF-1400">Figure 11-4</a> shows the built-in collection classes and some of
+	their characteristics.</p>
+      <p class="figure"><strong>Figure</strong> <strong>11-4</strong>
+	<a name="XREF-1400">The Collection Classes</a></p>
+      
+      <div class="figure wide" style="min-width: 715px">
+	<!-- min-width is necessary to prevent the surrounding box from being layed out narrower
+	     than the image in smaller viewports -->
+	<map id="collection-classes-map" name="collection-classes-map">
+	  <!-- The redundant NAME attribute is necessary for compatibility with some buggy user
+	       agents that don't find the map by ID and associate it with the image. -->
+	  <!-- This map is adapted from drm_Figure_11-4_Collection_Classes_map.html, which is
+	       generated from the corresponding OmniGraffle file. If the .graffle file is updated,
+	       export to HTML and update the map areas here. Be sure to add " /" at the end of the
+	       AREA tags to make it valid XHTML. -->
+	  <area alt="class simple-object-vector" coords="143,576,275,619" href="#HEADING-93-1761" />
+	  <area alt="class unicode-string" coords="587,505,713,548" href="#HEADING-93-2752" />
+	  <area alt="class byte-string" coords="452,505,578,548" href="#HEADING-93-2695" />
+	  <area alt="class simple-vector" coords="146,505,272,548" href="#HEADING-93-1652" />
+	  <area alt="class stretchy-vector" coords="6,505,132,548" href="#HEADING-93-1770" />
+	  <area alt="class pair" coords="426,407,552,450" href="#HEADING-93-2266" />
+	  <area alt="class empty-list" coords="286,407,412,450" href="#HEADING-93-2356" />
+	  <area alt="class vector" coords="146,407,272,450" href="#HEADING-93-1511" />
+	  <area alt="class object-table" coords="6,407,132,450" href="#HEADING-93-3023" />
+	  <area alt="class string" coords="587,335,713,378" href="#HEADING-93-2561" />
+	  <area alt="class deque" coords="449,335,575,378" href="#HEADING-93-1863" />
+	  <area alt="class list" coords="311,335,437,378" href="#HEADING-93-2050" />
+	  <area alt="class array" coords="173,335,299,378" href="#HEADING-93-1240" />
+	  <area alt="class table" coords="6,335,132,378" href="#HEADING-93-2813" />
+	  <area alt="class range" coords="370,238,496,281" href="#HEADING-93-2364" />
+	  <area alt="class mutable-sequence" coords="230,238,356,281" href="#HEADING-93-1057" />
+	  <area alt="class mutable-explicit-key-collection" coords="30,238,216,281" href="#HEADING-93-982" />
+	  <area alt="class stretchy-collection" coords="435,160,561,203" href="#HEADING-93-1195" />
+	  <area alt="class sequence" coords="298,160,424,203" href="#HEADING-93-418" />
+	  <area alt="class mutable-collection" coords="161,160,287,203" href="#HEADING-93-838" />
+	  <area alt="class explicit-key-collection" coords="6,160,150,203" href="#HEADING-93-375" />
+	  <area alt="class collection" coords="276,81,402,124" href="#HEADING-93-6" />
+	  <area alt="class object" coords="276,2,402,45" href="Object_Classes#HEADING-89-1" />
+	</map>
+	<img alt="Collection Class Hierarchy" src="images/drm_Figure_11-4_Collection_Classes"
+	     width="715" height="621" usemap="#collection-classes-map" />
+	
+	<table class="class-attributes-legend">
+	  <tr>
+	    <td>S</td> <td class="description">&ndash; Sealed</td>
+	    <td>P</td> <td class="description">&ndash; Primary</td>
+	    <td>C</td> <td class="description">&ndash; Concrete</td>
+	    <td>I</td> <td class="description">&ndash; Instantiable</td>
+	  </tr>
+	  <tr>
+	    <td>O</td> <td class="description">&ndash; Open</td>
+	    <td>F</td> <td class="description">&ndash; Free</td>
+	    <td>A</td> <td class="description">&ndash; Abstract</td>
+	    <td>U</td> <td class="description">&ndash; Uninstantiable</td>
+	  </tr>
+	</table>
+      </div>
+      <p class="errata-note" id="errata-p207-1">
+	<a class="note-tag" href="Errata#p207-1"><strong>Errata:</strong></a> In the published book,
+	the inheritance line descending from <code>&lt;vector&gt;</code> incorrectly originates
+	from <code>&lt;empty-list&gt;</code> in Figure 11-4.
+      </p>
+      
+      <a name="HEADING-93-5"></a>
+      <a name="UID-Built-In_Classes-416"></a>
+      <h2 class="subsection-title">General Collections</h2>
+      <a name="HEADING-93-6"></a>
+      <h4 class="item-title" id="collection"><a class="here" title="Link to here" href="#collection"></a> <span class="signature"><code id="IX-1401">&lt;collection&gt;</code></span> <span class="attributes-summary">[Open Abstract Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of collections, aggregate data structures.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;object&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class of collections.</p>
+	  <p><code>&lt;collection&gt;</code> is the root class of the collection class hierarchy. It
+	    provides a set of basic operations on all collections.</p>
+	  <p>The element type of <code>&lt;collection&gt;</code> is <code>indefinite &lArr;
+	      &lt;object&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;collection&gt;</code> provides the following operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-16</strong> Functions on &lt;collection&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>do</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1810">Iterates over one or more
+		    collections for side effect.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1810">327</a></p></td>
+	    </tr><tr>
+	      <td><p><code>map</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1812">Iterates over one or more
+		    collections and collects the results in a freshly allocated
+		    collection.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1812">328</a></p></td>
+	    </tr><tr>
+	      <td><p><code>map-as</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1814">Iterates over one or more
+		    collections and collects the results in a freshly allocated collection of a
+		    specified type.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1814">328</a></p></td>
+	    </tr><tr>
+	      <td><p><code>map-into</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1816">Iterates over one or more
+		    collections and collects the results in an existing mutable
+		    collection.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1816">329</a></p></td>
+	    </tr><tr>
+	      <td><p><code>any?</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1818">Returns the first true value
+		    obtained by iterating over one or more collections.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1818">330</a></p></td>
+	    </tr><tr>
+	      <td><p><code>every?</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1821">Returns true if a predicate
+		    returns true when applied to all corresponding elements of a set of
+		    collections.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1821">331</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-17</strong> Generic Functions on &lt;collection&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>element</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1720">Returns the collection element
+		    associated with a particular key.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1720">300</a></p></td>
+	    </tr><tr>
+	      <td><p><code>key-sequence</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1716">Returns a sequence containing the
+		    keys of its collection argument.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1716">299</a></p></td>
+	    </tr><tr>
+	      <td><p><code>reduce</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1824">Combines the elements of a
+		    collection and a seed value into a single value by repeatedly applying a binary
+		    function.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1824">331</a></p></td>
+	    </tr><tr>
+	      <td><p><code>reduce1</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1826">Combines the elements of a
+		    collection into a single value by repeatedly applying a binary function, using
+		    the first element of the collection as the seed value.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1826">332</a></p></td>
+	    </tr><tr>
+	      <td><p><code>member?</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1834">Returns true if a collection
+		    contains a particular value.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1834">334</a></p></td>
+	    </tr><tr>
+	      <td><p><code>find-key</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1837">Returns the key in a collection
+		    such that the corresponding collection element satisfies a
+		    predicate.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1837">335</a></p></td>
+	    </tr><tr>
+	      <td><p><code>key-test</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1714">Returns the function used by its
+		    collection argument to compare keys.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1714">298</a></p></td>
+	    </tr><tr>
+	      <td><p><code>forward-iteration-protocol</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1540">Returns a group of functions used to
+		    iterate over the elements of a collection.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1540">337</a></p></td>
+	    </tr><tr>
+	      <td><p><code>backward-iteration-protocol</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1850">Returns a group of functions used
+		    to iterate over the elements of a collection in reverse order.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1850">339</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-18</strong> Methods on &lt;collection&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>=</code></p></td>
+	      <td><p><a href="Equality_and_Comparison#XREF-1584">Compares two objects for
+		    equality.</a></p></td>
+	      <td><p><a href="Equality_and_Comparison#XREF-1584">269</a></p></td>
+	    </tr><tr>
+	      <td><p><code>empty?</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1700">Returns true if its argument is
+		    empty.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1700">294</a></p></td>
+	    </tr><tr>
+	      <td><p><code>size</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1702">Returns the size of its
+		    argument.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1702">295</a></p></td>
+	    </tr><tr>
+	      <td><p><code>shallow-copy</code></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1692">Returns a copy of its
+		    argument.</a></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1692">292</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-19</strong> Methods on singleton(&lt;collection&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>limited</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">Returns a
+		    limited subtype of a class.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">263</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-374"></a>
+      <h2 class="subsection-title">Explicit Key Collections</h2>
+      <a name="HEADING-93-375"></a>
+      <h4 class="item-title" id="explicit-key-collection"><a class="here" title="Link to here" href="#explicit-key-collection"></a> <span class="signature"><code id="IX-1402">&lt;explicit-key-collection&gt;</code></span> <span class="attributes-summary">[Open Abstract Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of all collections that are not sequences.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;collection&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class of all collections that are not sequences.</p>
+	  <p>This class is disjoint from <code>&lt;sequence&gt;</code> because <code>key-test</code>
+	    is sealed over the domain <code>&lt;sequence&gt;</code>.</p>
+	  <p>The element type of <code>&lt;explicit-key-collection&gt;</code> is <code>indefinite
+	      &lArr; &lt;object&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;explicit-key-collection&gt;</code> provides the following
+	    operation:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-20</strong> Methods on
+	      singleton(&lt;explicit-key-collection&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>limited</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">Returns a
+		    limited subtype of a class.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">263</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-417"></a>
+      <a name="UID-Built-In_Classes-1533"></a>
+      <h2 class="subsection-title">Sequences</h2>
+      <a name="HEADING-93-418"></a>
+      <h4 class="item-title" id="sequence"><a class="here" title="Link to here" href="#sequence"></a> <span class="signature"><code id="IX-1403">&lt;sequence&gt;</code></span> <span class="attributes-summary">[Open Abstract Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of collections whose keys are consecutive integers starting from zero.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;collection&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class of collections whose keys are consecutive integers starting from zero.</p>
+	  <p><a name="IX-1404">Sequences must be stable under iteration</a>, and the iteration
+	    order must match the order of keys. Thus, the key associated with a sequence's iteration
+	    state can be determined by keeping a counter in parallel with the iteration state.</p>
+	  <p><code><a name="IX-1405"></a><a name="IX-1406"></a><a name="IX-1407"></a><a name="IX-1408"></a><a name="IX-1409"></a><a name="IX-1410"></a><a name="IX-1411"></a><a name="IX-1412"></a><a name="IX-1413"></a><a name="IX-1414"></a><a name="IX-1415"></a><a name="IX-1416"></a></code>
+	    The default methods for <code>add</code>, <code>add-new</code>, <code>remove</code>,
+	    <code>choose</code>, <code>choose-by</code>, <code>intersection</code>,
+	    <code>union</code>, <code>remove-duplicates</code>, <code>copy-sequence</code>,
+	    <code>concatenate</code>, <code>reverse</code>, and <code>sort</code> all return new
+	    sequences that are instances of the <code id="IX-1417">type-for-copy</code> of
+	    their primary sequence argument. However, more specialized methods are permitted to
+	    choose a more appropriate result class; for example, <code>copy-sequence</code> of a
+	    range returns another range, even though the <code>type-for-copy</code> value of a range
+	    is the <code>&lt;list&gt;</code> class.</p>
+	  <p><code>&lt;sequence&gt;</code> is disjoint
+	    from <code>&lt;explicit-key-collection&gt;</code> because of the sealed domain over the
+	    function <code>key-test</code> for <code>&lt;sequence&gt;</code>.</p>
+	  <p>The element type of <code>&lt;sequence&gt;</code> is <code>indefinite &lArr;
+	      &lt;object&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;sequence&gt;</code> provides the following operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-21</strong> Functions on &lt;sequence&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>concatenate</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1800">Returns the concatenation of one
+		    or more sequences in a sequence of a type determined by
+		    the <code>type-for-copy</code> of its first argument.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1800">323</a></p></td>
+	    </tr><tr>
+	      <td><p><code>concatenate-as</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1802">Returns the concatenation of one
+		    or more sequences in a sequence of a specified type.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1802">324</a></p></td>
+	    </tr><tr>
+	      <td><p><code>first</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1728">Returns the first element of a
+		    sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1728">303</a></p></td>
+	    </tr><tr>
+	      <td><p><code>second</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1730">Returns the second element of a
+		    sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1730">304</a></p></td>
+	    </tr><tr>
+	      <td><p><code>third</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1732">Returns the third element of a
+		    sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1732">304</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-22</strong> Generic Functions on &lt;sequence&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>add</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1754">Adds an element to a
+		    sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1754">309</a></p></td>
+	    </tr><tr>
+	      <td><p><code>add!</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1756">Adds an element to a
+		    sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1756">310</a></p></td>
+	    </tr><tr>
+	      <td><p><code>add-new</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1758">Adds a new element to a
+		    sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1758">311</a></p></td>
+	    </tr><tr>
+	      <td><p><code>add-new!</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1760">Adds a new element to a
+		    sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1760">312</a></p></td>
+	    </tr><tr>
+	      <td><p><code>remove</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1763">Removes an element from a
+		    sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1763">312</a></p></td>
+	    </tr><tr>
+	      <td><p><code>remove!</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1765">Removes an element from a
+		    sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1765">313</a></p></td>
+	    </tr><tr>
+	      <td><p><code>choose</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1828">Returns those elements of a
+		    sequence that satisfy a predicate.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1828">333</a></p></td>
+	    </tr><tr>
+	      <td><p><code>choose-by</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1831">Returns those elements of a
+		    sequence that correspond to those in another sequence that satisfy a
+		    predicate.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1831">333</a></p></td>
+	    </tr><tr>
+	      <td><p><code>intersection</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1788">Returns the intersection of two
+		    sequences.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1788">319</a></p></td>
+	    </tr><tr>
+	      <td><p><code>union</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1790">Returns the union of two
+		    sequences.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1790">320</a></p></td>
+	    </tr><tr>
+	      <td><p><code>remove-duplicates</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1792">Returns a sequence without
+		    duplicates.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1792">321</a></p></td>
+	    </tr><tr>
+	      <td><p><code>remove-duplicates!</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1794">Returns a sequence without
+		    duplicates.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1794">322</a></p></td>
+	    </tr><tr>
+	      <td><p><code>copy-sequence</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1797">Returns a freshly allocated copy
+		    of some subsequence of a sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1797">323</a></p></td>
+	    </tr><tr>
+	      <td><p><code>replace-subsequence!</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1804">Replaces a portion of a sequence
+		    with the elements of another sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1804">325</a></p></td>
+	    </tr><tr>
+	      <td><p><code>reverse</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1778">Returns a sequence with elements
+		    in the reverse order of its argument sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1778">316</a></p></td>
+	    </tr><tr>
+	      <td><p><code>reverse!</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1780">Returns a sequence with elements
+		    in the reverse order of its argument sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1780">317</a></p></td>
+	    </tr><tr>
+	      <td><p><code>sort</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1782">Returns a sequence containing the
+		    elements of its argument sequence, sorted.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1782">318</a></p></td>
+	    </tr><tr>
+	      <td><p><code>sort!</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1784">Returns a sequence containing the
+		    elements of its argument sequence, sorted.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1784">318</a></p></td>
+	    </tr><tr>
+	      <td><p><code>last</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1740">Returns the last element of a
+		    sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1740">306</a></p></td>
+	    </tr><tr>
+	      <td><p><code>subsequence-position</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1806">Returns the position where a
+		    pattern appears in a sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1806">326</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-23</strong> Methods on &lt;sequence&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>=</code></p></td>
+	      <td><p><a href="Equality_and_Comparison#XREF-1584">Compares two objects for
+		    equality.</a></p></td>
+	      <td><p><a href="Equality_and_Comparison#XREF-1584">269</a></p></td>
+	    </tr><tr>
+	      <td><p><code>key-test</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1714">Returns the function used by its
+		    collection argument to compare keys.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1714">298</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-24</strong> Methods on singleton(&lt;sequence&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>limited</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">Returns a
+		    limited subtype of a class.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">263</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-837"></a>
+      <a name="UID-Built-In_Classes-2739"></a>
+      <h2 class="subsection-title">Mutable Collections</h2>
+      <a name="HEADING-93-838"></a>
+      <h4 class="item-title" id="mutable-collection"><a class="here" title="Link to here" href="#mutable-collection"></a> <span class="signature"><code id="IX-1418">&lt;mutable-collection&gt;</code></span> <span class="attributes-summary">[Open Abstract Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of collections that may be modified.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;collection&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class of collections that may be modified.</p>
+	  <p>Every mutable collection is required to allow modification by
+	    implementing <code id="IX-1419">element-setter</code>.</p>
+	  <p>The element type of <code>&lt;mutable-collection&gt;</code> is <code>indefinite &lArr;
+	      &lt;object&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;mutable-collection&gt;</code> provides the following
+	    operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-25</strong> Functions on &lt;mutable-collection&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>map-into</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1816">Iterates over one or more
+		    collections and collects the results in an existing mutable
+		    collection.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1816">329</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-26</strong> Generic Functions on
+	      &lt;mutable-collection&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>element-setter</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1722">Sets the collection element
+		    associated with a particular key.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1722">301</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-27</strong> Methods on &lt;mutable-collection&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>type-for-copy</code></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1694">Returns an appropriate
+		    type for creating mutable copies of its argument.</a></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1694">292</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-28</strong> Methods on
+	      singleton(&lt;mutable-collection&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>limited</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">Returns a
+		    limited subtype of a class.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">263</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-982"></a>
+      <h4 class="item-title" id="mutable-explicit-key-collection"><a class="here" title="Link to here" href="#mutable-explicit-key-collection"></a> <span class="signature"><code id="IX-1420">&lt;mutable-explicit-key-collection&gt;</code></span> <span class="attributes-summary">[Open Abstract Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of explicit-key-collections that can have elements replaced.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;explicit-key-collection&gt; &lt;mutable-collection&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class of explicit-key-collections that can have elements replaced.</p>
+	  <p>The element type of <code>&lt;mutable-explicit-key-collection&gt;</code>
+	    is <code>indefinite &lArr; &lt;object&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;mutable-explicit-key-collection&gt;</code> provides the following
+	    operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-29</strong> Generic Functions on
+	      &lt;mutable-explicit-key-collection&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>remove-key!</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1840">Modifies an explicit key
+		    collection so it no longer has a particular key.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1840">335</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-30</strong> Methods on
+	      singleton(&lt;mutable-explicit-key-collection&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>limited</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">Returns a
+		    limited subtype of a class.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">263</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-1057"></a>
+      <h4 class="item-title" id="mutable-sequence"><a class="here" title="Link to here" href="#mutable-sequence"></a> <span class="signature"><code id="IX-1421">&lt;mutable-sequence&gt;</code></span> <span class="attributes-summary">[Open Abstract Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of sequences that may be modified.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;sequence&gt; &lt;mutable-collection&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class of sequences that may be modified.</p>
+	  <p>The element type of <code>&lt;mutable-sequence&gt;</code> is <code>indefinite &lArr;
+	      &lt;object&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;mutable-sequence&gt;</code> provides the following operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-31</strong> Functions on &lt;mutable-sequence&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>first-setter</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1734">Sets the first element of a
+		    mutable sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1734">304</a></p></td>
+	    </tr><tr>
+	      <td><p><code>second-setter</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1736">Sets the second element of a
+		    mutable sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1736">305</a></p></td>
+	    </tr><tr>
+	      <td><p><code>third-setter</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1738">Sets the third element of a
+		    mutable sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1738">305</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-32</strong> Generic Functions on
+	      &lt;mutable-sequence&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>last-setter</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1742">Sets the last element of a
+		    mutable sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1742">306</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-33</strong> Methods on
+	      singleton(&lt;mutable-sequence&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>limited</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">Returns a
+		    limited subtype of a class.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">263</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-1194"></a>
+      <a name="UID-Built-In_Classes-419"></a>
+      <h2 class="subsection-title">Stretchy Collections</h2>
+      <a name="HEADING-93-1195"></a>
+      <h4 class="item-title" id="stretchy-collection"><a class="here" title="Link to here" href="#stretchy-collection"></a> <span class="signature"><code id="IX-1422">&lt;stretchy-collection&gt;</code></span> <span class="attributes-summary">[Open Abstract Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of collections that may grow or shrink to accommodate adding or removing
+	elements.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;collection&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class of collections that may grow or shrink to accommodate adding or removing
+	    elements.</p>
+	  <p><a name="IX-1423">Stretchy collections</a>
+	    allow <code id="IX-1424">element-setter</code> to be called with a key that is not
+	    present in the collection, expanding the collection as necessary to add a new element in
+	    that case. Each concrete subclass of <code>&lt;stretchy-collection&gt;</code> must
+	    provide or inherit a method for <code>element-setter </code>that behaves as follows when
+	    there is not already an element present for the indicated key:</p>
+	  <ul>
+	    <li> If the class is a subclass of <code>&lt;explicit-key-collection&gt;,</code> adds a
+	      new element to the collection with the indicated key.</li>
+	    <li>If the class is a subclass of <code>&lt;sequence&gt;,</code> first
+	      calls <code>size-setter</code> on the key + 1 and the collection to expand the
+	      sequence. The key must be a non-negative integer.</li>
+	  </ul>
+	  <p>The element type of <code>&lt;stretchy-collection&gt;</code> is <code>indefinite &lArr;
+	      &lt;object&gt;</code>.</p>
+	</dd>
+      </dl>
+      <dl class="Cliche">
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;stretchy-collection&gt;</code> provides the following
+	    operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-34</strong> Methods on
+	      singleton(&lt;stretchy-collection&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>limited</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">Returns a
+		    limited subtype of a class.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">263</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-1239"></a>
+      <a name="UID-Built-In_Classes-420"></a>
+      <h2 class="subsection-title"><a name="IX-1425">Arrays</a></h2>
+      <a name="HEADING-93-1240"></a>
+      <h4 class="item-title" id="array"><a class="here" title="Link to here" href="#array"></a> <span class="signature"><a name="XREF-1426"></a><code id="IX-1427">&lt;array&gt;</code></span> <span class="attributes-summary">[Open Abstract Instantiable Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of sequences whose elements are arranged according to a Cartesian coordinate
+	system.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;mutable-sequence&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>The make method on <code>singleton(&lt;array&gt;)</code> accepts the following
+	    keyword arguments. Note that these are not inherited by subclasses
+	    of <code>&lt;array&gt;</code>.</p></dd>
+	<dd>
+	  <dl>
+	    <dt><code>dimensions:</code></dt>
+	    <dd><p>An instance of <code>&lt;sequence&gt;</code> with elements that are instances
+		of <code>&lt;integer&gt;</code>. This argument specifies the dimensions of the
+		array. The size of the sequence specifies the rank (number of dimensions) of the
+		array, and each integer in the sequence specifies the size of a dimension. This
+		argument is required.</p></dd>
+	    <dt><code>fill:</code> </dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code> specifying an initial value for each
+		element of the array. The default value is <code>#f</code>.</p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class of collections whose elements are arranged according to a Cartesian
+	    coordinate system.</p>
+	  <p>An array element is referred to by a (possibly empty) series of indices. The length of
+	    the series must equal the rank of the array. Each index must be a non-negative integer
+	    less than the corresponding dimension. An array element may alternatively be referred to
+	    by an integer, which is interpreted as a row-major index.</p>
+	  <p>Arrays typically use space efficient representations, and the average time required to
+	    access a randomly chosen element is typically sublinear to the number of elements.</p>
+	  <p>When a multi-dimensional array is created, the concrete class that is actually
+	    instantiated cannot be any of the specified subclasses of <code>&lt;array&gt;</code>,
+	    which are all one-dimensional. Every implementation must have one or more concrete
+	    subclasses of <code>&lt;array&gt;</code> that are used for this purpose. These concrete
+	    subclasses have no specified names, and their names are not exported by the Dylan
+	    module.</p>
+	  <p>When a <a name="IX-1428">single-dimensional array</a> is created, the array
+	    created will be an instance of <code>&lt;vector&gt;</code>.</p>
+	  <p>Each concrete subclass of <code>&lt;array&gt;</code> must either provide or inherit
+	    implementations of the
+	    functions <code id="IX-1429">element</code>, <code>element-setter</code>,
+	    and <code>dimensions</code>.</p>
+	  <p>The element type of <code>&lt;array&gt;</code> is <code>indefinite &lArr;
+	      &lt;object&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;array&gt;</code> provides the following operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-35</strong> Generic Functions on &lt;array&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>rank</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1706">Returns the number of dimensions
+		    of an array.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1706">296</a></p></td>
+	    </tr><tr>
+	      <td><p><code>row-major-index</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1708">Returns the row-major-index
+		    position of an array element.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1708">297</a></p></td>
+	    </tr><tr>
+	      <td><p><code>aref</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1724">Returns the array element
+		    indicated by a set of indices.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1724">302</a></p></td>
+	    </tr><tr>
+	      <td><p><code>aref-setter</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1726">Sets the array element indicated
+		    by a set of indices.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1726">302</a></p></td>
+	    </tr><tr>
+	      <td><p><code>dimensions</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1710">Returns the dimensions of an
+		    array.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1710">297</a></p></td>
+	    </tr><tr>
+	      <td><p><code>dimension</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1712">Returns the size of a specified
+		    dimension of an array.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1712">298</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-36</strong> Methods on &lt;array&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>size</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1702">Returns the size of its
+		    argument.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1702">295</a></p></td>
+	    </tr><tr>
+	      <td><p><code>rank</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1706">Returns the number of dimensions
+		    of an array.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1706">296</a></p></td>
+	    </tr><tr>
+	      <td><p><code>row-major-index</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1708">Returns the row-major-index
+		    position of an array element.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1708">297</a></p></td>
+	    </tr><tr>
+	      <td><p><code>aref</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1724">Returns the array element
+		    indicated by a set of indices.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1724">302</a></p></td>
+	    </tr><tr>
+	      <td><p><code>aref-setter</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1726">Sets the array element indicated
+		    by a set of indices.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1726">302</a></p></td>
+	    </tr><tr>
+	      <td><p><code>dimension</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1712">Returns the size of a specified
+		    dimension of an array.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1712">298</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-37</strong> Methods on singleton(&lt;array&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>make</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1539">Returns a
+		    general instance of its first argument.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1539">258</a></p></td>
+	    </tr><tr>
+	      <td><p><code>limited</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">Returns a
+		    limited subtype of a class.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">263</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-1510"></a>
+      <a name="UID-Built-In_Classes-16948"></a>
+      <h2 class="subsection-title"><a name="IX-1430">Vectors</a></h2>
+      <a name="HEADING-93-1511"></a>
+      <h4 class="item-title" id="vector"><a class="here" title="Link to here" href="#vector"></a> <span class="signature"><a name="XREF-1432"></a><code id="IX-1431">&lt;vector&gt;</code></span> <span class="attributes-summary">[Open Abstract Instantiable Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of arrays of rank one (i.e., exactly one dimension).</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;array&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>The make method on <code>singleton(&lt;vector&gt;)</code> accepts the following
+	    keyword arguments. Note that these are not inherited by subclasses
+	    of <code>&lt;vector&gt;</code>.</p></dd>
+	<dd>
+	  <dl>
+	    <dt><code>size:</code> </dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code> specifying the size of the
+		vector. The default value is <code>0</code>.</p></dd>
+	    <dt><code>fill:</code> </dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code> specifying an initial value for each
+		element of the vector. The default value is <code>#f</code>.</p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class of one-dimensional arrays.</p>
+	  <p><code>&lt;vector&gt;</code> has no direct instances; calling <code>make</code>
+	    on <code>&lt;vector&gt;</code> returns an instance
+	    of <code>&lt;simple-object-vector&gt;</code>.</p>
+	  <p>Each concrete subclass of <code>&lt;vector&gt;</code> must either provide or inherit an
+	    implementation of <code id="IX-1433">size</code> that shadows the method provided
+	    by <code>&lt;array&gt;</code>.</p>
+	  <p>The element type of <code>&lt;vector&gt;</code> is <code>indefinite &lArr;
+	      &lt;object&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;vector&gt;</code> provides the following operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-38</strong> Constructors for &lt;vector&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>vector</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1567">Creates and
+		    returns a freshly allocated vector.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1567">267</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-39</strong> Methods on &lt;vector&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>dimensions</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1710">Returns the dimensions of an
+		    array.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1710">297</a></p></td>
+	    </tr><tr>
+	    <td><p><code>element</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1720">Returns the collection element
+		    associated with a particular key.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1720">300</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-40</strong> Methods on singleton(&lt;vector&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>make</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1539">Returns a
+		    general instance of its first argument.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1539">258</a></p></td>
+	    </tr><tr>
+	      <td><p><code>limited</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">Returns a
+		    limited subtype of a class.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">263</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-1652"></a>
+      <h4 class="item-title" id="simple-vector"><a class="here" title="Link to here" href="#simple-vector"></a> <span class="signature"><a name="XREF-1435"></a><code id="IX-1434">&lt;simple-vector&gt;</code></span> <span class="attributes-summary">[Sealed Abstract Instantiable Class]</span></h4>
+      <hr class="item-title" />
+      <p>A predefined subclass of <code>&lt;vector&gt;</code> that provides an efficient
+	implementation of fixed-length vectors.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;vector&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>The make method on <code>singleton(&lt;simple-vector&gt;)</code> accepts the
+	    following keyword arguments. Note that these are not inherited by subclasses
+	    of <code>&lt;simple-vector&gt;</code>.</p></dd>
+	<dd><dl>
+	    <dt><code>size:</code> </dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code> specifying the size of the
+		vector. The default value is <code>0</code>.</p></dd>
+	    <dt><code>fill:</code> </dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code> specifying an initial value for each
+		element of the vector. The default value is <code>#f</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class of simple and efficient vectors.</p>
+	  <p><a name="IX-1436">The class <code>&lt;simple-vector&gt;</code> provides a constant time
+	    implementation for the <code>element</code> and <code>element-setter</code>
+	    functions. This property is shared by all subtypes
+	    of <code>&lt;simple-vector&gt;</code>.</a></p>
+	  <p>Calling <code>make</code> on a <code>&lt;simple-vector&gt;</code> returns an instance
+	    of <code>&lt;simple-object-vector&gt;</code>. The size of a simple vector cannot be
+	    changed after the simple vector has been created.</p>
+	  <p><a name="IX-1437">Vector literals</a> (created with
+	    the <code>#[</code>&hellip;<code>]</code> syntax) are general instances
+	    of <code>&lt;simple-vector&gt;</code>.</p>
+	  <p>The element type of <code>&lt;simple-vector&gt;</code> is <code>indefinite &lArr;
+	      &lt;object&gt;</code>.</p>
+	  <p>The class <code>&lt;simple-object-vector&gt;</code> and the
+	    type <code>limited(&lt;simple-vector&gt;, of: &lt;object&gt;)</code> have exactly the
+	    same instances, but neither is a subtype of the other. The relationship between them is
+	    simply that the <code>make</code> method for the type returns an instance of the
+	    class.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;simple-vector&gt;</code> provides the following operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-41</strong> Methods on &lt;simple-vector&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>element</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1720">Returns the collection element
+		    associated with a particular key.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1720">300</a></p></td>
+	    </tr><tr>
+	      <td><p><code>element-setter</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1722">Sets the collection element
+		    associated with a particular key.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1722">301</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-42</strong> Methods on
+	      singleton(&lt;simple-vector&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>make</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1539">Returns a
+		    general instance of its first argument.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1539">258</a></p></td>
+	    </tr><tr>
+	      <td><p><code>limited</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">Returns a
+		    limited subtype of a class.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">263</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-1761"></a>
+      <h4 class="item-title" id="simple-object-vector"><a class="here" title="Link to here" href="#simple-object-vector"></a> <span class="signature"><code id="IX-1438">&lt;simple-object-vector&gt;</code></span> <span class="attributes-summary">[Sealed Instantiable Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of simple vectors that may have elements of any type.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;simple-vector&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>The class <code>&lt;simple-object-vector&gt;</code> supports the following
+	    init-keywords: </p></dd>
+	<dd><dl>
+	    <dt><code>size:</code> </dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code> specifying the size of the
+		vector. The default value is <code>0</code>.</p></dd>
+	    <dt><code>fill:</code> </dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code> specifying the initial value for each
+		element. The default value is <code>#f</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;simple-object-vector&gt;</code> represents vectors that may have
+	    elements of any type. It provides a constant time implementation for
+	    the <code>element</code> and <code>element-setter </code>functions.</p>
+	  <p>The element type of <code>&lt;simple-object-vector&gt;</code> is<code>
+	      &lt;object&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd><p>None.</p></dd>
+      </dl>
+      <a name="HEADING-93-1770"></a>
+      <h4 class="item-title" id="stretchy-vector"><a class="here" title="Link to here" href="#stretchy-vector"></a> <span class="signature"><code id="IX-1439">&lt;stretchy-vector&gt;</code></span> <span class="attributes-summary">[Open Abstract Instantiable Primary Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of vectors that are stretchy.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;vector&gt; &lt;stretchy-collection&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>The class <code>&lt;stretchy-vector&gt;</code> supports the following
+	    init-keywords:</p></dd>
+	<dd><dl>
+	    <dt><code>size:</code> </dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code> specifying the initial size of the
+		stretchy vector. The default value is <code>0</code>.</p></dd>
+	    <dt><code>fill:</code></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code> specifying the initial value for each
+		element. The default value is <code>#f</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class of vectors that are stretchy.</p>
+	  <p>Because <code>&lt;stretchy-vector&gt;</code> is abstract and instantiable but has no
+	    specified subclasses, every implementation must provide one or more concrete subclass to
+	    instantiate. These concrete subclasses have no specified names, and their names are not
+	    exported by the Dylan module.</p>
+	  <p>The element type of <code>&lt;stretchy-vector&gt;</code> is <code>indefinite &lArr;
+	      &lt;object&gt;</code>.</p>
+	  <p class="errata-note" id="errata-p224-1">
+	    <a class="note-tag" href="Errata#p224-1"><strong>Errata:</strong></a>
+	    In the published book, the above sentence said <code>&lt;simple-vector&gt;</code>
+	    instead of <code>&lt;stretchy-vector&gt;</code>.
+	  </p>
+	</dd>
+	<dt><span>Operations:</span></dt>
+	<dd><p>The class <code>&lt;stretchy-vector&gt;</code> provides the following operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-43</strong> Methods on &lt;stretchy-vector&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>add!</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1754">Adds an element to a
+		    sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1754">309</a></p></td>
+	    </tr><tr>
+	      <td><p><code>remove!</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1765">Removes an element from a
+		    sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1765">313</a></p></td>
+	    </tr>
+	  </table><p class="Anchor"><a name="IX-1440"></a></p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-44</strong> Methods on
+	      singleton(&lt;stretchy-vector&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>limited</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">Returns a
+		    limited subtype of a class.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">263</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-1862"></a>
+      <a name="UID-Built-In_Classes-25928"></a>
+      <h2 class="subsection-title">Deques</h2>
+      <a name="HEADING-93-1863"></a>
+      <h4 class="item-title" id="deque"><a class="here" title="Link to here" href="#deque"></a> <span class="signature"><a name="XREF-1442"></a><code id="IX-1441">&lt;deque&gt;</code></span> <span class="attributes-summary">[Open Abstract Instantiable Primary Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of double-ended queues.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;mutable-sequence&gt; &lt;stretchy-collection&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>The class <code>&lt;deque&gt;</code> supports the following init-keywords: </p></dd>
+	<dd><dl>
+	    <dt><code>size:</code> </dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code> specifying the initial size of the
+		deque. The default value is <code>0</code>.</p></dd>
+	    <dt><code>fill:</code> </dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code> specifying the initial value for each
+		element. The default value is <code>#f</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>A subclass of sequence that supports efficient forward and backward iteration, and
+	    efficient addition and removal of elements from the beginning or end of the
+	    sequence.</p>
+	  <p>Because <code>&lt;deque&gt;</code> is abstract and instantiable but has no specified
+	    subclasses, every implementation must provide one or more concrete subclasses to
+	    instantiate. These concrete subclasses have no specified names, and their names are not
+	    exported by the Dylan module.</p>
+	  <p>The element type of <code>&lt;deque&gt;</code> is <code>indefinite &lArr;
+	      &lt;object&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;deque&gt;</code> provides the following operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-45</strong> Generic Functions on &lt;deque&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>push</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1767">Adds an element to the front of a
+		    deque.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1767">314</a></p></td>
+	    </tr><tr>
+	      <td><p><code>pop</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1769">Removes and returns the first
+		    element of a deque.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1769">315</a></p></td>
+	    </tr><tr>
+	      <td><p><code>push-last</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1771">Adds an element to the end of a
+		    deque.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1771">315</a></p></td>
+	    </tr><tr>
+	      <td><p><code>pop-last</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1773">Removes and returns an element
+		    from the end of a deque.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1773">315</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-46</strong> Methods on &lt;deque&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>add!</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1754">Adds an element to a
+		    sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1754">309</a></p></td>
+	    </tr><tr>
+	      <td><p><code>remove!</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1765">Removes an element from a
+		    sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1765">313</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-47</strong> Methods on singleton(&lt;deque&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>limited</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">Returns a
+		    limited subtype of a class.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">263</a></p></td>
+	    </tr><tr>
+	      <td><p><code>make</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1539">Returns a
+		    general instance of its first argument.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1539">258</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-2045"></a>
+      <a name="UID-Built-In_Classes-423"></a>
+      <h2 class="subsection-title"><a name="IX-1443">Lists</a></h2>
+      <p>Lists are constructed by linking together instances
+	of <code>&lt;pair&gt;</code>. The <a name="IX-1444">head</a> of a list contains an element,
+	and the <a name="IX-1445">tail</a> of the list contains a pointer to the next pair in the
+	list. The list ends when the tail of a pair contains something besides another pair.</p>
+      <p>A <dfn id="IX-1446">proper list</dfn> has a final pair with a tail containing the
+	empty list.</p>
+      <p>An <dfn id="IX-1447">improper list</dfn> does not have a final pair with a tail
+	containing the empty list, either because the tail of its final pair is not the empty list,
+	or because the list is circular and thus does not have a final pair. Except when their
+	behavior on improper lists is documented explicitly, collection or sequence functions are
+	not guaranteed to return an answer when an improper list is used as a collection or a
+	sequence. At the implementation's option, these functions may return the correct result,
+	signal a <code>&lt;type-error&gt;</code>, or (in the case of a circular list) fail to
+	return.</p>
+      <p>When treated as a collection, the elements of a list are the heads of successive pairs in
+	the list.</p>
+      <a name="HEADING-93-2050"></a>
+      <h4 class="item-title" id="list"><a class="here" title="Link to here" href="#list"></a> <span class="signature"><a name="XREF-1449"></a><code id="IX-1448">&lt;list&gt;</code></span> <span class="attributes-summary">[Sealed Instantiable Abstract Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of linked lists.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;mutable-sequence&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>The make method on <code>singleton(&lt;list&gt;)</code> accepts the following keyword
+	    arguments. Note that these are not inherited by subclasses
+	    of <code>&lt;list&gt;</code>.</p></dd>
+	<dd><dl>
+	    <dt><code>size:</code> </dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code> specifying the size of the list. The
+		default value is <code>0</code>.</p></dd>
+	    <dt><code>fill:</code> </dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code> specifying the initial value for each
+		element. The default value is <code>#f</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class of linked lists.</p>
+	  <p>The <code>&lt;list&gt;</code> class is partitioned into two concrete
+	    subclasses, <code>&lt;pair&gt;</code> and <code>&lt;empty-list&gt;</code>. Calling make
+	    on <code>&lt;list&gt;</code> will return a linked list made from pairs and terminated
+	    with the empty list.</p>
+	  <p>The element type of <code>&lt;list&gt;</code> is <code>&lt;object&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;list&gt;</code> provides the following operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-48</strong> Constructors for &lt;list&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>list</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1550">Creates and
+		    returns a freshly allocated list.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1550">261</a></p></td>
+	    </tr><tr>
+	      <td><p><code>pair</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1552">Creates and
+		    returns a freshly allocated pair.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1552">262</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-49</strong> Functions on &lt;list&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>head</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1744">Returns the head of a
+		    list.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1744">307</a></p></td>
+	    </tr><tr>
+	      <td><p><code>tail</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1746">Returns the tail of a
+		    list.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1746">307</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-50</strong> Methods on &lt;list&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>size</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1702">Returns the size of its
+		    argument.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1702">295</a></p></td>
+	    </tr><tr>
+	      <td><p><code>=</code></p></td>
+	      <td><p><a href="Equality_and_Comparison#XREF-1584">Compares two objects for
+		    equality.</a></p></td>
+	      <td><p><a href="Equality_and_Comparison#XREF-1584">269</a></p></td>
+	    </tr><tr>
+	      <td><p><code>add!</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1754">Adds an element to a
+		    sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1754">309</a></p></td>
+	    </tr><tr>
+	      <td><p><code>remove!</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1765">Removes an element from a
+		    sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1765">313</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-51</strong> Methods on singleton(&lt;list&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>make</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1539">Returns a
+		    general instance of its first argument.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1539">258</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-2266"></a>
+      <h4 class="item-title" id="pair"><a class="here" title="Link to here" href="#pair"></a> <span class="signature"><code id="IX-1450">&lt;pair&gt;</code></span> <span class="attributes-summary">[Sealed Instantiable Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of lists that can have new values assigned to their heads and tails.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;list&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class of lists that can have new values assigned to their heads and tails.</p>
+	  <p>The element type of <code>&lt;pair&gt;</code> is <code>&lt;object&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The following operations are provided on <code>&lt;pair&gt;</code>:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-52</strong> Functions on &lt;pair&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>head-setter</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1748">Sets the head of a
+		    pair.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1748">308</a></p></td>
+	    </tr><tr>
+	      <td><p><code>tail-setter</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1750">Sets the tail of a
+		    pair.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1750">308</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-53</strong> Constructors for &lt;pair&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>pair</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1552">Creates and
+		    returns a freshly allocated pair.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1552">262</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <dl class="Cliche">
+	<dd><p></p></dd>
+      </dl>
+      <a name="HEADING-93-2356"></a>
+      <h4 class="item-title" id="empty-list"><a class="here" title="Link to here" href="#empty-list"></a> <span class="signature"><code id="IX-1451">&lt;empty-list&gt;</code></span> <span class="attributes-summary">[Sealed Instantiable Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class with only one instance, the empty list.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;list&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;empty-list&gt;</code> has only one instance, the empty list. The
+	    empty list is a direct instance of <code>&lt;empty-list&gt;</code> and an indirect
+	    instance of <code>&lt;list&gt;</code>. Note that <code>&lt;empty-list&gt;</code> is
+	    not <code>==</code> to <code>singleton (#())</code>.</p>
+	  <p>The element type of <code>&lt;empty-list&gt;</code>
+	    is <code>&lt;object&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd><p>None.<a name="IX-1452"></a></p></dd>
+      </dl>
+      <a name="HEADING-93-2363"></a>
+      <a name="UID-Built-In_Classes-427"></a>
+      <h2 class="subsection-title">Ranges</h2>
+      <a name="HEADING-93-2364"></a>
+      <h4 class="item-title" id="range"><a class="here" title="Link to here" href="#range"></a> <span class="signature"><a name="XREF-1454"></a><code id="IX-1453">&lt;range&gt;</code></span> <span class="attributes-summary">[Open Abstract Instantiable Primary Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of arithmetic sequences.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;sequence&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>The class <code>&lt;range&gt;</code> supports the following init-keywords:</p></dd>
+	<dd><dl>
+	    <dt><code>from:</code> </dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code> specifying the first value in the
+		range. The default value is <code>0</code>.</p></dd>
+	    <dt><code>by:</code> </dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code> specifying the step between consecutive
+		elements of the range. The default value is <code>1</code>.</p></dd>
+	    <dt><code>to: </code></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code> specifying an inclusive bound for the
+		range. If <code>by:</code> is positive, the range will include numbers up to and
+		including this value. If <code>by:</code> is negative, the range will include
+		numbers down to and including this value. <br /><code>to:</code> cannot be
+		specified with <code>above:</code> or <code>below:</code>.</p></dd>
+	    <dt><code>above: </code></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code> specifying an exclusive lower bound for
+		the range. The range will only include numbers above this value, regardless of the
+		sign of <code>by:</code>.<br />
+		<code>above:</code> cannot be specified with <code>to:</code>
+		or <code>below:</code>.</p></dd>
+	    <dt><code>below: </code></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code> specifying an exclusive upper bound for
+		the range. The range will only include numbers below this value, regardless of the
+		sign of <code>by:</code>.<br /><code>below:</code> cannot be specified
+		with <code>to:</code> or <code>above:</code>.</p></dd>
+	    <dt><code>size:</code> </dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code> specifying the size of the
+		range.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;range&gt;</code> is used for creating sequences of numbers. Ranges
+	    may be infinite in size, and may run from higher numbers to lower numbers.</p>
+	  <p>If <code>size:</code> is specified and none of <code>to:</code>, <code>above:</code>
+	    or <code>below:</code> is specified, then the <code>size:</code> argument determines the
+	    size of the range.</p>
+	  <p>If <code>size:</code> is specified and one of <code>to:</code>, <code>above:</code>
+	    or <code>below:</code> is specified, than it is an error if the number of elements
+	    implied by the <code>to:</code>, <code>above:</code> or <code>below:</code> argument
+	    (and the <code>by:</code> argument, if present) does not agree with the number of
+	    elements specified by the <code>size:</code> argument.</p>
+	  <p>Because <code>&lt;range&gt;</code> in abstract and instantiable but has no specified
+	    subclasses, every implementation must provide one or more concrete subclass to
+	    instantiate. These concrete subclasses have no specified names, and their names are not
+	    exported by the Dylan module.</p>
+	  <p>The element type of <code>&lt;range&gt;</code> is <code>indefinite &lArr;
+	      &lt;real&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;range&gt;</code> provides the following operations:</p>
+	  <p class="Anchor"></p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-54</strong> Methods on &lt;range&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>member?</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1834">Returns true if a collection
+		    contains a particular value.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1834">334</a></p></td>
+	    </tr><tr>
+	      <td><p><code>size</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1702">Returns the size of its
+		    argument.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1702">295</a></p></td>
+	    </tr><tr>
+	      <td><p><code>copy-sequence</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1797">Returns a freshly allocated copy
+		    of some subsequence of a sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1797">323</a></p></td>
+	    </tr><tr>
+	      <td><p><code>=</code></p></td>
+	      <td><p><a href="Equality_and_Comparison#XREF-1584">Compares two objects for
+		    equality.</a></p></td>
+	      <td><p><a href="Equality_and_Comparison#XREF-1584">269</a></p></td>
+	    </tr><tr>
+	      <td><p><code>reverse</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1778">Returns a sequence with elements
+		    in the reverse order of its argument sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1778">316</a></p></td>
+	    </tr><tr>
+	      <td><p><code>reverse!</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1780">Returns a sequence with elements
+		    in the reverse order of its argument sequence.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1780">317</a></p></td>
+	    </tr><tr>
+	      <td><p><code>intersection</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1788">Returns the intersection of two
+		    sequences.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1788">319</a></p></td>
+	    </tr><tr>
+	      <td><p><code>type-for-copy</code></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1694">Returns an appropriate
+		    type for creating mutable copies of its argument.</a></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1694">292</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-55</strong> Methods on singleton(&lt;range&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>limited</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">Returns a
+		    limited subtype of a class.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">263</a></p></td>
+	    </tr><tr>
+	      <td><p><code>make</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1539">Returns a
+		    general instance of its first argument.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1539">258</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-2560"></a>
+      <a name="UID-Built-In_Classes-428"></a>
+      <h2 class="subsection-title"><a name="IX-1456">Strings</a></h2>
+      <a name="HEADING-93-2561"></a>
+      <h4 class="item-title" id="string"><a class="here" title="Link to here" href="#string"></a> <span class="signature"><code id="IX-1455">&lt;string&gt;</code></span> <span class="attributes-summary">[Open Abstract Instantiable Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of sequences with elements that are characters.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;mutable-sequence&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>The class <code>&lt;string&gt;</code> supports the following init-keywords: </p></dd>
+	<dd><dl>
+	    <dt><code>size:</code> </dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code> specifying the size of the
+		string. The default value is <code>0</code>.</p></dd>
+	    <dt><code>fill:</code> </dt>
+	    <dd><p>An instance of <code>&lt;character&gt;</code> specifying the initial value for
+		each element. The default value is <code>' '</code> (space).</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;string&gt;</code> is used for holding sequences of characters.</p>
+	  <p><code>&lt;string&gt;</code> has no direct instances; calling <code>make</code>
+	    on <code>&lt;string&gt;</code> will return an instance of a concrete subclass
+	    of <code>&lt;string&gt;</code>.</p>
+	  <p>The element type of <code>&lt;string&gt;</code> is <code>indefinite &lArr;
+	      &lt;character&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;string&gt;</code> provides the following operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-56</strong> Methods on &lt;string&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>&lt;</code></p></td>
+	      <td><p><a href="Equality_and_Comparison#XREF-1589">Returns true if its first
+		    operand is less than its second operand.</a></p></td>
+	      <td><p><a href="Equality_and_Comparison#XREF-1589">271</a></p></td>
+	    </tr><tr>
+	      <td><p><code>as-lowercase</code></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1687">Coerces an object to
+		    lowercase.</a></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1687">291</a></p></td>
+	    </tr><tr>
+	      <td><p><code>as-lowercase!</code></p></td>
+	      <td><p><a href="Arithmetic_Operations#IX-1671">Coerces an object to lowercase in
+		    place.</a></p></td>
+	      <td><p><a href="Arithmetic_Operations#IX-1671">291</a></p></td>
+	    </tr><tr>
+	      <td><p><code>as-uppercase</code></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1683">Coerces an object to
+		    uppercase.</a></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1683">290</a></p></td>
+	    </tr><tr>
+	      <td><p><code>as-uppercase!</code></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1685">Coerces an object to
+		    uppercase in place.</a></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1685">290</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-57</strong> Methods on singleton(&lt;string&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>limited</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">Returns a
+		    limited subtype of a class.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">263</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-2695"></a>
+      <h4 class="item-title" id="byte-string"><a class="here" title="Link to here" href="#byte-string"></a> <span class="signature"><code id="IX-1457">&lt;byte-string&gt;</code></span> <span class="attributes-summary">[Sealed Instantiable Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of vectors with elements that are eight-bit characters.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;string&gt;</code> <code>&lt;vector&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>The class <code>&lt;byte-string&gt;</code> supports the following
+	    init-keywords: </p></dd>
+	<dd><dl>
+	    <dt><code>size:</code> </dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code> specifying the size of the byte
+		string. The default value is <code>0</code>.</p></dd>
+	    <dt><code>fill:</code> </dt>
+	    <dd><p>An instance of <code>&lt;character&gt;</code> specifying the initial value for
+		each element. The default value is <code>' ' </code>(space).</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;byte-string&gt;</code> represents strings with elements that are
+	    eight bit characters. It provides constant time <code>element</code>
+	    and <code>element-setter</code> methods.</p>
+	  <p>The element type of <code>&lt;byte-string&gt;</code> is <code>indefinite
+	      &lArr; <var>K<em><sub>2</sub></em></var></code>
+	    (where <var>K<em><sub>2</sub></em></var> is a subtype
+	    of <code>&lt;character&gt;</code>).</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;byte-string&gt;</code> provides the following operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-58</strong> Methods on &lt;byte-string&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>element</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1720">Returns the collection element
+		    associated with a particular key.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1720">300</a></p></td>
+	    </tr><tr>
+	      <td><p><code>element-setter</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1722">Sets the collection element
+		    associated with a particular key.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1722">301</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-2752"></a>
+      <h4 class="item-title" id="unicode-string"><a class="here" title="Link to here" href="#unicode-string"></a> <span class="signature"><code id="IX-1458">&lt;unicode-string&gt;</code></span> <span class="attributes-summary">[Sealed Instantiable Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of vectors with elements that are sixteen-bit Unicode characters.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;string&gt;</code> <code>&lt;vector&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>The class <code>&lt;unicode-string&gt;</code> supports the following
+	    init-keywords: </p></dd>
+	<dd><dl>
+	    <dt><code>size:</code> </dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code> specifying the size of the unicode
+		string. The default value is <code>0</code>.</p></dd>
+	    <dt><code>fill:</code> </dt>
+	    <dd><p>An instance of <code>&lt;character&gt;</code> specifying the initial value for
+		each element. The default value is <code>' ' </code>(space).</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;unicode-string&gt;</code> represents strings with elements that are
+	    sixteen bit Unicode characters. It provides constant time <code>element</code>
+	    and <code>element-setter</code> methods.</p>
+	  <p>The element type of <code>&lt;unicode-string&gt;</code> is <code>indefinite
+	      &lArr; <var>K<em><sub>1</sub></em></var></code>
+	      (where <var>K<em><sub>1</sub></em></var> is a subtype
+	      of <code>&lt;character&gt;</code>).</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;unicode-string&gt;</code> provides the following operations:</p>
+	  <p class="Anchor"><a name="IX-1459"></a></p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-59</strong> Methods on &lt;unicode-string&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>element</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1720">Returns the collection element
+		    associated with a particular key.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1720">300</a></p></td>
+	    </tr><tr>
+	      <td><p><code>element-setter</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1722">Sets the collection element
+		    associated with a particular key.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1722">301</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-2809"></a>
+      <a name="UID-Built-In_Classes-429"></a>
+      <h2 class="subsection-title"><a name="IX-1460">Tables</a></h2>
+      <p>Also called a hash table, a table is an unordered mapping between arbitrary keys and
+	elements. Tables are the only predefined collections that are unstable under iteration.</p>
+      <p>Tables are stretchy in that they allow the addition and removal of
+	keys. <code>&lt;table&gt;</code> and its subclasses are the only predefined classes that are
+	stretchy but are not stretchy sequences.</p>
+      <p>For a complete description of tables, see <a href="Tables#XREF-1036"><q>Tables</q> on
+	  page 122</a>.</p>
+      <a name="HEADING-93-2813"></a>
+      <h4 class="item-title" id="table"><a class="here" title="Link to here" href="#table"></a> <span class="signature"><a name="XREF-1462"></a><code id="IX-1461">&lt;table&gt;</code></span> <span class="attributes-summary">[Open Abstract Instantiable Primary Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of tables (also known as hash tables).</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;mutable-explicit-key-collection&gt; &lt;stretchy-collection&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>The class <code>&lt;table&gt;</code> supports the following init-keyword: </p></dd>
+	<dd><dl>
+	    <dt><code>size:</code> </dt>
+	    <dd><p>An instance of &lt;integer&gt;. If specified, this value provides a hint to the
+		implementation as to the expected number of elements to be stored in the table,
+		which might be used to control how much space to initially allocate for the
+		table. The default value is unspecified.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;table&gt;</code> is the only predefined instantiable subclass
+	    of <code>&lt;explicit-key-collection&gt;</code>.</p>
+	  <p>Every concrete subclass of <code>&lt;table&gt;</code> must provide or inherit a method
+	    for <code>table-protocol</code>. For details,
+	    see <a href="Tables#XREF-1036"><q>Tables</q> on page 122</a>.</p>
+	  <p><code>&lt;table&gt;</code> has no direct instances; calling <code>make</code>
+	    on <code>&lt;table&gt;</code> will return an instance
+	    of <code>&lt;object-table&gt;</code>.</p>
+	  <p>The element type of <code>&lt;table&gt;</code> is <code>indefinite &lArr;
+	      &lt;object&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;table&gt;</code> provides the following operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-60</strong> Generic Functions on &lt;table&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>table-protocol</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1852">Returns functions used to
+		    implement the iteration protocol for tables.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1852">340</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-61</strong> Methods on &lt;table&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>forward-iteration-protocol</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1540">Returns a group of functions used to
+		    iterate over the elements of a collection.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1540">337</a></p></td>
+	    </tr><tr>
+	      <td><p><code>table-protocol</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1852">Returns functions used to implement
+		    the iteration protocol for tables.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1852">340</a></p></td>
+	    </tr><tr>
+	      <td><p><code>remove-key!</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1840">Modifies an explicit key collection
+		    so it no longer has a particular key.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1840">335</a></p></td>
+	    </tr><tr>
+	      <td><p><code>element</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1720">Returns the collection element
+		    associated with a particular key.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1720">300</a></p></td>
+	    </tr><tr>
+	      <td><p><code>element-setter</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1722">Sets the collection element
+		    associated with a particular key.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1722">301</a></p></td>
+	    </tr><tr>
+	      <td><p><code>size</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1702">Returns the size of its
+		    argument.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1702">295</a></p></td>
+	    </tr><tr>
+	      <td><p><code>key-test</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1714">Returns the function used by its
+		    collection argument to compare keys.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1714">298</a></p></td>
+	    </tr>
+	  </table>
+	  <table class="numbered">
+	    <caption><strong>Table 11-62</strong> Methods on singleton(&lt;table&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>limited</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">Returns a
+		    limited subtype of a class.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">263</a></p></td>
+	    </tr><tr>
+	      <td><p><code>make</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1539">Returns a
+		    general instance of its first argument.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1539">258</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-93-3023"></a>
+      <h4 class="item-title" id="object-table"><a class="here" title="Link to here" href="#object-table"></a> <span class="signature"><code id="IX-1463">&lt;object-table&gt;</code></span> <span class="attributes-summary">[Open Abstract Instantiable Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of tables that compare keys using <code>==.</code></p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;table&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Calling <code>make</code> on <code>&lt;table&gt;</code> will return a general instance
+	    of <code>&lt;object-table&gt;</code>. Because <code>&lt;object-table&gt;</code> is
+	    abstract and instantiable but has no specified subclasses, every implementation must
+	    provide one or more concrete subclasses to instantiate. These concrete subclasses have
+	    no specified names, and their names are not exported by the Dylan module.</p>
+	  <p>The element type of <code>&lt;object-table&gt;</code> is <code>indefinite &lArr;
+	      &lt;object&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;object-table&gt;</code> provides the following operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-63</strong> Methods on &lt;object-table&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>table-protocol</code></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1852">Returns functions used to
+		    implement the iteration protocol for tables.</a></p></td>
+	      <td><p><a href="Collection_Operations#XREF-1852">340</a></p></td>
+	    </tr>
+	  </table><p class="Anchor"><a name="IX-1464"></a><a name="IX-1465"></a></p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-64</strong> Methods on
+	      singleton(&lt;object-table&gt;)</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>limited</code></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">Returns a
+		    limited subtype of a class.</a></p></td>
+	      <td><p><a href="Constructing_and_Initializing_Instances#XREF-1559">263</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Number_Classes"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Function_Classes"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Built-In_Classes"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

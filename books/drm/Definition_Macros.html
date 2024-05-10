@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Built-In_Macros_and_Special_Definitions" />
+    <link rel="prev" href="Built-In_Macros_and_Special_Definitions_Overview" />
+    <link rel="next" href="Local_Declaration_Macros" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Definitions &mdash; 14. The Built-In Macros and Special Definitions &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Built-In_Macros_and_Special_Definitions_Overview"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Local_Declaration_Macros"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Built-In_Macros_and_Special_Definitions"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li class="current parent"><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a>
+	      <ul class="sections">
+		<li><a href="Built-In_Macros_and_Special_Definitions_Overview">Overview</a></li>
+		<li id="current"><a href="Definition_Macros">Definitions</a>
+		  <ul class="page-TOC">
+		    <li><a href="#HEADING-112-147"><code>define variable</code><span class="attributes-summary"> [Definition]</span></a></li>
+		    <li><a href="#HEADING-112-163"><code>define constant</code><span class="attributes-summary"> [Definition]</span></a></li>
+		    <li><a href="#HEADING-112-178"><code>define generic</code><span class="attributes-summary"> [Definition]</span></a></li>
+		    <li><a href="#HEADING-112-196"><code>define method</code><span class="attributes-summary"> [Definition]</span></a></li>
+		    <li><a href="#HEADING-112-209"><code>define class</code><span class="attributes-summary"> [Definition]</span></a></li>
+		    <li><a href="#HEADING-112-240"><code>define module</code><span class="attributes-summary"> [Definition]</span></a></li>
+		    <li><a href="#HEADING-112-282"><code>define library</code><span class="attributes-summary"> [Definition]</span></a></li>
+		    <li><a href="#HEADING-112-313"><code>define sealed domain</code><span class="attributes-summary"> [Definition]</span></a></li>
+		    <li><a href="#HEADING-112-321"><code>define macro </code><span class="attributes-summary"> [Special Definition]</span></a></li>
+		  </ul>
+		</li>
+		<li><a href="Local_Declaration_Macros">Local Declarations</a></li>
+		<li><a href="Statement_Macros">Statements</a></li>
+		<li><a href="Function_Macros">Function Macros</a></li>
+	      </ul>
+	    </li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 14</p>
+	<p id="section-name">The Built-In Macros and Special Definitions</p>
+      </div>
+
+      <a name="HEADING-112-0"></a>
+      <a name="UID-Built-In_Macros-12290"></a>
+      <h1 class="section-title"><a name="IX-1996">Definitions</a></h1>
+      <p>Definitions are used to declare the overall structure of a program. They often define one
+	or more module bindings, but do not always do so. Definitions can only appear at top level
+	in a program. Definitions do not return values.</p>
+      <table class="numbered">
+	<caption><strong>Table 14-1</strong> Definitions</caption>
+	<tr>
+	  <th class="primary"><p>Macro</p></th>
+	  <th><p>Description</p></th>
+	  <th><p>Page</p></th>
+	</tr><tr>
+	  <td><p><code>define variable</code></p></td>
+	  <td><p><a href="#XREF-2000">Defines and initializes a variable binding in the current
+		module.</a></p></td>
+	  <td><p><a href="#XREF-2000">374</a></p></td>
+	</tr><tr>
+	  <td><p><code>define constant</code></p></td>
+	  <td><p><a href="#XREF-2003">Defines and initializes a constant binding in the current
+		module.</a></p></td>
+	  <td><p><a href="#XREF-2003">375</a></p></td>
+	</tr><tr>
+	  <td><p><code>define generic</code></p></td>
+	  <td><p><a href="#XREF-2007">Defines a constant binding in the current module and
+		initializes it to a new generic function.</a></p></td>
+	  <td><p><a href="#XREF-2007">376</a></p></td>
+	</tr><tr>
+	  <td><p><code>define method</code></p></td>
+	  <td><p><a href="#XREF-2010">Adds a method to a generic function, and potentially
+		defines a constant binding in the current module containing a new generic
+		function.</a></p></td>
+	  <td><p><a href="#XREF-2010">377</a></p></td>
+	</tr><tr>
+	  <td><p><code>define class</code></p></td>
+	  <td><p><a href="#XREF-2013">Defines a constant binding in the current module and
+		initializes it to a new class.</a></p></td>
+	  <td><p><a href="#XREF-2013">378</a></p></td>
+	</tr><tr>
+	  <td><p><code>define module</code></p></td>
+	  <td><p><a href="#XREF-2016">Defines and names a module, describing the imports and
+		exports of the module.</a></p></td>
+	  <td><p><a href="#XREF-2016">380</a></p></td>
+	</tr><tr>
+	  <td><p><code>define library</code></p></td>
+	  <td><p><a href="#XREF-2020">Defines and names a library, describing the imports and
+		exports of the library.</a></p></td>
+	  <td><p><a href="#XREF-2020">386</a></p></td>
+	</tr><tr>
+	  <td><p><code>define domain</code></p></td>
+	  <td><p><a href="#XREF-2024">Restricts the ways in which a generic function and set of
+		types can be extended, thereby enabling additional error checking and compiler
+		optimization.</a></p></td>
+	  <td><p><a href="#XREF-2024">388</a></p></td>
+	</tr><tr>
+	  <td><p><code>define macro</code></p></td>
+	  <td><p><a href="#XREF-2027">Defines a constant module binding containing a
+		macro.</a></p></td>
+	  <td><p><a href="#XREF-2027">389</a></p></td>
+	</tr>
+      </table>
+      <a name="HEADING-112-147"></a>
+      <h4 class="item-title" id="define_variable"><a class="here" title="Link to here" href="#define_variable"></a> <span class="signature"><a name="XREF-1998"></a><a name="IX-1999"></a><code id="IX-1997">define variable</code></span> <span class="attributes-summary">[Definition]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2000">Defines and initializes a variable binding in the current module.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd>
+	  <p>
+	    <code>define</code> <strong class="re">{</strong> <var>adjective</var> <strong class="re">}*</strong> <code>variable</code> <var>variables</var> <code>=</code> <var>init</var>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>adjective</var></dt>
+	    <dd>
+              <p><span class="BNF">unreserved-name<em class="BNF"><sub>bnf</sub></em></span>. The
+		adjectives allowed are implementation dependent.</p>
+	    </dd>
+	    <dt><var>variables</var></dt>
+	    <dd>
+	      <p>
+		<span class="BNF">variable<em class="BNF"><sub>bnf</sub></em></span>
+		<strong class="re">|</strong>
+		<code>(</code>
+		<span class="BNF">variable-list<em class="BNF"><sub>bnf</sub></em></span>
+		<code>)</code>
+	      </p>
+	    </dd>
+	    <dt><var>init</var></dt>
+	    <dd>
+	      <p>
+		<span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span>
+	      </p>
+	    </dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><code>define variable</code> defines variable bindings in the current module.</p>
+	  <p>The values returned by <var>init</var> are used to initialize the bindings. The first
+	    value returned is bound to the first <var>variable</var>, the second value to the
+	    second <var>variable</var>, etc. The last <var>variable</var> may be preceded
+	    by <code>#rest</code>, in which case it is bound to a sequence containing all the
+	    remaining values.</p>
+	  <p>If more than one binding is defined, the <var>variables</var> are enclosed in
+	    parentheses and separated by commas.</p>
+	  <pre class="code">
+define variable *elapsed-time* = 0;
+
+define variable (*whole-part*, *remainder*) = truncate(*amount*);
+
+define variable (*first-value*, #rest *rest-values*)
+                 = get-initial-orders(); </pre>
+	  <p>Module bindings may be <a name="IX-2001">specialized</a>. This ensures that their value
+	    will always be of a given type. An attempt to initialize or assign the binding to a
+	    value not of that type will signal an error of type <code>&lt;type-error&gt;</code>.</p>
+	  <pre class="code">
+define variable *elapsed-time* :: &lt;integer&gt; = 0;
+
+define variable *front-window* :: type-union (&lt;window&gt;, singleton(#f))
+                 = initial-front-window();
+
+define variable (*whole-part* :: &lt;integer&gt;, *remainder* :: &lt;real&gt;)
+                 = truncate(*amount*); </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-112-163"></a>
+      <h4 class="item-title" id="define_constant"><a class="here" title="Link to here" href="#define_constant"></a> <span class="signature"><code id="IX-2002">define constant</code></span> <span class="attributes-summary">[Definition]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2003">Defines and initializes a constant binding in the current module.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd>
+	  <p>
+	    <code>define</code> <strong class="re">{</strong> <var>adjective</var> <strong class="re">}*</strong> <code>constant</code> <var>constants</var> <code>=</code> <var>init</var>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>adjective</var></dt>
+	    <dd>
+              <p><span class="BNF">unreserved-name<em class="BNF"><sub>bnf</sub></em></span>. The
+		adjectives allowed are implementation dependent.</p>
+	    </dd>
+	    <dt><var>constants</var></dt>
+	    <dd>
+	      <p>
+		<span class="BNF">variable<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">|</strong> <code>(</code> <span class="BNF">variable-list<em class="BNF"><sub>bnf</sub></em></span> <code>)</code>
+	      </p>
+	    </dd>
+	    <dt><var>init</var></dt>
+	    <dd>
+	      <p>
+		<span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span>
+	      </p>
+	    </dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><code id="IX-2004">define constant</code> defines constant bindings in the
+	    current module.</p>
+	  <p>The values returned by <var>init</var> are used to initialize the constant
+	    bindings. The first value returned is bound to the first <var>constant</var>, the second
+	    value to the second <var>constant</var>, etc. The last <var>constant</var> may be
+	    preceded by <code>#rest</code>, in which case it is bound to a sequence containing all
+	    the remaining values.</p>
+	  <p>If more than one <var>constant</var> is defined, the <var>constants</var> are enclosed
+	    in parentheses and separated by commas.</p>
+	  <pre class="code">
+define constant $start-time = get-current-time();
+
+define constant $pi = 3.14159;
+
+define constant ($whole-pie, $piece-pie) = truncate($pi); </pre>
+	  <p>Module constants may be <a name="IX-2005">specialized</a>. This ensures that their
+	    value is of a given type. An attempt to initialize the constant to a value not of that
+	    type will signal an error of type <code>&lt;type-error&gt;</code>.</p>
+	  <pre class="code">
+define constant $start-time :: &lt;integer&gt; = get-current-time(); </pre>
+	  <p>A constant binding cannot be assigned a new value. However, the object that is the
+	    value of the constant binding is not necessarily itself immutable. For example, if a
+	    constant binding contains a sequence, the elements of the sequence may be settable.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-112-178"></a>
+      <h4 class="item-title" id="define_generic"><a class="here" title="Link to here" href="#define_generic"></a> <span class="signature"><code id="IX-2006">define generic</code></span> <span class="attributes-summary">[Definition]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2007">Defines a constant binding in the current module and initializes it to a new generic function.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd>
+	  <p>
+	    <code>define</code> <strong class="re">{</strong> <var>adjective</var> <strong class="re">}*</strong> <code>generic</code> <var>name parameter-list</var> <strong class="re">[</strong> <var>options</var> <strong class="re">]</strong>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>adjective</var></dt>
+	    <dd><p><span class="BNF">unreserved-name<em class="BNF"><sub>bnf</sub></em></span>. The
+		allowed adjectives are <code>sealed</code> and <code>open</code>. These adjectives
+		are mutually exclusive. The default is <code>sealed</code>. Additional
+		implementation-defined adjectives may be supported.</p>
+	    </dd>
+	    <dt><var>name</var></dt>
+	    <dd>
+	      <p>
+		<span class="BNF">variable-name<em class="BNF"><sub>bnf</sub></em></span>
+	      </p>
+	    </dd>
+	    <dt><var>parameter-list</var></dt>
+	    <dd>
+	      <p>
+		<code>(</code> <strong class="re">[</strong> <span class="BNF">parameters<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">]</strong> <code>)</code> <strong class="re">[</strong> <code>=&gt;</code> <var>values</var> <strong class="re">]</strong>
+	      </p>
+	    </dd>
+	    <dt><var>options</var></dt>
+	    <dd>
+	      <p>
+		<span class="BNF">comma-property-list<em class="BNF"><sub>bnf</sub></em></span>
+	      </p>
+	    </dd>
+	    <dt><var>values</var></dt>
+	    <dd>
+	      <p>
+		<span class="BNF">variable<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">|</strong> <code>(</code> <strong class="re">[</strong> <span class="BNF">values-list<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">]</strong> <code>)</code>
+	      </p>
+	    </dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><code>define generic</code> is used to define generic functions.</p>
+	  <p><a name="IX-2008"></a>It defines a constant module binding with the
+	    name <var>name</var>, and initializes it to a new generic function described by
+	    the <var>adjectives</var>, <var>parameter-list</var> and <var>options</var>.</p>
+	  <p>The <var>adjectives</var> specify whether the generic function is sealed. A complete
+	    description of generic function sealing is given
+	    in <a href="Declaring_Characteristics_of_Generic_Functions#XREF-1116"><q>Declaring
+		Characteristics of Generic Functions</q> on page 135</a>.</p>
+	  <p>The <var>parameter-list</var> specifies the parameters and return values of the generic
+	    function and thereby constrains which methods may be added to it. For a complete
+	    description of these constraints,
+	    see <a href="Parameter_Lists#XREF-837"><q>Parameter List Congruency</q> on page
+	      93</a>. A generic function parameter list may not include a next-method parameter, and
+	    its keyword parameters may include neither type specializers nor default initial
+	    values.</p>
+	  <p>The <var>options </var>are alternating keywords and values. No options are defined by
+	    the language. They may be supplied by individual implementations.</p>
+	  <p>The following example defines a generic function of two required arguments and one
+	    return value. All methods added to the generic function must also take two arguments and
+	    return one value. The first argument will always <br />be specialized to a subtype
+	    of <code>&lt;animal&gt;</code>, the second argument will always be specialized to a
+	    subtype of <code>&lt;number&gt;</code>, and the return value will always <br />be
+	    specialized to a subtype of <code>&lt;number&gt;</code>.</p>
+	  <pre class="code">
+define generic cut-hair (subject :: &lt;animal&gt;, new-length :: &lt;number&gt;)
+                          =&gt; (new-length :: &lt;number&gt;) </pre>
+	  <p>The use of the same name for a parameter and return value indicates that the parameter
+	    is returned as the value. This is only a convention; it is not enforced by the
+	    language.</p>
+	  <p>The following example defines a generic function with one required parameter and one
+	    mandatory keyword parameter, <code>strength:</code>. Methods added to the generic
+	    function must have one required parameter, they must accept keyword arguments, and they
+	    must recognize the keyword argument <code>strength:</code>.</p>
+	  <pre class="code">
+define generic brew (brand :: &lt;coffee-brand&gt;, #key strength)
+                             =&gt; (coffee :: &lt;coffee&gt;) </pre>
+	  <p class="errata-note" id="errata-p377-1">
+	    <a class="note-tag" href="Errata#p377-1"><strong>Errata:</strong></a> In the published
+	    book, the word
+	    <q><a href="Parameter_Lists#IX-813" title="Definition of permit">permit</a></q> is
+	    incorrectly used instead of
+	    <q><a href="Parameter_Lists#IX-808" title="Definition of recognize">recognize</a></q>.
+	  </p>
+	</dd>
+      </dl>
+      <a name="HEADING-112-196"></a>
+      <h4 class="item-title" id="define_method"><a class="here" title="Link to here" href="#define_method"></a> <span class="signature"><code id="IX-2009">define method</code></span> <span class="attributes-summary">[Definition]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2010">Adds a method to a generic function, and potentially defines a constant binding in the current module containing a new generic function.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd>
+	  <p>
+	    <code>define</code> <strong class="re">{</strong> <var>adjective</var> <strong class="re">}*</strong> <code>method</code> <var>name</var> <var>parameter-list</var><br />
+	    &nbsp;&nbsp;&nbsp;<strong class="re">[</strong> <var>body</var> <strong class="re">]</strong><br />
+	    <code>end</code> <strong class="re">[</strong> <code>method</code> <strong class="re">]</strong> <strong class="re">[</strong> <var>name</var> <strong class="re">]</strong>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>adjective</var></dt>
+	    <dd>
+              <p><span class="BNF">unreserved-name<em class="BNF"><sub>bnf</sub></em></span>. The
+		allowed adjective is <code>sealed</code>. Additional
+		implementation-defined <var>adjectives</var> may be supported.</p>
+	    </dd>
+	    <dt><var>name</var></dt>
+	    <dd>
+	      <p>
+		<span class="BNF">variable-name<em class="BNF"><sub>bnf</sub></em></span>
+	      </p>
+	    </dd>
+	    <dt><var>parameter-list</var></dt>
+	    <dd>
+	      <p>
+		<span class="BNF">parameter-list<em class="BNF"><sub>bnf</sub></em></span>
+	      </p>
+	    </dd>
+	    <dt><var>body</var></dt>
+	    <dd>
+	      <p>
+		<span class="BNF">body<em class="BNF"><sub>bnf</sub></em></span>
+	      </p>
+	    </dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><code id="IX-2011">define method</code> creates a method and adds it to the
+	    generic function in <var>name</var>. If the module binding <var>name</var> is not
+	    already defined, it is defined as with <code>define generic</code>. Thus, <code>define
+	    method</code> will create a new generic function or extend an old one, as needed.</p>
+	  <p>The <var>adjective</var> allows a sealing declaration to be made about the generic
+	    function to which the method is added. The effect of this adjective is described
+	    in <a href="Define_Sealed_Domain#XREF-1131"><q>Abbreviations for Define Sealed
+		Domain</q> on page 138</a>.</p>
+	  <p>The <var>parameter-list</var> describes the parameters and return values of the method,
+	    including their number and type. The method can be called only with arguments that match
+	    the types of the parameters, and the method will always return values in the quantity
+	    and typed declared. Methods added to a generic function must have parameter lists that
+	    are congruent with the generic function's parameter list. A complete description of
+	    parameter lists is given in <a href="Parameter_Lists#XREF-782"><q>Parameter
+		Lists</q> on page 84</a>.</p>
+	  <p>When the method is called, new local bindings are created for the parameters,
+	    initialized to the arguments of the call. The <var>body</var> is then executed in the
+	    environment containing these bindings.</p>
+	  <pre class="code">
+define method tune (device :: &lt;radio&gt;) =&gt; (station :: &lt;station&gt;)
+  // method body goes here
+end method tune </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-112-209"></a>
+      <h4 class="item-title" id="define_class"><a class="here" title="Link to here" href="#define_class"></a> <span class="signature"><code id="IX-2012">define class</code></span> <span class="attributes-summary">[Definition]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2013">Defines a constant binding in the current module and initializes it to a new class.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd>
+	  <p>
+	    <code>define</code> <strong class="re">{</strong> <var>class-adjective</var> <strong class="re">}*</strong> <code>class</code> <var>name</var> <code>(</code>
+	    <strong class="re">{</strong> <var>superclass</var> <strong class="re">}</strong> <code>,</code><strong class="re">+</strong> <code>)</code><br />
+	    &nbsp;&nbsp;&nbsp;<strong class="re">{</strong> <var>slot-spec</var> <strong class="re">|</strong> <var>init-arg-spec</var> <strong class="re">|</strong> <var>inherited-slot-spec</var> <strong class="re">}</strong> <code>;</code><strong class="re">*</strong><br />
+	    <code>end</code> <strong class="re">[</strong> <code>class</code> <strong class="re">]</strong> <strong class="re">[</strong> <var>name</var> <strong class="re">]</strong></p></dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>class-adjective</var></dt>
+	    <dd>
+	      <p><span class="BNF">unreserved-name<em class="BNF"><sub>bnf</sub></em></span>. The
+		allowed adjectives are <code>abstract</code>, <code>concrete</code>,
+		<code>primary</code>, <code>free</code>, <code>sealed</code>,
+		and <code>open</code>. Additional implementation-dependent class-adjectives may be
+		supported.</p>
+	    </dd>
+	    <dt><var>name</var></dt>
+	    <dd><p><span class="BNF">variable-name<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>superclass</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>slot-spec</var></dt>
+	    <dd><p><strong class="re">{</strong> <var>slot-adjective</var> <strong class="re">}*</strong> <strong class="re">[</strong> <var>allocation</var> <strong class="re">]</strong><br />
+		<code>slot</code> <var>getter-name</var> <strong class="re">[</strong> <code>::</code> <var>type</var> <strong class="re">]</strong> <strong class="re">[</strong> <var>init-expression</var> <strong class="re">]</strong><br />
+		<strong class="re">{</strong> <code>,</code> <var>slot-option</var> <strong class="re">}*</strong></p></dd>
+	    <dt><var>init-arg-spec</var></dt>
+	    <dd><p><strong class="re">[</strong> <code>required</code> <strong class="re">]</strong> <code>keyword</code> <span class="BNF">symbol<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">[</strong> <var>init-expression</var> <strong class="re">]</strong><br />
+		<strong class="re">{</strong> <code>,</code> <var>init-arg-option</var> <strong class="re">}*</strong></p></dd>
+	    <dt class="RP3.RoutineParam"><var>inherited-slot-spec</var></dt>
+	    <dd class="RP3.RoutineParam"><p><code>inherited slot</code> <var>getter-name</var> <strong class="re">[</strong> <var>init-expression</var> <strong class="re">]</strong><br />
+		<strong class="re">{</strong> <code>,</code> <var>inherited-option</var> <strong class="re">}*</strong></p></dd>
+	    <dt><var>slot-adjective</var></dt>
+	    <dd><p><span class="BNF">unreserved-name<em class="BNF"><sub>bnf</sub></em></span>.
+		Supported slot-adjectives are <code>constant</code>
+		and <code>sealed</code>. Additional implementation-dependent slot-adjectives may be
+		supported.</p></dd>
+	    <dt><var>allocation</var></dt>
+	    <dd><p><span class="BNF">unreserved-name<em class="BNF"><sub>bnf</sub></em></span>.
+		Supported allocations are <code>instance</code>, <code>class</code>,
+		<code>each-subclass</code>, and <code>virtual</code>. Additional
+		implementation-defined allocations may be supported.</p></dd>
+	    <dt><var>getter-name</var></dt>
+	    <dd><p><span class="BNF">variable-name<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>type</var></dt>
+	    <dd><p><span class="BNF">operand<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>init-expression</var></dt>
+	    <dd><p><code>=</code> <span class="MetaSyntax">expression<em class="MetaSyntax"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>slot-option</var></dt>
+	    <dd><p>
+		<var>setter-option</var> <strong class="re">|</strong><br />
+		<var>init-keyword-option</var> <strong class="re">|</strong><br />
+		<var>required-init-keyword-option</var> <strong class="re">|</strong><br />
+		<var>init-value-option</var> <strong class="re">|</strong><br />
+		<var>init-function-option</var> <strong class="re">|</strong><br />
+		<var>type-option</var></p></dd>
+	    <dt><var>init-arg-option</var></dt>
+	    <dd><p>
+		<var>type-option</var> <strong class="re">|</strong><br />
+		<var>init-value-option</var> <strong class="re">|</strong><br />
+		<var>init-function-option</var></p></dd>
+	    <dt class="RP3.RoutineParam"><var>inherited-option</var></dt>
+	    <dd class="RP3.RoutineParam"><p>
+		<var>init-value-option</var> <strong class="re">|</strong><br />
+		<var>init-function-option</var></p></dd>
+	    <dt><var>setter-option</var></dt>
+	    <dd><p><code>setter:</code> <strong class="re">{</strong> <span class="BNF">variable-name<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">|</strong> <code>#f</code> <strong class="re">}</strong></p></dd>
+	    <dt class="RP3.RoutineParam"><var>init-keyword-option</var></dt>
+	    <dd class="RP3.RoutineParam"><p>
+		<code>init-keyword:</code> <span class="BNF">symbol<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt class="RP3.RoutineParam"><var>required-init-keyword-option</var></dt>
+	    <dd class="RP3.RoutineParam"><p><br />
+		<code>required-init-keyword:</code> <span class="BNF">symbol<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt class="RP3.RoutineParam"><var>init-value-option</var></dt>
+	    <dd class="RP3.RoutineParam"><p><code>init-value:</code> <span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt class="RP3.RoutineParam"><var>init-function-option</var></dt>
+	    <dd class="RP3.RoutineParam"><p><code>init-function:</code> <span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>type-option</var></dt>
+	    <dd><p><code>type:</code> <span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><code id="IX-2014">define class</code> is used to define classes.</p>
+	  <p>It defines a constant module binding with the name <var>name</var>, and initializes it
+	    to a new class.</p>
+	  <p>The <var>class-adjectives</var> provide sealing information about the class. Among the
+	    adjectives, <code>abstract</code> and <code>concrete</code> are mutually
+	    exclusive, <code>primary</code> and <code>free</code> are mutually exclusive,
+	    and <code>sealed</code> and <code>open</code> are mutually exclusive. Additional
+	    implementation-defined adjectives may be
+	    supported. See <a href="Declaring_Characteristics_of_Classes#XREF-1106"><q>Declaring
+		Characteristics of Classes</q> on page 134</a> for a complete description of these
+	    adjectives.</p>
+	  <p>The <var>superclasses</var> are the classes from which the new class directly
+	    inherits. The rules of inheritance are described
+	    in <a href="Classes#XREF-583"><q>Class Inheritance</q> on page 53</a>
+	    and <a href="Classes#XREF-590"><q>Computing the Class Precedence List</q> on page
+	      54</a>.</p>
+	  <p>The <var>init-expression</var>, <var>required-init-keyword-option</var>, <var>init-value-option</var>,
+	    and <var>init-function-option</var> are all mutually exclusive in a
+	    single <var>slot-spec</var>, <var>init-arg-spec</var>,
+	    or <var>inherited-slot-spec</var>.</p>
+	  <p>Each <var>slot-spec</var> describes a slot specification in the class. Slot
+	    specifications are described in <a href="Slots#XREF-610"><q>Slot Specifications</q>
+	      on page 58</a></p>
+	  <p>Each <var>init-arg-spec</var> describes the handling of an initialization argument
+	    specification of the class. Initialization argument specifications are described
+	    in <a href="Instance_Creation_and_Initialization#XREF-680"><q>Initialization
+		Argument Specifications</q> on page 68</a>.</p>
+	  <p>Each <var>inherited-slot-spec</var> describes an inherited slot specification of the
+	    class. Inherited slot specifications are described
+	    in <a href="Instance_Creation_and_Initialization#XREF-677"><q>Inherited Slot
+		Specifications</q> on page 67</a>.</p></dd>
+      </dl>
+      <a name="HEADING-112-240"></a>
+      <h4 class="item-title" id="define_module"><a class="here" title="Link to here" href="#define_module"></a> <span class="signature"><code id="IX-2015">define module</code></span> <span class="attributes-summary">[Definition]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2016">Defines and names a module,
+	describing the imports and exports of the module.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd><p><code>define module</code> <var>module-name</var><br />
+	    &nbsp;&nbsp;&nbsp;<strong class="re">{</strong> <var>export-clause</var> <strong class="re">|</strong> <var>create-clause</var> <strong class="re">|</strong> <var>use-clause</var> <strong class="re">}</strong> <code>;</code><strong class="re">*</strong><br />
+	    <code>end</code> <strong class="re">[</strong> <code>module</code> <strong class="re">]</strong> <strong class="re">[</strong> <var>module-name</var> <strong class="re">]</strong></p></dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>module-name</var></dt>
+	    <dd>
+              <p><span class="BNF">name<em class="BNF"><sub>bnf</sub></em></span></p>
+	    </dd>
+	    <dt><var>export-clause</var></dt>
+	    <dd><p><code>export</code> <strong class="re">{</strong> <span class="BNF">ordinary-name<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">}</strong> <code>,</code><strong class="re">*</strong></p></dd>
+	    <dt><var>create-clause</var></dt>
+	    <dd><p><code>create</code> <strong class="re">{</strong> <span class="BNF">ordinary-name<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">}</strong> <code>,</code><strong class="re">*</strong></p></dd>
+	    <dt><var>use-clause</var></dt>
+	    <dd><p><code>use</code> <var>used-module</var> <strong class="re">{</strong> <code>,</code> <var>option</var> <strong class="re">}*</strong></p></dd>
+	    <dt><var>used-module</var></dt>
+	    <dd><p><span class="BNF">ordinary-name<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>option</var></dt>
+	    <dd><p>
+		<var>import-option</var> <strong class="re">|</strong><br />
+		<var>exclude-option</var> <strong class="re">|</strong><br />
+		<var>prefix-option</var> <strong class="re">|</strong><br />
+		<var>rename-option</var> <strong class="re">|</strong><br />
+		<var>export-option</var></p></dd>
+	    <dt><var>import-option</var></dt>
+	    <dd><p><code>import: all</code> <strong class="re">|</strong> <code>{</code> <strong class="re">{</strong> <var>variable-spec</var> <strong class="re">}</strong> <code>,</code><strong class="re">*</strong> <code>}</code></p></dd>
+	    <dt><var>variable-spec</var></dt>
+	    <dd><p><span class="BNF">name<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">[</strong> <code>=&gt;</code> <span class="BNF">name<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">]</strong></p></dd>
+	    <dt><var>exclude-option</var></dt>
+	    <dd><p><code>exclude: {</code> <strong class="re">{</strong> <span class="BNF">name<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">}</strong> <code>,</code><strong class="re">*</strong> <code>}</code></p></dd>
+	    <dt><var>prefix-option</var></dt>
+	    <dd><p><code>prefix:</code> <span class="BNF">string-literal<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>rename-option</var></dt>
+	    <dd><p><code>rename: {</code> <strong class="re">{</strong> <span class="BNF">name<em class="BNF"><sub>bnf</sub></em></span> <code>=&gt;</code> <span class="BNF">name<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">}</strong> <code>,</code><strong class="re">*</strong> <code>}</code></p></dd>
+	    <dt><var>export-option</var></dt>
+	    <dd><p><code>export: all</code> <strong class="re">|</strong> <code>{</code> <strong class="re">{</strong> <span class="BNF">name<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">}</strong> <code>,</code><strong class="re">*</strong> <code>}</code></p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><a name="XREF-2018"></a><code id="IX-2017">define module</code> defines a module with
+	    the given name. It describes which modules are used by the module being defined, which
+	    bindings are imported from the used modules, and which bindings are exported by the
+	    module being defined.</p>
+	  <p>Circular use relationships among modules are not allowed. The graph of the
+	    module-uses-module relation must be directed and acyclic.</p>
+	  <p>Like other definitions, module definitions are only allowed at top level. Like all
+	    constituents, module definitions are contained in a module. The names of bindings being
+	    imported and exported in a module definition refer to bindings in the module being
+	    defined and the modules being used. These are not affected by the module that contains
+	    the module definition.</p>
+	  <p>There is no prohibition against macros that expand into module definitions.</p>
+	  <ul>
+	    <li><var>module-name</var> is the name of the module being defined. Note that no binding
+	      is created for this name. The namespaces of modules, libraries, and bindings are
+	      distinct. The module name is scoped within the library containing the module.</li>
+	    <li>An <var>export-clause</var> specifies bindings that are to be exported from the
+	      module being defined. Each name is the name of one such binding. These bindings must
+	      be defined by a definition in the module being defined. It is an error if any of the
+	      bindings were imported from other modules. It is allowed for the same name to appear
+	      more than once, since this is sometimes useful for documentation purposes.</li>
+	    <li>A <var>create-clause</var> specifies that the named bindings are to be declared
+	      owned by and exported from the module being defined. Each name is the name of a
+	      binding to declare and export. These bindings must not be defined by a definition in
+	      the module being defined, and they must not be imported from another module. They must
+	      be defined by a definition in a module that uses the module being defined. It is
+	      allowed for the same name to appear more than once, since this is sometimes useful for
+	      documentation purposes.</li>
+	    <li>Each <var>use-clause</var> describes a set of bindings to be imported from another
+	      module. There may be multiple use clauses and there may even be multiple use clauses
+	      importing from the same module. If there are multiple use clauses importing from the
+	      same module, the bindings imported are the sum of the binding imported by each use
+	      clause. Because of renaming, it is possible for the same binding to be imported multiple
+	      times under different names. This is not an error.<br /><br />Within a use clause,
+	      the <var>used-module</var> is the name of the module being used, and the options
+	      control which bindings are to be imported from that module, whether and how they
+	      should be renamed, and whether they should be reexported from the module being
+	      defined. Each of these options applies within the scope of the particular use clause,
+	      and does not affect the behavior of other use clauses (even if the other use clauses
+	      indicate the same module). The various options may each appear no more than once in a
+	      single use clause. They may appear in any order.
+	      <ul>
+		<li>An <var>import-option</var> describes which bindings should be imported. It can
+		  be the name <code>all</code>, or a series of
+		  comma-delimited <var>variable-specs</var> enclosed in curly braces. The default
+		  is <code>all</code>, indicating that all bindings should be imported. If a series
+		  of <var>variable-specs</var> is specified, only the indicated variables are
+		  imported.</li>
+		<li>A <var>variable-spec</var> is a name, or two names separated by an arrow. In the
+		  first form, the binding has the same name in the module being used and the module
+		  being defined. In the second form the binding is renamed as it is imported. The
+		  name preceding the arrow is the name of the binding in the module being used, and
+		  the name following the arrow is the name of the binding in the module being
+		  defined.</li>
+		<li> An <var>exclude-option</var> indicates bindings that should not be imported
+		  from the module being used. The default is the empty set. This option may only
+		  specify a nonempty set if the import option is <code>all</code>.</li>
+		<li>A <var>prefix-option</var> indicates a prefix to be given to all binding names
+		  as they are imported. This option can be overriden for individual bindings by
+		  supplying a renaming in a rename option or import option. The default prefix
+		  option is the empty string.</li>
+		<li>A <var>rename-option</var> indicates how individual bindings should be renamed
+		  as they are imported. It is a comma-delimited series of entries surrounded by
+		  curly braces. Each entry is a pair of names separated by an arrow. The name
+		  preceding the arrow is the name of the binding in the module being used, and the
+		  name following the arrow is the name of the binding in the module being
+		  defined. The default for this option is the empty set.</li>
+		<li>An <var>export-option</var> indicates which imported bindings should be
+		  reexported from the module being defined. It can be the name <code>all</code>, or
+		  a series of comma-delimited names enclosed in curly braces. Each name is the name
+		  of the binding in the module being defined as well as the name under which it will
+		  be exported. (There is no option to rename on export.) Each binding indicated must
+		  have been imported by this use clause. It is allowed for the same name to appear
+		  more than once, as this is sometimes useful for documentation
+		  purposes. <code>all</code> indicates that all the bindings imported by this use
+		  clause should be exported. The default value for this option is the empty
+		  set.</li>
+	      </ul>
+	    </li>
+	  </ul>
+	  <pre class="code">
+       define module graphics
+         use dylan;
+         create draw-line,
+                erase-line,
+                invert-line,
+                skew-line,
+                frame-rect,
+                fill-rect,
+                erase-rect,
+                invert-rect;
+       end module graphics;
+
+       define module lines
+         use dylan;
+         use graphics,
+           import: {draw-line,
+                    erase-line,
+                    invert-line,
+                    skew-line};
+       end module lines;
+
+       define module rectangles
+         use dylan;
+         use graphics,
+           prefix: "graphics$",
+           exclude: {skew-line};
+       end module rectangles;
+
+       define module dylan-gx
+         use dylan, export: all;
+         use graphics,
+           rename: {skew-line =&gt; warp-line},
+             export: all;
+       end module dylan-gx; </pre>
+	  <p>The modules created by these module declarations would have access to bindings with the
+	    following names:</p>
+	  <pre class="code">
+graphics	
+       draw-line
+       erase-line
+       invert-line
+       skew-line
+       frame-rect
+       fill-rect
+       erase-rect
+       invert-rect
+       <em>plus all the bindings in the Dylan module</em>
+
+lines        
+       draw-line
+       erase-line
+       invert-line
+       skew-line
+       <em>plus all the bindings in the Dylan module</em>
+
+rectangles	
+       graphics$draw-line
+       graphics$erase-line
+       graphics$invert-line
+       graphics$frame-rect
+       graphics$fill-rect
+       graphics$erase-rect
+       graphics$invert-rect
+       <em>plus all the bindings in the Dylan module</em>
+
+dylan-gx	
+       draw-line
+       erase-line
+       invert-line
+       warp-line
+       frame-rect
+       fill-rect
+       erase-rect
+       invert-rect
+       <em>plus all the bindings in the Dylan module</em> </pre>
+	  <p>The <code>lines</code> and <code>rectangles</code> modules do not export any
+	    variables. They are presumably used to provide definitions for the variables created and
+	    exported by the <code>graphics</code> modules. The difference between
+	    the <code>graphics</code> module and the <code>dylan-gx</code> module is that one
+	    variable is renamed, and the <code>dylan-gx</code> module exports the variables that it
+	    imports from the <code>dylan</code> module, while the <code>graphics</code> module does
+	    not.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-112-282"></a>
+      <h4 class="item-title" id="define_library"><a class="here" title="Link to here" href="#define_library"></a> <span class="signature"><code id="IX-2019">define library</code></span> <span class="attributes-summary">[Definition]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="IX-2021"></a><a name="XREF-2020">Defines and names a library, describing the imports and exports of the library.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd><p><code>define library</code> <var>library-name</var><br />
+	    &nbsp;&nbsp;&nbsp;<strong class="re">{</strong> <var>export-clause</var> <strong class="re">|</strong> <var>use-clause</var> <strong class="re">}</strong> <code>;</code><strong class="re">*</strong><br />
+	    <code>end</code> <strong class="re">[</strong> <code>library</code> <strong class="re">]</strong> <strong class="re">[</strong> <var>library-name</var> <strong class="re">]</strong></p></dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>library-name</var></dt>
+	    <dd>
+              <p><span class="BNF">name<em class="BNF"><sub>bnf</sub></em></span></p>
+	    </dd>
+	    <dt><var>use-clause</var></dt>
+	    <dd><p><code>use</code> <var>used-library</var> <strong class="re">{</strong> <code>,</code> <var>option</var> <strong class="re">}*</strong></p></dd>
+	    <dt><var>export-clause</var></dt>
+	    <dd><p><code>export</code> <strong class="re">{</strong> <span class="BNF">ordinary-name<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">}</strong> <code>,</code><strong class="re">*</strong></p></dd>
+	    <dt><var>used-library</var></dt>
+	    <dd><p><span class="BNF">ordinary-name<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>option</var></dt>
+	    <dd><p>
+		<var>import-option</var> <strong class="re">|</strong><br />
+		<var>exclude-option</var> <strong class="re">|</strong><br />
+		<var>prefix-option</var> <strong class="re">|</strong><br />
+		<var>rename-option</var> <strong class="re">|</strong><br />
+		<var>export-option</var></p></dd>
+	    <dt><var>import-option</var></dt>
+	    <dd><p><code>import: all</code> <strong class="re">|</strong> <code>{</code> <strong class="re">{</strong> <var>module-spec</var> <strong class="re">}</strong> <code>,</code><strong class="re">*</strong> <code>}</code></p></dd>
+	    <dt><var>module-spec</var></dt>
+	    <dd><p><span class="BNF">name<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">[</strong> <code>=&gt;</code> <span class="BNF">name<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">]</strong></p></dd>
+	    <dt><var>exclude-option</var></dt>
+	    <dd><p><code>exclude: {</code> <strong class="re">{</strong> <span class="BNF">name<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">}</strong> <code>,</code><strong class="re">*</strong> <code>}</code></p></dd>
+	    <dt><var>prefix-option</var></dt>
+	    <dd><p><code>prefix:</code> <span class="BNF">string-literal<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>rename-option</var></dt>
+	    <dd><p><code>rename: {</code> <strong class="re">{</strong> <span class="BNF">name<em class="BNF"><sub>bnf</sub></em></span> <code>=&gt;</code> <span class="BNF">name<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">}</strong> <code>,</code><strong class="re">*</strong> <code>}</code></p></dd>
+	    <dt><var>export-option</var></dt>
+	    <dd><p><code>export: all</code> <strong class="re">|</strong> <code>{</code> <strong class="re">{</strong> <span class="BNF">name<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">}</strong> <code>,</code><strong class="re">*</strong> <code>}</code></p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><code>define library</code> defines a library with the given name. It describes which
+	    libraries are used by the library being defined, which modules are imported from the
+	    used libraries, and which modules are exported by the library being defined.</p>
+	  <p>Circular use relationships among libraries are not allowed. The graph of the
+	    library-uses-library relation must be directed and acyclic.</p>
+	  <p>Like other definitions, library definitions are only allowed at top level. Like all
+	    constituents, library definitions are contained in a module. The names of modules being
+	    imported and exported by a library definition do not refer to bindings, and are not
+	    affected by the environment in which the library definition occurs.</p>
+	  <p>There is no prohibition against macros that expand into library definitions.</p>
+	  <ul>
+	    <li><var>library-name</var> is the name of the library being defined. Note that no
+	      binding is created for this name. The namespaces of libraries, modules, and bindings
+	      are distinct. The library name is scoped along with the other library names in the
+	      program.</li>
+	    <li>An <var>export-clause</var> specifies modules that are to be exported from the
+	      library being defined. Each name is the name of one such module. It is an error if any
+	      of the modules were imported from other libraries. It is allowed for the same name to
+	      appear more than once, since this is sometimes useful for documentation purposes.</li>
+	    <li>Each <var>use-clause</var> describes a set of modules to be imported from another
+	      library. There may be multiple use clauses and there may even be multiple use clauses
+	      importing from the same library. If there are multiple use clauses importing from the
+	      same library, the modules imported are the sum of the modules imported by each use
+	      clause. Because of renaming, it is possible for the same module to imported multiple
+	      times under different names. This is not an error.<br /><br />Within a use clause,
+	      the <var>used-library</var> is the name of the library being used. The mechanism by
+	      which this name is associated with another library is implementation
+	      defined.<br /><br />The <var>options</var> control which modules are to be imported
+	      from that library, whether and how they should be renamed, and whether they should be
+	      reexported from the library being defined. Each of these options applies within the
+	      scope of the particular use clause, and does not affect the behavior of other use
+	      clauses (even if the other use clauses indicate the same library). The various options
+	      may each appear no more than once in a single use clause. They may appear in any
+	      order.
+	      <ul>
+		<li>An <var>import-option</var> describes which modules should be imported. It can
+		  be the name <code>all</code>, or a series of
+		  comma-delimited <var>module-specs</var> enclosed in curly braces. The default
+		  is <code>all</code>, indicating that all modules should be imported. If a series
+		  of <var>module-specs</var> is specified, only the indicated modules are
+		  imported.</li>
+		<li>A <var>module-spec</var> is a name, or two names separated by an arrow. In the
+		  first form, the module has the same name in the library being used and the library
+		  being defined. In the second form the module is renamed as it is imported. The
+		  name preceding the arrow is the name of the module in the library being used, and
+		  the name following the arrow is the name of the module in the library being
+		  defined.</li>
+		<li> An <var>exclude-option</var> indicates modules that should not be imported from
+		  the library being used. The default is the empty set. This option may only specify
+		  a nonempty set if the import option is <code>all</code>.</li>
+		<li>A <var>prefix-option</var> indicates a prefix to be given to all module names as
+		  they are imported. This option can be overriden for individual modules by
+		  supplying a renaming in the rename option or import option. The default prefix
+		  option is the empty string.</li>
+		<li>A <var>rename-option</var> indicates how individual modules should be renamed as
+		  they are imported. It is a comma-delimited series of entries surrounded by curly
+		  braces. Each entry is a pair of names separated by an arrow. The name preceding
+		  the arrow is the name of the module in the library being used, and the name
+		  following the arrow is the name of the module in the library being defined. The
+		  default for this option is the empty set.</li>
+		<li>An <var>export-option</var> indicates which imported modules should be
+		  reexported from the library being defined. It can be the name <code>all</code>, or
+		  a series of comma-delimited names enclosed in curly braces. Each name is the name
+		  of the module in the library being defined as well as the name under which it will
+		  be exported. (There is no option to rename on export) Each module indicated must
+		  have been imported by this use clause. It is allowed for the same name to appear
+		  more than once, as this is sometimes useful for documentation
+		  purposes. <code>all </code>indicates that all the modules imported by this use
+		  clause should be exported. The default value for this option is the empty
+		  set.</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</dd>
+      </dl>
+      <a name="HEADING-112-313"></a>
+      <h4 class="item-title" id="define_sealed_domain"><a class="here" title="Link to here" href="#define_sealed_domain"></a> <span class="signature"><code id="IX-2022">define sealed domain</code></span> <span class="attributes-summary">[Definition]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="IX-2023"></a><a name="XREF-2024">Restricts
+	the ways in which a generic function and set of types can be extended, thereby enabling
+	additional error checking and compiler optimization.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd><p><code>define sealed domain</code> <var>generic-function</var> <code>(</code> <strong class="re">{</strong> <var>type</var> <strong class="re">}</strong> <code>,</code><strong class="re">*</strong> <code>)</code></p></dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>generic-function</var></dt>
+	    <dd><p><span class="BNF">variable-name<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>type</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><code>define sealed domain</code> seals the specified <var>generic-function</var> over
+	    the domain indicated by the <var>types</var>. For a complete description of the rules
+	    governing <code>define sealed domain</code> and the implications of a <code>define
+	    sealed domain</code> definition,
+	    see <a href="Define_Sealed_Domain#XREF-1123"><q>Define Sealed Domain</q> on page
+	      135</a>.</p>
+	  <ul>
+	    <li><var>generic-function</var> is the name of a module binding containing an explicitly
+	      defined generic function.</li>
+	    <li>Each <var>type</var> is an expression, the value of which must be a type. The number
+	      of <var>types </var>must be the same as the number of required arguments accepted
+	      by <var>generic-function.</var></li>
+	  </ul>
+	</dd>
+      </dl>
+      <a name="HEADING-112-321"></a>
+      <h4 class="item-title" id="define_macro"><a class="here" title="Link to here" href="#define_macro"></a> <span class="signature"><code id="IX-2025">define macro</code></span> <span class="attributes-summary">[Special Definition]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="IX-2026"></a><a name="XREF-2027">Defines a
+	constant module binding containing a macro.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd><p><code>define macro</code> <var>macro-definition</var></p></dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>macro-definition</var></dt>
+	    <dd>
+              <p><span class="BNF">macro-definition<em class="BNF"><sub>bnf</sub></em></span></p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>See <a href="Macros">Chapter 10, <q>Macros,</q></a> for a complete description of the
+	    macro system.</p>
+	  <p>Note that <code>define macro</code> is not a defining macro but a special
+	    definition. It is not named by a binding, and so it cannot be excluded or renamed using
+	    module operations.<a name="IX-2028"></a></p></dd>
+      </dl>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Built-In_Macros_and_Special_Definitions_Overview"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Local_Declaration_Macros"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Built-In_Macros_and_Special_Definitions"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

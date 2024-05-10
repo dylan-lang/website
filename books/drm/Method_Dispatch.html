@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Functions" />
+    <link rel="prev" href="Parameter_Lists" />
+    <link rel="next" href="Operations_on_Functions" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Method Dispatch &mdash; 6. Functions &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Parameter_Lists"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Operations_on_Functions"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Functions"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li class="current parent"><a href="Functions">Functions</a>
+	      <ul class="sections">
+		<li><a href="Functions_Overview">Overview</a></li>
+		<li><a href="Parameter_Lists">Parameter Lists</a></li>
+		<li id="current" class="subsections"><a href="Method_Dispatch">Method Dispatch</a>
+		  <ul class="page-TOC">
+		    <li><a href="#HEADING-50-32">Calling Less Specific Methods</a></li>
+		  </ul>
+		</li>
+		<li><a href="Operations_on_Functions">Operations on Functions</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 6</p>
+	<p id="section-name">Functions</p>
+      </div>
+
+      <a name="HEADING-50-0"></a>
+      <a name="UID-Functions-2196"></a>
+      <h1 class="section-title"><a name="XREF-844"></a><a name="IX-845">Method Dispatch</a></h1>
+      <p>When a <a name="IX-846">generic function is called</a>, the generic function uses the types
+	of the arguments to determine which methods to call. This process is called <dfn>method
+	dispatch</dfn>.</p>
+      <p>Method dispatch occurs in three phases. First, all
+	the <a name="IX-848"></a><a name="IX-847">applicable methods</a> are selected. Next, the
+	applicable methods are sorted by specificity. Finally, the most specific method is
+	called.</p>
+      <a name="HEADING-50-3"></a>
+      <h3 class="sub-subsection-title"><a name="XREF-849"></a><a name="IX-850">Method Specificity</a></h3>
+      <p>For any two methods <var>A</var> and <var>B</var> that are applicable to a given generic
+	function call, one method may be <dfn>more specific than</dfn> the other, or the methods may
+	be <dfn id="IX-851">ambiguous methods</dfn>.</p>
+      <p>To order two methods <var>A</var> and <var>B</var> with respect to a particular set of
+	arguments, compare each of <var>A</var>'s specializers with <var>B</var>'s specializer in
+	the corresponding position using the argument that was supplied for that position. The
+	comparison works in the following way.</p>
+      <ul>
+	<li>If the specializers are <a name="IX-852">type equivalent</a>, then <var>A</var>
+	  and <var>B</var> are <a name="IX-853">unordered</a> at the current argument position. That
+	  is, this argument position provides no information about the order of the two
+	  methods.</li>
+	<li>Otherwise, if the specializer of <var>A</var> is a subtype of the specializer
+	  of <var>B</var>, then <var>A</var> precedes <var>B</var> at the current argument
+	  position.</li>
+	<li>Otherwise, if both specializers are classes, then their order in the class precedence
+	  list of the argument's class is used to determine which is more
+	  specific. If <var>A</var>'s specializer precedes <var>B</var>'s specializer in the class
+	  precedence list of the argument's class, then <var>A</var> precedes <var>B</var> at the
+	  current argument position.</li>
+	<li>Otherwise, the methods are unordered in the current argument position.</li>
+      </ul>
+      <p><a name="IX-854"></a>The method <var>A</var> is more specific than the
+	method <var>B</var> if and only if <var>A</var> precedes <var>B</var> in at least one
+	argument position, and <var>B</var> does not precede <var>A</var> in any argument
+	position. Similarly, <var>B</var> is more specific than <var>A</var> if and only
+	if <var>B</var> precedes <var>A</var> in at least one argument position, and <var>A</var>
+	does not precede <var>B</var> in any argument position. If neither of these cases apply
+	then <var>A</var> and <var>B</var> are ambiguous methods.</p>
+      <p>When the applicable methods are <a name="IX-855">sorted by specificity</a>, the sorted list
+	is divided into two parts, each possibly empty. The first part contains methods that are
+	more specific than every method that follows them. The second part (which cannot itself be
+	sorted) begins at the first point of ambiguity; there are at least two methods that could
+	equally well go first in the second part. When a generic function is called, if the first
+	part of the sorted applicable methods is empty then an error is signaled. Similarly, if the
+	last method in the first part attempts to call next-method, an error is signaled.</p>
+      <p>Consider the following class definitions:</p>
+      <pre class="code">
+define class &lt;sentient&gt; (&lt;life-form&gt;) end class;
+
+define class &lt;bipedal&gt; (&lt;life-form&gt;) end class;
+
+define class &lt;intelligent&gt; (&lt;sentient&gt;) end class;
+
+define class &lt;humanoid&gt; (&lt;bipedal&gt;) end class;
+
+define class &lt;vulcan&gt; (&lt;intelligent&gt;, &lt;humanoid&gt;) end class; 
+</pre>
+      <p>Computing the class precedence list for <code>&lt;vulcan&gt; </code>yields </p>
+      <pre class="code">
+#(&lt;vulcan&gt;,&lt;intelligent&gt;,&lt;sentient&gt;,&lt;humanoid&gt;,&lt;bipedal&gt;,&lt;life-form&gt;)
+</pre>
+      <p>The class precedence lists computed for two different classes may have different precedence
+	orders for some intermediate superclasses. This is not a problem as long as there is no class
+	that inherits from both classes. For example, we could define a
+	class <code>&lt;human&gt; </code>as follows:</p>
+      <pre class="code">
+define class &lt;human&gt; (&lt;humanoid&gt;, &lt;intelligent&gt;) end class;
+</pre>
+      <p>For the class <code>&lt;human&gt;</code> defined as above, the class precedence list would
+	be</p>
+      <pre class="code">
+#(&lt;human&gt;,&lt;humanoid&gt;,&lt;bipedal&gt;,&lt;intelligent&gt;,&lt;sentient&gt;,&lt;life-form&gt;)
+</pre>
+      <p>It is not a problem that the two class precedence lists give different orders to some of
+	the intermediate superclasses such as<code> &lt;bipedal&gt;</code>
+	and <code>&lt;sentient&gt;</code> as long as no class is added that inherits from
+	both <code>&lt;vulcan&gt;</code> and <code>&lt;human&gt;</code>.</p>
+      <p>When sorting the applicable methods, each specializer needs to be viewed with respect to
+	the class precedence list for the class of the argument passed to the generic function in
+	that argument position. For example, given the following definitions</p>
+      <pre class="code">
+define method psychoanalyze (being :: &lt;intelligent&gt;)
+  &hellip;
+end method;
+
+define method psychoanalyze (being :: &lt;humanoid&gt;) 
+  &hellip;
+end method;
+</pre>
+      <p>calling the generic function <code>psychoanalyze </code>on a being of
+	type <code>&lt;human&gt;</code> would cause the method for <code>&lt;humanoid&gt;</code> to
+	be called first, while calling the generic function on a being of
+	type <code>&lt;vulcan&gt;</code> would cause the method for <code>&lt;intelligent&gt;</code>
+	to be called first.</p>
+      <p><a name="IX-856">The order of arguments is not significant when computing method
+	specificity.</a> Given the above class definitions, the following methods are unambiguous
+	when their generic function is called on two beings of type <code>&lt;vulcan&gt; </code>or
+	two beings of type <code>&lt;human&gt;</code>, but the methods are ambiguous when the call
+	includes one being of type <code>&lt;vulcan&gt; </code>and one of
+	type <code>&lt;human&gt;</code>.</p>
+      <pre class="code">
+define method superior-being (a :: &lt;intelligent&gt;,
+                              b :: &lt;intelligent&gt;) 
+  most-intelligent-being (a, b)
+  end method;
+
+define method superior-being (a :: &lt;humanoid&gt;,
+                              b :: &lt;humanoid&gt;)
+  best-looking-being (a, b)
+  end method;<a name="IX-857"></a>
+</pre>
+      <a name="HEADING-50-32"></a>
+      <a name="UID-Functions-2171"></a>
+      <h2 class="subsection-title"><a name="XREF-858"></a><a name="IX-859">Calling Less Specific Methods</a></h2>
+      <p>In many situations, a subtype wants to modify the behavior of a method, rather than replace
+	it completely; it wants to perform some work but also use the inherited behavior. This can
+	be accomplished with <dfn>next-method</dfn>. Next-method is a function that, when called,
+	invokes the next most specific method applicable in the generic function. The next-method is
+	the value of the <code>#next</code> parameter. Normally this parameter is
+	named <code>next-method</code>, though it can have other names at the programmer's
+	discretion.</p>
+      <p>One can think of next-method as invoking the method that would have been called if the
+	current method did not exist.</p>
+      <p>If there are no more methods available, the next-method parameter will be bound to the
+	value <code>#f</code> instead of to a method.</p>
+      <a name="HEADING-50-36"></a>
+      <h3 class="sub-subsection-title">Passing Different Arguments to Next-Method</h3>
+      <p>In the usual case, next-method is called with no arguments. This indicates that the
+	next-method should be passed the same arguments that were supplied to the current
+	method.</p>
+      <p>It is valid to supply arguments, including different arguments, when calling
+	next-method. However, if you pass different arguments, the new arguments must result in the
+	same ordered sequence of applicable methods as the original arguments. Otherwise, the
+	program behavior is undefined.</p>
+      <p><a name="IX-860"></a>In some cases, the methods in a generic function accept
+	different keyword arguments. In such cases, it's convenient for the methods also to accept a
+	rest parameter. That way, all the keyword/value pairs passed to the generic function are
+	captured in the rest parameter. By using <code>apply</code>, the next-method can be invoked
+	with the complete set of arguments. (This technique is only necessary, of course, when the
+	method calls next-method and passes arguments explicitly.)</p>
+      <p>As usual, if there are <a name="IX-861">duplicates of a given keyword argument</a>, the
+	leftmost occurrence is used. This allows keyword arguments to be easily overridden.</p>
+      <a name="HEADING-50-41"></a>
+      <h3 class="sub-subsection-title">The Next-Method Parameter</h3>
+      <p>The value of the next-method parameter is supplied by the generic function dispatch
+	mechanism. When a method is called by its generic function, the generic function dispatch
+	mechanism automatically passes the appropriate value for next-method. There is no way for a
+	user program to specify the next-method argument when calling a method.</p>
+      <p>If you create a method directly (i.e., with <code>method</code> rather than
+	with <code>define method</code>) and you want this method to accept a next-method parameter,
+	then you should insert a <code>#next</code> into the parameter list explicitly. You would do
+	this if you are creating a method that you plan to add to a generic function, and you want
+	this method to be able to call next-method. You can also supply the next-method parameter
+	when using <code>define method</code>, in cases where you want to give the parameter a
+	different name.<a name="IX-862"></a><a name="IX-863"></a></p>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Parameter_Lists"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Operations_on_Functions"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Functions"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

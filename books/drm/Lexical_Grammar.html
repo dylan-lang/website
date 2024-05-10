@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="BNF" />
+    <link rel="prev" href="BNF" />
+    <link rel="next" href="Phrase_Grammar" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Lexical Grammar &mdash; A. BNF &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="BNF"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Phrase_Grammar"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="BNF"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li class="current parent"><a href="BNF">BNF</a>
+	      <ul class="sections">
+		<li><a href="BNF#HEADING-116-1">General Notes</a></li>
+		<li><a href="BNF#HEADING-116-11">Lexical Notes</a></li>
+		<li id="current" class="subsections"><a href="Lexical_Grammar">Lexical Grammar</a>
+		  <ul class="page-TOC">
+		    <li><a href="#HEADING-117-1">Comments</a></li>
+		    <li><a href="#HEADING-117-3">Tokens</a></li>
+		    <li><a href="#HEADING-117-7">Reserved Words</a></li>
+		    <li><a href="#HEADING-117-15">Names, Symbols and Keywords</a></li>
+		    <li><a href="#HEADING-117-35">Operators</a></li>
+		    <li><a href="#HEADING-117-38">Character and String Literals</a></li>
+		    <li><a href="#HEADING-117-45">Numbers</a></li>
+		  </ul>
+		</li>
+		<li><a href="Phrase_Grammar">Phrase Grammar</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Appendix A</p>
+	<p id="section-name">BNF</p>
+      </div>
+
+      <div class="BNF">
+	<a name="HEADING-117-0"></a>
+	<a name="UID-BNF_Appendix-327"></a>
+	<h1 class="section-title"><a name="XREF-2096"></a><a name="IX-2097">Lexical Grammar</a></h1>
+	<a name="HEADING-117-1"></a>
+	<h2 class="subsection-title"><a name="IX-2098">Comments</a></h2>
+	<dl>
+	  <dt><var>comment:</var></dt>
+	  <dd>
+	    <p><code>//</code> &hellip;the rest of the line</p>
+	    <p><code>/*</code> &hellip;everything even across lines, including nested comments&hellip; <code>*/</code></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-117-3"></a>
+	<h2 class="subsection-title"><a name="IX-2099">Tokens</a></h2>
+	<dl>
+	  <dt><em class="BNFCaps">token:</em></dt>
+	  <dd>
+	    <p><em class="BNFCaps">name</em></p>
+	    <p><em class="BNFCaps">symbol</em></p>
+	    <p><em class="BNFCaps">number</em></p>
+	    <p><em class="BNFCaps">character-literal</em></p>
+	    <p><em class="BNFCaps">string</em></p>
+	    <p><em class="BNFCaps">unary-operator</em></p>
+	    <p><em class="BNFCaps">binary-operator</em></p>
+	    <p><var>punctuation</var></p>
+	    <p><var>#-word</var></p>
+	  </dd>
+	  <dt><var>punctuation:</var></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span> <code>( ) , . ; [ ] { } :: - = == =&gt;</code></p>
+	    <p><span class="one-of">one of</span> <code>#( #[ ## ? ?? ?= ...</code></p>
+	  </dd>
+	  <dt><var>#-word:</var></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span> <code>#t #f #next #rest #key #all-keys #include</code></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-117-7"></a>
+	<h2 class="subsection-title"><a name="IX-2100">Reserved Words</a></h2>
+	<dl>
+	  <dt><var>reserved-word:</var></dt>
+	  <dd>
+	    <p><var>core-word</var></p>
+	    <p><em class="BNFCaps">begin-word</em></p>
+	    <p><em class="BNFCaps">function-word</em></p>
+	    <p><em class="BNFCaps">define-body-word</em></p>
+	    <p><em class="BNFCaps">define-list-word</em></p>
+	  </dd>
+	  <dt><var>core-word:</var></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span> <code>define end handler let local macro otherwise</code></p>
+	  </dd>
+	</dl>
+	<p>The following reserved words are exported by the Dylan module:</p>
+	<dl>
+	  <dt><em class="BNFCaps">begin-word:</em></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span> <code>begin block case for if method</code></p>
+	    <p><span class="one-of">one of</span> <code>select unless until while</code></p>
+	  </dd>
+	  <dt><em class="BNFCaps">function-word:</em></dt>
+	  <dd>
+	    <p>(none)</p>
+	  </dd>
+	  <dt><em class="BNFCaps">define-body-word:</em></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span> <code>class library method module</code></p>
+	  </dd>
+	  <dt><em class="BNFCaps">define-list-word:</em></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span> <code>constant variable domain</code></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-117-15"></a>
+	<h2 class="subsection-title"><a name="IX-2101">Names, Symbols and Keywords</a></h2>
+	<dl>
+	  <dt><em class="BNFCaps">name:</em></dt>
+	  <dd>
+	    <p><var>word</var></p>
+	    <p><i><code>\</code> word</i></p>
+	    <p><var>operator-name</var></p>
+	  </dd>
+	  <dt><em class="BNFCaps">unreserved-name:</em></dt>
+	  <dd>
+	    <p>any <var>word</var> that is not also a <var>reserved-word</var></p>
+	    <p><code>\</code> <var>word</var></p>
+	    <p><var>operator-name</var></p>
+	  </dd>
+	  <dt><em class="BNFCaps">ordinary-name:</em></dt>
+	  <dd>
+	    <p><em class="BNFCaps">unreserved-name</em></p>
+	    <p><em class="BNFCaps">define-body-word</em></p>
+	    <p><em class="BNFCaps">define-list-word</em></p>
+	  </dd>
+	  <dt><em class="BNFCaps">constrained-name:</em></dt>
+	  <dd>
+	    <p><em class="BNFCaps">name</em> <code>:</code> <var>word</var></p>
+	    <p><em class="BNFCaps">name</em> <code>:</code> <em class="BNFCaps">binary-operator</em></p>
+	    <p><code>:</code> <var>word</var></p>
+	  </dd>
+	  <dt><var>operator-name:</var></dt>
+	  <dd>
+	    <p><code>\</code> <em class="BNFCaps">unary-operator</em></p>
+	    <p><code>\</code> <em class="BNFCaps">binary-operator</em></p>
+	  </dd>
+	  <dt><em class="BNFCaps">macro-name:</em></dt>
+	  <dd>
+	    <p><em class="BNFCaps">ordinary-name</em></p>
+	    <p><em class="BNFCaps">begin-word</em></p>
+	    <p><em class="BNFCaps">function-word</em></p>
+	  </dd>
+	  <dt><em class="BNFCaps">name-not-end:</em></dt>
+	  <dd>
+	    <p><em class="BNFCaps">macro-name</em></p>
+	    <p><span class="one-of">one of</span> <code>define handler let local macro otherwise</code></p>
+	  </dd>
+	  <dt><em class="BNFCaps">symbol:</em></dt>
+	  <dd>
+	    <p><var>word</var> <code>:</code></p>
+	    <p><code>#</code> <em class="BNFCaps">string</em></p>
+	  </dd>
+	  <dt><var>word:</var></dt>
+	  <dd>
+	    <p><var>leading-alphabetic</var></p>
+	    <p><var>leading-numeric</var> <var>alphabetic-character</var> <var>leading-alphabetic</var></p>
+	    <p><var>leading-graphic</var> <var>leading-alphabetic</var></p>
+	  </dd>
+	  <dt><var>leading-alphabetic:</var></dt>
+	  <dd>
+	    <p><var>alphabetic-character</var></p>
+	    <p><var>leading-alphabetic</var> <var>any-character</var></p>
+	  </dd>
+	  <dt><var>leading-numeric:</var></dt>
+	  <dd>
+	    <p><var>numeric-character</var></p>
+	    <p><var>leading-numeric</var> <var>word-character-not-double-alphabetic</var></p>
+	  </dd>
+	  <dt><var>leading-graphic:</var></dt>
+	  <dd>
+	    <p><var>graphic-character</var></p>
+	    <p><var>leading-graphic</var> <var>word-character-not-alphabetic</var></p>
+	  </dd>
+	  <dt><var>word-character-not-alphabetic:</var></dt>
+	  <dd>
+	    <p><var>numeric-character</var></p>
+	    <p><var>graphic-character</var></p>
+	    <p><var>special-character</var></p>
+	  </dd>
+	  <dt><var>word-character-not-double-alphabetic:</var></dt>
+	  <dd>
+	    <p><var>alphabetic-character</var> <var>word-character-not-alphabetic</var></p>
+	    <p><var>numeric-character</var></p>
+	    <p><var>graphic-character</var></p>
+	    <p><var>special-character</var></p>
+	  </dd>
+	  <dt><var>any-character:</var></dt>
+	  <dd>
+	    <p><var>alphabetic-character</var></p>
+	    <p><var>numeric-character</var></p>
+	    <p><var>graphic-character</var></p>
+	    <p><var>special-character</var></p>
+	  </dd>
+	  <dt><var>alphabetic-character:</var></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span>
+	      <code>a b c d e f g h i j k l m n o p q r s t u v w x y z</code></p>
+	  </dd>
+	  <dt><var>numeric-character:</var></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span> <code>0 1 2 3 4 5 6 7 8 9</code></p>
+	  </dd>
+	  <dt><var>graphic-character:</var></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span> <code>! &amp; * &lt; &gt; | ^ $ % @ _</code></p>
+	  </dd>
+	  <dt><var>special-character:</var></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span> <code>- + ~ ? / =</code></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-117-35"></a>
+	<h2 class="subsection-title"><a name="IX-2102">Operators</a></h2>
+	<dl>
+	  <dt><em class="BNFCaps">unary-operator:</em></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span> <code>- ~</code></p>
+	  </dd>
+	  <dt><em class="BNFCaps">binary-operator:</em></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span>
+	      <code>+ - * / ^ = == ~= ~== &lt; &lt;= &gt; &gt;= &amp; | :=</code></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-117-38"></a>
+	<h2 class="subsection-title"><a name="IX-2103">Character and String Literals</a></h2>
+	<dl>
+	  <dt><em class="BNFCaps">character-literal:</em></dt>
+	  <dd>
+	    <p><code>'</code> <var>character</var> <code>'</code></p>
+	  </dd>
+	  <dt><var>character:</var></dt>
+	  <dd>
+	    <p>any printing character (including space) except for <code>'</code> or <code>\</code></p>
+	    <p><code>\</code> <var>escape-character</var></p>
+	  </dd>
+	  <dt><em class="BNFCaps">string:</em></dt>
+	  <dd>
+	    <p><code>&quot;</code> <var>more-string</var></p>
+	  </dd>
+	  <dt><var>more-string:</var></dt>
+	  <dd>
+	    <p><var>string-character</var> <var>more-string</var></p>
+	    <p><code>&quot;</code></p>
+	  </dd>
+	  <dt><var>string-character:</var></dt>
+	  <dd>
+	    <p>any printing character (including space) except for <code>&quot;</code> or <code>\</code></p>
+	    <p><code>\</code> <var>escape-character</var></p>
+	  </dd>
+	  <dt><var>escape-character:</var></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span> <code>\ ' &quot; a b e f n r t 0</code></p>
+	    <p><code>&lt;</code> <var>hex-digits</var> <code>&gt;</code></p>
+	  </dd>
+	</dl>
+	<a name="HEADING-117-45"></a>
+	<h2 class="subsection-title"><a name="XREF-2105"></a><a name="IX-2104">Numbers</a></h2>
+	<dl>
+	  <dt><em class="BNFCaps">number:</em></dt>
+	  <dd>
+	    <p><var>integer</var></p>
+	    <p><var>ratio</var></p>
+	    <p><var>floating-point</var></p>
+	  </dd>
+	  <dt><var>integer:</var></dt>
+	  <dd>
+	    <p><var>binary-integer</var></p>
+	    <p><var>octal-integer</var></p>
+	    <p><i>sign<em><sub>opt</sub></em></i> <var>decimal-integer</var></p>
+	    <p><var>hex-integer</var></p>
+	  </dd>
+	  <dt><var>binary-integer:</var></dt>
+	  <dd>
+	    <p><code>#b</code> <var>binary-digit</var></p>
+	    <p><var>binary-integer</var> <var>binary-digit</var></p>
+	  </dd>
+	  <dt><var>octal-integer:</var></dt>
+	  <dd>
+	    <p><code>#o</code> <var>octal-digit</var></p>
+	    <p><var>octal-integer</var> <var>octal-digit</var></p>
+	  </dd>
+	  <dt><var>decimal-integer:</var></dt>
+	  <dd>
+	    <p><var>decimal-digit</var></p>
+	    <p><var>decimal-integer</var> <var>decimal-digit</var></p>
+	  </dd>
+	  <dt><var>hex-integer:</var></dt>
+	  <dd>
+	    <p><code>#x</code> <var>hex-digit</var></p>
+	    <p><var>hex-integer</var> <var>hex-digit</var></p>
+	  </dd>
+	  <dt><var>hex-digits:</var></dt>
+	  <dd>
+	    <p><var>hex-digit</var> &hellip;</p>
+	  </dd>
+	  <dt><var>binary-digit:</var></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span> <code>0 1</code></p>
+	  </dd>
+	  <dt><var>octal-digit:</var></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span> <code>0 1 2 3 4 5 6 7</code></p>
+	  </dd>
+	  <dt><var>decimal-digit:</var></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span> <code>0 1 2 3 4 5 6 7 8 9</code></p>
+	  </dd>
+	  <dt><var>hex-digit:</var></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span> <code>0 1 2 3 4 5 6 7 8 9 A B C D E F</code></p>
+	  </dd>
+	  <dt><var>ratio:</var></dt>
+	  <dd>
+	    <p><i>sign<em><sub>opt</sub></em></i> <var>decimal-integer</var> <code>/</code> <var>decimal-integer</var></p>
+	  </dd>
+	  <dt><var>floating-point:</var></dt>
+	  <dd>
+	    <p><i>sign<em><sub>opt</sub></em></i> <i>decimal-integer<em><sub>opt</sub></em></i> <code>.</code> <var>decimal-integer</var> <i>exponent<em><sub>opt</sub></em></i></p>
+	    <p><i>sign<em><sub>opt</sub></em></i> <var>decimal-integer</var> <code>.</code> <i>decimal-integer<em><sub>opt</sub></em></i> <i>exponent<em><sub>opt</sub></em></i></p>
+	    <p><i>sign<em><sub>opt</sub></em></i> <var>decimal-integer</var> <var>exponent</var></p>
+	  </dd>
+	  <dt><var>exponent:</var></dt>
+	  <dd>
+	    <p><code>E</code> <i>sign<em><sub>opt</sub></em></i> <var>decimal-integer</var></p>
+	  </dd>
+	  <dt><var>sign:</var></dt>
+	  <dd>
+	    <p><span class="one-of">one of</span> <code>+ -<a name="IX-2106"></a></code></p>
+	  </dd>
+	</dl>
+
+      </div>
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="BNF"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Phrase_Grammar"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="BNF"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

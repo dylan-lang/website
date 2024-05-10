@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Program_Structure" />
+    <link rel="prev" href="Program_Structure" />
+    <link rel="next" href="Libraries" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Modules &mdash; 3. Program Structure &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Program_Structure"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Libraries"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Program_Structure"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li class="current parent"><a href="Program_Structure">Program Structure</a>
+	      <ul class="sections">
+		<li id="current" class="subsections"><a href="Modules">Modules</a>
+		  <ul class="page-TOC">
+		    <li class="footer"><a href="#HEADING-26-4">Defining Module Bindings</a></li>
+		  </ul>
+		</li>
+		<li><a href="Libraries">Libraries</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 3</p>
+	<p id="section-name">Program Structure</p>
+      </div>
+
+      <a name="HEADING-26-0"></a>
+      <a name="UID-Program_Structure-2480"></a>
+      <h1 class="section-title"><a name="IX-361"></a>Modules</h1>
+      <p>Modules are used for creating large-scale <a name="IX-362">namespaces of bindings</a>. The
+	bindings <a name="IX-363">accessible</a> in a module are <a name="IX-364">visible</a> to all
+	the code within the module (except where shadowed by a local binding). Only the bindings
+	explicitly <a name="IX-365">exported</a> are visible from outside the module.</p>
+      <p id="FOOTNOTE-ANCHOR-1">Some languages have module systems with distinct support for
+	exporting variables, functions, types, and classes. Dylan modules operate only on
+	bindings. Because functions and classes are commonly named by bindings, access to them is
+	controlled by <a name="IX-366">controlling access to the bindings</a> that name them. By
+	exporting the binding naming a class or function, a program has effectively exported the
+	class or function. If the binding is not exported, then the class or function is effectively
+	private.<a rel="footnote" href="#FOOTNOTE-1" title="Footnote 1"><sup>*</sup></a></p>
+      <p><a name="IX-367"></a>A <a name="IX-368">module definition</a> defines the imports and
+	exports of a module, and may specify bindings owned by the module. A complete description of
+	module definitions is given on <a href="Definition_Macros#XREF-2016">page 381</a>.</p>
+      <a name="HEADING-26-4"></a>
+      <a name="UID-Program_Structure-1436"></a>
+      <h2 class="subsection-title"><a name="IX-369">Defining Module Bindings</a></h2>
+      <p>A module consists of a set of bindings. A binding may be <dfn id="IX-370">owned</dfn>
+	by a module, or a module may <dfn id="IX-371">import</dfn> the binding from another
+	module by <dfn id="IX-372">using</dfn> the other
+	module. Modules <dfn id="IX-373">export</dfn> bindings to make them accessible to
+	other modules. Only exported bindings can be imported by other modules.</p>
+      <p><a name="IX-374">Module-use relationships may not be circular.</a> To create a common set
+	of bindings for a group of modules, the modules can import the bindings from another module
+	or modules.</p>
+      <p>Within a given module, a <a name="IX-375">name refers to</a> at most one module
+	binding. It is an error to create or import two or more different bindings with the same
+	name in a single module. If a name does refer to a binding, the binding is said to
+	be <dfn id="IX-376">accessible</dfn> from the module. Each binding is owned by exactly
+	one module, but it can be accessible from many modules.</p>
+      <p>Module <a name="IX-377">bindings are created</a>
+	by <a name="IX-378">definitions</a>. <dfn id="IX-379">Explicit definitions</dfn>
+	are created by <code id="IX-380">define constant</code>,
+	<code id="IX-381">define variable</code>,
+	<code id="IX-382">define generic</code>,
+	<code id="IX-383">define macro</code> and the class name
+	in <code id="IX-384">define class</code>. <dfn id="IX-385">Implicit
+	  definitions</dfn> are created by <code id="IX-386">define method </code>and the slot
+	specifications of <code id="IX-387">define class</code>.</p>
+      <p>Within a library, a module binding may have no explicit definition or it may have one
+	explicit definition. It may not have more than one explicit definition. If a module binding
+	has no explicit definition, it must have one or more implicit definitions. If it does have
+	an explicit definition, it can have zero or more implicit definitions.</p>
+      <p>A binding may be <a name="IX-388">declared by</a> the <code id="IX-389">create</code>
+	clause of a module definition. This does not define the binding, but instead declares that
+	it is owned by the module. Other modules may import the binding from that module. The
+	binding must be defined by one of the modules that imports it.</p>
+      <p>If a binding is not declared by the <code>create</code> clause of a module definition, it
+	is owned by the module in which its explicit definition appears. If it does not have an
+	explicit definition, it is owned by one of the modules in which at least one of its implicit
+	definitions appears; the exact owning module cannot be determined.</p>
+      <p>It is an error to reference a name for the purpose of getting or setting its value if the
+	name does not designate either a local or module binding in the environment where the
+	reference occurs.<a name="IX-390"></a></p>
+
+      <div id="footnotes">
+	<hr />
+	
+	<p id="FOOTNOTE-1"><a href="#FOOTNOTE-ANCHOR-1"><sup>*</sup></a> This privacy can sometimes
+	  be circumvented through certain introspective operations.</p>
+      </div>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Program_Structure"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Libraries"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Program_Structure"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Program_Control" />
+    <link rel="prev" href="Assignment" />
+    <link rel="next" href="Iteration" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Conditional Execution &mdash; 4. Program Control &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Assignment"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Iteration"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Program_Control"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li class="current parent"><a href="Program_Control">Program Control</a>
+	      <ul class="sections">
+		<li><a href="Program_Control_Overview">Overview</a></li>
+		<li><a href="Function_Calls">Function Calls</a></li>
+		<li><a href="Operators">Operators</a></li>
+		<li><a href="Assignment">Assignment</a></li>
+		<li id="current" class="subsections"><a href="Conditional_Execution">Conditional Execution</a>
+		  <ul class="page-TOC">
+		    <li><a href="#HEADING-33-105">True and False</a></li>
+		  </ul>
+		</li>
+		<li><a href="Iteration">Iteration</a></li>
+		<li><a href="Nonlocal_Exits_and_Cleanup_Clauses">Nonlocal Exits and Cleanup Clauses</a></li>
+		<li><a href="Multiple_Values">Multiple Values</a></li>
+		<li><a href="Order_of_Execution">Order of Execution</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 4</p>
+	<p id="section-name">Program Control</p>
+      </div>
+
+      <a name="HEADING-33-0"></a>
+      <a name="UID-Program_Control-2526"></a>
+      <h1 class="section-title"><a name="IX-459">Conditional Execution</a></h1>
+      <p>There are a number of statements and function macros that can be used to conditionally
+	execute code. These are described in detail
+	in <a href="Built-In_Macros_and_Special_Definitions">Chapter 14, <q>The Built-In Macros and
+	    Special Definitions.</q></a></p>
+      <table class="numbered">
+	<caption><strong>Table 4-2</strong> Conditional Execution</caption>
+	<tr>
+	  <th class="primary"><p>Macro / Operator</p></th>
+	  <th><p>Description</p></th>
+	  <th><p>Page</p></th>
+	</tr><tr>
+	  <td><p><code>if</code></p></td>
+	  <td><p><a href="Statement_Macros#XREF-2044">Executes an implicit body if the value of
+		a test is true or an alternate if the test is false.</a></p></td>
+	  <td><p><a href="Statement_Macros#XREF-2044">395</a></p></td>
+	</tr><tr>
+	  <td><p><code>unless</code></p></td>
+	  <td><p><a href="Statement_Macros#XREF-2046">Executes an implicit body unless the value
+		of a test is true.</a></p></td>
+	  <td><p><a href="Statement_Macros#XREF-2046">396</a></p></td>
+	</tr><tr>
+	  <td><p><code>case</code></p></td>
+	  <td><p><a href="Statement_Macros#XREF-2048">Executes a number of tests until one is
+		true, and then executes an implicit body associated with the true test.</a></p></td>
+	  <td><p><a href="Statement_Macros#XREF-2048">397</a></p></td>
+	</tr><tr>
+	  <td><p><code>select</code></p></td>
+	  <td><p><a href="Statement_Macros#XREF-2050">Compares a target object to a series of
+		potential matches, and executes an implicit body associated with the first match
+		found.</a></p></td>
+	  <td><p><a href="Statement_Macros#XREF-2050">398</a></p></td>
+	</tr><tr>
+	  <td><p><code>|</code></p></td>
+	  <td><p><a href="Function_Macros#XREF-2076">Returns the value of the first of two
+		operands that is true.</a> This is a logical or operation.</p></td>
+	  <td><p><a href="Function_Macros#XREF-2075">412</a></p></td>
+	</tr><tr>
+	  <td><p><code>&amp;</code></p></td>
+	  <td><p><a href="Function_Macros#XREF-2079">If the value of a first operand is true,
+		executes a second operand and returns its values.</a> This is a logical and
+		operation.</p></td>
+	  <td><p><a href="Function_Macros#XREF-2079">412</a></p></td>
+	</tr>
+      </table>
+      <a name="HEADING-33-105"></a>
+      <a name="UID-Program_Control-1352"></a>
+      <h2 class="subsection-title"><a name="IX-460">True and False</a></h2>
+      <p>For the purposes of conditional execution, there is a single object that counts as false,
+	and all other objects count as true.</p>
+      <p>The <a name="IX-461">false object</a> is the constant <code id="IX-462">#f</code>. There is
+	a canonical true object, <code id="IX-463">#t</code>, which can be used for clarity of
+	code. <code>#t</code> and <code>#f</code> are instances of the
+	class <code id="IX-464">&lt;boolean&gt;</code>.</p>
+      <p>Because all values besides <code>#f</code> count as true, the term <q>true or false</q> is
+	not equivalent to <q><code>#t</code> or <code>#f</code></q>.</p>
+      <p>The operator <code id="IX-465">~</code> is used for logical negation. If its operand
+	is true, it returns <code>#f</code>. If its operand is <code>#f</code>, it
+	returns <code>#t</code>.</p>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Assignment"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Iteration"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Program_Control"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Built-In_Functions" />
+    <link rel="prev" href="Built-In_Functions_Overview" />
+    <link rel="next" href="Equality_and_Comparison" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+    
+    <title>Constructing and Initializing Instances &mdash; 12. The Built-in Functions &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Built-In_Functions_Overview"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Equality_and_Comparison"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Built-In_Functions"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li class="current parent"><a href="Built-In_Functions">The Built-In Functions</a>
+	      <ul class="sections">
+		<li><a href="Built-In_Functions_Overview">Overview</a></li>
+		<li id="current" class="subsections"><a href="Constructing_and_Initializing_Instances">Constructing and Initializing Instances</a>
+		  <ul class="page-TOC">
+		    <li class="subsections"><a href="#HEADING-98-2">General Constructor</a>
+		      <ul>
+			<li><a href="#HEADING-98-3"><code>make</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-98-14"><code>make</code> class #rest supplied-init-args #key &rArr; object <span class="attributes-summary">[G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-98-17"><code>make</code> (singleton (&lt;array&gt;)) #key dimensions fill &rArr; array <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-98-19"><code>make</code> (singleton (&lt;deque&gt;)) #key size fill &rArr; deque <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-98-21"><code>make</code> (singleton (&lt;range&gt;)) #key from by to above below size &rArr; deque <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-98-23"><code>make</code> (singleton (&lt;table&gt;)) #key size &rArr; object-table <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-98-25"><code>make</code> (singleton (&lt;vector&gt;)) #key size fill &rArr; simple-object-vector <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-98-25"><code>make</code> (singleton (&lt;simple-vector&gt;)) #key size fill &rArr; simple-object-vector <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-98-27"><code>make</code> (singleton (&lt;list&gt;)) #key size fill &rArr; list <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-98-29">Initialization</a>
+		      <ul>
+			<li><a href="#HEADING-98-30"><code>initialize</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-98-38"><code>initialize</code> <var>object</var> #key &rArr; <var>object</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-98-40"><code>slot-initialized?</code><span class="attributes-summary"> [Open Generic Function]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-98-49">Specific Constructors</a>
+		      <ul>
+			<li><a href="#HEADING-98-50"><code>list</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-98-56"><code>pair</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-98-66"><code>range</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-98-77"><code>singleton</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-98-83"><code>limited</code><span class="attributes-summary"> [Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-98-90"><code>limited</code> (singleton (&lt;integer&gt;)) #key min max &rArr; type <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-98-92"><code>limited</code> (singleton (&lt;collection&gt;)) #key of size &rArr; type <span class="attributes-summary">[Sealed G.F. Method]</span><br />
+				<code>limited</code> (singleton (&lt;explicit-key-collection&gt;)) #key of size &rArr; type <span class="attributes-summary">[Sealed G.F. Method]</span> <br />
+				<code>limited</code> (singleton (&lt;mutable-collection&gt;)) #key of size &rArr; type <span class="attributes-summary">[Sealed G.F. Method]</span> <br />
+				<code>limited</code> (singleton (&lt;stretchy-collection&gt;)) #key of size &rArr; type <span class="attributes-summary">[Sealed G.F. Method]</span> <br />
+				<code>limited</code> (singleton (&lt;mutable-explicit-key-collection&gt;)) #key of size &rArr; type <span class="attributes-summary">[Sealed G.F. Method]</span> <br />
+				<code>limited</code> (singleton (&lt;sequence&gt;)) #key of size &rArr; type <span class="attributes-summary">[Sealed G.F. Method]</span> <br />
+				<code>limited</code> (singleton (&lt;mutable-sequence&gt;)) #key of size &rArr; type <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-98-94"><code>limited</code> (singleton (&lt;table&gt;)) #key of size &rArr; type <span class="attributes-summary">[Sealed G.F. Method]</span> <br />
+				<code>limited</code> (singleton (&lt;object-table&gt;)) #key of size &rArr; type <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-98-96"><code>limited</code> (singleton (&lt;array&gt;)) #key of size dimensions &rArr; type <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-98-99"><code>limited</code> (singleton (&lt;vector&gt;)) #key of size &rArr; type <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-98-101"><code>limited</code> (singleton (&lt;simple-vector&gt;)) #key of size &rArr; type <span class="attributes-summary">[Sealed G.F. Method]</span> <br />
+				<code>limited</code> (singleton (&lt;stretchy-vector&gt;)) #key of &rArr; type <span class="attributes-summary">[Sealed G.F. Method]</span> limited (singleton (&lt;deque&gt;)) #key of &rArr; type <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-98-104"><code>limited</code> (singleton (&lt;string&gt;)) #key of size &rArr; type <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-98-107"><code>limited</code> (singleton (&lt;range&gt;)) #key of &rArr; type <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-98-109"><code>type-union</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-98-117"><code>vector</code><span class="attributes-summary"> [Function]</span></a></li>
+		      </ul>
+		    </li>
+		  </ul>
+		</li>
+		<li><a href="Equality_and_Comparison">Equality and Comparison</a></li>
+		<li><a href="Arithmetic_Operations">Arithmetic Operations</a></li>
+		<li><a href="Coercing_and_Copying_Objects">Coercing and Copying Objects</a></li>
+		<li><a href="Collection_Operations">Collection Operations</a></li>
+		<li><a href="Reflective_Operations_on_Types">Reflective Operations on Types</a></li>
+		<li><a href="Functional_Operations">Functional Operations</a></li>
+		<li><a href="Function_Application">Function Application</a></li>
+		<li><a href="Reflective_Operations_on_Functions">Reflective Operations on Functions</a></li>
+		<li><a href="Operations_on_Conditions">Operations on Conditions</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 12</p>
+	<p id="section-name">The Built-In Functions</p>
+      </div>
+
+      <a name="HEADING-98-0"></a>
+      <a name="UID-Built-In_Functions-20431"></a>
+      <h1 class="section-title">Constructing and Initializing Instances</h1>
+      <p>Instance creation and initialization is performed by the open generic
+	functions <code>make</code> and <code>initialize</code>. For an overview of the allocation
+	and initialization process,
+	see <a href="Instance_Creation_and_Initialization#XREF-658"><q>Instance Creation and
+	    Initialization</q> beginning on page 64</a>.</p>
+      <a name="HEADING-98-2"></a>
+      <a name="UID-Built-In_Functions-32090"></a>
+      <h2 class="subsection-title"><a name="IX-1536"></a><a name="IX-1537">General Constructor</a></h2>
+      <a name="HEADING-98-3"></a>
+      <h4 class="item-title" id="make"><a class="here" title="Link to here" href="#make"></a> <span class="signature"><code id="IX-1538">make</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1539">Returns a general instance of its
+	first argument.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>make <var>type</var> #rest <var>supplied-init-args</var> #key #all-keys </code>
+	    &rArr;<code> <var class="results">instance</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd><dl>
+	    <dt><var>type</var></dt>
+	    <dd><p>An instance of <code>&lt;type&gt;</code>.</p></dd>
+	    <dt><var>supplied-init-args</var></dt>
+	    <dd><p>Keyword/argument pairs.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>instance</var></dt>
+	    <dd>
+              <p>An <code>&lt;object&gt;</code>, which must be a general instance
+		of <var>type</var>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns an instance of <var>type</var>, with characteristics specified by keyword
+	    arguments.</p>
+	  <p>The <var>instance</var> returned is guaranteed to be a general instance
+	    of <var>type</var> but not necessarily a direct instance
+	    of <var>type</var>. This <a name="IX-1540">liberality</a> allows <code>make</code>
+	    to be called on an abstract class or other type; it can instantiate and return a direct
+	    instance of one of the concrete subtypes of the abstract class or type.</p>
+	  <p>The <var>instance</var> returned may or may not be newly allocated. If a new instance
+	    is allocated, <code>make</code> will call <code>initialize</code> on the instance before
+	    returning it.</p>
+	  <p>Programmers may customize <code>make</code> for particular classes by defining methods
+	    specialized by singleton specializers. These methods may obtain the
+	    default <code>make</code> behavior, if desired, by calling next-method.</p>
+	  <p>Note that the <code>&lt;class&gt;</code> method on <code>make</code> returns a newly
+	    allocated direct instance of its first argument.</p>
+	  <a name="HEADING-98-14"></a>
+	  <h5 class="method-signature"><span class="signature"><code>make <var>class</var> #rest <var>supplied-init-args</var> #key </code>&rArr;<code> <var>object</var></code></span> <span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p class="short-description"><a name="XREF-1541"></a>The method
+	    on <code>&lt;class&gt;</code> creates an instance of <var>class</var>,
+	    calls <code>initialize</code> on the instance, and then returns the instance. An error
+	    is signaled if <var>class</var> is abstract.</p>
+	  <p>A complete description of this method and its role in the initialization protocol is
+	    given in <a href="Instance_Creation_and_Initialization#XREF-658"><q>Instance
+		Creation and Initialization</q> on page 64</a>.</p>
+	  <a name="HEADING-98-17"></a>
+	  <h5 class="method-signature"><span class="signature"><code>make <em>(singleton (&lt;array&gt;))</em><br /> #key <var>dimensions fill</var> </code>&rArr;<code> <var>array</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p class="short-description">The method on <code>singleton(&lt;array&gt;)</code>
+	    accepts <var>dimensions</var> and <var>fill</var> keyword arguments, and instantiates a
+	    concrete subclass of <code>&lt;array&gt;</code>. These arguments are described with the
+	    &lt;array&gt; class on <a href="Collection_Classes#XREF-1426">page 218</a>.</p>
+	  <a name="HEADING-98-19"></a>
+	  <h5 class="method-signature"><span class="signature"><code>make <em>(singleton (&lt;deque&gt;))</em><br /> #key <var>size fill</var> </code>&rArr;<code> <var>deque</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p class="short-description">The method on <code>singleton(&lt;deque&gt;)</code>
+	    accepts <var>size</var> and <var>fill</var> keyword arguments, and instantiates a
+	    concrete subclass of <code>&lt;deque&gt;</code>. These arguments are described with the
+	    &lt;deque&gt; class on <a href="Collection_Classes#XREF-1442">page 225</a>.</p>
+	  <a name="HEADING-98-21"></a>
+	  <h5 class="method-signature"><span class="signature"><code>make <em>(singleton (&lt;range&gt;))</em><br /> #key <var>from by to above below size</var> </code>&rArr;<code> <var>deque</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p class="short-description">The method on <code>singleton(&lt;range&gt;)</code> accepts a
+	    number of keyword arguments, and instantiates a concrete subclass
+	    of <code>&lt;range&gt;</code>. These arguments are described with
+	    the <code>&lt;range&gt;</code> class on <a href="Collection_Classes#XREF-1454">page
+	    230</a>.</p>
+	  <a name="HEADING-98-23"></a>
+	  <h5 class="method-signature"><span class="signature"><code>make <em>(singleton (&lt;table&gt;))</em><br /> #key <var>size</var> </code>&rArr;<code> <var>object-table</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p class="short-description">The method on <code>singleton(&lt;table&gt;)</code>
+	    accepts <var>size</var> keyword argument, and
+	    instantiates <code>&lt;object-table&gt;</code>. The size argument is described with the
+	    &lt;table&gt; class on <a href="Collection_Classes#XREF-1462">page 235</a>.</p>
+	  <a name="HEADING-98-25"></a>
+	  <h5 class="method-signature"><span class="signature"><code>make <em>(singleton (&lt;vector&gt;))</em><br /> #key <var>size fill</var> </code>&rArr;<code> <var>simple-object-vector</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <h5 class="method-signature"><span class="signature"><code>make <em>(singleton (&lt;simple-vector&gt;))</em><br /> #key <var>size fill</var> </code>&rArr;<code> <var>simple-object-vector</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>Methods on <code>singleton(&lt;vector&gt;)</code>
+	    and <code>singleton(&lt;simple-vector&gt;)</code> accept <var>size</var>
+	    and <var>fill</var> keyword arguments, and return an instance
+	    of <code>&lt;simple-object-vector&gt;</code>. These arguments are described with
+	    the <code>&lt;vector&gt;</code> class on <a href="Collection_Classes#XREF-1432">page
+	    221</a> and with the <code>&lt;simple-vector&gt;</code> class
+	    on <a href="Collection_Classes#XREF-1435">page 222</a>.</p>
+	  <a name="HEADING-98-27"></a>
+	  <h5 class="method-signature"><span class="signature"><code>make <em>(singleton (&lt;list&gt;))</em><br /> #key <var>size fill</var> </code>&rArr;<code> <var>list</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>A method on <code>singleton(&lt;list&gt;)</code> accepts <var>size</var>
+	    and <var>fill</var> keyword arguments. These arguments are described with
+	    the <code>&lt;list&gt;</code> class on <a href="Collection_Classes#XREF-1449">page
+	    227</a>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-98-29"></a>
+      <a name="UID-Built-In_Functions-2323"></a>
+      <h2 class="subsection-title">Initialization</h2>
+      <a name="HEADING-98-30"></a>
+      <h4 class="item-title" id="initialize"><a class="here" title="Link to here" href="#initialize"></a> <span class="signature"><code id="IX-1542">initialize</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1543">Performs instance initialization that
+	cannot be specified declaratively by a class definition.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>initialize <var>instance</var> #key #all-keys </code>
+	    &rArr;<code> #rest <var>objects</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>instance</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>objects</var></dt>
+	    <dd>
+              <p>Instances of <code>&lt;object&gt;</code>. The return values are ignored
+		by <code>make</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Provides a way for users to handle initialization of instances which cannot be
+	    expressed simply by init specifications. This is typically needed when a computation
+	    requires inputs from multiple initialization arguments or slot values, or a single
+	    computation needs to be used to initialize multiple slots.</p>
+	  <p>By convention, all <code>initialize</code> methods should call next-method very early,
+	    to make sure that any initializations from less specific classes are performed
+	    first.</p>
+	  <p>The <code>initialize</code> generic function permits all keywords and requires none. It
+	    does this because the keyword argument checking is performed by the default method
+	    on <code>make</code>.</p>
+	  <a name="HEADING-98-38"></a>
+	  <h5 class="method-signature"><span class="signature"><code>initialize <var>object</var> #key </code>
+	      &rArr;<code> <var>object</var></code></span> <span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p class="short-description">This method does nothing. It is present so that it is always
+	    safe for <code>initialize</code> methods to call next method, and so that it is safe for
+	    the default <code>make</code> method to call <code>initialize</code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-98-40"></a>
+      <h4 class="item-title" id="slot-initialized_"><a class="here" title="Link to here" href="#slot-initialized_"></a> <span class="signature"><a name="IX-1545"></a><code id="IX-1544">slot-initialized?</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1546">Tests whether a slot has been
+	initialized.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>slot-initialized? <var>instance getter</var> </code>
+	    &rArr;<code> <var>boolean</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd><dl>
+	    <dt><var>instance</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	    <dt><var>getter</var></dt>
+	    <dd><p>An instance of <code>&lt;generic-function&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>boolean</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;boolean&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns true if the slot in <var>instance</var> that would be accessed by
+	    the <var>getter</var> generic function is initialized. If the slot is not initialized,
+	    then false is returned.</p>
+	  <p><code>slot-initialized?</code> will signal an error if the <var>getter</var> does not
+	    access a slot in the <var>instance</var>.</p>
+	  <p>To support <code>slot-initialized?</code> for a virtual slot, programmers must define a
+	    method for <code>slot-initialized?</code> that shares a protocol with the getter of the
+	    slot.<a name="IX-1547"></a></p></dd>
+      </dl>
+      <a name="HEADING-98-49"></a>
+      <a name="UID-Built-In_Functions-25322"></a>
+      <h2 class="subsection-title">Specific Constructors</h2>
+      <a name="HEADING-98-50"></a>
+      <h4 class="item-title" id="list"><a class="here" title="Link to here" href="#list"></a> <span class="signature"><a name="IX-1549"></a><code id="IX-1548">list</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1550">Creates and returns a freshly allocated
+	list.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>list #rest <var>arguments</var> </code>
+	    &rArr;<code> <var>list</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>arguments</var></dt>
+	    <dd>
+              <p>The elements of the <var>list</var>. Instances of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>list</var></dt>
+	    <dd>
+              <p>A freshly allocated instance of <code>&lt;list&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Returns a freshly allocated list containing the <var>arguments</var>, in
+	    order.</p></dd>
+      </dl>
+      <a name="HEADING-98-56"></a>
+      <h4 class="item-title" id="pair"><a class="here" title="Link to here" href="#pair"></a> <span class="signature"><a name="IX-1553"></a><code id="IX-1551">pair</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1552">Creates and returns a freshly allocated
+	pair.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>pair <var>object1 object2</var></code> &rArr;<code> <var>pair</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd><dl>
+	    <dt><var>object1</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	    <dt><var>object2</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>pair</var></dt>
+	    <dd>
+              <p>A freshly allocated instance of <code>&lt;pair&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Creates a freshly allocated pair whose head value is <var>object1</var> and tail value
+	    is <var>object2</var>.</p>
+	  <pre class="code">
+pair (1, 2)
+  &rArr; #(1 . 2)
+pair (1, #(2, 3, 4, 5))
+  &rArr; #(1, 2, 3, 4, 5)</pre>
+	  <p>Note that while the pair returned by <code>pair</code> is freshly allocated, it may be
+	    the beginning of a list, portions of which are not freshly allocated.</p>
+	  <pre class="code">
+define variable *preexisting-list* = list(2, 3, 4)
+define variable *new-list* = pair(1, *preexisting-list*)
+*new-list*
+  &rArr; #(1, 2, 3, 4)
+tail(*new-list*) == *preexisting-list*
+  &rArr; #t
+third(*new-list*) := 'x'
+*new-list*
+  &rArr; #(1, 2, x, 4)
+*preexisting-list*
+  &rArr; #(2, x, 4)</pre>
+	</dd>
+      </dl><a name="HEADING-98-66"></a>
+      <h4 class="item-title" id="range"><a class="here" title="Link to here" href="#range"></a> <span class="signature"><a name="IX-1555"></a><code id="IX-1554">range</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description">Creates and returns a range.</p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>range #key <var>from to above below by size</var> </code>
+	    &rArr;<code> <var>range</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd><dl>
+	    <dt><var>from</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>. The default value
+		is <code>0</code>.</p></dd>
+	    <dt><var>to</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	    <dt><var>above</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	    <dt><var>below</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	    <dt><var>by</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>. The default value
+		is <code>1</code>.</p></dd>
+	    <dt><var>size</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>range</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;range&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Creates an instance of <code>&lt;range&gt;</code>. The arguments correspond to the
+	    initialization arguments of <code>&lt;range&gt;</code>, described
+	    on <a href="Collection_Classes#XREF-1454">page 230</a>.</p></dd>
+      </dl>
+      <p class="errata-note" id="errata-p263-1">
+	<a class="note-tag" href="Errata#p263-1"><strong>Errata:</strong></a> In the published
+	book, an incorrect default value of <code>0</code> (zero) is given for <var>by</var>.
+      </p>
+      <a name="HEADING-98-77"></a>
+      <h4 class="item-title" id="singleton"><a class="here" title="Link to here" href="#singleton"></a> <span class="signature"><a name="IX-1557"></a><code id="IX-1556">singleton</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description">Creates and returns a singleton.</p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>singleton <var>object</var> </code>
+	    &rArr;<code> <var>singleton</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>singleton</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;singleton&gt;</code>. The singleton
+		for <var>object</var>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Returns a singleton for <var>object</var>. <code>singleton(<var>object)</var></code>
+	    is equivalent to <code>make(&lt;singleton&gt;, object: <var>object)</var></code>. If a
+	    singleton for the specified object already exists, implementations are free to return it
+	    rather than allocate a new singleton.</p></dd>
+      </dl>
+      <a name="HEADING-98-83"></a>
+      <h4 class="item-title" id="limited"><a class="here" title="Link to here" href="#limited"></a> <span class="signature"><a name="IX-1560"></a><code id="IX-1558">limited</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1559">Returns a limited subtype of a class.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>limited <var>class</var> #key </code>
+	    &rArr;<code> <var>type</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>class</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;class&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>type</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;type&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a limited subtype of <var>class</var>. The available keyword arguments depend
+	    on the <var>class</var>. Not all classes support <code>limited</code>; those that do are
+	    documented in the method descriptions below.</p>
+	  <p>Note that an implementation is not required to implement <code>limited</code> as a
+	    generic function, and so the behavior embodied in the following method descriptions need
+	    not actually be implemented by separate methods. The behavior is described as a set of
+	    methods for convenience of presentation only.</p>
+	  <a name="HEADING-98-90"></a>
+	  <h5 class="method-signature"><span class="signature"><code>limited <em>(singleton (&lt;integer&gt;))</em><br />        #key <var>min max</var> </code>&rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>Returns a limited integer type, which is a subtype of <code>&lt;integer&gt;</code>
+	    whose instances are integers greater than or equal to <var>min</var>
+	    (if <code>min:</code> is specified) and less than or equal to <var>max</var>
+	    (if <code>max:</code> is specified). If no keyword arguments are specified, the result
+	    type is equivalent to <code>&lt;integer&gt;</code>. Limited integer types are not
+	    instantiable.</p>
+	  <a name="HEADING-98-92"></a>
+	  <h5 class="method-signature"><span class="signature"><a name="XREF-1561"></a><code>limited <em>(singleton (&lt;collection&gt;))</em><br />        #key <var>of size</var> </code>&rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <h5 class="method-signature"><span class="signature"><code>limited <em>(singleton (&lt;explicit-key-collection&gt;))</em><br />        #key <var>of size</var> </code>&rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <h5 class="method-signature"><span class="signature"><code>limited <em>(singleton (&lt;mutable-collection&gt;))</em><br />        #key <var>of size</var> </code>&rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <h5 class="method-signature"><span class="signature"><code>limited <em>(singleton (&lt;stretchy-collection&gt;))</em><br />        #key <var>of size</var> </code>&rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <h5 class="method-signature"><span class="signature"><code>limited <em>(singleton (&lt;mutable-explicit-key-collection&gt;))</em><br />        #key <var>of size</var> </code>&rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <h5 class="method-signature"><span class="signature"><code>limited <em>(singleton (&lt;sequence&gt;))</em><br />        #key <var>of size</var> </code>&rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <h5 class="method-signature"><span class="signature"><code>limited <em>(singleton (&lt;mutable-sequence&gt;))</em><br />        #key <var>of size</var> </code>&rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>These methods return uninstantiable limited collection types.</p>
+	  <a name="HEADING-98-94"></a>
+	  <h5 class="method-signature"><span class="signature"><code>limited <em>(singleton (&lt;table&gt;))</em><br />        #key <var>of size</var> </code>&rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <h5 class="method-signature"><span class="signature"><code>limited <em>(singleton (&lt;object-table&gt;))</em><br />        #key <var>of size</var> </code>&rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>These two methods return types that support a <code>size:</code> initialization keyword
+	    with the same behavior as <code>&lt;table&gt;</code>.</p>
+	  <a name="HEADING-98-96"></a>
+	  <h5 class="method-signature"><span class="signature"><code>limited <em>(singleton (&lt;array&gt;))</em><br />        #key <var>of size dimensions</var> </code>&rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>This method returns a type that supports <code>dimensions:</code>
+	    and <code>fill:</code> initialization keywords with the same behavior
+	    as <code>&lt;array&gt;</code>. The default for fill is <code>#f</code> so
+	    if <code>instance?(#f, <var>of)</var></code> is not true and the product of
+	    the <var>dimensions</var> is nonzero, the <code>fill:</code> initialization keyword is
+	    required because the default would cause a type error.</p>
+	  <p>Instantiating <var>type</var> with a value of <var>dimensions</var> that has one
+	    element will return an instance of <code>limited(&lt;simple-vector&gt;,
+	    of: <var>of)</var></code>.</p>
+	  <a name="HEADING-98-99"></a>
+	  <h5 class="method-signature"><span class="signature"><code>limited <em>(singleton (&lt;vector&gt;))</em><br />        #key <var>of size</var> </code>&rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>This method returns the same types as the method
+	    on <code>singleton(&lt;simple-vector&gt;)</code>.</p>
+	  <a name="HEADING-98-101"></a>
+	  <h5 class="method-signature"><span class="signature"><code>limited <em>(singleton (&lt;simple-vector&gt;))</em><br />        #key <var>of size</var> </code>&rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <h5 class="method-signature"><span class="signature"><code>limited <em>(singleton (&lt;stretchy-vector&gt;))</em><br />        #key <var>of </var> </code>&rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <h5 class="method-signature"><span class="signature"><code>limited <em>(singleton (&lt;deque&gt;))</em><br />        #key <var>of </var> </code>&rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>These three methods return types that support <code>size:</code> and <code>fill:</code>
+	    initialization keywords with the same behavior as the collection-class argument. The
+	    default for fill is <code>#f</code> so if <code>instance?(#f, <var>of)</var></code> is
+	    not true and <var>size</var> is nonzero, the <code>fill:</code> initialization keyword
+	    is required because the default would cause a type error.</p>
+	  <p>All general instances of <code>&lt;simple-vector&gt;</code> provide a constant time
+	    implementation of <code>element</code> and <code>element-setter</code>.</p>
+	  <a name="HEADING-98-104"></a>
+	  <h5 class="method-signature"><span class="signature"><code>limited <em>(singleton (&lt;string&gt;))</em><br />        #key <var>of size </var> </code>&rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The <var>of</var> argument must be a subtype of <code>&lt;character&gt;</code>. This
+	    method returns a type that supports <code>size:</code> and <code>fill:</code>
+	    initialization keywords with the same behavior as <code>&lt;string&gt;</code>. The
+	    default for <code>fill</code>: is <code>' '</code> so if <code>instance?('
+	    ', <var>of)</var></code> is not true and <var>size</var> is nonzero,
+	    the <code>fill:</code> initialization keyword is required because the default would
+	    cause a type error.</p>
+	  <p>There are no specified subtypes of <code>&lt;character&gt;</code>, except for unions of
+	    singletons, which makes this method rather useless for portable programs. However, the
+	    method is provided because there might be useful subtypes
+	    of <code>&lt;character&gt;</code> in a particular implementation or in future versions
+	    of Dylan.</p>
+	  <a name="HEADING-98-107"></a>
+	  <h5 class="method-signature"><span class="signature"><code>limited <em>(singleton (&lt;range&gt;))</em><br />        #key <var>of </var> </code>&rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The <var>of</var> argument must be a subtype of <code>&lt;real&gt;</code>. This method
+	    returns a type that
+	    supports <code>from:</code>, <code>to:</code>, <code>below:</code>, <code>above:</code>, <code>by:</code>,
+	    and <code>size:</code> initialization keywords with the same behavior
+	    as <code>&lt;range&gt;</code>. Make of this type signals
+	    a <code>&lt;type-error&gt;</code> if any element of the range is not an instance
+	    of <var>of</var>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-98-109"></a>
+      <h4 class="item-title" id="type-union"><a class="here" title="Link to here" href="#type-union"></a> <span class="signature"><a name="XREF-1563"></a><a name="IX-1565"></a><code id="IX-1562">type-union</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1564">Returns the union of two or more
+	types.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>type-union <var>type1</var> #rest <var>more-types</var> </code>
+	    &rArr;<code> <var>type</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd><dl>
+	    <dt><var>type1</var></dt>
+	    <dd><p>An instance of <code>&lt;type&gt;</code>.</p></dd>
+	    <dt><var>more-types</var></dt>
+	    <dd><p>Instances of <code>&lt;type&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>type</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;type&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a type whose instances are the instances of <var>type1</var> and all
+	    the <var>more-types</var>. The type returned is not instantiable. A complete description
+	    of union types is given in <a href="Union_Types#XREF-701"><q>Union Types</q> on page
+	      72</a>.</p>
+	  <pre class="code">
+define constant $my-enumerated-type = 
+                    type-union(singleton(#"one"),
+                               singleton(#"two"),
+                               singleton(#"three"),
+                               singleton(#"four"),
+                               singleton(#"five"))</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-98-117"></a>
+      <h4 class="item-title" id="vector"><a class="here" title="Link to here" href="#vector"></a> <span class="signature"><a name="IX-1568"></a><code id="IX-1566">vector</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1567">Creates and returns a freshly allocated
+	vector.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>vector #rest <var>arguments</var> </code>
+	    &rArr;<code> <var>vector</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>arguments</var></dt>
+	    <dd>
+              <p>Instances of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>vector</var></dt>
+	    <dd>
+              <p>A freshly allocated instance of <code>&lt;simple-object-vector&gt;</code>. Its
+		elements are the <var>arguments</var>, in order.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Returns a vector whose elements are the <var>arguments</var>, in
+	    order.<a name="IX-1569"></a></p></dd>
+      </dl>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Built-In_Functions_Overview"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Equality_and_Comparison"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Built-In_Functions"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

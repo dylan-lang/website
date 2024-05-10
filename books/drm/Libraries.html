@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Program_Structure" />
+    <link rel="prev" href="Modules" />
+    <link rel="next" href="Program_Control" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Libraries &mdash; 3. Program Structure &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Modules"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Program_Control"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Program_Structure"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li class="current parent"><a href="Program_Structure">Program Structure</a>
+	      <ul class="sections">
+		<li><a href="Modules">Modules</a></li>
+		<li id="current"><a href="Libraries">Libraries</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 3</p>
+	<p id="section-name">Program Structure</p>
+      </div>
+
+      <a name="HEADING-27-0"></a>
+      <a name="UID-Program_Structure-1450"></a>
+      <h1 class="section-title"><a name="IX-391">Libraries</a></h1>
+      <p>A library consists of the following parts:</p>
+      <ul>
+	<li>A <a name="IX-392">library definition</a>. This specifies a name for the library;
+	  a set of modules that are exported from the library for use by other libraries; a set of
+	  other libraries that are used by the library being defined; and a set of modules that are
+	  imported from the used libraries. <a name="IX-393">To allow separate
+	  compilation, library-use relationships may not be circular.</a> A complete description of
+	  library definitions is given on <a href="Definition_Macros#XREF-2020">page
+	  386</a>.</li>
+	<li>The association of <a name="IX-394">source code</a> with the library. The
+	  mechanism by which this association is made is controlled by the programming environment
+	  and is implementation-defined.</li>
+	<li>The association of executable code with the library. The mechanism by which this
+	  association is made is implementation-defined. The mechanism by which the compiler is
+	  invoked to produce the executable code is implementation-defined.</li>
+	<li><a name="IX-395">The export information of the library.</a> The format of this
+	  information and the mechanism by which it is associated with the library is
+	  implementation-defined. The export information comprises the information required to
+	  process the source code of another library that imports the library.
+	  <p>The library export information is the only part of a Dylan library that is needed to
+	    allow some other library to import it. A library that exports some modules does not have
+	    any additional declarations providing information to the compiler when it is processing
+	    the code that imports those modules. Rather, any such information that is needed is
+	    obtained in some implementation-defined way while processing the source code of the
+	    exporting library and is retained in the library export information of the exporting
+	    library.</p></li>
+      </ul>
+      <p class="Default"><a name="IX-396">Exporting a module</a> from a library makes all of
+	the bindings exported by the module available for import by modules in other libraries.</p>
+      <p><a name="IX-397">Importing a module</a> into a library allows the module to be used
+	by modules defined within the library. This gives the library's modules access to the
+	bindings of the module being imported.</p>
+      <p>Importing a module into a library does not allow source records in the importing library to
+	be contained in the imported module.</p>
+      <p><a name="IX-398">Each implementation must provide a library named <code>dylan</code> that
+	exports a module named <code>dylan</code>.</a> That module must export exactly those
+	bindings documented as being part of the Dylan language, and the values of those bindings
+	must be as specified by the Dylan language. The <code>dylan</code> library is permitted to
+	export additional implementation-defined modules.</p>
+      <p><a name="IX-400">Each library contains an implicitly defined module whose name
+	is <code id="IX-399">dylan-user</code>.</a> Within this module, all the bindings specified
+	by the Dylan language are accessible using their specified names. Additional
+	implementation-dependent bindings may also be accessible from this
+	module.<a name="IX-401"></a><a name="IX-402"></a></p>
+      <a name="LINK-Program_Structure-lastpage"></a><a name="LINK-Program_ControlTOC-firstpage"></a><a name="UID-Program_ControlTOC-656"></a>
+      <a name="LINK-Program_ControlTOC-lastpage"></a>
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Modules"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Program_Control"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Program_Structure"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

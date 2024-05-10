@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Built-In_Classes" />
+    <link rel="prev" href="Type_Classes" />
+    <link rel="next" href="Number_Classes" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="contents" href="Copyrights" />
+    <link rel="copyright" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Simple Objects &mdash; 11. The Built-In Classes &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Type_Classes"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Number_Classes"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Built-In_Classes"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li class="current parent"><a href="Built-In_Classes">The Built-In Classes</a>
+	      <ul class="sections">
+		<li><a href="Built-In_Classes_Overview">Overview</a></li>
+		<li><a href="Object_Classes">Objects</a></li>
+		<li><a href="Type_Classes">Types</a></li>
+		<li id="current" class="subsections"><a href="Simple_Object_Classes">Simple Objects</a>
+		  <ul class="page-TOC">
+		    <li class="subsections"><a href="#HEADING-91-3">Characters</a>
+		      <ul>
+			<li><a href="#HEADING-91-4"><code>&lt;character&gt;</code><span class="attributes-summary"> [Sealed Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-91-86">Symbols</a>
+		      <ul>
+			<li><a href="#HEADING-91-87"><code>&lt;symbol&gt;</code><span class="attributes-summary"> [Sealed Class]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-91-127">Booleans</a>
+		      <ul>
+			<li><a href="#HEADING-91-128"><code>&lt;boolean&gt;</code><span class="attributes-summary"> [Sealed Class]</span></a></li>
+		      </ul>
+		    </li>
+		  </ul>
+		</li>
+		<li><a href="Number_Classes">Numbers</a></li>
+		<li><a href="Collection_Classes">Collections</a></li>
+		<li><a href="Function_Classes">Functions</a></li>
+		<li><a href="Condition_Classes">Conditions</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 11</p>
+	<p id="section-name">The Built-In Classes</p>
+      </div>
+
+      <a name="HEADING-91-0"></a>
+      <a name="UID-Built-In_Classes-373"></a>
+      <h1 class="section-title"><a name="IX-1375">Simple Objects</a></h1>
+      <p>Simple objects are sealed, uninstantiable, and concrete. They are often represented by
+	program literals. <a href="#XREF-1376">Figure 11-2</a> shows the built-in classes of
+	simple objects.</p>
+      <p class="figure"><strong>Figure</strong> <strong>11-2</strong>
+	<a name="XREF-1376">The Simple Object Classes</a></p>
+      
+      <div class="figure" style="min-width: 454px">
+	<!-- min-width is necessary to prevent the surrounding box from being layed out narrower
+	     than the image in smaller viewports -->
+	<map id="simple-object-classes-map" name="simple-object-classes-map">
+	  <!-- The redundant NAME attribute is necessary for compatibility with some buggy user
+	       agents that don't find the map by ID and associate it with the image. -->
+	  <!-- This map is adapted from drm_Figure_11-2_Simple_Object_Classes_map.html, which is
+	       generated from the corresponding OmniGraffle file. If the .graffle file is updated,
+	       export to HTML and update the map areas here. Be sure to add " /" at the end of the
+	       AREA tags to make it valid XHTML. -->
+	  <area alt="class boolean" coords="326,81,452,124" href="#HEADING-91-128" />
+	  <area alt="class symbol" coords="164,81,290,124" href="#HEADING-91-87" />
+	  <area alt="class character" coords="2,81,128,124" href="#HEADING-91-4" />
+	  <area alt="class object" coords="164,2,290,45" href="Object_Classes#HEADING-89-1" />
+	</map>
+	<img alt="Simple Object Class Hierarchy" src="images/drm_Figure_11-2_Simple_Object_Classes"
+	     width="454" height="126" usemap="#simple-object-classes-map" />
+	
+	<table class="class-attributes-legend">
+	  <tr>
+	    <td>S</td> <td class="description">&ndash; Sealed</td>
+	    <td>P</td> <td class="description">&ndash; Primary</td>
+	    <td>C</td> <td class="description">&ndash; Concrete</td>
+	    <td>I</td> <td class="description">&ndash; Instantiable</td>
+	  </tr>
+	  <tr>
+	    <td>O</td> <td class="description">&ndash; Open</td>
+	    <td>F</td> <td class="description">&ndash; Free</td>
+	    <td>A</td> <td class="description">&ndash; Abstract</td>
+	    <td>U</td> <td class="description">&ndash; Uninstantiable</td>
+	  </tr>
+	</table>
+      </div>
+      
+      <a name="HEADING-91-3"></a>
+      <a name="UID-Built-In_Classes-403"></a>
+      <h2 class="subsection-title">Characters</h2>
+      <a name="HEADING-91-4"></a>
+      <h4 class="item-title" id="character"><a class="here" title="Link to here" href="#character"></a> <span class="signature"><code id="IX-1377">&lt;character&gt;</code></span> <span class="attributes-summary">[Sealed Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of characters.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;object&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>The class of characters. All characters are instances
+	    of <code>&lt;character&gt;</code>.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;character&gt;</code> provides the following operations:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-8</strong> Methods on &lt;character&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>&lt;</code></p></td>
+	      <td><p><a href="Equality_and_Comparison#XREF-1589">Returns true if its first
+		    operand is less than its second operand.</a></p></td>
+	      <td><p><a href="Equality_and_Comparison#XREF-1589">271</a></p></td>
+	    </tr><tr>
+	      <td><p><code>as-uppercase</code></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1683">Coerces an object to
+		    uppercase.</a></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1683">290</a></p></td>
+	    </tr><tr>
+	      <td><p><code>as-lowercase</code></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1687">Coerces an object to
+		    lowercase.</a></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1687">291</a></p></td>
+	    </tr><tr>
+	      <td><p><code>as</code></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1680">Coerces an object to a
+		    type.</a></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1680">288</a></p></td>
+	    </tr>
+	  </table>
+	  <a name="HEADING-91-86"></a>
+	</dd>
+      </dl>
+      <a name="UID-Built-In_Classes-404"></a>
+      <h2 class="subsection-title">Symbols</h2>
+      <a name="HEADING-91-87"></a>
+      <h4 class="item-title" id="symbol"><a class="here" title="Link to here" href="#symbol"></a> <span class="signature"><code id="IX-1378">&lt;symbol&gt;</code></span> <span class="attributes-summary">[Sealed Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of symbols.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;object&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>The <code>&lt;symbol&gt;</code> class provides a built-in, non-case-sensitive
+	    dictionary that associates a string with a unique immutable object that can be compared
+	    with <code>==</code> (which should be faster than calling a string-comparison
+	    routine). This dictionary is accessed through the <code>as</code> function:
+	    <code>as(&lt;symbol&gt;, <var>string)</var></code>
+	    and <code>as(&lt;string&gt;, <var>symbol)</var></code>. Any string can be used.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd>
+	  <p>The class <code>&lt;symbol&gt;</code> provides the following operation:</p>
+	  <table class="numbered">
+	    <caption><strong>Table 11-9</strong> Methods on &lt;symbol&gt;</caption>
+	    <tr>
+	      <th class="primary"><p>Function</p></th>
+	      <th><p>Description</p></th>
+	      <th><p>Page</p></th>
+	    </tr><tr>
+	      <td><p><code>as</code></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1680">Coerces an object to a
+		    type.</a></p></td>
+	      <td><p><a href="Coercing_and_Copying_Objects#XREF-1680">288</a></p></td>
+	    </tr>
+	  </table>
+	</dd>
+      </dl>
+      <a name="HEADING-91-127"></a>
+      <a name="UID-Built-In_Classes-13474"></a>
+      <h2 class="subsection-title">Booleans</h2>
+      <a name="HEADING-91-128"></a>
+      <h4 class="item-title" id="boolean"><a class="here" title="Link to here" href="#boolean"></a> <span class="signature"><code id="IX-1379">&lt;boolean&gt;</code></span> <span class="attributes-summary">[Sealed Class]</span></h4>
+      <hr class="item-title" />
+      <p>The class of boolean values.</p>
+      <dl class="Cliche">
+	<dt><span>Superclasses:</span></dt>
+	<dd><p><code>&lt;object&gt;</code></p></dd>
+	<dt><span>Init-keywords:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Operations:</span></dt>
+	<dd><p>None.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>The class of boolean values. The literal constants <code>#t</code>
+	    and <code>#f</code> are general instances of <code>&lt;boolean&gt;</code>. Note that for
+	    the purposes of conditional expressions, all objects besides <code>#f</code> count as
+	    true. (This does not imply any other objects are instances
+	    of <code>&lt;boolean&gt;</code>.)<a name="IX-1380"></a></p></dd>
+      </dl>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Type_Classes"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Number_Classes"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Built-In_Classes"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Built-In_Functions" />
+    <link rel="prev" href="Function_Application" />
+    <link rel="next" href="Operations_on_Conditions" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Reflective Operations on Functions &mdash; 12. The Built-in Functions &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Function_Application"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Operations_on_Conditions"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Built-In_Functions"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li class="current parent"><a href="Built-In_Functions">The Built-In Functions</a>
+	      <ul class="sections">
+		<li><a href="Built-In_Functions_Overview">Overview</a></li>
+		<li><a href="Constructing_and_Initializing_Instances">Constructing and Initializing Instances</a></li>
+		<li><a href="Equality_and_Comparison">Equality and Comparison</a></li>
+		<li><a href="Arithmetic_Operations">Arithmetic Operations</a></li>
+		<li><a href="Coercing_and_Copying_Objects">Coercing and Copying Objects</a></li>
+		<li><a href="Collection_Operations">Collection Operations</a></li>
+		<li><a href="Reflective_Operations_on_Types">Reflective Operations on Types</a></li>
+		<li><a href="Functional_Operations">Functional Operations</a></li>
+		<li><a href="Function_Application">Function Application</a></li>
+		<li id="current"><a href="Reflective_Operations_on_Functions">Reflective Operations on Functions</a>
+		  <ul class="page-TOC">
+		    <li><a href="#HEADING-106-2"><code>generic-function-methods</code><span class="attributes-summary"> [Function]</span> </a></li>
+		    <li><a href="#HEADING-106-9"><code>add-method</code><span class="attributes-summary"> [Function]</span></a></li>
+		    <li><a href="#HEADING-106-23"><code>generic-function-mandatory-keywords</code><span class="attributes-summary"> [Function]</span></a></li>
+		    <li><a href="#HEADING-106-30"><code>function-specializers</code><span class="attributes-summary"> [Function]</span></a></li>
+		    <li><a href="#HEADING-106-37"><code>function-arguments</code><span class="attributes-summary"> [Function]</span></a></li>
+		    <li><a href="#HEADING-106-49"><code>function-return-values</code><span class="attributes-summary"> [Function]</span></a></li>
+		    <li><a href="#HEADING-106-58"><code>applicable-method?</code><span class="attributes-summary"> [Function]</span></a></li>
+		    <li><a href="#HEADING-106-67"><code>sorted-applicable-methods</code><span class="attributes-summary"> [Function]</span></a></li>
+		    <li><a href="#HEADING-106-77"><code>find-method</code><span class="attributes-summary"> [Function]</span></a></li>
+		    <li><a href="#HEADING-106-85"><code>remove-method</code><span class="attributes-summary"> [Function]</span></a></li>
+		  </ul>
+		</li>
+		<li><a href="Operations_on_Conditions">Operations on Conditions</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 12</p>
+	<p id="section-name">The Built-In Functions</p>
+      </div>
+
+      <a name="HEADING-106-0"></a>
+      <a name="UID-Built-In_Functions-20449"></a>
+      <h1 class="section-title"><a name="XREF-1892"></a><a name="IX-1893">Reflective Operations on Functions</a></h1>
+      <p>The following functions provide information on and manipulate other functions.</p>
+      <a name="HEADING-106-2"></a>
+      <h4 class="item-title" id="generic-function-methods"><a class="here" title="Link to here" href="#generic-function-methods"></a> <span class="signature"><code id="IX-1894">generic-function-methods</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1895">Returns the methods of a generic
+	function.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>generic-function-methods <var>generic-function</var> </code>
+	    &rArr;<code> <var>sequence</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>generic-function </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;generic-function&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>. Each element in the sequence is an
+		instance of <code>&lt;method&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence of all of the methods in <var>generic-function</var>. The order of
+	    the methods in the sequence is not significant. The sequence returned should never be
+	    destructively modified. Doing so may cause unpredictable behavior.</p>
+	  <p>If <var>generic-function</var> is sealed, an implementation may choose not to return a
+	    sequence of methods, but instead signal an error of
+	    type <code>&lt;sealed-object-error&gt;</code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-106-9"></a>
+      <h4 class="item-title" id="add-method"><a class="here" title="Link to here" href="#add-method"></a> <span class="signature"><code id="IX-1896">add-method</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1897">Adds a method to a generic
+	function.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>add-method <var>generic-function method</var> </code>
+	    &rArr;<code> <var>new-method old-method</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>generic-function </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;generic-function&gt;</code>.</p>
+	    </dd>
+	    <dt><var>method</var></dt>
+	    <dd><p>An instance of <code>&lt;method&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>new-method</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;method&gt;</code>.</p>
+	    </dd>
+	    <dt><var>old-method</var></dt>
+	    <dd><p><code>#f</code> or an instance of <code>&lt;method&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Adds <var>method</var> to <var>generic-function</var>, thereby modifying
+	    the <var>generic-function</var>.</p>
+	  <p>Programs do not commonly call <code>add-method</code> directly. It is called
+	    by <code>define method</code>.</p>
+	  <p>If you add a method to a generic function, and the generic function already has a
+	    method with the exact same specializers, then the old method is replaced with the new
+	    one.</p>
+	  <p>A single method may be added to any number of generic functions.</p>
+	  <p><code>add-method</code> returns two values. The first is the new <var>method</var>. The
+	    second will be either the method in <var>generic-function</var> that is being replaced
+	    by <var>method</var>, or it will be <code>#f</code> if no method is being replaced.</p>
+	  <p><code>add-method</code> may signal an error of
+	    type <code>&lt;sealed-object-error&gt;</code> if adding the method or replacing an
+	    existing method would cause a sealing violation.</p>
+	  <p>If <var>generic-function</var> is sealed, or if <var>method</var> is in a sealed domain
+	    of <var>generic-function</var>, then an error of
+	    type <code>&lt;sealed-object-error&gt;</code> is signaled.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-106-23"></a>
+      <h4 class="item-title" id="generic-function-mandatory-keywords"><a class="here" title="Link to here" href="#generic-function-mandatory-keywords"></a> <span class="signature"><code id="IX-1898">generic-function-mandatory-keywords</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1899">Returns the mandatory keywords of a
+	generic function, if any.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>generic-function-mandatory-keywords <var>generic-function</var> </code>
+	    &rArr;<code> <var>keywords</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>generic-function </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;generic-function&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>keywords</var></dt>
+	    <dd>
+              <p>The object <code>#f</code> or an instance of <code>&lt;collection&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>If <var>generic-function</var> accepts keyword
+	    arguments, <code>generic-function-mandatory-keywords</code> returns a collection of the
+	    mandatory keywords for <var>generic-function</var>. This collection will be empty if the
+	    generic function accepts keywords but does not have any mandatory
+	    keywords. <code>generic-function-mandatory-keywords</code> returns <code>#f</code>
+	    if <var>generic-function</var> does not accept keyword arguments.</p>
+	  <p>The collection returned should never be destructively modified. Doing so may cause
+	    unpredictable behavior.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-106-30"></a>
+      <h4 class="item-title" id="function-specializers"><a class="here" title="Link to here" href="#function-specializers"></a> <span class="signature"><code id="IX-1900">function-specializers</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1901">Returns the specializers of a
+	function.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>function-specializers <var>function</var> </code>
+	    &rArr;<code> <var>sequence</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>sequence</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>. The elements of the sequence are
+		instances of <code>&lt;type&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a sequence of the specializers for <var>function</var>. The length of the
+	    sequence will equal the number of required arguments of <var>function</var>. The first
+	    element of the sequence will be the specializer of the first argument
+	    of <var>function</var>, the second will be the specializer of the second argument, and
+	    so on.</p>
+	  <p>The sequence returned should never be destructively modified. Doing so may cause
+	    unpredictable behavior.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-106-37"></a>
+      <h4 class="item-title" id="function-arguments"><a class="here" title="Link to here" href="#function-arguments"></a> <span class="signature"><code id="IX-1902">function-arguments</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1903">Returns information about the
+	arguments accepted by a function.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p>
+	    <code>function-arguments <var>function</var> </code>
+	    &rArr;<code> <var>required-number rest-boolean kwd-sequence</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>required-number</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	    <dt><var>rest-boolean</var></dt>
+	    <dd><p>An instance of <code>&lt;boolean&gt;</code>.</p></dd>
+	    <dt><var>kwd-sequence</var></dt>
+	    <dd><p>Either <code>#f</code> or the symbol <code>#"all"</code> or an instance
+		of <code>&lt;collection&gt;</code> whose elements are instances
+		of <code>&lt;symbol&gt;</code>.</p>
+	    </dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns three values:</p>
+	  <ul>
+	    <li><var>required-number</var> is the number of required arguments accepted by the
+	      function.</li>
+	    <li><var>rest-boolean</var> indicates whether the function accepts a variable number of
+	      arguments.</li>
+	    <li><var>kwd-sequence</var> indicates whether the function accepts keyword arguments. If
+	      the value is <code>#f</code> then the function does not accept keyword
+	      arguments. Otherwise, the function does accept keyword arguments, and the value is
+	      either a collection of the keywords that are permissible for any call to the function,
+	      or the symbol <code>#"all"</code> if all keywords are permitted by the function.</li>
+	  </ul>
+	  <p>Note that particular calls to a generic function may accept additional keywords not
+	    included in the third value returned by <code>function-arguments</code>, by virtue of
+	    their being recognized by applicable methods.</p>
+	</dd>
+      </dl>
+      <p class="errata-note" id="errata-p354-1">
+	<a class="note-tag" href="Errata#p354-1"><strong>Errata:</strong></a> In the published
+	book, <code>&lt;symbol&gt;</code> is incorrectly written as
+	<code>&lt;keyword&gt;</code> in the description of <var>kwd-sequence</var>.
+      </p>
+      <a name="HEADING-106-49"></a>
+      <h4 class="item-title" id="function-return-values"><a class="here" title="Link to here" href="#function-return-values"></a> <span class="signature"><code id="IX-1904">function-return-values</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1905">Returns information about the values
+	returned by a function.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p>
+	    <code>function-return-values <var>function</var> </code>
+	    &rArr;<code> <var>return-value-types rest-return-value</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>return-value-types</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>. The elements of the sequence are
+		instances of <code>&lt;type&gt;</code>.</p>
+	    </dd>
+	    <dt><var>rest-return-value</var></dt>
+	    <dd><p>An instance of <code>&lt;type&gt;</code>
+		or <code>#f</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Returns two values:</p>
+	  <ul>
+	    <li><var>return-value-types</var> is a sequence of the types of values returned by the
+	      function. The length of the sequence equals the number of required return values of
+	      the function. The first element of the sequence is the type of the first return value,
+	      the second is the type of the second return value, etc. This sequence returned should
+	      never be destructively modified. Doing so may cause unpredictable behavior.</li>
+	    <li><var>rest-return-value</var> indicates whether the function returns a variable
+	      number of values and, if so, the type of values that may be returned after the
+	      required return values. If the function does not return a variable number of
+	      values, <code>#f</code> is returned; otherwise a type is returned.</li>
+	  </ul>
+	</dd>
+      </dl>
+      <a name="HEADING-106-58"></a>
+      <h4 class="item-title" id="applicable-method_"><a class="here" title="Link to here" href="#applicable-method_"></a> <span class="signature"><code id="IX-1906">applicable-method?</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1907">Tests if a function is applicable to
+	sample arguments.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>applicable-method? <var>function</var> #rest <var>sample-args</var> </code>
+	    &rArr;<code> <var>boolean</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>function</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;function&gt;</code>.</p>
+	    </dd>
+	    <dt><var>sample-args</var></dt>
+	    <dd><p>Instances of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>boolean</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;boolean&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns true if <var>function</var> is a method that would be applicable
+	    to <var>sample-args</var> or if it is a generic function that contains a method that
+	    would be applicable to <var>sample-args</var>.</p>
+	  <p>Note that if <var>function</var> is a generic function, then calling it with
+	    the <var>sample-args</var> may still signal an error, even
+	    if <code>applicable-method?</code> returns true. This is because the generic function
+	    may contain methods that are ambiguous relative to
+	    the <var>sample-args</var>. See <a href="Method_Dispatch#XREF-849"><q>Method
+	      Specificity</q> on page 96</a> for a complete description of ambiguous methods.</p>
+	  <p>If <var>function</var> is a sealed generic function, <code>applicable-method?</code>
+	    may signal an error of type <code>&lt;sealed-object-error&gt;</code>.</p></dd>
+      </dl>
+      <a name="HEADING-106-67"></a>
+      <h4 class="item-title" id="sorted-applicable-methods"><a class="here" title="Link to here" href="#sorted-applicable-methods"></a> <span class="signature"><code id="IX-1908">sorted-applicable-methods</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1909">Returns all the methods in a generic
+	function that are applicable to sample arguments, sorted in order of specificity.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>sorted-applicable-methods <var>generic-function</var> #rest <var>sample-args</var></code><br />
+	    &rArr;<code> <var>sorted-methods unsorted-methods</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>generic-function </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;generic-function&gt;</code>.</p>
+	    </dd>
+	    <dt><var>sample-args</var></dt>
+	    <dd><p>Instances of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>sorted-methods </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;sequence&gt;</code>. Elements of the sequence are
+		instances of <code>&lt;method&gt;</code>.</p>
+	    </dd>
+	    <dt><var>unsorted-methods</var></dt>
+	    <dd><p>An instance of <code>&lt;sequence&gt;</code>. Elements of the collection are
+		instances of <code>&lt;method&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns two sequences that, taken together, contain the methods
+	    in <var>generic-function</var> that are applicable to
+	    the <var>sample-args</var>. <var>sorted-methods</var> contains methods that are more
+	    specific than every method that follows them. <var>unsorted-methods</var> begins at the
+	    first point of ambiguity; it contains the methods that cannot be sorted.</p>
+	  <p>The sequences returned should never be destructively modified. Doing so may cause
+	    unpredictable behavior.</p>
+	  <p>If <var>generic-function</var> is sealed, an implementation may choose not to return
+	    two sequences of methods, but instead signal an error of
+	    type <code>&lt;sealed-object-error&gt;</code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-106-77"></a>
+      <h4 class="item-title" id="find-method"><a class="here" title="Link to here" href="#find-method"></a> <span class="signature"><code id="IX-1910">find-method</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1911">Returns the method in a generic
+	function that has particular specializers.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>find-method <var>generic-function specializers</var> </code>
+	    &rArr;<code> <var>found-method</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>generic-function </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;generic-function&gt;</code>.</p>
+	    </dd>
+	    <dt><var>specializers</var></dt>
+	    <dd><p>An instance of <code>&lt;sequence&gt;</code>. Elements of the sequence are
+		instances of <code>&lt;type&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>found-method</var></dt>
+	    <dd>
+              <p><code>#f</code> or an instance of <code>&lt;method&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the method in <var>generic-function</var> that has the specializers
+	    in <var>specializers</var> as its specializers. The specializers must match exactly for
+	    a method to be returned.</p>
+	  <p>If <var>generic-function</var> is sealed, an implementation may choose to signal an
+	    error of type <code>&lt;sealed-object-error&gt;</code> rather than return a
+	    value.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-106-85"></a>
+      <h4 class="item-title" id="remove-method"><a class="here" title="Link to here" href="#remove-method"></a> <span class="signature"><code id="IX-1912">remove-method</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1913">Removes a method from a generic
+	function.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>remove-method <var>generic-function method</var> </code>
+	    &rArr;<code> <var>method</var></code>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>generic-function </var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;generic-function&gt;</code>.</p>
+	    </dd>
+	    <dt><var>method</var></dt>
+	    <dd><p>An instance of <code>&lt;method&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>method</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;method&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Removes <var>method</var> from <var>generic-function</var> and
+	    returns <var>method</var>.</p>
+	  <p>This operation modifies the <var>generic-function</var>.</p>
+	  <p>If <var>generic-function</var> is sealed, or if <var>method</var> is in a sealed domain
+	    of <var>generic-function</var>, then an error of
+	    type <code>&lt;sealed-object-error&gt;</code> is
+	    signaled.<a name="IX-1914"></a><code><a name="IX-1915"></a></code>
+	  </p>
+	</dd>
+      </dl>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Function_Application"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Operations_on_Conditions"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Built-In_Functions"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

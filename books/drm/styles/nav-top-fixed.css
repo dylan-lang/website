@@ -1,0 +1,377 @@
+/*
+   Style sheet for the Dylan Reference Manual
+
+   This has a more compact layout for smaller displays, and has minimal
+   navigation support, leaving more room for the book content.
+
+   This overrides the shared rules in common.css.
+   
+   NOTE: This is still a work in progress. It doesn't layout as desired
+   in Firefox, for example. It looks pretty good on a Sony PSP, though.
+*/
+
+
+/* Overall page layout */
+
+body       { margin: 0; padding: 0; }
+#content   { padding-right: 1pc }
+#footer    { padding: 0 0.5pc   }
+/*#content   { position: absolute; top: 3em; bottom: 0; overflow: auto; }*/
+
+
+/* Navigation header at the top of the viewport */
+
+#navigation-header         { font-family: sans-serif }
+
+/* links are only underlined when hovering */
+#navigation-header a       { text-decoration: none      }
+#navigation-header a:hover { text-decoration: underline }
+/* links use a custom color scheme */
+#navigation-core a:link    { color: #A0A }
+#navigation-core a:visited { color: #606 }
+#navigation-core a:active  { color: red  }
+/* the book title is a link, but is always the same color */
+#book-title a:link,
+#book-title a:visited      { color: #606 }
+#book-title a:active       { color: red  }
+
+#navigation-top  {
+                   position: fixed; top: 0; left: 0; right: 0;
+                   height: 34px;
+                   margin: 0; padding: 0;/*0.25em 0.25em 0 0.25em;*/
+                   font-family: "Gill Sans", sans-serif;
+                   white-space: nowrap;
+                   overflow: hidden;
+                   background-image: url("../images/shadow-bottom");
+                   background-repeat: repeat-x;
+                   background-position: left bottom;
+                 }
+#navigation-topx {
+                   position: fixed; top: 0; left: 0; right: 0;
+                   min-height: 2em;
+                   margin: 0; padding: 0;
+                   background: white url("../images/nav-top-background") repeat-x center top;
+                   font-size: smaller;
+                 }
+#navigation-top .background
+                 {
+                   background-color: white;
+                   width: 100%; height: 26px;
+                   position: relative; xtop: 0; xleft: 0; xright: 0; xbottom: 8px;
+                   xoutline: 1px solid red;
+                 }
+#book-title      {
+                   xfloat: left; display: inline;
+                   xposition: absolute; top: 0; bottom: 8px;
+                   margin: 0; xpadding: 0;
+                   xline-height: 2em;
+                   xbackground-color: white;
+                   xfont-size: 11pt;
+                 }
+#book-title img.book-icon { xdisplay: none; vertical-align: middle; xdisplay: inline; xline-height: 1.2em; xheight: 2em; }
+#book-title a    {
+                   xdisplay: inline; xvertical-align: middle;
+                   xline-height: 1.2em; xpadding-top: 1em;
+                   margin: 0; padding: 0; xvertical-align: middle; xoutline: 1px solid red;
+                   xposition: absolute; xtop: 0; xleft: 0; xfloat: left;
+                   xmargin: 0 0.5em;
+                   xfont-size: smaller;
+                 }
+#book-title img.book-title        { vertical-align: middle; width: 15em; max-width: 40%; height: 1.25em; xmax-height: 26px; border: none;}
+#book-title img.book-title:hover  { border-bottom: 1px solid purple }
+#book-title img.book-title:active { border-bottom: 1px solid red    }
+#navigation-core {
+                   float: right;
+                   xposition: absolute; xtop: 0; xright: 0; xline-height: 1.2em;
+                   xmargin: 0.25em 0.5em; margin: 0;
+                   font-size: 11pt;
+                   text-align: right;
+                   xbackground-color: white; 
+                 }
+
+/* navigation links */
+
+#navigation-core img    { xvertical-align: bottom }
+#navigation-core a,
+#navigation-core > span {
+                          margin: 0.25em;
+                          xvertical-align: bottom;
+                          xtext-transform: lowercase;
+                          xfont-weight: bold;
+                          xfont-size: smaller;
+                        }
+/* "disabled" links */
+#navigation-core > span { color: gray }
+
+/* add some horizontal separation between back/next and the other links */
+#navigation-core .next  { xmargin-right: 1em }
+/* hide the "Start" link to save some space; it's redundant with the book title link, anyway */
+#navigation-core .start { display: none }
+
+#navigation-core .previous { xfloat: right; display: inline-block; width: 30px; xheight: 1.25em; text-align: center; xvertical-align: middle; }
+#navigation-core .next     { xfloat: right; display: inline-block; width: 30px; xheight: 1.25em; text-align: center; xvertical-align: middle;}
+#navigation-core .up       { xfloat: right; display: inline-block; width: 30px; xheight: 1.25em; text-align: center; xvertical-align: middle;}
+#navigation-core .contents { xfloat: right; display: inline-block; width: 30px; xheight: 1.25em; text-align: center; xvertical-align: middle;}
+#navigation-core .index    { xfloat: right; display: inline-block; width: 30px; xheight: 1.25em; text-align: center; xvertical-align: middle;}
+
+/* button layout */
+/*
+#navigation-core a,
+#navigation-core > span              { xoutline: 1px solid red; xfloat: right; xpadding-top: 0.25em; xborder: 1px solid red; overflow: hidden; }
+#navigation-core .contents           { margin: 0 0.25em; float: right; xposition: absolute; xleft: 0; xtop: 2.75em; }
+#navigation-core .index              { margin: 0 0.25em; float: right; xposition: absolute; xleft: 0; xtop: 2em; }
+#navigation-core .up                 { xdisplay: inline-block; xfloat: right; position: absolute; right: 75px; width: 30px; text-align: center; height: 19px; }
+#navigation-core .previous           { xdisplay: inline-block; xfloat: right; position: absolute; right: 40px; xleft: -30px; width: 30px; text-align: center; height: 19px; }
+#navigation-core .next               { xdisplay: inline-block; xfloat: right; position: absolute; right: 10px; xleft: 30px; width: 30px; text-align: center; height: 19px; }*/
+
+#navigation-core a,
+#navigation-core > span              {
+                                       vertical-align: top; /* height of the link background images */
+                                       height: 19px;
+                                     }
+
+#navigation-core .contents span,
+#navigation-core .index span,
+#navigation-core .up span,
+#navigation-core .next span,
+#navigation-core .previous span      { visibility: hidden }
+
+#navigation-core .contents,
+#navigation-core .index,
+#navigation-core .up,
+#navigation-core .next,
+#navigation-core .previous           {
+                                       text-decoration: none;
+                                       background-color: transparent;
+                                       background-repeat: no-repeat;
+                                       background-position: center bottom;
+                                     }
+#navigation-core a.contents          { background-image: url("../images/contents") }
+#navigation-core a.index             { background-image: url("../images/index")    }
+#navigation-core a.up                { background-image: url("../images/up")       }
+#navigation-core a.next              { background-image: url("../images/next")     }
+#navigation-core a.previous          { background-image: url("../images/previous") }
+
+#navigation-core a.contents:active   { background-image: url("../images/contents-active") }
+#navigation-core a.index:active      { background-image: url("../images/index-active")    }
+#navigation-core a.up:active         { background-image: url("../images/up-active")       }
+#navigation-core a.next:active       { background-image: url("../images/next-active")     }
+#navigation-core a.previous:active   { background-image: url("../images/previous-active") }
+
+#navigation-core span.contents       { background-image: url("../images/contents-disabled") }
+#navigation-core span.index          { background-image: url("../images/index-disabled")    }
+#navigation-core span.up             { background-image: url("../images/up-disabled")       }
+#navigation-core span.next           { background-image: url("../images/next-disabled")     }
+#navigation-core span.previous       { background-image: url("../images/previous-disabled") }
+
+/*
+#navigation-core a.contents:hover    { border-bottom: 1px solid #606    }
+#navigation-core a.index:hover       { border-bottom: 1px solid #1E82B8 }
+#navigation-core a.up:hover          { border-bottom: 1px solid #D42145 }
+#navigation-core a.next:hover,
+#navigation-core a.previous:hover    { border-bottom: 1px solid #F15813 }
+*/
+#navigation-core a.contents:hover    { background-color: #606    }
+#navigation-core a.index:hover       { background-color: #1E82B8 }
+#navigation-core a.up:hover          { background-color: #D42145 }
+#navigation-core a.next:hover,
+#navigation-core a.previous:hover    { background-color: #F15813 }
+
+#navigation-core a.contents:active,
+#navigation-core a.index:active,
+#navigation-core a.up:active,
+#navigation-core a.next:active,
+#navigation-core a.previous:active   { background-color: red  }
+
+
+
+/*
+   The navigation "mini-TOC" is displayed inline at the top of the page
+   content. This has two primary differences from an hierarchical
+   "navigation sidebar" approach: 1. it is very compact, although harder to
+   read than an hierarchical list, and 2. it scrolls with the content, so
+   it doesn't take up a fixed region of the display.
+
+   The links within the current page are emphasized, with links to other
+   pages in a light gray and with a smaller font.
+*/
+
+/* emphasize the page-specific links */
+#navigation-TOC     {
+                      margin-bottom: 0.5em;
+                      padding: 2.75em 0.5pc 0.25em 0.5pc;
+                      font-size: smaller;
+                      line-height: 1.5em;
+                      background-color: #EEF;
+                      border-bottom: 1px solid silver;
+                    }
+#navigation-TOC ul,
+#navigation-TOC ol  {
+                      display: inline;
+                      padding: 0; margin: 0; xmargin-right: 0.25em;
+                      xmargin-top: 0.5em;
+                      xmargin-bottom: 0.5em;
+                    }
+#navigation-TOC li  {
+                      display: inline;
+                      padding: 0; margin: 0; margin-right: 0.25em;
+                      margin-top: 0.5em;
+                      margin-bottom: 0.5em;
+                    }
+
+/* hide all the navigation items by default */
+#book-start li,
+#navigation-TOC > * > li,
+#navigation-TOC > * > li > ul > li { display: none }
+
+/* show the path to the current page, as well as links within the page;
+   always show the "Start" item */
+#book-title-page #navigation-TOC > * > li,
+#navigation-TOC .current,
+#navigation-TOC #current,
+.content #navigation-TOC #current li { xoutline: 1px solid red; display: inline }
+#navigation-TOC #book-start          { xoutline: 1px solid red;
+                                       display: inline;
+                                     }
+
+/* markers between lists */
+#book-title-page #navigation-TOC .front-matter
+                                 { margin-right: 1em }
+#book-title-page #navigation-TOC .chapters li:before
+                                 {
+                                   counter-increment: chapter;
+                                   content: counter(chapter) ".";
+                                   color: gray;
+                                   margin-right: 0.25em;
+                                 }
+#book-title-page #navigation-TOC .chapters li
+                                 { margin-right: 0.5em }
+#book-title-page #navigation-TOC .appendices li:before
+                                 {
+                                   counter-increment: appendix;
+                                   content: counter(appendix, upper-alpha) ".";
+                                   color: gray;
+                                   margin-right: 0.25em;
+                                 }
+#book-title-page #navigation-TOC .appendices li
+                                 { margin-right: 0.5em }
+#book-title-page #navigation-TOC .appendices
+                                 { margin-right: 1em }
+#book-title-page #navigation-TOC .errata:before
+                                 {
+                                   content: "\2053" /* SWUNG DASH */;
+                                   color: silver;
+                                   margin-right: 0.25em;
+                                 }
+
+/* markers between levels */
+#navigation-TOC #book-start > a:first-child:after,
+#navigation-TOC #book-start > span:first-child:after,
+.content #navigation-TOC .current > ul:before { content: " >" }
+/* no marker after "Start" on the title page */
+#book-title-page #navigation-TOC #book-start span:after { content: "" }
+
+
+/* markers between chapters */
+#book-title-page #navigation-TOC > * > li + li:before
+                                 {
+                                   content: "\2053" /* SWUNG DASH */;
+                                   color: silver;
+                                   xmargin-left: -0.25em;
+                                   margin-right: 0.5em;
+                                 }
+
+/* markers between chapter sections */
+#book-title-page #navigation-TOC .sections > li + li:before
+                               {
+                                 xcontent: "\25AA\00A0" /* BLACK SMALL SQUARE, NO-BREAK SPACE */;
+                                 xcolor: silver;
+                                 xmargin-left: -0.5em;
+                               }
+/* don't show the sections within "Start" */
+#book-title-page #navigation-TOC .sections > li + li { display: none }
+
+/* markers between subsections on a page */
+#navigation-TOC .page-TOC > .subsections:before,
+#navigation-TOC .subsections .page-TOC > li:before
+                               {
+                                 xcontent: "\25AA\00A0" /* BLACK SMALL SQUARE, NO-BREAK SPACE */;
+                                 xmargin-left: -0.25em;
+                               }
+
+/* links within the current page/section */
+#navigation-TOC .page-TOC:before
+                               {
+                                 content: "In this section:";
+                                 float: left; display: block;
+                                 margin-left: -9.5em;
+                                 font-weight: bold;
+                               }
+#navigation-TOC .page-TOC
+                               {
+                                 display: block;
+                                 padding-left: 9.5em;
+                                 margin-top: 0.5em;
+                               }
+
+#navigation-TOC #current .page-TOC li
+                               {
+                                 display: inline;
+                                 margin-right: 1em;
+                               }
+#navigation-TOC #current .page-TOC > .subsections,
+#navigation-TOC .subsections .page-TOC li
+                               { xoutline: 1px solid red; }
+
+#navigation-TOC #current li.subsections > :first-child:after
+                               {
+                                 content: ":";
+                                 margin-right: 0.5em;
+                               }
+
+/* markers between sub-subsections on a page */
+#navigation-TOC #current li.subsections
+                               { xoutline: 1px solid red;
+                                 display: block;
+                                 margin-left: 1em;
+                                 text-indent: -1em;
+                               }
+#navigation-TOC #current ul ul li.subsections
+                               { xoutline: 1px solid red;
+                                 padding-left: 1em;
+                               }
+
+/* in the book index, the letter links are layed out evenly in a row */
+#navigation-TOC .index-grid    {
+                                 display: inline-table;
+                                 vertical-align: bottom;
+                                 border-collapse: collapse;
+                               }
+#navigation-TOC .index-grid a  {
+                                 display: table-cell;
+                                 width: 1.5em;
+                                 border-left: 2px solid transparent;
+                                 border-right: 2px solid transparent;
+                                 xborder-spacing: 1px;
+                                 xbackground-color: #DDD;
+                                 text-align: center;
+                                 xborder-bottom: 1px solid red;
+                                 line-height: 2em;
+                               }
+#navigation-TOC .index-grid a
+                               {
+                                 xbackground-color: silver;
+                               }
+#navigation-TOC .index-grid a:hover
+                               {
+                                 xoutline-width: 2px; xoutline-style: solid;
+                                 background-color: white;
+                                 xborder-bottom: 1px solid red;
+                                 text-decoration: underline;
+                               }
+
+/* hide generic function method signatures in the navigation area */
+#navigation-TOC .gf-methods { display: none }
+
+/* hide the horizontal rule that separates the headers from the content */
+#header hr { display: none }

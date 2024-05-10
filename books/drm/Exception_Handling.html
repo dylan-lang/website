@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Conditions" />
+    <link rel="prev" href="Signalers_Conditions_and_Handlers" />
+    <link rel="next" href="Condition_Messages" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Exception Handling &mdash; 7. Conditions &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Signalers_Conditions_and_Handlers"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Condition_Messages"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Conditions"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li class="current parent"><a href="Conditions">Conditions</a>
+	      <ul class="sections">
+		<li><a href="Conditions_Background">Background</a></li>
+		<li><a href="Conditions_Overview">Overview</a></li>
+		<li><a href="Signalers_Conditions_and_Handlers">Signalers, Conditions, and Handlers</a></li>
+		<li id="current" class="subsections"><a href="Exception_Handling">Exception Handling</a>
+		  <ul class="page-TOC">
+		    <li><a href="#HEADING-56-3">Stack Model</a></li>
+		    <li><a href="#HEADING-56-11">Recovery and Exits</a></li>
+		    <li><a href="#HEADING-56-22">Restarts</a></li>
+		    <li><a href="#HEADING-56-25">Recovery Protocols</a></li>
+		  </ul>
+		</li>
+		<li><a href="Condition_Messages">Condition Messages</a></li>
+		<li><a href="Introspective_Operations_on_Conditions">Introspective Operations</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 7</p>
+	<p id="section-name">Conditions</p>
+      </div>
+
+      <a name="HEADING-56-0"></a>
+      <a name="UID-Conditions-1884"></a>
+      <h1 class="section-title">Exception Handling</h1>
+      <p>A set of classes, functions, and associated conventions extend the underlying condition
+	handling capabilities to provide a complete exception handling facility.</p>
+      <p>The classes are described in <a href="Condition_Classes#XREF-1472"><q>Conditions</q> on
+	  page 244</a>, and the functions are described
+	in <a href="Operations_on_Conditions#XREF-1917">"Signaling Conditions" on page
+	  357</a>.</p>
+      <a name="HEADING-56-3"></a>
+      <a name="UID-Conditions-2155"></a>
+      <h2 class="subsection-title"><a name="IX-925">Stack Model</a></h2>
+      <p>Condition handlers are installed dynamically, with more recent
+	handlers shadowing previously installed handlers. In addition, exception handling often
+	involves the use of <a name="IX-926">nonlocal exits</a>. For these reasons it is
+	useful to describe the behavior of the exception system using the following terms from the
+	stack model of function calling.</p>
+      <ul>
+	<li><dfn id="IX-927">outside stack</dfn><br />The state existing just before the
+	  handler was established.</li>
+	<li><dfn id="IX-928">signaling unit</dfn><br />The conceptual program component that
+	  includes the expression that signaled the condition and does not include the expression
+	  that established the handler. This informal concept provides a notion of where the
+	  interface boundary between the signaler and the handler lies.</li>
+	<li><dfn id="IX-929">middle stack</dfn><br />The state existing just before the
+	  signaling unit was called, minus the outside stack. In other words, the state between the
+	  handler and the signaling unit.</li>
+	<li><dfn id="IX-930">inside stack</dfn><br />The state existing just before signaling
+	  occurred, minus the middle stack and outside stack. In other words, the portion of the
+	  signaling unit prior to the call to <code>signal</code>.</li>
+      </ul>
+      <p class="figure"><strong>Figure</strong> <strong>7-1</strong>
+	<a name="XREF-931">The Stack Model</a></p>
+
+      <div class="figure" style="min-width: 399px">
+	<!-- min-width is necessary to prevent the surrounding box from being layed out narrower
+	     than the image in smaller viewports -->
+	<img alt="Stack Model Diagram" src="images/drm_Figure_7-1_Stack_Model" width="399" height="337" />
+      </div>
+
+      <p>The handler in <a href="#XREF-931">Figure 7-1</a> may either return normally, in which
+	case execution resumes as the call to <code>signal</code> returns normally, or the handler
+	may make a nonlocal exit, such as calling the exit function from a dynamically
+	active <code>block</code> statement.<a name="IX-932"></a></p>
+      <a name="HEADING-56-11"></a>
+      <a name="UID-Conditions-2820"></a>
+      <h2 class="subsection-title"><a name="IX-933">Recovery and Exits</a></h2>
+      <p>There are two ways to handle an exception: by recovery or by
+	exit. Recovery involves making some repair to the program state and leaving control in the
+	signaling unit. Exit involves <a name="IX-934">transferring control</a> outside of the
+	signaling unit through the use of a <a name="IX-935">nonlocal exit</a>.</p>
+      <p>The simplest way to handle an exception is to exit the signaling unit by taking a nonlocal
+	exit to a target established in the outside stack. The <code>exception</code> clause of
+	the <code id="IX-936">block</code> statement provides a convenient mechanism for
+	accomplishing this.</p>
+      <p>A less common handling style is to exit the signaling unit by taking a nonlocal exit to a
+	target established in the middle stack, thus leaving the handler in force.</p>
+      <p>Instead of exiting, a handler can recover by returning control to the signaling unit. This
+	can be done either by returning values that the signaling unit will understand or by taking
+	a nonlocal exit to a target established in the inside stack.</p>
+      <p>The following examples show three ways of handling a copy-protection violation while
+	copying a series of files. Note that the signaling code does not need to know how the
+	condition will be handled. The only changes are in the code that handles the condition.</p>
+      <pre class="code">
+// Assume there is a class for file-system errors.
+// We are interested in a special kind of file-system error
+// that occurs when attempting to copy a copy-protected file,
+// so we define a new class to indicate such errors.
+define class &lt;copy-protection-violation&gt; (&lt;file-system-error&gt;)
+  slot file, init-keyword: file:;    // Store the file name
+end class;
+// Define a function to copy a single file. This
+// function signals a &lt;copy-protection-violation&gt; if
+// the file is copy-protected.
+define method copy-file (source, destination)
+  if ( copy-protected?(source) )
+    signal(make(&lt;copy-protection-violation&gt;, file: source));
+  else
+    // copy normally
+    notify-user("Copying %s to %s.", source, destination);
+  end if;
+end method;
+// The following function copies a sequence of files.
+// If one of the files is copy-protected, the user is
+// notified, and the remaining files are copied.
+define method backup-all-possible (volume, archive)
+  let handler &lt;copy-protection-violation&gt;
+       = method (condition, next)
+           // The handler just notifies the user and continues
+           notify-user("The file %s could not be copied.",
+                       condition.file);
+         end method;
+  // start copying files, with the handler in effect
+  for (each-file in volume)
+    copy-file(each-file, archive)
+  end for;
+end method;
+// The following function stops copying as soon as it
+// hits a copy-protected file
+define method backup-exit (volume, archive)
+  // set up a block so we can do a nonlocal exit
+  block (exit)
+   let handler &lt;copy-protection-violation&gt;
+       = method (condition, next)
+           // Notify the user and abort the backup
+           notify-user(
+    "Backup interrupted: the file %s could not be copied.",
+                       condition.file);
+           exit(#f);
+         end method;
+  // start copying files, with the handler in effect
+    for (each-file in volume)
+      copy-file(each-file, archive)
+    end for;
+  end block;
+end method;
+// The following function uses the convenient exception clause of
+// the block statement to achieve essentially the same effect as
+// as backup-exit.
+define method backup-block (volume, archive)
+  // get ready to do backups   
+  block ()
+    // start copying files   
+    for (each-file in volume)
+      copy-file(each-file, archive)
+    end for;
+  exception (condition :: &lt;copy-protection-violation&gt;)
+    notify-user(
+   "Backup interrupted: the file %s could not be copied.",
+                condition.file);
+  end block;
+end method;<a name="IX-937"></a>
+</pre>
+      <a name="HEADING-56-22"></a>
+      <a name="UID-Conditions-2199"></a>
+      <h2 class="subsection-title"><a name="IX-939">Restarts</a></h2>
+      <p><a name="IX-938">Recovering</a> or exiting can be
+	accomplished directly, or a more formal mechanism called <dfn>restarting</dfn> can be
+	used. Using restarts provides more assurance that the handler and the signaling unit agree
+	on the meaning of what they are doing and provides some isolation of the handler from names
+	and data representations internal to the signaling unit.</p>
+      <p>A handler restarts by signaling a restart. All restarts are instances
+	of <code id="IX-940">&lt;restart&gt;</code>. Any values needed for recovery are passed
+	in the restart (that is, in initialization arguments that the restart remembers, typically
+	in slots). The restart is handled by a <a name="IX-941">restart handler</a> that
+	either <a name="IX-942">returns</a> or takes a <a name="IX-943">nonlocal
+	exit</a>. If the restart handler returns some values, <code>signal</code> returns those values
+	and the handler that called <code>signal</code> also returns them. The call
+	to <code>signal</code> from the signaling unit that signaled the original condition returns
+	the same values, and the signaling unit recovers as directed by those
+	values.<a name="IX-944"></a></p>
+      <a name="HEADING-56-25"></a>
+      <a name="UID-Conditions-1894"></a>
+      <h2 class="subsection-title"><a name="IX-945">Recovery Protocols</a></h2>
+      <p>For every condition class there should be a <dfn>recovery
+	  protocol</dfn> that defines the meaning of <a name="IX-946">handling by
+	returning</a>, the meaning of the <a name="IX-947">values returned</a>, and
+	which <a name="IX-948">restart handlers</a> are supposed to be established by the
+	signaling unit. The recovery protocol tells the handler what to expect from the
+	signaler. For many condition classes, this is the empty protocol: handling by returning
+	isn't allowed, and no particular restart handlers are provided. In this case only handling
+	by exiting is possible. (Exiting might be accomplished by signaling a restart whose
+	handler was established in the outside or middle stack and does a nonlocal exit back to
+	where it was established, or by an ordinary nonlocal exit.) The recovery protocol for a
+	subclass should be compatible with the recovery protocol of a superclass. That is, a
+	handler that applies a class's recovery protocol should operate correctly when the
+	condition is an instance of some subclass of that class.</p>
+      <p>An example recovery protocol for a hypothetical <code>&lt;unbound-slot&gt;</code> condition
+	could include the following:</p>
+      <ul>
+	<li>Returning is allowed. Returning a value uses that value as if it had been the contents
+	  of the slot.</li>
+	<li>A restart handler for <code>&lt;new-value&gt;</code> is
+	  available. <code>&lt;new-value&gt;</code> has initialization
+	  arguments <code>value:</code>, the value to use, and <code>permanent:</code>, which
+	  indicates whether to store the value into the slot or leave the slot unbound.</li>
+      </ul>
+      <p>No formal mechanism is provided for describing recovery protocols; they are left to the
+	documentation of a condition class. Introspective functions are provided for discovering
+	which recovery facilities are actually available, but this is different from (and sometimes
+	is a superset of) the recovery facilities guaranteed by a recovery protocol always to be
+	available.</p>
+      <p>The <a name="IX-949">debugger</a> is the condition handler of last resort. It
+	receives control if no program-provided handler handles a serious condition. (This is true
+	even if the debugger provided cannot analyze or intervene in the execution of programs but
+	can only abort or restart them. The debugger might be merely a <q>core dumper,</q> a <q>bomb
+	box,</q> or something similar.) An interactive debugger ought to offer the user the ability
+	to signal any restart for which a restart handler is applicable and to return if the
+	condition's recovery protocol allows it. This could, for example, be done with a menu
+	titled <q>Recovery.</q><a name="IX-950"></a></p>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Signalers_Conditions_and_Handlers"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Condition_Messages"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Conditions"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

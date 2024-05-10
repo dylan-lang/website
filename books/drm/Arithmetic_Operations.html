@@ -1,0 +1,1469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Built-In_Functions" />
+    <link rel="prev" href="Equality_and_Comparison" />
+    <link rel="next" href="Coercing_and_Copying_Objects" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Arithmetic Operations &mdash; 12. The Built-in Functions &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	      <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	      <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	    </p>
+	    <p id="navigation-core">
+	      <a class="previous" accesskey="p" title="Previous Page" href="Equality_and_Comparison"><span>&larr; Previous</span></a>
+	      <a class="next" accesskey="n" title="Next Page" href="Coercing_and_Copying_Objects"><span>Next Page &rarr;</span></a>
+	      <a class="up" accesskey="u" title="Chapter Start" href="Built-In_Functions"><span>Up</span></a>
+	      <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	      <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	      <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	    </p>
+	  </div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li class="current parent"><a href="Built-In_Functions">The Built-In Functions</a>
+	      <ul class="sections">
+		<li><a href="Built-In_Functions_Overview">Overview</a></li>
+		<li><a href="Constructing_and_Initializing_Instances">Constructing and Initializing Instances</a></li>
+		<li><a href="Equality_and_Comparison">Equality and Comparison</a></li>
+		<li id="current" class="subsections"><a href="Arithmetic_Operations">Arithmetic Operations</a>
+		  <ul class="page-TOC">
+		    <li class="subsections"><a href="#HEADING-100-2">Properties</a>
+		      <ul>
+			<li><a href="#HEADING-100-3"><code>odd?</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-9"><code>even?</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-15"><code>zero?</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-100-21"><code>zero?</code> <var>complex</var> &rArr; <var>boolean</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-100-23"><code>positive?</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-100-29"><code>positive?</code> <var>real</var> &rArr; <var>boolean</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-100-31"><code>negative?</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-100-37"><code>negative?</code> <var>real</var> &rArr; <var>boolean</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-100-39"><code>integral?</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-100-45"><code>integral?</code> <var>object</var> &rArr; <var>false</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-100-47"><code>integral?</code> <var>real</var> &rArr; <var>boolean</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-100-49">Arithmetic Operations</a>
+		      <ul>
+			<li><a href="#HEADING-100-50"><code>+</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-100-57">complex1 + complex2 &rArr; complex <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-100-59"><code>*</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-100-66">complex1 * complex2 &rArr; complex <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-100-68"><code>-</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-100-75">complex1 - complex2 &rArr; complex <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-100-77"><code>/</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-100-84">complex1 / complex2 &rArr; complex <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-100-88"><code>negative</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-100-94">negative real1 &rArr; real2 <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-100-96"><code>floor</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-103"><code>ceiling</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-110"><code>round</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-117"><code>truncate</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-124"><code>floor/</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-132"><code>ceiling/</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-140"><code>round/</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-148"><code>truncate/</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-156"><code>modulo</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-163"><code>remainder</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-170"><code>^</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-100-177">complex ^ integer &rArr; number <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-100-179"><code>abs</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-100-185"><code>abs</code> <var>complex</var> &rArr; <var>real</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-100-187"><code>logior</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-193"><code>logxor</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-199"><code>logand</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-205"><code>lognot</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-211"><code>logbit?</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-219"><code>ash</code><span class="attributes-summary"> [Function]</span></a></li>
+			<li><a href="#HEADING-100-230"><code>lcm</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-100-237">lcm integer1 integer2 &rArr; integer3 <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-100-239"><code>gcd</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-100-246">gcd integer1 integer2 &rArr; integer3 <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+		      </ul>
+		    </li>
+		  </ul>
+		</li>
+		<li><a href="Coercing_and_Copying_Objects">Coercing and Copying Objects</a></li>
+		<li><a href="Collection_Operations">Collection Operations</a></li>
+		<li><a href="Reflective_Operations_on_Types">Reflective Operations on Types</a></li>
+		<li><a href="Functional_Operations">Functional Operations</a></li>
+		<li><a href="Function_Application">Function Application</a></li>
+		<li><a href="Reflective_Operations_on_Functions">Reflective Operations on Functions</a></li>
+		<li><a href="Operations_on_Conditions">Operations on Conditions</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 12</p>
+	<p id="section-name">The Built-In Functions</p>
+      </div>
+
+      <a name="HEADING-100-0"></a>
+      <a name="UID-Built-In_Functions-410"></a>
+      <h1 class="section-title"><a name="IX-1603">Arithmetic Operations</a></h1>
+      <p><a name="IX-1602">When instances of <code>&lt;rational&gt;</code> and instances
+	of <code>&lt;float&gt;</code> are combined by a numerical function, the instance
+	of <code>&lt;rational&gt;</code> is first converted to an instance
+	of <code>&lt;float&gt;</code> of the same format as the original instance
+	of <code>&lt;float&gt;</code>.</a></p>
+      <a name="HEADING-100-2"></a>
+      <a name="UID-Built-In_Functions-6229"></a>
+      <h2 class="subsection-title"><a name="IX-1604">Properties</a></h2>
+      <a name="HEADING-100-3"></a>
+      <h4 class="item-title" id="odd_"><a class="here" title="Link to here" href="#odd_"></a> <span class="signature"><code id="IX-1605">odd?</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1606">Tests for the property of being an odd number.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>odd? <var>integer</var> </code>
+	    &rArr;<code> <var>boolean</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integer</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>boolean</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;boolean&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Returns true if its argument is an odd number.</p></dd>
+      </dl>
+      <a name="HEADING-100-9"></a>
+      <h4 class="item-title" id="even_"><a class="here" title="Link to here" href="#even_"></a> <span class="signature"><code id="IX-1607">even?</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1608">Tests for the property of being an even number.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>even? <var>integer</var> </code>
+	    &rArr;<code> <var>boolean</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integer</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>boolean</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;boolean&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Returns true if its argument is an even number.</p></dd>
+      </dl>
+      <a name="HEADING-100-15"></a>
+      <h4 class="item-title" id="zero_"><a class="here" title="Link to here" href="#zero_"></a> <span class="signature"><code id="IX-1609">zero?</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1610">Tests for the property of being equal to zero.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>zero? <var>object</var> </code>
+	    &rArr;<code> <var>boolean</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>boolean</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;boolean&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns true if its argument is equal to zero.</p>
+	  <a name="HEADING-100-21"></a>
+	  <h5 class="method-signature"><span class="signature"><code>zero? <var>complex</var> </code>
+	      &rArr;<code> <var>boolean</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>A method is defined for the class <code>&lt;complex&gt;</code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-100-23"></a>
+      <h4 class="item-title" id="positive_"><a class="here" title="Link to here" href="#positive_"></a> <span class="signature"><code id="IX-1611">positive?</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1612">Tests for the property of being
+	positive.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>positive? <var>object</var> </code>
+	    &rArr;<code> <var>boolean</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>boolean</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;boolean&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns true if its argument is positive.</p>
+	  <a name="HEADING-100-29"></a>
+	  <h5 class="method-signature"><span class="signature"><code>positive? <var>real</var> </code>
+	      &rArr;<code> <var>boolean</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>A method is defined for the class <code>&lt;real&gt;</code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-100-31"></a>
+      <h4 class="item-title" id="negative_"><a class="here" title="Link to here" href="#negative_"></a> <span class="signature"><code id="IX-1613">negative?</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1614">Tests for the property of being
+	negative.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>negative? <var>object</var> </code>
+	    &rArr;<code> <var>boolean</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>boolean</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;boolean&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns true if its argument is negative.</p>
+	  <a name="HEADING-100-37"></a>
+	  <h5 class="method-signature"><span class="signature"><code>negative? <var>real</var> </code>
+	      &rArr;<code> <var>boolean</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>A method is defined for the class <code>&lt;real&gt;</code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-100-39"></a>
+      <h4 class="item-title" id="integral_"><a class="here" title="Link to here" href="#integral_"></a> <span class="signature"><code id="IX-1615">integral?</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1616">Tests for the property of being
+	integral.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>integral? <var>object</var> </code>
+	    &rArr;<code> <var>boolean</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>boolean</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;boolean&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Returns true if its argument is an integer.</p>
+	  <a name="HEADING-100-45"></a>
+	  <h5 class="method-signature"><span class="signature"><code>integral? <var>object</var> </code>
+	      &rArr;<code> <var>false</var></code></span> <span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>A method is defined for the class <code>&lt;object&gt;</code> that
+	    returns <code>#f</code>.</p>
+	  <a name="HEADING-100-47"></a>
+	  <h5 class="method-signature"><span class="signature"><code>integral? <var>real</var> </code>
+	      &rArr;<code> <var>boolean</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>A method is defined for real numbers that is equivalent to <code><var>real</var> =
+	      round(<var>real</var>)</code>.<a name="IX-1617"></a></p>
+	</dd>
+      </dl>
+      <a name="HEADING-100-49"></a>
+      <a name="UID-Built-In_Functions-1800"></a>
+      <h2 class="subsection-title">Arithmetic Operations</h2>
+      <a name="HEADING-100-50"></a>
+      <h4 class="item-title" id="addition"><a class="here" title="Link to here" href="#addition"></a> <span class="signature"><code id="IX-1618">+</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1619">Returns the sum of its arguments.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code><var>object1</var> + <var>object2</var> </code>
+	    &rArr;<code> #rest <var>objects</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>object2</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>objects</var></dt>
+	    <dd>
+              <p>Instances of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Adds two objects and returns the sum.</p>
+	  <a name="HEADING-100-57"></a>
+	  <h5 class="method-signature"><span class="signature"><code><var>complex1</var> + <var>complex2</var> </code>
+	      &rArr;<code> <var>complex</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>A predefined method returns the sum of two complex numbers.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-100-59"></a>
+      <h4 class="item-title" id="multiplication"><a class="here" title="Link to here" href="#multiplication"></a> <span class="signature"><code id="IX-1620">*</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1621">Returns the product of its
+	arguments.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code><var>object1</var> * <var>object2</var> </code>
+	    &rArr;<code> #rest <var>objects</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>object2</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>objects</var></dt>
+	    <dd>
+              <p>Instances of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Multiplies two objects and returns the product.</p>
+	  <a name="HEADING-100-66"></a>
+	  <h5 class="method-signature"><span class="signature"><code><var>complex1</var> * <var>complex2</var> </code>
+	      &rArr;<code> <var>complex</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>A predefined method returns the product of two complex numbers.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-100-68"></a>
+      <h4 class="item-title" id="subtraction"><a class="here" title="Link to here" href="#subtraction"></a> <span class="signature"><code id="IX-1622">-</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1623">Returns the difference of its
+	arguments.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code><var>object1</var> - <var>object2</var> </code>
+	    &rArr;<code> #rest <var>objects</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>object2</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>objects</var></dt>
+	    <dd>
+              <p>Instances of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Subtracts <var>object2</var> from <var>object1</var> and returns the difference.</p>
+	  <a name="HEADING-100-75"></a>
+	  <h5 class="method-signature"><span class="signature"><code><var>complex1</var> - <var>complex2</var> </code>
+	      &rArr;<code> <var>complex</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>A predefined method returns the difference of two complex numbers.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-100-77"></a>
+      <h4 class="item-title" id="division"><a class="here" title="Link to here" href="#division"></a> <span class="signature"><code id="IX-1624">/</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1625">Returns the quotient of its
+	arguments.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code><var>object1</var> / <var>object2</var> </code>
+	    &rArr;<code> #rest <var>objects</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>object2</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>objects</var></dt>
+	    <dd>
+              <p>Instances of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Divides <var>object2</var> into <var>object1</var> and returns the quotient.</p>
+	  <a name="HEADING-100-84"></a>
+	  <h5 class="method-signature"><span class="signature"><code><var>complex1</var> / <var>complex2</var> </code>
+	      &rArr;<code> <var>complex</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>A predefined method returns the quotient of two complex numbers.</p>
+	  <p><a name="IX-1626">Division by zero signals an error.</a></p>
+	  <p><a name="IX-1627">The result of dividing two integers with / is implementation
+	    defined. Portable programs should
+	    use <code>floor/</code>, <code>ceiling/</code>, <code>round/</code>,
+	    or <code>truncate/</code> to divide two integers.</a></p>
+	</dd>
+      </dl>
+      <a name="HEADING-100-88"></a>
+      <h4 class="item-title" id="negative"><a class="here" title="Link to here" href="#negative"></a> <span class="signature"><code id="IX-1628">negative</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1629">Returns the negation of an
+	object.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>negative <var>object1</var> </code>
+	    &rArr;<code> #rest <var>objects</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>objects</var></dt>
+	    <dd>
+              <p>Instances of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the negation of its argument. The unary minus operator is equivalent to a call
+	    to the <code>negative</code> in the current binding environment.</p>
+	  <a name="HEADING-100-94"></a>
+	  <h5 class="method-signature"><span class="signature"><code>negative <var>real1</var> </code>
+	      &rArr;<code> <var>real2</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>A predefined method returns the additive inverse of a real number.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-100-96"></a>
+      <h4 class="item-title" id="floor"><a class="here" title="Link to here" href="#floor"></a> <span class="signature"><code id="IX-1630">floor</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1631">Truncates a real number toward
+	negative infinity.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>floor <var>real1</var> </code>
+	    &rArr;<code> <var>integer real2</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>real1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;real&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integer</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	    <dt><var>real2</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Truncates <var>real1</var> toward negative infinity. The integer part is returned
+	    as <var>integer</var>, the remainder is returned as <var>real2</var>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-100-103"></a>
+      <h4 class="item-title" id="ceiling"><a class="here" title="Link to here" href="#ceiling"></a> <span class="signature"><code id="IX-1632">ceiling</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1633">Truncates a real number toward
+	positive infinity.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>ceiling <var>real1</var> </code>
+	    &rArr;<code> <var>integer real2</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>real1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;real&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integer</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	    <dt><var>real2</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Truncates <var>real1</var> toward positive infinity. The integer part is returned
+	    as <var>integer</var>, the remainder is returned as <var>real2</var>.</p></dd>
+      </dl>
+      <a name="HEADING-100-110"></a>
+      <h4 class="item-title" id="round"><a class="here" title="Link to here" href="#round"></a> <span class="signature"><code id="IX-1634">round</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1635">Rounds a real number toward the
+	nearest mathematical integer.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>round <var>real1</var> </code>
+	    &rArr;<code> <var>integer real2</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>real1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;real&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integer</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	    <dt><var>real2</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Rounds <var>real1</var> toward the nearest mathematical integer. The integer part is
+	    returned as <var>integer</var>, the remainder is returned
+	    as <var>real2</var>. If <var>real1</var> is exactly between two integers, then the
+	    result <var>integer</var> will be a multiple of two.</p></dd>
+      </dl>
+      <a name="HEADING-100-117"></a>
+      <h4 class="item-title" id="truncate"><a class="here" title="Link to here" href="#truncate"></a> <span class="signature"><code id="IX-1636">truncate</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1637">Truncates a real number toward
+	zero.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>truncate <var>real1</var> </code>
+	    &rArr;<code> <var>integer real2</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>real1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;real&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integer</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	    <dt><var>real2</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Truncates <var>real1</var> toward zero. The integer part is returned
+	    as <var>integer</var>, the remainder is returned as <var>real2</var>.</p></dd>
+      </dl>
+      <a name="HEADING-100-124"></a>
+      <h4 class="item-title" id="floor_div"><a class="here" title="Link to here" href="#floor_div"></a> <span class="signature"><code id="IX-1638">floor/</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1639">Returns the floor of the quotient of
+	two numbers.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>floor/ <var>real1 real2</var> </code>
+	    &rArr;<code> <var>integer real3</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>real1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;real&gt;</code>.</p>
+	    </dd>
+	    <dt><var>real2</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integer</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	    <dt><var>real3</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Divides <var>real2</var> into <var>real1</var> and truncates the result toward
+	    negative infinity. The integer part of the result is returned as <var>integer</var>, the
+	    remainder is returned as <var>real3</var>.</p></dd>
+      </dl>
+      <a name="HEADING-100-132"></a>
+      <h4 class="item-title" id="ceiling_div"><a class="here" title="Link to here" href="#ceiling_div"></a> <span class="signature"><code id="IX-1640">ceiling/</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1641">Returns the ceiling of the quotient
+	of two numbers.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>ceiling/ <var>real1 real2</var> </code>
+	    &rArr;<code> <var>integer real3</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>real1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;real&gt;</code>.</p>
+	    </dd>
+	    <dt><var>real2</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integer</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	    <dt><var>real3</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Divides <var>real2</var> into <var>real1</var> and truncates the result toward
+	    positive infinity. The integer part of the result is returned as <var>integer</var>, the
+	    remainder is returned as <var>real3</var>.</p></dd>
+      </dl>
+      <a name="HEADING-100-140"></a>
+      <h4 class="item-title" id="round_div"><a class="here" title="Link to here" href="#round_div"></a> <span class="signature"><code id="IX-1642">round/</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1643">Rounds off the quotient of two
+	numbers.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>round/ <var>real1 real2</var> </code>
+	    &rArr;<code> <var>integer real3</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>real1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;real&gt;</code>.</p>
+	    </dd>
+	    <dt><var>real2</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integer</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	    <dt><var>real3</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Divides <var>real2</var> into <var>real1</var> and rounds the result toward the
+	    nearest mathematical integer. The integer part of the result is returned
+	    as <var>integer</var>, the remainder is returned as <var>real3</var>. If the result of
+	    the division is exactly between two integers, then the result <var>integer</var> will be
+	    a multiple of two.</p></dd>
+      </dl>
+      <a name="HEADING-100-148"></a>
+      <h4 class="item-title" id="truncate_div"><a class="here" title="Link to here" href="#truncate_div"></a> <span class="signature"><code id="IX-1644">truncate/</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1645">Returns the truncated quotient of two
+	numbers.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>truncate/ <var>real1 real2</var> </code>
+	    &rArr;<code> <var>integer real3</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>real1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;real&gt;</code>.</p>
+	    </dd>
+	    <dt><var>real2</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integer</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	    <dt><var>real3</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Divides <var>real2</var> into <var>real1</var> and truncates the result toward
+	    zero. The integer part of the result is returned as <var>integer</var>, the remainder is
+	    returned as <var>real3</var>.</p></dd>
+      </dl>
+      <a name="HEADING-100-156"></a>
+      <h4 class="item-title" id="modulo"><a class="here" title="Link to here" href="#modulo"></a> <span class="signature"><code id="IX-1646">modulo</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1647">Returns the second value
+	of <code>floor/</code>.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>modulo <var>real1 real2</var> </code>
+	    &rArr;<code> <var>real3</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>real1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;real&gt;</code>.</p>
+	    </dd>
+	    <dt><var>real2</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>real3</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;real&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Returns the second value of <code>floor/(<var>real1, real2)</var></code>.</p></dd>
+      </dl>
+      <a name="HEADING-100-163"></a>
+      <h4 class="item-title" id="remainder"><a class="here" title="Link to here" href="#remainder"></a> <span class="signature"><code id="IX-1648">remainder</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1649">Returns the second value
+	of <code>truncate/</code>.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>remainder <var>real1 real2</var> </code>
+	    &rArr;<code> <var>real3</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>real1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;real&gt;</code>.</p>
+	    </dd>
+	    <dt><var>real2</var></dt>
+	    <dd><p>An instance of <code>&lt;real&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>real3</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;real&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Returns the second value of <code>truncate/(<var>real1, real2)</var></code>.</p></dd>
+      </dl>
+      <a name="HEADING-100-170"></a>
+      <h4 class="item-title" id="exponentiation"><a class="here" title="Link to here" href="#exponentiation"></a> <span class="signature"><a name="IX-1652"><code id="IX-1650">^</code></a> </span><span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1651">Raises an object to a specified
+	power.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code><var>object1</var> ^ <var>object2</var> </code>
+	    &rArr;<code> #rest <var>objects</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>object2</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>objects</var></dt>
+	    <dd>
+              <p>Instances of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns <var>object1</var> raised to the power <var>object2</var>. An error is
+	    signaled if both arguments are zero.</p>
+	  <a name="HEADING-100-177"></a>
+	  <h5 class="method-signature"><span class="signature"><code><var>complex</var> ^ <var>integer</var> </code>
+	      &rArr;<code><var>number</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>A predefined method raises a complex number to an integral power and returns the
+	    result.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-100-179"></a>
+      <h4 class="item-title" id="abs"><a class="here" title="Link to here" href="#abs"></a> <span class="signature"><code id="IX-1653">abs</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1654">Returns the absolute value of its
+	argument.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>abs <var>object1</var> </code>
+	    &rArr;<code> #rest <var>objects</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>objects</var></dt>
+	    <dd>
+              <p>Instances of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the absolute value of <var>object1</var>.</p>
+	  <a name="HEADING-100-185"></a>
+	  <h5 class="method-signature"><span class="signature"><code>abs <var>complex</var> </code>
+	      &rArr;<code> <var>real</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>A predefined method returns the absolute value of a complex number.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-100-187"></a>
+      <h4 class="item-title" id="logior"><a class="here" title="Link to here" href="#logior"></a> <span class="signature"><a name="IX-1657"></a><code id="IX-1655">logior</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1656">Returns the bitwise inclusive or of its
+	integer arguments.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>logior #rest <var>integers</var> </code>
+	    &rArr;<code> <var>integer</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integers</var></dt>
+	    <dd>
+              <p>Zero or more instances of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integer</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Returns the bitwise inclusive or of the <var>integers</var>.</p></dd>
+      </dl>
+      <a name="HEADING-100-193"></a>
+      <h4 class="item-title" id="logxor"><a class="here" title="Link to here" href="#logxor"></a> <span class="signature"><code id="IX-1658">logxor</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1659">Returns the bitwise exclusive or of
+	its integer arguments.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>logxor #rest <var>integers</var> </code>
+	    &rArr;<code> <var>integer</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integers</var></dt>
+	    <dd>
+              <p>Zero or more instances of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integer</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Returns the bitwise exclusive or of the <var>integers</var>.</p></dd>
+      </dl>
+      <a name="HEADING-100-199"></a>
+      <h4 class="item-title" id="logand"><a class="here" title="Link to here" href="#logand"></a> <span class="signature"><code id="IX-1660">logand</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1661">Returns the bitwise and of its
+	integer arguments.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>logand #rest <var>integers</var> </code>
+	    &rArr;<code> <var>integer</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integers</var></dt>
+	    <dd>
+              <p>Zero or more instances of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integer</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Returns the bitwise and of the <var>integers</var>.</p></dd>
+      </dl>
+      <a name="HEADING-100-205"></a>
+      <h4 class="item-title" id="lognot"><a class="here" title="Link to here" href="#lognot"></a> <span class="signature"><code id="IX-1662">lognot</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1663">Returns the bitwise not of its
+	integer argument.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>lognot <var>integer1</var> </code>
+	    &rArr;<code> <var>integer2</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integer1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integer2</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Returns the bitwise not of the <var>integer1</var>.</p></dd>
+      </dl>
+      <a name="HEADING-100-211"></a>
+      <h4 class="item-title" id="logbit_"><a class="here" title="Link to here" href="#logbit_"></a> <span class="signature"><code id="IX-1664">logbit?</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1665">Tests the value of a particular bit
+	in its integer argument.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>logbit? <var>index integer</var> </code>
+	    &rArr;<code> <var>boolean</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>index</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	    <dt><var>integer</var></dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>boolean</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;boolean&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns true if the <var>index</var>th bit in <var>integer</var> is a one-bit;
+	    otherwise it returns false.</p>
+	  <p>Negative <var>integers</var> are treated as if they were in two's-complement
+	    notation.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-100-219"></a>
+      <h4 class="item-title" id="ash"><a class="here" title="Link to here" href="#ash"></a> <span class="signature"><code id="IX-1666">ash</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1667">Performs an arithmetic shift on its
+	first argument.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>ash <var>integer1 count</var> </code>
+	    &rArr;<code> <var>integer2</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integer1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;.</code></p>
+	    </dd>
+	    <dt><var>count</var></dt>
+	    <dd><p>An instance of <code>&lt;integer&gt;.</code></p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>integer2</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;integer&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Performs an arithmetic shift on the binary representation of <var>integer1</var>.</p>
+	  <p><code>ash</code> shifts <var>integer1</var> arithmetically left by <var>count</var> bit
+	    positions if <var>count</var> is positive, or right <var>count</var> bit positions
+	    if <var>count</var> is negative. The shifted value of the same sign
+	    as <var>integer1</var> is returned.</p>
+	  <p>When <code>ash</code> moves bits to the left, it adds zero-bits at the right. When it
+	    moves them to the right, it discards bits.</p>
+	  <p><code>ash</code> is defined to behave as if <var>integer1</var> were represented in
+	    two's complement form, regardless of how integers are represented by the
+	    implementation.</p>
+	  <pre class="code">
+ash(8, 1)
+ &rArr;  16
+ash(32, -1)
+ &rArr;  16<a name="IX-1668"></a></pre>
+	</dd>
+      </dl>
+      <a name="HEADING-100-230"></a>
+      <h4 class="item-title" id="lcm"><a class="here" title="Link to here" href="#lcm"></a> <span class="signature"><code id="IX-1669">lcm</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1670">Returns the least common multiple of
+	its two arguments.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>lcm <var>object1 object2</var> </code>
+	    &rArr;<code> <var>object3</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>object2</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object3</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the least common multiple of <var>object1</var> and <var>object2.</var></p>
+	  <a name="HEADING-100-237"></a>
+	  <h5 class="method-signature"><span class="signature"><code>lcm <var>integer1 integer2</var> </code>
+	      &rArr;<code> <var>integer3</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>A predefined method returns the least common multiple of two integers.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-100-239"></a>
+      <h4 class="item-title" id="gcd"><a class="here" title="Link to here" href="#gcd"></a> <span class="signature"><code id="IX-1671">gcd</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1672">Returns the greatest common divisor
+	of its two arguments.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>gcd <var>object1 object2</var> </code>
+	    &rArr;<code> <var>object3</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	    <dt><var>object2</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object3</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns the greatest common divisor of <var>object1</var> and <var>object2</var>.</p>
+	  <a name="HEADING-100-246"></a>
+	  <h5 class="method-signature"><span class="signature"><code>gcd <var>integer1 integer2</var> </code>
+	      &rArr;<code> <var>integer3</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>A predefined method returns the greatest common divisor of two
+	    integers.<a name="IX-1673"></a></p>
+	</dd>
+      </dl>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Equality_and_Comparison"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Coercing_and_Copying_Objects"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Built-In_Functions"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

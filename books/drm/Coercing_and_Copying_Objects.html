@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Built-In_Functions" />
+    <link rel="prev" href="Arithmetic_Operations" />
+    <link rel="next" href="Collection_Operations" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Coercing and Copying Objects &mdash; 12. The Built-in Functions &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Arithmetic_Operations"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Collection_Operations"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Built-In_Functions"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li class="current parent"><a href="Built-In_Functions">The Built-In Functions</a>
+	      <ul class="sections">
+		<li><a href="Built-In_Functions_Overview">Overview</a></li>
+		<li><a href="Constructing_and_Initializing_Instances">Constructing and Initializing Instances</a></li>
+		<li><a href="Equality_and_Comparison">Equality and Comparison</a></li>
+		<li><a href="Arithmetic_Operations">Arithmetic Operations</a></li>
+		<li id="current"><a href="Coercing_and_Copying_Objects">Coercing and Copying Objects</a>
+		  <ul class="page-TOC">
+		    <li><a href="#HEADING-101-2"><code>identity</code><span class="attributes-summary"> [Function]</span></a></li>
+		    <li><a href="#HEADING-101-8"><code>values</code><span class="attributes-summary"> [Function]</span></a></li>
+		    <li class="subsections"><a href="#HEADING-101-15">General Coercion Function</a>
+		      <ul>
+			<li><a href="#HEADING-101-16"><code>as</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-101-24"><code>as</code> <var>collection-type collection</var> &rArr; <var>instance-of-collection-type</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-101-26"><code>as</code> (singleton (&lt;integer&gt;)) character &rArr; integer <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-101-28"><code>as</code> (singleton (&lt;character&gt;)) integer &rArr; character <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-101-30"><code>as</code> (singleton (&lt;symbol&gt;)) string &rArr; symbol <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-101-33"><code>as</code> (singleton (&lt;string&gt;)) symbol &rArr; string <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-101-36">Coercing Case</a>
+		      <ul>
+			<li><a href="#HEADING-101-37"><code>as-uppercase</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-101-44"><code>as-uppercase</code> <var>character</var> &rArr; <var>uppercase-character</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-101-46"><code>as-uppercase</code> <var>string</var> &rArr; <var>new-string</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-101-48"><code>as-uppercase!</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-101-55"><code>as-uppercase!</code> <var>string</var> &rArr; <var>string</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-101-57"><code>as-lowercase</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-101-64"><code>as-lowercase</code> <var>character</var> &rArr; <var>lowercase-character</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-101-66"><code>as-lowercase</code> <var>string</var> &rArr; <var>new-string</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-101-68"><code>as-lowercase!</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-101-75"><code>as-lowercase!</code> <var>string</var> &rArr; <var>string</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-101-77">Copying Objects</a>
+		      <ul>
+			<li><a href="#HEADING-101-78"><code>shallow-copy</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-101-85"><code>shallow-copy</code> <var>collection</var> &rArr; <var>new-collection</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+			<li><a href="#HEADING-101-87"><code>type-for-copy</code><span class="attributes-summary"> [Open Generic Function]</span></a>
+			  <ul class="gf-methods">
+			    <li><a href="#HEADING-101-94"><code>type-for-copy</code> <var>object</var> &rArr; <var>type</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-101-96"><code>type-for-copy</code> <var>mutable-collection</var> &rArr; <var>type</var><span class="attributes-summary"> [G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-101-98"><code>type-for-copy</code> <var>limited-collection</var> &rArr; <var>type</var><span class="attributes-summary"> [Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-101-104"><code>type-for-copy</code> range &rArr; &lt;list&gt; <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			    <li><a href="#HEADING-101-106"><code>type-for-copy</code> limited-range &rArr; &lt;list&gt; <span class="attributes-summary">[Sealed G.F. Method]</span></a></li>
+			  </ul>
+			</li>
+		      </ul>
+		    </li>
+		  </ul>
+		</li>
+		<li><a href="Collection_Operations">Collection Operations</a></li>
+		<li><a href="Reflective_Operations_on_Types">Reflective Operations on Types</a></li>
+		<li><a href="Functional_Operations">Functional Operations</a></li>
+		<li><a href="Function_Application">Function Application</a></li>
+		<li><a href="Reflective_Operations_on_Functions">Reflective Operations on Functions</a></li>
+		<li><a href="Operations_on_Conditions">Operations on Conditions</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 12</p>
+	<p id="section-name">The Built-In Functions</p>
+      </div>
+
+      <a name="HEADING-101-0"></a>
+      <a name="UID-Built-In_Functions-19913"></a>
+      <h1 class="section-title"><a name="IX-1674">Coercing and Copying Objects</a></h1>
+      <p>The following functions are used to coerce, copy, or simply return objects.</p>
+      <a name="HEADING-101-2"></a>
+      <h4 class="item-title" id="identity"><a class="here" title="Link to here" href="#identity"></a> <span class="signature"><code id="IX-1675">identity</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><code><a name="XREF-1676"></a></code>Returns its argument.</p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>identity <var>object</var> </code>
+	    &rArr;<code> <var>object</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>; the same object that was passed in as
+		an argument.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Returns <var>object</var> unaltered.</p></dd>
+      </dl>
+      <a name="HEADING-101-8"></a>
+      <h4 class="item-title" id="values"><a class="here" title="Link to here" href="#values"></a> <span class="signature"><code id="IX-1677">values</code></span> <span class="attributes-summary">[Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description">Returns its arguments as <a name="IX-1678">multiple values</a>.</p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>values #rest <var>the-values</var> </code>
+	    &rArr;<code> #rest <var>the-values</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>the-values</var></dt>
+	    <dd>
+              <p>Zero or more instances of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>the-values</var></dt>
+	    <dd>
+              <p>Zero or more instances of <code>&lt;object&gt;</code>; the objects that were passed
+		as arguments.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns <var>the-values</var> as multiple values.</p>
+	  <pre class="code">
+values(1, 2, 3)
+ &rArr; 1    // first value returned
+    2    // second value returned
+    3    // third value returned</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-101-15"></a>
+      <a name="UID-Built-In_Functions-25384"></a>
+      <h2 class="subsection-title">General Coercion Function</h2>
+      <a name="HEADING-101-16"></a>
+      <h4 class="item-title" id="as"><a class="here" title="Link to here" href="#as"></a> <span class="signature"><code id="IX-1679">as</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><code><a name="XREF-1680"></a></code>Coerces an object to a type.</p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>as <var>type object</var> </code>
+	    &rArr;<code> <var>instance</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>type</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;type&gt;</code>.</p>
+	    </dd>
+	    <dt><var>object</var></dt>
+	    <dd><p>An instance of <code>&lt;object&gt;</code>.</p></dd>
+	</dl></dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>instance</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>. It must be an instance of <var>type</var>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Coerces <var>object</var> to <var>type</var>. That is, it returns an instance
+	    of <var>type</var> that has the same contents as <var>object</var>. If <var>object</var>
+	    is already an instance of <var>type</var>, it is returned unchanged. In general, the
+	    value returned may or may not be freshly allocated.</p>
+	  <p>Predefined methods allow coercion between integers and characters, between strings and
+	    symbols, and between collection types. No methods are predefined for other
+	    classes. Programs may define additional methods.</p>
+	  <a name="HEADING-101-24"></a>
+	  <h5 class="method-signature"><span class="signature"><code>as <var>collection-type collection</var> </code>
+	      &rArr;<code> <var>instance-of-collection-type</var></code></span> <span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>When converting between collection types, the return value will have the same number of
+	    elements as <var>collection</var>. If the <var>collection</var> is an instance
+	    of <code>&lt;sequence&gt;</code> and the <var>collection-type</var> is a subtype
+	    of <code>&lt;sequence&gt;</code>, the elements will be in the same order. The individual
+	    elements may also undergo some conversion. The specific collection types for
+	    which <code>as</code> is defined is implementation defined.</p>
+	  <a name="HEADING-101-26"></a>
+	  <h5 class="method-signature"><span class="signature"><code>as <em>(singleton (&lt;integer&gt;))</em> <var>character</var> </code>
+	      &rArr;<code> <var>integer</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>This method on <code>as</code> returns a numeric equivalent
+	    for <var>character</var>. The integer returned is implementation dependent.</p>
+	  <a name="HEADING-101-28"></a>
+	  <h5 class="method-signature"><span class="signature"><code>as <em>(singleton (&lt;character&gt;))</em> <var>integer</var> </code>
+	      &rArr;<code> <var>character</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>This method on <code>as</code> returns the character equivalent
+	    to <var>integer</var>. The meaning of <var>integer</var> is implementation dependent.</p>
+	  <a name="HEADING-101-30"></a>
+	  <h5 class="method-signature"><span class="signature"><code>as <em>(singleton (&lt;symbol&gt;))</em> <var>string</var> </code>
+	      &rArr;<code> <var>symbol</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>This method on <code>as</code> returns the symbol that has the
+	    name <var>string</var>. If the symbol does not yet exist, it is created. This method
+	    on <code>as</code> will always return the same symbol for strings of the same
+	    characters, without regard to alphabetic case.</p>
+	  <pre class="code">
+as(&lt;symbol&gt;, "foo")
+<code> &rArr;</code>  #"foo"
+#"FOO" == as(&lt;symbol&gt;, "foo")
+<code> &rArr;</code>  #t
+#"Foo"
+<code> &rArr;</code>  #"foo"</pre>
+	  <a name="HEADING-101-33"></a>
+	  <h5 class="method-signature"><span class="signature"><code>as <em>(singleton (&lt;string&gt;))</em> <var>symbol</var> </code>
+	      &rArr;<code> <var>string</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>This method on <code>as</code> returns the name of the symbol, which will be a
+	  string.</p>
+	  <pre class="code">
+as(&lt;string&gt;, #"Foo")
+<code> &rArr;</code>  "Foo"</pre>
+	</dd>
+      </dl>
+      <a name="IX-1681"></a>
+      <a name="HEADING-101-36"></a>
+      <a name="UID-Built-In_Functions-2983"></a>
+      <h2 class="subsection-title">Coercing Case</h2>
+      <a name="HEADING-101-37"></a>
+      <h4 class="item-title" id="as-uppercase"><a class="here" title="Link to here" href="#as-uppercase"></a> <span class="signature"><code id="IX-1682">as-uppercase</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1683">Coerces an object to uppercase.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>as-uppercase <var>object1</var> </code>
+	    &rArr;<code> <var>object2</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object2</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Coerces an object to uppercase and returns the resulting new object.</p>
+	  <p><var>object1</var> is not modified by this operation.</p>
+	  <a name="HEADING-101-44"></a>
+	  <h5 class="method-signature"><span class="signature"><code>as-uppercase <var>character</var> </code>
+	      &rArr;<code> <var>uppercase-character</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>This method returns the uppercase equivalent
+	    for <var>character</var>. If <var>character</var> already is uppercase or does not exist
+	    in two cases, it is returned unchanged.</p>
+	  <a name="HEADING-101-46"></a>
+	  <h5 class="method-signature"><span class="signature"><code>as-uppercase <var>string</var> </code>
+	      &rArr;<code> <var>new-string</var></code></span> <span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>This method is equivalent to <code>map(as-uppercase, <var>string</var>)</code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-101-48"></a>
+      <h4 class="item-title" id="as-uppercase."><a class="here" title="Link to here" href="#as-uppercase."></a> <span class="signature"><code id="IX-1684">as-uppercase!</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1685">Coerces an object to uppercase in place.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>as-uppercase! <var>object</var> </code>
+	    &rArr;<code> <var>object</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>; the same object that was passed in as
+		an argument.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Coerces an object to uppercase in place and returns the modified object.</p>
+	  <p><var>object</var> may be modified by this operation, and the result will
+	    be <code>==</code> to the <var>object</var>.</p>
+	  <a name="HEADING-101-55"></a>
+	  <h5 class="method-signature"><span class="signature"><code>as-uppercase! <var>string</var> </code>
+	      &rArr;<code> <var>string</var></code></span> <span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>This method is equivalent to <code>map-into(<var>string</var>,
+	      as-uppercase, <var>string</var>)</code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-101-57"></a>
+      <h4 class="item-title" id="as-lowercase"><a class="here" title="Link to here" href="#as-lowercase"></a> <span class="signature"><code id="IX-1686">as-lowercase</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1687">Coerces an object to lowercase.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>as-lowercase <var>object1</var> </code>
+	    &rArr;<code> <var>object2</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object2</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Coerces an object to lowercase and returns the resulting new object.</p>
+	  <p><var>object1</var> will not be modified by this operation.</p>
+	  <a name="HEADING-101-64"></a>
+	  <h5 class="method-signature"><span class="signature"><code>as-lowercase <var>character</var> </code>
+	      &rArr;<code> <var>lowercase-character</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The <code>&lt;character&gt;</code> method on <code>as-lowercase</code> returns the
+	    lowercase equivalent for <var>character</var>. If <var>character</var> already is
+	    lowercase or does not exist in two cases, it is returned unchanged.</p>
+	  <a name="HEADING-101-66"></a>
+	  <h5 class="method-signature"><span class="signature"><code>as-lowercase <var>string</var> </code>
+	      &rArr;<code> <var>new-string</var></code></span> <span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>This method is equivalent to <code>map(as-lowercase, <var>string</var>)</code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-101-68"></a>
+      <h4 class="item-title" id="as-lowercase."><a class="here" title="Link to here" href="#as-lowercase."></a> <span class="signature"><code id="IX-1688">as-lowercase!</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="IX-1671">Coerces an object to lowercase in place.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>as-lowercase! <var>object</var> </code>
+	    &rArr;<code> <var>object</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>; the same object that was passed in as
+		an argument.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Coerces an object to lowercase in place and returns the modified object.</p>
+	  <p><var>object</var> may be modified by this operation, and the result will
+	    be <code>==</code> to the <var>object</var>.</p>
+	  <a name="HEADING-101-75"></a>
+	  <h5 class="method-signature"><span class="signature"><code>as-lowercase! <var>string</var> </code>
+	      &rArr;<code> <var>string</var></code></span> <span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>This method is equivalent to <code>map-into(<var>string</var>, as-lowercase, <var>string</var>)</code>.<a name="IX-1690"></a></p>
+	</dd>
+      </dl>
+      <a name="HEADING-101-77"></a>
+      <a name="UID-Built-In_Functions-2996"></a>
+      <h2 class="subsection-title">Copying Objects</h2>
+      <a name="HEADING-101-78"></a>
+      <h4 class="item-title" id="shallow-copy"><a class="here" title="Link to here" href="#shallow-copy"></a> <span class="signature"><code id="IX-1691">shallow-copy</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1692">Returns a copy of its argument.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>shallow-copy <var>object1</var> </code>
+	    &rArr;<code> #rest <var>objects</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object1</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>objects</var></dt>
+	    <dd>
+              <p>Instances of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns a new object that has the same contents as <var>object1</var>. The contents are
+	    not copied but are the same objects contained in <var>object1</var>.</p>
+	  <p>There is a predefined method for instances of <code>&lt;collection&gt;</code>. For
+	    other classes, the programmer must provide a method.</p>
+	  <a name="HEADING-101-85"></a>
+	  <h5 class="method-signature"><span class="signature"><code>shallow-copy <var>collection</var> </code>
+	      &rArr;<code> <var>new-collection</var></code></span> <span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>The method for <code>&lt;collection&gt;</code> creates a new object by
+	    calling <code>make</code> on the <code>type-for-copy</code> of <var>collection</var> and
+	    filling it with the same elements as <var>collection</var>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-101-87"></a>
+      <h4 class="item-title" id="type-for-copy"><a class="here" title="Link to here" href="#type-for-copy"></a> <span class="signature"><code id="IX-1693">type-for-copy</code></span> <span class="attributes-summary">[Open Generic Function]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-1694">Returns an appropriate type for
+	creating mutable copies of its argument.</a></p>
+      <dl class="Cliche">
+	<dt><span>Signature:</span></dt>
+	<dd>
+	  <p class="signature">
+	    <code>type-for-copy <var>object</var> </code>
+	    &rArr;<code> <var>type</var></code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>object</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;object&gt;</code>.</p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt class="Cliche2"><span>Values:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>type</var></dt>
+	    <dd>
+              <p>An instance of <code>&lt;type&gt;.</code></p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p>Returns an appropriate type for creating mutable copies of <var>object</var>.</p>
+	  <p>The <code>type-for-copy</code> value of a collection must be an instantiable subtype
+	    of <code>&lt;mutable-collection&gt;</code>. For collections that are themselves mutable,
+	    the collection's actual class is generally the most appropriate (assuming it is
+	    instantiable). The <code>type-for-copy</code> value for a sequence should be a subtype
+	    of <code>&lt;sequence&gt;</code>, and the <code>type-for-copy</code> value of an
+	    explicit-key-collection should be a subtype
+	    of <code>&lt;explicit-key-collection&gt;</code>.</p>
+	  <a name="HEADING-101-94"></a>
+	  <h5 class="method-signature"><span class="signature"><code>type-for-copy <var>object</var> </code>
+	      &rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>The method on <code>&lt;object&gt;</code> returns the result of
+	    calling <code>object-class</code> on the <var>object</var>.</p>
+	  <a name="HEADING-101-96"></a>
+	  <h5 class="method-signature"><span class="signature"><code>type-for-copy <var>mutable-collection</var> </code>
+	      &rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[G.F. Method]</span></h5>
+	  <p>The method on <code>&lt;mutable-collection&gt;</code> returns the result of
+	    calling <code>object-class</code> on the <var>mutable-collection</var>.</p>
+	  <a name="HEADING-101-98"></a>
+	  <h5 class="method-signature"><span class="signature"><code>type-for-copy <var>limited-collection</var> </code>
+	      &rArr;<code> <var>type</var></code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>For a type <var>L<em><sub>1</sub></em></var> created by <code>limited(<var>C</var>,
+	      of: <var>T</var>, size: <var>S</var>)</code> where <var>C</var> is
+	    not <code>&lt;range&gt;</code>, <code>type-for-copy</code> of an object made by
+	    instantiating <var>L<em><sub>1</sub></em></var> returns a
+	    type <var>L<em><sub>2</sub></em></var> that satisfies each of the following:</p>
+	  <ul>
+	    <li><var>L<em><sub>2</sub></em></var> is either a class or a limited collection type.</li>
+	    <li><var>L<em><sub>2</sub></em></var> is a subtype of <var>C</var>.</li>
+	    <li><var>L<em><sub>2</sub></em></var>'s element type is equivalent to <var>T</var>.</li>
+	    <li>If <var>L<em><sub>2</sub></em></var> is a limited collection type, its size attribute is <code>#f</code>.</li>
+	  </ul>
+	  <a name="HEADING-101-104"></a>
+	  <h5 class="method-signature"><span class="signature"><code>type-for-copy <var>range</var> </code>
+	      &rArr;<code> &lt;list&gt;</code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The method on <code>&lt;range&gt;</code> returns <code>&lt;list&gt;</code>.</p>
+	  <a name="HEADING-101-106"></a>
+	  <h5 class="method-signature"><span class="signature"><code>type-for-copy <var>limited-range</var> </code>
+	      &rArr;<code> &lt;list&gt;</code></span> <span class="attributes-summary">[Sealed G.F. Method]</span></h5>
+	  <p>The method on instances
+	    of <code>limited(singleton(&lt;range&gt;)</code>&hellip;<code>)</code>
+	    returns <code>&lt;list&gt;</code>, the same as for any instance
+	    of <code>&lt;range&gt;</code>.<a name="IX-1695"></a></p>
+	</dd>
+      </dl>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Arithmetic_Operations"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Collection_Operations"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Built-In_Functions"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

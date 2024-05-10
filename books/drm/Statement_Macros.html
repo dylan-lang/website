@@ -1,0 +1,945 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Built-In_Macros_and_Special_Definitions" />
+    <link rel="prev" href="Local_Declaration_Macros" />
+    <link rel="next" href="Function_Macros" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Statements &mdash; 14. The Built-In Macros and Special Definitions &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Local_Declaration_Macros"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Function_Macros"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Built-In_Macros_and_Special_Definitions"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li class="current parent"><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a>
+	      <ul class="sections">
+		<li><a href="Built-In_Macros_and_Special_Definitions_Overview">Overview</a></li>
+		<li><a href="Definition_Macros">Definitions</a></li>
+		<li><a href="Local_Declaration_Macros">Local Declarations</a></li>
+		<li id="current" class="subsections"><a href="Statement_Macros">Statements</a>
+		  <ul class="page-TOC">
+		    <li class="subsections"><a href="#HEADING-114-162">Conditionals</a>
+		      <ul>
+			<li><a href="#HEADING-114-164"><code>if</code><span class="attributes-summary"> [Statement]</span></a></li>
+			<li><a href="#HEADING-114-181"><code>unless</code><span class="attributes-summary"> [Statement]</span></a></li>
+			<li><a href="#HEADING-114-190"><code>case</code><span class="attributes-summary"> [Statement]</span></a></li>
+			<li><a href="#HEADING-114-201"><code>select</code><span class="attributes-summary"> [Statement]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-114-220">Iteration Constructs</a>
+		      <ul>
+			<li><a href="#HEADING-114-221"><code>while</code><span class="attributes-summary"> [Statement]</span></a></li>
+			<li><a href="#HEADING-114-229"><code>until</code><span class="attributes-summary"> [Statement]</span></a></li>
+			<li><a href="#HEADING-114-237"><code>for</code><span class="attributes-summary"> [Statement]</span></a></li>
+		      </ul>
+		    </li>
+		    <li class="subsections"><a href="#HEADING-114-280">Other Statement Macros</a>
+		      <ul>
+			<li><a href="#HEADING-114-281"><code>begin</code><span class="attributes-summary"> [Statement]</span></a></li>
+			<li><a href="#HEADING-114-287"><code>block</code><span class="attributes-summary"> [Statement]</span></a></li>
+			<li><a href="#HEADING-114-324"><code>method</code><span class="attributes-summary"> [Statement]</span></a></li>
+		      </ul>
+		    </li>
+		  </ul>
+		</li>
+		<li><a href="Function_Macros">Function Macros</a></li>
+	      </ul>
+	    </li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 14</p>
+	<p id="section-name">The Built-In Macros and Special Definitions</p>
+      </div>
+
+      <a name="HEADING-114-0"></a>
+      <a name="UID-Built-In_Macros-2670"></a>
+      <h1 class="section-title"><a name="IX-2041">Statements</a></h1>
+      <p>Statements are used to implement a variety of program constructs.</p>
+      <p>Many statements include an optional implicit body, which may contain one or more
+	constituents separated by semicolons. When an implicit body is executed, the expressions in
+	the implicit body are executed in order (left to right). The values of the implicit body are
+	the values of the last expression. If the optional implicit body is not present or contains
+	no expressions, the return value is <code>#f</code>.</p>
+      <table class="numbered">
+	<caption><strong>Table 14-3</strong> Statements</caption>
+	<tr>
+	  <th class="primary"><p>Macro</p></th>
+	  <th><p>Description</p></th>
+	  <th><p>Page</p></th>
+	</tr><tr>
+	  <td><p><code>if</code></p></td>
+	  <td><p><a href="#XREF-2044">Executes an implicit body if the value of a test is true
+		or an alternate if the test is false.</a></p></td>
+	  <td><p><a href="#XREF-2044">395</a></p></td>
+	</tr><tr>
+	  <td><p><code>unless</code></p></td>
+	  <td><p><a href="#XREF-2046">Executes an implicit body unless the value of a test is
+		true.</a></p></td>
+	  <td><p><a href="#XREF-2046">396</a></p></td>
+	</tr><tr>
+	  <td><p><code>case</code></p></td>
+	  <td><p><a href="#XREF-2048">Executes a number of tests until one is true, and then
+		executes an implicit body associated with the true test.</a></p></td>
+	  <td><p><a href="#XREF-2048">397</a></p></td>
+	</tr><tr>
+	  <td><p><code>select</code></p></td>
+	  <td><p><a href="#XREF-2050">Compares a target object to a series of potential matches,
+		and executes an implicit body associated with the first match found.</a></p></td>
+	  <td><p><a href="#XREF-2050">398</a></p></td>
+	</tr><tr>
+	  <td><p><code>while</code></p></td>
+	  <td><p><a href="#XREF-2054">Repeatedly executes a body until a test expression is
+		false.</a></p></td>
+	  <td><p><a href="#XREF-2054">399</a></p></td>
+	</tr><tr>
+	  <td><p><code>until</code></p></td>
+	  <td><p><a href="#XREF-2056">Repeatedly executes a body until a test expression is
+		true.</a></p></td>
+	  <td><p><a href="#XREF-2056">400</a></p></td>
+	</tr><tr>
+	  <td><p><code>for</code></p></td>
+	  <td><p><a href="#XREF-2058">Performs general iteration over a body, updating bindings
+		and performing end tests on each iteration.</a></p></td>
+	  <td><p><a href="#XREF-2058">400</a></p></td>
+	</tr><tr>
+	  <td><p><code>begin</code></p></td>
+	  <td><p><a href="#XREF-2061">Executes expressions in a body, in order.</a></p></td>
+	  <td><p><a href="#XREF-2061">404</a></p></td>
+	</tr><tr>
+	  <td><p><code>block</code></p></td>
+	  <td><p><a href="#XREF-2063">Executes a body with several options for nonstandard flow
+		of control.</a></p></td>
+	  <td><p><a href="#XREF-2063">404</a></p></td>
+	</tr><tr>
+	  <td><p><code>method</code></p></td>
+	  <td><p><a href="#XREF-2066">Creates and returns a method.</a></p></td>
+	  <td><p><a href="#XREF-2066">408</a></p></td>
+	</tr>
+      </table>
+      <a name="HEADING-114-162"></a>
+      <a name="UID-Built-In_Macros-10641"></a>
+      <h2 class="subsection-title"><a name="IX-2042">Conditionals</a></h2>
+      <p>The following statements are used to perform conditional execution.</p>
+      <a name="HEADING-114-164"></a>
+      <h4 class="item-title" id="if"><a class="here" title="Link to here" href="#if"></a> <span class="signature"><code id="IX-2043">if</code></span> <span class="attributes-summary">[Statement]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2044">Executes an implicit body if the
+	value of a test is true or an alternate if the test is false.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd>
+	  <p>
+	    <code>if (</code> <var>test</var> <code>)</code> <strong class="re">[</strong> <var>consequent</var> <strong class="re">]</strong><br />
+	    &nbsp;&nbsp;&nbsp;<strong class="re">{</strong> <code>elseif</code> <code>(</code> <var>elseif-test</var> <code>)</code> <strong class="re">[</strong> <var>elseif-consequent</var> <strong class="re">] }*</strong><br />
+	    &nbsp;&nbsp;&nbsp;<strong class="re">[</strong> <code>else</code> <strong class="re">[</strong> <var>alternate</var> <strong class="re">] ]</strong><br />
+	    <code>end</code> <strong class="re">[</strong> <code>if</code> <strong class="re">]</strong>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>test</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>consequent</var></dt>
+	    <dd><p><span class="BNF">body<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>elseif-test</var></dt>
+	    <dd><p><span class="BFN">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>elseif-consequent</var></dt>
+	    <dd><p><span class="BNF">body<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>alternate</var></dt>
+	    <dd><p><span class="BNF">body<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd><p>Zero or more instances of <code>&lt;object&gt;</code>.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><code>if</code> executes one or more expressions, executing and returning the values of
+	    a body following the first test that returns true.</p>
+	  <p><var>test</var> is the first expression to be executed. If its value is
+	    true, <code>if</code> executes and returns the values of the <var>consequent</var>. If
+	    the value of <var>test</var> is false, <code>if</code> proceeds with the optional
+	    elseif-tests and alternate.</p>
+	  <p>First the elseif clauses are tried in order. The first <var>elseif-test</var> is
+	    executed. If its value is true, the corresponding <var>elseif-consequent</var> is
+	    executed and its values are returned as the value of the <code>if</code> statement. If
+	    its value is false, the next <var>elseif-test</var> is tried. This continues until a
+	    true <var>elseif-test</var> is found, or until there are no more elseif clauses.</p>
+	  <p>If the <var>test</var> and all the <var>elseif-tests</var> are false,
+	    the <var>alternate</var> is executed and its values are returned as the value of
+	    the <code>if</code> statement. If there is no alternate, the <code>if</code> statement
+	    returns <code>#f</code>.</p>
+	  <pre class="code">
+if ( x &lt; 0 )
+  - x;
+end if;
+
+if ( heads?(flip(coin)) )
+  start(black);
+else
+  start(white);
+end if
+
+if (player1.money &lt;= 0)
+  end-game(player1)
+elseif (player2.money &lt;= 0)
+  end-game(player2)
+else
+  move(player1);
+  move(player2);
+end if
+
+if ( camel.humps = 1 )
+  "dromedary"
+elseif ( camel.humps = 2 )
+  "bactrian"
+else
+  "not a camel"
+end if; </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-114-181"></a>
+      <h4 class="item-title" id="unless"><a class="here" title="Link to here" href="#unless"></a> <span class="signature"><code id="IX-2045">unless</code></span> <span class="attributes-summary">[Statement]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2046">Executes an implicit body unless the
+	value of a test is true.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd><p><code>unless (</code> <var>test</var> <code>)</code><br />
+	    &nbsp;&nbsp;&nbsp;<strong class="re">[</strong> <var>body</var> <strong class="re">]</strong><br />
+	    <code>end</code> <strong class="re">[</strong> <code>unless</code> <strong class="re">]</strong></p></dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>test</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p> </dd>
+	    <dt><var>body</var></dt>
+	    <dd><p><span class="BNF">body<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd><p>Zero or more instances of <code>&lt;object&gt;</code>.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><code>unless</code> executes <var>test</var>. If the value of <var>test</var> is false,
+	    then the <var>body</var> is executed and its values are returned
+	    by <code>unless</code>. If the value of <var>test</var> is true, the <var>body</var> is
+	    not executed and <code>unless</code> returns <code>#f</code>.</p>
+	  <p>If there are no expressions in the <var>body</var>, then <code>#f</code> is
+	    returned.</p>
+	  <pre class="code">
+unless(detect-gas? (nose))
+    light(match)
+end unless </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-114-190"></a>
+      <h4 class="item-title" id="case"><a class="here" title="Link to here" href="#case"></a> <span class="signature"><code id="IX-2047">case</code></span> <span class="attributes-summary">[Statement]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2048">Executes a number of tests until one
+	is true, and then executes an implicit body associated with the true test.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd>
+	  <p>
+	    <code>case</code><br />
+	    &nbsp;&nbsp;&nbsp;<strong class="re">{</strong> <var>test</var> <code>=&gt;</code> <var>consequent</var> <strong class="re">}*</strong><br />
+	    &nbsp;&nbsp;&nbsp;<strong class="re">[</strong> <code>otherwise</code> <strong class="re">[</strong> <code>=&gt;</code> <strong class="re">]</strong> <var>alternate</var> <strong class="re">]</strong><br />
+	    <code>end</code> <strong class="re">[</strong> <code>case</code> <strong class="re">]</strong>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>test</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>consequent</var></dt>
+	    <dd><p><strong class="re">[</strong> constituents<em class="BNF"><sub>bnf</sub></em> <strong class="re">]</strong> <code>;</code>
+	      </p>
+	    </dd>
+	    <dt><var>alternate</var></dt>
+	    <dd><p><strong class="re">[</strong> constituents<em class="BNF"><sub>bnf</sub></em> <strong class="re">]</strong> <code>;</code>
+	      </p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd><p>Zero or more instances of <code>&lt;object&gt;</code>.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><code>case</code> executes the <var>test</var> in order, until it reaches a test that
+	    returns true. When it reaches a test that returns true, it executes the
+	    corresponding <var>consequent</var> and returns its values. Subsequent tests are not
+	    executed. If the corresponding <var>consequent</var> is empty, the first value of the
+	    successful test is returned.</p>
+	  <p>As a special case, the name <code>otherwise</code> may appear as
+	    a <var>test</var>. This <var>test</var> always succeeds if there is no preceding
+	    successful <var>test</var>.</p>
+	  <p>If no <var>test</var> is true, then <code>case</code> returns <code>#f</code>.</p>
+	  <pre class="code">
+case
+   player1.money &lt;= 0
+     =&gt; end-game(player1);
+   player2.money &lt;= 0
+     =&gt; end-game(player2);
+   otherwise
+     =&gt; move(player1);
+        move(player2);
+end case; </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-114-201"></a>
+      <h4 class="item-title" id="select"><a class="here" title="Link to here" href="#select"></a> <span class="signature"><code id="IX-2049">select</code></span> <span class="attributes-summary">[Statement]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2050">Compares a target object to a series
+	of potential matches, and executes an implicit body associated with the first match
+	found.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd>
+	  <p>
+	    <code>select (</code> <var>target</var> <strong class="re">[</strong> <code>by</code> <var>test</var> <strong class="re">]</strong> <code>)</code><br />
+	    &nbsp;&nbsp;&nbsp;<strong class="re">{</strong> <var>matches</var> <code>=&gt;</code> <var>consequent</var> <strong class="re">}*</strong><br />
+	    &nbsp;&nbsp;&nbsp;<strong class="re">[</strong> <code>otherwise</code> <strong class="re">[</strong> <code>=&gt;</code> <strong class="re">]</strong> <var>alternate</var> <strong class="re">]</strong><br />
+	    <code>end</code> <strong class="re">[</strong> <code>select</code> <strong class="re">]</strong>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>target</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>test</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>matches</var></dt>
+	    <dd><p><strong class="re">{</strong> <span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">}</strong> <code>,</code><strong class="re">+</strong> <strong class="re">|</strong> <code>(</code> <strong class="re">{</strong> <span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">}</strong> <code>,</code><strong class="re">+</strong> <code>)</code></p></dd>
+	    <dt><var>consequent</var></dt>
+	    <dd><p><strong class="re">[</strong> <span class="BNF">constituents<em class="MetaSyntax"><sub>bnf</sub></em></span> <strong class="re">]</strong> <code>;</code></p></dd>
+	    <dt><var>alternate</var></dt>
+	    <dd><p><strong class="re">[</strong> <span class="BNF">constituents<em class="MetaSyntax"><sub>bnf</sub></em></span> <strong class="re">]</strong> <code>;</code></p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd><p>Zero or more instances of <code>&lt;object&gt;</code>.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><code>select</code> generates a target object and then compares it to a series of
+	    potential matches, in order. If it finds a match, it executes the
+	    corresponding <var>consequent</var> and returns the values of
+	    the <var>consequent</var>. If no match is found, an error is signaled.</p>
+	  <p>The <var>target</var> is executed to produce the match object.</p>
+	  <p>The <var>test</var>, if supplied, is a function used to compare the target object to
+	    the potential matches. The default <var>test</var> is <code>==</code>.</p>
+	  <p>One at a time, each <var>match</var> is executed and its value compared
+	    to <var>target</var>, in order. If a match is found, the
+	    corresponding <var>consequent</var> is executed and its values are returned. If the
+	    corresponding <var>consequent</var> is empty, <code>#f</code> is returned.</p>
+	  <p>Once a match is found, subsequent <var>matches</var> and the corresponding bodies are
+	    not executed.</p>
+	  <p>As a special case, the name <code>otherwise</code> may appear instead of
+	    a <var>matches</var>. This will be considered a match if no other match is found.</p>
+	  <p>If there is no matching clause, an error is signaled. Because an <code>otherwise</code>
+	    clause matches when no other clause matches, a <code>select</code> form that includes
+	    an <code>otherwise</code> clause will never signal an error for failure to match.</p>
+	  <p>Since testing stops when the first match is found, it is irrelevant whether the test
+	    function would also have returned true if called on later matches of the same clause or
+	    on matches of later clauses.</p>
+	  <pre class="code">
+select ( career-choice(student) )
+   art:, music:, drama:
+     =&gt; "Don't quit your day job";
+   literature:, history:, linguistics:
+     =&gt; "That really is fascinating";
+   science:, math:, engineering:
+     =&gt; "Say, can you fix my VCR?";
+   otherwise =&gt; "I wish you luck";
+end select;
+
+select ( my-object by instance? )
+  &lt;window&gt;, &lt;view&gt;, &lt;rectangle&gt; =&gt; "a graphical object";
+  &lt;number&gt;, &lt;string&gt;, &lt;list&gt; =&gt; "a computational object";
+  otherwise =&gt; "I don't know";
+end select<a name="IX-2051"></a> </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-114-220"></a>
+      <a name="UID-Built-In_Macros-1898"></a>
+      <h2 class="subsection-title"><a name="IX-2052">Iteration Constructs</a></h2>
+      <a name="HEADING-114-221"></a>
+      <h4 class="item-title" id="while"><a class="here" title="Link to here" href="#while"></a> <span class="signature"><code id="IX-2053">while</code></span> <span class="attributes-summary">[Statement]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2054">Repeatedly executes a body until a
+	test expression is false.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd><p><code>while (</code> <var>test</var> <code>)</code><br />
+	    &nbsp;&nbsp;&nbsp;<strong class="re">[</strong> <var>body</var> <strong class="re">]</strong><br />
+	    <code>end</code> <strong class="re">[</strong> <code>while</code> <strong class="re">]</strong><br />
+	    &rArr; <code>#f</code></p></dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>test</var></dt>
+	    <dd><p>expression<em class="BNF"><sub>bnf</sub></em></p></dd>
+	    <dt><var>body</var></dt>
+	    <dd><p>body<em class="BNF"><sub>bnf</sub></em></p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd><p><code>#f</code></p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><code>while</code> loops over <var>body</var> until <var>test</var> returns false.</p>
+	  <p>Each pass through the loop begins by executing <var>test</var>. If <var>test</var>
+	    returns a true value, the expressions in the <var>body</var> are executed and the
+	    looping continues. If <var>test</var> returns false, the loop terminates
+	    and <code>while</code> returns <code>#f</code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-114-229"></a>
+      <h4 class="item-title" id="until"><a class="here" title="Link to here" href="#until"></a> <span class="signature"><code id="IX-2055">until</code></span> <span class="attributes-summary">[Statement]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2056">Repeatedly executes a body until a
+	test expression is true.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd>
+	  <p>
+	    <code>until (</code> <var>test</var> <code>)</code><br />
+	    &nbsp;&nbsp;&nbsp;<strong class="re">[</strong> <var>body</var> <strong class="re">]</strong><br />
+	    <code>end</code> <strong class="re">[</strong> <code>until</code> <strong class="re">]</strong><br />
+	    &rArr; <code>#f</code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>test</var></dt>
+	    <dd><p>expression<em class="BNF"><sub>bnf</sub></em></p></dd>
+	    <dt><var>body</var></dt>
+	    <dd><p>body<em class="BNF"><sub>bnf</sub></em></p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd><p><code>#f</code></p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><code>until</code> loops over <var>body</var> until <var>test</var> returns true.</p>
+	  <p>Each pass through the loop begins by executing <var>test</var>. If <var>test</var>
+	    returns false, the expressions in the <var>body</var> are executed and the looping
+	    continues. If <var>test</var> returns true, the loop terminates and <code>until</code>
+	    returns <code>#f</code>.</p>
+	</dd>
+      </dl>
+      <a name="HEADING-114-237"></a>
+      <h4 class="item-title" id="for"><a class="here" title="Link to here" href="#for"></a> <span class="signature"><code id="IX-2057">for</code></span> <span class="attributes-summary">[Statement]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2058">Performs general iteration over a
+	body, updating bindings and performing end tests on each iteration.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd>
+	  <p>
+	    <code>for (</code> <strong class="re">{</strong> <var>for-clause</var> <strong class="re">}</strong> <code>,</code><strong class="re">*</strong> <strong class="re">|</strong><br />
+	    <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><strong class="re">{</strong> <strong class="re">{</strong> <var>for-clause</var> <code>,</code><strong class="re">}*</strong> <var>end-clause</var> <strong class="re">}</strong> <code>)</code><br />
+	    &nbsp;&nbsp;&nbsp;<strong class="re">[</strong> <var>loop-body</var> <strong class="re">]</strong><br />
+	    &nbsp;&nbsp;&nbsp;<strong class="re">[</strong> <code>finally</code> <strong class="re">[</strong> <var>result-body</var> <strong class="re">]</strong> <strong class="re">]</strong><br />
+	    <code>end</code> <strong class="re">[</strong> <code>for</code> <strong class="re">]</strong>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>for-clause</var></dt>
+	    <dd><p>
+		<var>explicit-step-clause</var> <strong class="re">|</strong><br />
+		<var>collection-clause</var> <strong class="re">|</strong><br />
+		<var>numeric-clause</var></p></dd>
+	    <dt><var>end-test</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>loop-body</var></dt>
+	    <dd><p><span class="BNF">body<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>result-body</var></dt>
+	    <dd><p><span class="BNF">body<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>explicit-step-clause</var></dt>
+	    <dd><p><span class="BNF">variable<em class="BNF"><sub>bnf</sub></em></span> <code>=</code> <var>init-value</var> <code>then</code> <var>next-value</var></p></dd>
+	    <dt><var>collection-clause</var></dt>
+	    <dd><p><span class="BNF">variable<em class="BNF"><sub>bnf</sub></em></span> <code>in</code> <var>collection</var></p></dd>
+	    <dt><var>numeric-clause</var></dt>
+	    <dd>
+	      <p>
+		<span class="BNF">variable<em class="BNF"><sub>bnf</sub></em></span> <code>from</code> <var>start</var><br />
+		<strong class="re">[ {</strong> <code>to</code> <strong class="re">|</strong> <code>above</code> <strong class="re">|</strong> <code>below</code> <strong class="re">}</strong> <var>bound</var> <strong class="re">]</strong><br />
+		<strong class="re">[</strong> <code>by</code> <var>increment</var> <strong class="re">]</strong>
+	      </p>
+	    </dd>
+	    <dt><var>end-clause</var></dt>
+	    <dd><p><strong class="re">{</strong> <code>until:</code> <strong class="re">|</strong> <code>while:</code> <strong class="re">}</strong> <var>end-test</var></p></dd>
+	    <dt><var>init-value</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>next-value</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>collection</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>start</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>bound</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>increment</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd><p>Zero or more instances of <code>&lt;object&gt;</code>.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><code>for</code> iterates over <var>loop-body</var>, creating and updating iteration
+	    bindings on each iteration according to the <var>for-clauses</var>. Iteration ends when
+	    one of the <var>for-clauses</var> is exhausted, or when the optional <var>end-test</var>
+	    is satisfied.</p>
+	  <p>Each <var>for-clause</var> controls one iteration binding. The
+	    optional <var>end-test</var> does not control any iteration bindings.</p>
+	  <p>There are three kinds of
+	    for-clauses: <var>explicit-step-clauses</var>, <var>collection-clauses</var>,
+	    and <var>numeric-clauses</var>: An <var>explicit-step-clause</var> creates bindings for
+	    the results of executing an expression. A <var>collection-clause</var> creates bindings
+	    for successive elements of a collection. A <var>numeric-clause</var> creates bindings
+	    for a series of numbers.</p>
+	  <p>Execution of a <code>for</code> statement proceeds through the following steps:</p>
+	  <ol>
+	    <li>Execute the expressions that are executed just once, in left to right order as they
+	      appear in the <code>for</code> statement. These expressions include the types of all
+	      the bindings, and the
+	      expressions <var>init-value</var>, <var>collection</var>, <var>start</var>, <var>bound</var>,
+	      and <var>increment</var>. If the value of <var>collection</var> is not a collection,
+	      an error is signaled. The default value for <var>increment</var>
+	      is <code>1</code>.</li>
+	    <li>Create the iteration bindings of explicit step and numeric clauses.
+	      <ul>
+		<li>For each explicit step clause, create the binding for the value
+		  of <var>init-value</var>. If the binding is typed and the value is not of the
+		  specified type, signal an error.</li>
+		<li>For each numeric clause, create the binding for the value
+		  of <var>start</var>. If the binding is typed and the value is not of the specified
+		  type, signal an error.</li>
+	      </ul>
+	    </li>
+	    <li>Check numeric and collection clauses for exhaustion. If a clause is exhausted, go to
+	      step 9.
+	      <ul>
+		<li>A collection clause is exhausted if its collection has no next element.</li>
+		<li>A numeric clause is exhausted if a <var>bound </var>is supplied and the value of
+		  the clause is no longer in bounds. If <code>above</code> is specified, the clause
+		  will be in bounds as long as the value is greater than
+		  the <var>bounds</var>. If <code>below</code> is specified, the clause will be in
+		  bounds as long as the value is less than the <var>bounds</var>. If <code>to</code>
+		  is specified with a positive or zero <var>increment</var>, the clause will be in
+		  bounds as long as it is less than or equal to
+		  the <var>bounds</var>. If <code>to</code> is specified with a
+		  negative <var>increment</var>, the clause will be in bounds as long as it is
+		  greater than or equal to the <var>bounds</var>.</li>
+	      </ul>
+	    </li>
+	    <li>For each collection clause create the iteration binding for the next element of the
+	      collection for that clause. Fresh bindings are created each time through the loop
+	      (i.e., the binding is not assigned the new value). If the binding is typed and the
+	      value is not of the specified type, signal an error. </li>
+	    <li>If <var>end-test</var> is supplied, execute it. If the value
+	      of <var>end-test </var>is false and the symbol is <code>while:</code>, go to step
+	      9. If the value of <var>end-test </var>is true and the symbol is <code>until:</code>,
+	      go to step 9.</li>
+	    <li>Execute the expressions in the <var>body</var> in order. The expressions in
+	      the <var>body</var> are used to produce side-effects.</li>
+	    <li>Obtain the next values for explicit step and numeric clauses. Values are obtained in
+	      left to right order, in the environment produced by step 6.
+	      <ul>
+		<li>For each explicit step clause, execute <var>next-value</var>.</li>
+		<li>For each numeric clause, add the <var>increment</var> to the current value of
+		  the binding, using <code>+</code>.</li>
+	      </ul>
+	    </li>
+	    <li>Create the iteration bindings of explicit step and numeric clauses for the values
+	      obtained in step 7. For each clause, if a binding type is supplied and the next value
+	      for that clause is not of the specified type, signal an error. Fresh bindings are
+	      created each time through the loop (i.e., the binding is not assigned the new
+	      value). After the bindings have been created, go to step 3.</li>
+	    <li>Execute the expressions in the <var>result-body</var> in order. Bindings created in
+	      step 2 and 8 are visible during the execution of <var>result-body</var>, but bindings
+	      created in step 4 ( the iteration bindings of collection clauses) are not visible
+	      during the execution of <var>result-body</var>. The values of the last expression in
+	      the <var>result-body</var> are returned as the values of the <code>for</code>
+	      statement. If there are no expressions in the <var>result-body</var>, <code>for</code>
+	      returns <code>#f</code>.</li>
+	  </ol>
+	  <pre class="code">
+for ( thing = first-thing then next(thing),
+      until: done?(thing) )
+  do-some(thing)
+end;
+
+for (j :: &lt;integer&gt; from 0 to height)
+  for (i :: &lt;integer&gt; from 0 to width)
+   erase(i,j);
+   plot (i,j);
+  end for;
+end for;
+
+for (city in olympic-cities,
+     year from start-year by 4)
+  schedule-olympic-game(city, year)
+  finally notify(press);
+           sell(tickets);
+end;
+
+for (i from 0 below 100,
+     zombies from 0 below 100,
+     normals from 100 above 0 by -1)
+   population[i] := zombies + normals
+end;<a name="IX-2059"></a> </pre>
+	</dd>
+      </dl>
+      <a name="HEADING-114-280"></a>
+      <a name="UID-Built-In_Macros-13876"></a>
+      <h2 class="subsection-title">Other Statement Macros</h2>
+      <a name="HEADING-114-281"></a>
+      <h4 class="item-title" id="begin"><a class="here" title="Link to here" href="#begin"></a> <span class="signature"><code id="IX-2060">begin</code></span> <span class="attributes-summary">[Statement]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2061">Executes expressions in a body, in
+	order.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd>
+	  <p>
+	    <code>begin</code> <strong class="re">[</strong> <var>body</var> <strong class="re">]</strong> <code>end</code>
+	  </p>
+	</dd>
+	<dt><span>Arguments:</span></dt>
+	<dd>
+	  <dl>
+	    <dt><var>body</var></dt>
+	    <dd><p><span class="BNF">body<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd><p>Zero or more instances of <code>&lt;object&gt;</code>.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p>Begin executes the expressions in a body, in order. The values of the last expression
+	    are returned. If there are no expressions in the body, <code>#f</code> is
+	    returned.</p></dd>
+      </dl>
+      <a name="HEADING-114-287"></a>
+      <h4 class="item-title" id="block"><a class="here" title="Link to here" href="#block"></a> <span class="signature"><code id="IX-2062">block</code></span> <span class="attributes-summary">[Statement]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2063">Executes a body with several options
+	for nonstandard flow of control.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd>
+	  <p>
+	    <code>block (</code> <strong class="re">[</strong> <var>exit-variable</var> <strong class="re">]</strong> <code>)</code><br />
+	    <strong class="re">[</strong> <var>block-body</var> <strong class="re">]</strong><br />
+	    <strong class="re">[</strong> <code>afterwards</code> <strong class="re">[</strong> <var>afterwards-clause</var> <strong class="re">]</strong> <strong class="re">]</strong><br />
+	    <strong class="re">[</strong> <code>cleanup</code> <strong class="re">[</strong> <var>cleanup-clause</var> <strong class="re">]</strong> <strong class="re">]</strong><br />
+	    <strong class="re">{</strong> <code>exception</code> <var>exception-clause</var> <strong class="re">}*</strong><br />
+	    <code>end</code> <strong class="re">[</strong> <code>block</code> <strong class="re">]</strong>
+	  </p>
+	</dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>exit-variable</var></dt>
+	    <dd><p><span class="BNF">variable-name<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>block-body</var></dt>
+	    <dd><p><span class="BNF">body<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt class="RP3.RoutineParam"><var>afterwards-clause</var></dt>
+	    <dd class="RP3.RoutineParam"><p><span class="BNF">body<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>cleanup-clause</var></dt>
+	    <dd><p><span class="BNF">body<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>exception-clause</var></dt>
+	    <dd>
+	      <p>
+		<code>(</code> <strong class="re">[</strong> <var>name</var> <code>::</code> <strong class="re">]</strong> <var>type</var> <strong class="re">{</strong> <code>,</code> <var>exception-options</var> <strong class="re">}*</strong> <code>)</code><br />
+		&nbsp;&nbsp;&nbsp;<strong class="re">[</strong> <span class="BNF">body<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">]</strong>
+	      </p>
+	    </dd>
+	    <dt><var>name</var></dt>
+	    <dd><p><span class="BNF">variable-name<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>type</var></dt>
+	    <dd><p><span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>exception-options</var></dt>
+	    <dd>
+	      <p>
+		<strong class="re">{</strong> <code>test:</code> <span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">} | {</strong> <code>init-arguments:</code> <span class="BNF">expression<em class="BNF"><sub>bnf</sub></em></span> <strong class="re">}</strong>
+	      </p>
+	    </dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd><p>Zero or more instances of <code>&lt;object&gt;</code>.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd>
+	  <p><code id="IX-2064">block</code> executes the expressions in
+	    the <var>block-body</var> in order, and then executes the
+	    optional <var>afterwards-clause</var> and <var>cleanup-clause</var>. Unless there is a
+	    nonlocal exit, block returns the values of the <var>block-body</var>, or <code>#f</code>
+	    if there is no <var>block-body</var>.</p>
+	  <p>If <var>exit-variable</var> is provided, it is bound to an exit procedure (an object of
+	    type <code>&lt;function&gt;</code>) that is valid during the execution of the block body
+	    and the clauses. At any point in time before the last clause returns, the exit procedure
+	    can be called. Calling the exit procedure has the effect of immediately terminating the
+	    execution of the block, and returning as values the arguments to the exit procedure.</p>
+	  <p>The body of the <var>afterwards-clause</var>, if provided, is executed after
+	    the <var>block-body</var>. The values produced by the <var>afterwards-clause</var> are
+	    ignored. This is useful when you want to execute an expression for side-effect after
+	    the <var>block-body</var> has executed, but still want to return the values of the last
+	    expression in the <var>block-body</var>.</p>
+	  <p>The body of the <var>cleanup-clause</var>, if provided, is executed after
+	    the <var>block-body</var> and <var>afterwards-clause</var>. Its values are also
+	    ignored. The cleanup clause differs from the afterwards clause in that its body is
+	    guaranteed to be executed, even if the execution of the block is interrupted by a
+	    nonlocal exit. There is no such guarantee for the <var>afterwards-clause</var>.</p>
+	  <p>For example, the following code fragment ensures that files are closed even in the case
+	    of an error causing a nonlocal exit from the block body:</p>
+	  <pre class="code">
+block (return)
+  open-files();
+  if (something-wrong)
+    return("didn't work");
+  end if;
+  compute-with-files()
+cleanup
+  close-files();
+end block </pre>
+	  <p>The <var>exception-clauses</var>, if supplied, install exception handlers during the
+	    execution of the <var>block-body</var>, <var>afterwards-clause</var>,
+	    and <var>cleanup-clause</var>. If one of these handlers is invoked, it never declines
+	    but immediately takes a nonlocal exit to the beginning of the block, executes the
+	    expressions in its body and returns the values of the last expression or <code>#f</code>
+	    if the body is empty. Note that when the expressions in an exception body are executed,
+	    all handlers established by the <code>block</code> are no longer active. Note also that
+	    the cleanup clause of the block will be executed before the expressions of the handler
+	    body are executed.</p>
+	  <p>The <var>type</var> and <var>exception-options</var> are as for <code>let
+	      handler</code>. If present, <var>name</var> is bound to the condition during the
+	    execution of the handler's body.</p>
+	  <p>The exception clauses are checked in the order in which they appear. That is, the first
+	    handler will take precedence over the second, the second over the third, etc.</p>
+	  <p>The following is a trivial use of an exception clause.</p>
+	  <pre class="code">
+block ()
+  open-files();
+  compute-with-files()
+cleanup
+  close-files();
+exception (&lt;error&gt;) 
+  "didn't work";
+end block </pre>
+	  <p class="errata-note" id="errata-p406-1">
+	    <a class="note-tag" href="Errata#p406-1"><strong>Errata:</strong></a> In the published
+	    book, the <code>cleanup</code> and <code>exception</code> clauses are incorrectly
+	    ordered. <code>cleanup</code> must come before <code>exception</code> clauses.
+	  </p>
+	  <a name="HEADING-114-310"></a>
+	  <h5 class="description-subsection-title">Dynamic Extent of Block Features</h5>
+	  <p>A block installs features that are active for different portions of the execution of
+	    the block.</p>
+	  <ul>
+	    <li>During the execution of the block body and the afterwards clause the exit procedure,
+	      exception clauses, and cleanup clauses are active.</li>
+	    <li>During the execution of the cleanup clause, the exit procedure and exception clauses
+	      are active.</li>
+	    <li>During the execution of a handler installed by an exception clause, the exit
+	      procedure is active.</li>
+	  </ul>
+	  <a name="HEADING-114-315"></a>
+	  <h5 class="description-subsection-title">Intervening Cleanup Clauses</h5>
+	  <p>When an exit procedure is called, it initiates a nonlocal exit out of its establishing
+	    block. Before the nonlocal exit can complete, however, the cleanup clauses of
+	    intervening blocks (blocks that have been entered, but not exited, since the
+	    establishing block was entered) must be executed, beginning with the most recently
+	    entered intervening block. Once the cleanup clauses of an intervening block have been
+	    executed, it is an error to invoke the exit procedure established by that block. The
+	    cleanup clauses of the establishing block are executed last. At that point, further
+	    invocation of the exit procedure becomes invalid, and the establishing block returns
+	    with the values that were passed to the exit procedure.</p>
+	  <p>Note that a block statement may also be exited due to the execution of a handler
+	    clause. Before the exception clause is executed, intervening cleanup clauses are
+	    executed as described above (including any clause for the establishing block.) The exit
+	    procedure may be invoked during execution of exception clauses, in which case the
+	    argument values are immediately returned from the block (the cleanup clause already
+	    having been executed).</p>
+	  <p>During the process of executing the cleanup clauses of the intervening blocks, any
+	    valid exit procedure may be invoked and may interrupt the current nonlocal exit.</p>
+	  <p>All exception clauses are executed in the same dynamic environment. None of the
+	    handlers established in the block are visible during the execution of one of the
+	    handlers. This can be thought of as parallel installation of the handlers.</p>
+	  <a name="HEADING-114-320"></a>
+	  <h5 class="description-subsection-title">Restrictions on the use of exit procedures</h5>
+	  <p>The exit procedure is a first-class object. Specifically, it can be passed as an
+	    argument to functions, stored in data structures, and so on. Its use is not restricted
+	    to the lexical body of the block in which it was established. However, invocation of the
+	    exit procedure is valid only during the execution of the establishing block. It is an
+	    error to invoke an exit procedure after its establishing block has returned, or after
+	    execution of the establishing block has been terminated by a nonlocal exit.</p>
+	  <p>In the following example, the <code>block</code> establishes an exit procedure in the
+	    binding <code>bar</code>. The <code>block</code> returns a method containing a call
+	    to <code>bar</code>, and the method is stored in the
+	    binding <code>foo</code>. Calling <code>foo</code> is an error because it is no longer
+	    valid to invoke <code>bar</code> after its establishing <code>block</code> has
+	    returned.</p>
+	  <pre class="code">
+define constant foo =
+  block (bar)
+     method (n) bar(n) end;
+  end block;
+foo(5)
+  {error or other undefined consequences}</pre>
+	</dd>
+      </dl>
+      <a name="HEADING-114-324"></a>
+      <h4 class="item-title" id="method"><a class="here" title="Link to here" href="#method"></a> <span class="signature"><code id="IX-2065">method</code></span> <span class="attributes-summary">[Statement]</span></h4>
+      <hr class="item-title" />
+      <p class="short-description"><a name="XREF-2066">Creates and returns a method.</a></p>
+      <dl class="Cliche">
+	<dt><span>Macro Call:</span></dt>
+	<dd><p><code>method</code> <var>parameter-list</var> <strong class="re">[</strong> <var>body</var> <strong class="re">]</strong> <code>end</code> <strong class="re">[</strong> <code>method</code> <strong class="re">]</strong></p></dd>
+	<dt class="Cliche2"><span>Arguments:</span></dt>
+	<dd class="Cliche2">
+	  <dl>
+	    <dt><var>parameter-list</var></dt>
+	    <dd><p><span class="BNF">parameter-list<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	    <dt><var>body</var></dt>
+	    <dd><p><span class="BNF">body<em class="BNF"><sub>bnf</sub></em></span></p></dd>
+	  </dl>
+	</dd>
+	<dt><span>Values:</span></dt>
+	<dd><p>An instance of <code>&lt;method&gt;</code>.</p></dd>
+	<dt><span>Description:</span></dt>
+	<dd><p><code>method</code> creates and returns a method specified by
+	    the <var>parameter-list</var> and <var>body</var>. For a complete description of
+	    methods, see <a href="Functions_Overview#XREF-762"><q>Methods</q> on page
+	      80</a>.<a name="IX-2067"></a></p>
+	</dd>
+      </dl>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Local_Declaration_Macros"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Function_Macros"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Built-In_Macros_and_Special_Definitions"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

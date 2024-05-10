@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Types_and_Classes" />
+    <link rel="prev" href="Slots" />
+    <link rel="next" href="Singletons" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Instance Creation and Initialization &mdash; 5. Types and Classes &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Slots"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Singletons"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Types_and_Classes"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li class="current parent"><a href="Types_and_Classes">Types and Classes</a>
+	      <ul class="sections">
+		<li><a href="Types_and_Classes_Overview">Overview</a></li>
+		<li><a href="Type_Protocol">The Type Protocol</a></li>
+		<li><a href="Classes">Classes</a></li>
+		<li><a href="Slots">Slots</a></li>
+		<li id="current" class="subsections"><a href="Instance_Creation_and_Initialization">Instance Creation and Initialization</a>
+		  <ul class="page-TOC">
+		    <li><a href="#HEADING-43-2">Overview</a></li>
+		    <li><a href="#HEADING-43-37">Inherited Slot Specifications</a></li>
+		    <li><a href="#HEADING-43-44">Initialization Argument Specifications</a></li>
+		  </ul>
+		</li>
+		<li><a href="Singletons">Singletons</a></li>
+		<li><a href="Union_Types">Union Types</a></li>
+		<li><a href="Limited_Types">Limited Types</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 5</p>
+	<p id="section-name">Types and Classes</p>
+      </div>
+
+      <a name="HEADING-43-0"></a>
+      <a name="UID-Types_and_Classes-1987"></a>
+      <h1 class="section-title"><a name="XREF-658"></a><a name="IX-656">Instance Creation and Initialization</a></h1>
+      <p><a name="IX-657">The creation and initialization of instances is controlled by the generic
+	functions <code id="IX-659">initialize</code> and <code id="IX-660">make</code></a>, using
+	initialization information supplied by the class definition and by keyword arguments in the
+	call to <code>make</code>. Much of this behavior is supplied by the
+	default <code>make</code> method defined on <code>&lt;class&gt;</code>.</p>
+      <a name="HEADING-43-2"></a>
+      <a name="UID-Types_and_Classes-1989"></a>
+      <h2 class="subsection-title">Overview</h2>
+      <p>Instance creation and initialization proceeds through the following steps:</p>
+      <ul>
+	<li>The program calls <code>make</code> specifying a class and a set of keyword
+	  arguments.</li>
+	<li>Optionally, the default <code>make</code> method may be shadowed by a user-supplied
+	  method specialized with a singleton specializer. This enables the user method to get at
+	  all the arguments to <code>make</code>, and to provide actual instantiation and
+	  initializations based on them. For example, a singleton method on
+	  an <a name="IX-661">abstract class</a> can reinvoke <code>make</code> on a concrete
+	  subclass of the abstract class, passing along the same or augmented initialization
+	  arguments.</li>
+	<li>The default <code>make</code> method examines its keyword arguments, which are known as
+	  the <a name="IX-662">supplied initialization arguments</a>. It then produces a set
+	  of <a name="IX-663">defaulted initialization arguments</a> by augmenting the supplied
+	  initialization arguments with any additional initialization arguments for which default
+	  values are defined by the class or any of its superclasses.<br />If the supplied
+	  initialization arguments contains duplicate keywords, <code>make</code> will use the
+	  leftmost occurrence. This is consistent with keyword argument conventions used in function
+	  calls.</li>
+	<li>The default <code>make</code> method signals an error if any required init-keyword is
+	  absent from the defaulted initialization arguments, or if any of the defaulted
+	  initialization arguments are not valid for initialization of that
+	  class. An <a name="IX-664">initialization argument is valid</a> if it is specified
+	  as an init-keyword in a slot specification or initialization argument specification, or if
+	  it is permitted by one or more of the <code>initialize</code> methods applicable to an
+	  instance of the class.</li>
+	<li>The default <code>make</code> method allocates an instance and initializes all the slots
+	  for which it can provide values, as follows:
+	  <ul>
+	    <li>If the slot is keyword initializable and its keyword is present in the defaulted
+	      initialization arguments, then the slot is initialized from the defaulted
+	      initialization arguments.</li>
+	    <li>If the slot is not initialized by a keyword but has an init specification, it is
+	      initialized from the init specification.</li>
+	    <li>In either case, an error of type <code>&lt;type-error&gt;</code> is signaled if the
+	      value is not of the type declared for the slot.</li>
+	    <li>Regardless of the source, the initial value is stored into the slot using an
+	      unspecified built-in mechanism. In particular, the setter generic function is not
+	      called to store the value into the slot.</li>
+	  </ul>
+	</li>
+	<li>The default <code>make</code> method then calls <code>initialize</code> on the
+	  initialized instance and the defaulted initialization arguments. Methods on initialize can
+	  access these arguments by accepting them as keyword parameters or in a rest parameter. If
+	  they are accepted in a rest parameter and the defaulted initialization arguments
+	  contained <a name="IX-665">duplicate keywords</a>, it is undefined whether any
+	  entries other than the leftmost for that keyword will be present.</li>
+	<li>Each <code>initialize</code> method typically calls <code>next-method</code>, and then
+	  performs its own initializations. (Note that it won't have to initialize slots that were
+	  initialized by the default <code>make</code> method.)</li>
+	<li>The default <code>make</code> method ignores the value of the call
+	  to <code>initialize</code> and returns the instance.</li>
+      </ul>
+      <p>The values of <a name="IX-666">virtual slots are not automatically initialized</a> when a
+	new instance is created. The programmer must perform any necessary initialization. This
+	would usually be done inside a method on <code>initialize</code>. Because the values of
+	virtual slots are often computed from other values at run-time, many virtual slots will not
+	require any explicit initialization.</p>
+      <a name="HEADING-43-17"></a>
+      <h3 class="sub-subsection-title"><a name="IX-667">Additional Behavior of Make and Initialize</a></h3>
+      <p>The object returned by <code>make</code> is guaranteed to be a general instance of the
+	first argument to <code>make</code>, but not necessarily a direct instance. This liberality
+	allows <code>make</code> to be called on an abstract class; it can instantiate and return a
+	direct instance of one of the concrete subclasses of the abstract class.</p>
+      <pre class="code">
+define abstract class &lt;dog&gt; (&lt;object&gt;)
+end class
+define class &lt;yorkshire-terrier&gt; (&lt;dog&gt;)
+end class
+define method make (the-class == &lt;dog&gt;, #rest init-args, #key)
+  apply(make, &lt;yorkshire-terrier&gt;, init-args)
+end
+
+make(&lt;dog&gt;)
+ &rArr; {instance of &lt;yorkshire-terrier&gt;}
+</pre>
+      <p><code>make</code> is not required to return a newly allocated instance. It may return a
+	previously created instance if that is appropriate. If a new instance is
+	allocated, <code>make</code> will call <code>initialize</code> on the instance before
+	returning it.</p>
+      <p>The <code>make</code> method on <code>&lt;class&gt;</code> returns a newly allocated direct
+	instance of its first argument.</p>
+      <p>Programmers may customize <code>make</code> for particular classes by defining methods
+	specialized on singletons of classes. These methods may reinvoke <code>make</code> on a
+	subtype of the class, or they may obtain the default <code>make</code> behavior by calling
+	next-method.</p>
+      <p>The default <code>make</code> method signals an error if its first argument is an abstract
+	class. An instantiable abstract class must override this method with its own method
+	for <code>make</code>.<a name="IX-668"></a></p>
+      <a name="HEADING-43-27"></a>
+      <h3 class="sub-subsection-title"><a name="IX-669">Initialization of Class Allocated Slots</a></h3>
+      <p>The initalization of slots with allocation class or each-subclass is performed in the
+	following way:</p>
+      <ul>
+	<li>If the slot is not keyword initializable and the class definition does not include an
+	  init specification for the slot, the slot remains uninitialized until it is explicitly
+	  assigned by the program.</li>
+	<li>If the slot is not keyword initializable and the class definition does include
+	  an <a name="IX-670">init specification</a> for the slot, the slot is initialized from the
+	  init specification before or during the creation of the first instance of the class.</li>
+	<li>If the slot is <a name="IX-671">keyword initializable</a> and the class definition also
+	  includes an init specification for the slot, the slot may be initialized or assigned by
+	  the default method of <code>make</code> whenever an instance is created, as follows:
+	  <ul>
+	    <li>If the corresponding initialization argument is absent from the defaulted
+	      initialization arguments of the call to <code>make</code> and the slot has not yet
+	      been initialized, then the slot is initialized from the init specification. If the
+	      slot has already been initialized, no action is taken.</li>
+	    <li>If the corresponding initialization argument is present in the defaulted
+	      initialization arguments of the call to <code>make</code>, then the slot is set to the
+	      value of that initialization argument, regardless of whether the slot was previously
+	      initialized.<a name="IX-672"></a></li>
+	  </ul>
+	</li>
+      </ul>
+      <a name="HEADING-43-34"></a>
+      <h3 class="sub-subsection-title"><a name="IX-673">Testing the Initialization of a Slot</a></h3>
+      <p>A program can test to see whether a slot has been initialized, using
+	the <code id="IX-674">slot-initialized?</code> function, described
+	on <a href="Constructing_and_Initializing_Instances#XREF-1546">page 261</a>. There is no
+	portable mechanism for resetting a slot to the uninitialized state once it has been
+	initialized.</p>
+      <p>To support the <code>slot-initialized?</code> protocol in a virtual slot, programmers must
+	define a method for <code>slot-initialized?</code> that specializes on the getter of the
+	slot and the class.<a name="IX-675"></a></p>
+      <a name="HEADING-43-37"></a>
+      <a name="UID-Types_and_Classes-3606"></a>
+      <h2 class="subsection-title"><a name="XREF-677"></a><a name="IX-676">Inherited Slot Specifications</a></h2>
+      <p>An inherited slot specification is used to provide an init specification for a slot
+	inherited from a superclass. It can add an init specification if one was not already
+	present, or it can override an existing init specification.</p>
+      <p>Inherited slot specifications identify the slot to be modified by the getter name. The
+	inherited slot specification is only allowed if the class does indeed inherit a slot with
+	that getter.</p>
+      <p>(An inherited slot specification is not required to include an init specification. If it
+	does not, its only purpose is to ensure that the slot is present in a superclass. Because
+	init specifications are not allowed for virtual slots, this is the only valid form of
+	inherited slot specification for virtual slots.)</p>
+      <p>If an inherited slot specification supplies an init specification, it overrides any init
+	specification inherited from a superclass. This allows the init specification of an
+	inherited slot to be replaced in a subclass, thereby changing the default initial value of
+	the slot.</p>
+      <pre class="code">
+define class &lt;animal&gt; (&lt;object&gt;)
+  slot n-legs, init-value: 4;
+end class;
+define class &lt;spider&gt; (&lt;animal&gt;)
+  inherited slot n-legs, init-value: 8;
+end class;<a name="IX-678"></a>
+</pre>
+      <a name="HEADING-43-44"></a>
+      <a name="UID-Types_and_Classes-2990"></a>
+      <h2 class="subsection-title"><a name="XREF-680"></a><a name="IX-679">Initialization Argument Specifications</a></h2>
+      <p>Initialization argument specifications provide options for the handling of initialization
+	arguments. They appear in <code>define class</code> forms, and have a syntax similar to that
+	of slot specifications.</p>
+      <p>Initialization argument specifications allow the type of an initialization argument to
+	be <a name="IX-681">restricted</a>, they allow an initialization argument to be declared to
+	be <a name="IX-682">required</a>, and they allow the specification of a default value for an
+	initialization argument.</p>
+      <p>Note that an initialization argument will only be used if it is specified to be the
+	init-keyword of a slot, or if it is used as a keyword argument in an applicable method
+	on <code>initialize</code>. An initialization argument specification can supply a default
+	value for an initialization argument, and it can restrict the type of the argument or make
+	it required, but it does not by itself cause the argument to be used when initializing an
+	instance.</p>
+      <p><a name="IX-683">There are two kinds of initialization argument specifications:</a>
+	required initialization argument specifications, and optional initialization argument
+	specifications.</p>
+      <p>A required initialization argument specification asserts that the initialization argument
+	must be present in the defaulted initialization arguments. The default <code>make</code>
+	method will signal an error if no such initialization argument is present.</p>
+      <p>An optional initialization argument specification can be used to specify
+	a <a name="IX-684">default value</a> for the initialization argument, using an init
+	specification. When a call to <code>make</code> does not specify the initialization
+	argument, the default <code>make</code> method will add it to the defaulted initialization
+	arguments with the value of the init specification.<a name="IX-685"></a></p>
+      <p>The type argument has the same meaning in both kinds of initialization argument
+	specification: it restricts the type of that initialization argument. Note that this is not
+	the same thing as restricting the type of the slot.</p>
+      <p>The following example shows how initialization argument specifications can be used to
+	override the behavior of a superclass:</p>
+      <pre class="code">
+define class &lt;person&gt; (&lt;object&gt;)
+  slot favorite-beverage, init-value: #"milk",
+                    init-keyword: favorite-beverage:;
+  slot name, required-init-keyword: name:;
+end class &lt;person&gt;;
+define class &lt;astronaut&gt; (&lt;person&gt;)
+  keyword favorite-beverage:, init-value: #"tang";
+  keyword name:, init-value: "Bud";
+end class &lt;astronaut&gt;;
+</pre>
+      <p>In this example, the <code>&lt;astronaut&gt;</code> class provides default values for
+	the <code>favorite-beverage:</code> and <code>name:</code> init-keywords. In addition to
+	indirectly supplying default values for these slots, this also has the effect of making
+	the <code>name:</code> argument optional in calls to <code>make</code>
+	on <code>&lt;astronaut&gt;</code>. If the call to <code>make</code> does not specify
+	a <code>name:</code>, the <code>name:</code> will be added to the defaulted initialization
+	arguments by the default <code>make</code> method before the defaulted initialization
+	arguments are checked for completeness.</p>
+     <p>More than one keyword initializable slot may be initialized from the same initialization
+	argument (that is, more than one keyword initializable slot may specify the same
+	init-keyword). However, an error is signaled if a single <code>define-class</code> form has
+	more than one initialization argument specification for the same keyword. An error will also
+	be signaled if a single <code>define-class</code> form has a keyword initializable slot that
+	includes an init specification and also includes an initialization argument specification
+	for the same keyword that is either required or provides a default value. These error
+	situations are all indications of code that can never be
+	reached.<a name="IX-686"></a></p>
+      <p class="errata-note" id="errata-p69-1">
+        <a class="note-tag" href="Errata#p69-1"><strong>Errata:</strong></a> In the published
+	  book, the definition of class <code>&lt;person&gt;</code> is missing a comma
+	  between <code>slot name</code> and <code>required-init-keyword:</code>. The definition
+	  of class <code>&lt;astronaut&gt;</code> is missing commas in its keyword descriptors,
+	  between the keyword and <code>init-value:</code>.
+      </p>
+      <a name="HEADING-43-57"></a>
+      <h3 class="sub-subsection-title"><a name="IX-687">Initialization Argument Inheritance</a></h3>
+      <p>The inheritance of initialization argument specifications is defined as follows.</p>
+      <ul>
+	<li>A slot specification that supplies an init-keyword <var>K</var> by
+	  using <code id="IX-688">required-init-keyword:</code> is treated as if the
+	  initialization argument specification <code id="IX-689">required
+	  keyword</code> <var>K</var> had been specified in the class definition.</li>
+	<li>A slot specification that supplies both an init-keyword and also an init specification
+	  is not equivalent to an initialization argument specification that includes both the
+	  init-keyword and an init specification. In the former case the init specification is used
+	  to default the value of the slot directly, but does not affect the defaulted
+	  initialization arguments; in the latter case the init specification is used to default the
+	  value of the slot indirectly, by affecting the defaulted initialization arguments.</li>
+	<li>If the initialization argument is being specified for the first time (it is not
+	  inherited from any superclass) there are three factors to consider:
+	  <ul>
+	    <li>The <code id="IX-690">type:</code> argument, which defaults
+	      to <code>&lt;object&gt;</code>, specifies the required type of the initialization
+	      argument. (This does not specify the type of the slot.)</li>
+	    <li>If the initialization argument is specified with <code id="IX-691">required
+		keyword</code> then it is required, otherwise it is optional.</li>
+	    <li>If the initialization argument is specified
+	      with <code id="IX-692">keyword</code>, then it can provide an init specification
+	      that is used by the default <code>make</code> method to provide a default value for
+	      the initialization argument in the defaulted initialization arguments.</li>
+	  </ul>
+	</li>
+	<li>If an initialization argument specification is being specified for an initialization
+	  argument that is inherited from a single superclass, the following factors hold:
+	  <ul>
+	    <li>The type must be a subtype of the type of the inherited initialization
+	      argument. This implies that the type must be specified unless the type of the
+	      inherited initialization argument is <code>&lt;object&gt;</code>.</li>
+	    <li>The initialization argument is required if the overriding initialization argument
+	      specification uses <code>required keyword</code>, or if the inherited initialization
+	      argument specification is required and the overriding initialization argument
+	      specification does not provide an init specification. When the overriding
+	      initialization argument specification uses <code>required keyword</code>, any init
+	      specification in the inherited initialization argument specification is
+	      discarded. This means that a subclass can make an initialization argument used by a
+	      superclass become required; it can also make a required initialization argument become
+	      optional by specifying a default value for it.</li>
+	    <li>Otherwise, the initialization argument is optional. If the overriding specification
+	      provides an init specification, then that is used to compute the defaulted
+	      initialization argument when the class is instantiated. Otherwise, the inherited
+	      initial value specification is used.</li>
+	  </ul>
+	</li>
+	<li><a name="IX-693">When an initialization argument specification is being inherited
+	  from multiple superclasses</a>, if the superclasses have exactly the same definition for the
+	  initialization argument, then that definition can simply be inherited. If the definitions
+	  differ, then the class that combines these other classes must provide an initialization
+	  argument specification that is compatible with all of the inherited ones, as described
+	  above.<a name="IX-694"></a><a name="IX-695"></a><a name="IX-696"></a></li>
+      </ul>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Slots"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Singletons"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Types_and_Classes"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

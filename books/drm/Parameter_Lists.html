@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Functions" />
+    <link rel="prev" href="Functions_Overview" />
+    <link rel="next" href="Method_Dispatch" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Parameter Lists &mdash; 6. Functions &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Functions_Overview"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Method_Dispatch"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Functions"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li class="current parent"><a href="Functions">Functions</a>
+	      <ul class="sections">
+		<li><a href="Functions_Overview">Overview</a></li>
+		<li id="current" class="subsections"><a href="Parameter_Lists">Parameter Lists</a>
+		  <ul class="page-TOC">
+		    <li><a href="#HEADING-49-4">Kinds of Parameters</a></li>
+		    <li><a href="#HEADING-49-14">Kinds of Parameter Lists</a></li>
+		    <li><a href="#HEADING-49-32">Specializing Required Parameters</a></li>
+		    <li><a href="#HEADING-49-44">Keyword Parameters</a></li>
+		    <li><a href="#HEADING-49-68">Return Value Declarations</a></li>
+		    <li><a href="#HEADING-49-84">Parameter List Congruency</a></li>
+		    <li><a href="#HEADING-49-102">Parameter Lists of Implicitly Defined Generic Functions</a></li>
+		  </ul>
+		</li>
+		<li><a href="Method_Dispatch">Method Dispatch</a></li>
+		<li><a href="Operations_on_Functions">Operations on Functions</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li><a href="Macros">Macros</a></li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 6</p>
+	<p id="section-name">Functions</p>
+      </div>
+
+      <a name="HEADING-49-0"></a>
+      <a name="UID-Functions-2254"></a>
+      <h1 class="section-title"><a name="XREF-782"></a><a name="IX-783">Parameter Lists</a></h1>
+      <p>The parameter list of a function describes the number and types of the arguments that the
+	function accepts, and the number and types of the values it returns.</p>
+      <p>The <a name="IX-784">parameter list of a generic function</a> is used to define the overall
+	protocol of the generic function. It constrains the methods that may be added to the generic
+	function, through the parameter list congruency rules described on <a href="#XREF-837">page
+	93</a>. It may also specify that calls to the generic function may contain any keyword
+	arguments.</p>
+      <p>The <a name="IX-785">parameter list of a method</a> specifies the types of arguments to
+	which the method is applicable, and declares local bindings to which those arguments will be
+	bound during the execution of the body of the method. It may also declare the return value
+	types of the method.</p>
+      <a name="HEADING-49-4"></a>
+      <a name="UID-Functions-4841"></a>
+      <h2 class="subsection-title"><a name="IX-786">Kinds of Parameters</a></h2>
+      <p>Dylan parameter lists support <dfn id="IX-787">required
+	  parameters</dfn>, <dfn id="IX-788">rest parameters</dfn>, <dfn id="IX-789">keyword
+	  parameters</dfn>, and sometimes a <dfn id="IX-790">next-method parameter</dfn>. They also
+	  may include <dfn id="IX-791">return value declarations</dfn>.</p>
+      <p>The complete syntax of parameter lists is given
+	in <a href="Phrase_Grammar#XREF-2115"><q>Methods</q> on page 426</a>.</p>
+      <p>Required parameters correspond to arguments that must be supplied when a function is
+	called. The arguments are supplied in a fixed order and must appear before any other
+	arguments.</p>
+      <p>Each required parameter may be a name or a name <dfn id="IX-792">specialized</dfn> by
+	a type. Specifying a type declares that supplied argument must be a general instance of that
+	type.</p>
+      <p id="FOOTNOTE-ANCHOR-3">A rest parameter allows a function to accept an unlimited number of
+	arguments.<a rel="footnote" href="#FOOTNOTE-3" title="Footnote 3"><sup>*</sup></a> After the
+	required arguments of a function have been supplied, any additional arguments are collected
+	in a sequence, which is passed as the value of the rest
+	parameter. <a name="IX-793">This sequence may be immutable</a>, and it may or may not
+	be freshly allocated. The types of rest parameters cannot be declared.</p>
+      <p><a name="IX-794">Keyword parameters</a> correspond to
+	<a name="IX-795">arguments that are optional</a> and may be given in any order. Symbols are used among the
+	arguments to guide matching of arguments to parameters. These symbols are usually written in
+	keyword syntax and so they are known as keywords. Keyword arguments can only be supplied
+	after all required arguments are supplied. Keyword parameters may be specialized,
+	restricting which values may be supplied for them. Keyword parameters may also be given
+	default values to be used when the caller does not supply a value.</p>
+      <p><a name="IX-796"></a><a name="IX-797"></a>Required parameters come first in the
+	parameter list, followed by the rest parameter, if any, and then the keyword parameters, if
+	any. A rest parameter is indicated by the token <code>#rest</code> followed by the name of
+	the parameter. Keyword parameters are indicated by the token <code>#key</code> followed by
+	the keyword parameter specifiers, optionally followed by the
+	token <code>#all-keys</code>.</p>
+      <p>If <code>#rest</code> and <code>#key</code> are used in the same parameter
+	list, <code>#rest</code> must come first. The rest parameter will be bound to a sequence
+	containing all the keyword arguments and their corresponding values.</p>
+      <p>A <a name="IX-798">next-method parameter</a> is indicated by the token <code>#next</code>,
+	followed by the name of the parameter. It is not normally necessary to specify a next-method
+	parameter explicitly. If a next-method parameter is not specified by the
+	programmer, <code>define method</code> inserts one with the
+	name <code>next-method</code>. If an explicit next-method parameter is given, it must come
+	after the required parameters and before the rest and keyword parameters. Details of using
+	next-method are given in <a href="Method_Dispatch#XREF-858"><q>Calling Less Specific
+	Methods</q> on page 98</a>.<a name="IX-799"></a></p>
+      <a name="HEADING-49-14"></a>
+      <a name="UID-Functions-2273"></a>
+      <h2 class="subsection-title"><a name="XREF-800"></a><a name="IX-801">Kinds of Parameter Lists</a></h2>
+      <p>Each function (generic function or method) has an argument passing protocol specified by
+	its parameter list. The argument passing protocol for a method must be compatible with the
+	argument passing protocol of any generic function to which it is added, as described
+	in <a href="#XREF-837"><q>Parameter List Congruency</q> on page 93</a>.</p>
+      <p>The argument passing protocol of a function can be described in one of the following
+	ways:</p>
+      <ul>
+	<li>A function is said to <dfn id="IX-802">require a fixed number of arguments</dfn>
+	  if its parameter list does not specify either <code id="IX-803">#rest</code>
+	  or <code id="IX-804">#key</code>.</li>
+	<li>A function is said to <dfn id="IX-805">accept keyword arguments</dfn> if its
+	  parameter list specifies <code>#key</code>. The parameter list could also
+	  specify <code>#rest</code> if it is a method, but not if it is a generic function.</li>
+	<li>A function is said to <dfn id="IX-806">accept all keyword arguments</dfn> if its
+	  parameter list specifies <code>#all-keys</code> in addition to <code>#key</code>.</li>
+	<li>A function is said to <dfn id="IX-807">accept a variable number of arguments</dfn>
+	  if its parameter list specifies <code>#rest</code> but does not
+	  specify <code>#key</code>. (Note: If the parameter list specifies <code>#key</code> in
+	  addition to <code>#rest</code> it is not said to accept a variable number of
+	  arguments.)</li>
+      </ul>
+      <p>A method that accepts keyword arguments is said to <dfn id="IX-808">recognize</dfn>
+	the keywords mentioned in its parameter list. (A method may, of course, mention them in the
+	parameter list and then ignore their values. It is still said to recognize them.) It is
+	possible for a method to accept keyword arguments in general but not recognize any
+	particular keywords; it does this by specifying <code>#key</code> without any subsequent
+	keyword parameters.</p>
+      <p>If a generic function that accepts keyword arguments mentions any specific keyword
+	arguments in its parameter list, these are the <dfn id="IX-809">mandatory
+	  keywords</dfn> of the generic function. Every method added to the generic function must
+	recognize these keywords.</p>
+      <p>A function may accept all keyword arguments by specifying <code>#all-keys</code> in its
+	parameter list.
+	<a name="IX-810"></a><a name="IX-811"></a><a name="IX-812"></a></p>
+      <p>When a function that accepts keyword arguments is called, it is said
+	to <dfn id="IX-813">permit</dfn> a keyword argument in the call if one of the
+	following is true:</p>
+      <ul>
+	<li>The function is a method that recognizes the keyword.</li>
+	<li>The function is a generic function and the keyword is recognized by any of the
+	  applicable methods of the call.</li>
+	<li>The function accepts all keyword arguments.</li>
+	<li>The function is a generic function and any of the applicable methods of the call accepts
+	  all keyword arguments.</li>
+      </ul>
+      <p><a name="IX-814"></a>If a function that accepts keyword arguments is called, it will
+	signal an error if called with a keyword argument that it does not permit, or if the
+	arguments following the required arguments are not keyword/value pairs. This is true even if
+	the function specifies <code>#rest</code>.</p>
+      <p>If a method is called via a generic function or via next-method (rather than directly), the
+	method itself does not check whether it received any keyword arguments it does not permit,
+	nor does it check that the arguments following the required arguments are keyword/value
+	pairs. This check is performed by the generic function or next-method, and is made relative
+	to the call as a whole, not relative to an individual method or the methods remaining to be
+	called.</p>
+      <p><a name="IX-815">A call to a function may supply the same keyword argument more than
+	once.</a> When this is done, the leftmost keyword/value pair is
+	used.<a name="IX-816"></a></p>
+      <a name="HEADING-49-32"></a>
+      <a name="UID-Functions-2288"></a>
+      <h2 class="subsection-title"><a name="IX-817">Specializing Required Parameters</a></h2>
+      <p>When you define a generic function or method, you may specify the types of the arguments
+	appropriate for the generic function or method. This is
+	called <dfn id="IX-818">specializing</dfn> the generic function or method, or specializing
+	the parameters of the generic function or method.</p>
+      <p>The following example defines a method specialized on <code>&lt;number&gt;</code>. The
+	method will be applicable when <code>double</code> is called on a general instance
+	of <code>&lt;number&gt;</code>.</p>
+      <pre class="code">
+define method double (thing :: &lt;number&gt;)
+  thing + thing;
+end method;
+</pre>
+      <p>Specialization constrains the values that may be passed as the value of a parameter. The
+	function can be called only with arguments that are instances of the specializers of the
+	corresponding parameters.</p>
+      <p>Specialization is useful in three ways:</p>
+      <ul>
+	<li>It makes the intent of the program clear. It indicates to the compiler and to anyone
+	  reading the code that an error is signaled if an argument is not of the specializer
+	  type.</li>
+	<li>It allows the compiler to perform additional optimizations.</li>
+	<li><a name="IX-819">It is used to control method dispatch.</a> By defining methods on the
+	  same generic function with different specializers, you can define behavior applicable to
+	  different sets of types. A generic function chooses among its methods on the basis of the
+	  methods' specializers. The generic function chooses the method whose specializers most
+	  closely match the types of the arguments.</li>
+      </ul>
+      <p>Syntactically, specializers are operands. These operands are executed once when the
+	function is created. They are not re-executed each time the function is called. The value of
+	the operand must be a type.</p>
+      <p>It is most common for specializers to be constant module bindings or calls to a built-in
+	type constructor such as <code>singleton</code>, <code>limited</code>,
+	or <code>type-union</code>.</p>
+      <p>There is a convenient syntax for singleton specializers, which is equivalent to explicitly
+	calling <code>singleton</code> in the current lexical scope.<a name="IX-820"></a></p>
+      <a name="HEADING-49-44"></a>
+      <a name="UID-Functions-2308"></a>
+      <h2 class="subsection-title"><a name="IX-821">Keyword Parameters</a></h2>
+      <p>The syntax of a keyword parameter is:</p>
+      <p><strong style="font-size: larger">[</strong> <var>keyword</var> <strong style="font-size: larger">]</strong> <var>name</var> <strong style="font-size: larger">[</strong> <code>::</code> <var>operand</var> <strong style="font-size: larger">]</strong> <strong style="font-size: larger">[</strong> <code>=</code> <var>expression</var> <strong style="font-size: larger">]</strong></p>
+      <p>If <var>keyword</var> is not supplied, then <var>name</var> is used to indicate both the
+	keyword and the name of the parameter. If the <var>keyword</var> and <var>name</var> are
+	given independently, the <var>keyword</var> is used when calling the method, and
+	the <var>name</var> is used as the name of the parameter inside the body of the method.</p>
+      <p><a name="IX-822">The <var>expression</var> supplies a default value for the parameter.</a>
+	It is used when the method is called and the keyword is not supplied. It is executed each
+	time the method is called and the corresponding keyword argument is not supplied. If
+	no <var>expression</var> is specified, the parameter corresponding to an unsupplied keyword
+	argument is initialized to <code id="IX-823">#f</code>. The <var>expression</var> is
+	executed in a scope that includes all the preceding parameters, including required
+	parameters, the rest parameter (if any), the preceding keyword parameters, and the
+	next-method parameter (if any).</p>
+      <p>In the following example, all three keyword parameters have default values, and all three
+	use the same name for the keyword and the parameter.</p>
+      <pre class="code">
+define method percolate (#key brand = #"maxwell-house",
+                              cups = 4,
+                              strength = #"strong")
+  make-coffee (brand, cups, strength);
+end method;
+</pre>
+      <p>The caller can choose which keyword arguments to supply and what order to supply them
+	in:</p>
+      <pre class="code">
+percolate (brand: #"<a name="IX-824">java</a>", cups: 10);
+percolate (strength: #"strong",
+           brand: #"<a name="IX-825">starbucks</a>",
+            cups: 1);</pre>
+      <p>The following method has two keyword parameters. In each, the name of the keyword and the
+	name of the parameter is specified separately. The first keyword parameter has a default
+	value, the second does not.</p>
+      <pre class="code">
+define method layout (widget, #key position: the-pos = 0,
+                                   size: the-size)
+  let the-sibling = sibling (widget);
+  unless (the-pos = position (the-sibling))
+    align-objects (widget, the-sibling, the-pos, the-size);
+end method;
+layout(my-widget, position: 100, size: 500);
+layout(my-widget, size: query-user-for-size() );
+</pre>
+      <p><a name="IX-826"></a>The keyword parameter syntax in which the keyword name and
+	parameter name are given separately is needed to allow keyword names such
+	as <code>position:</code> without forcing the method to use <code>position</code> as a local
+	binding. If a method uses <code>position</code> as a local binding, it cannot access the
+	module binding <code>position</code> (which contains a function). The local binding would
+	shadow the module binding.</p>
+      <p>All required arguments must be supplied before any keyword arguments can be supplied. The
+	following call to <code>layout</code> will signal an error:</p>
+      <p><code>layout(position: 100, size: 500);</code></p>
+      <a name="HEADING-49-59"></a>
+      <h3 class="sub-subsection-title"><a name="IX-827">Types for Keyword Parameters</a></h3>
+      <p>When a type is indicated for a keyword parameter in a method, it is the same as
+	establishing a type for a local binding. Specifically, the types of any keyword parameters
+	are not used for method dispatch. Keyword parameter types are not allowed in generic
+	function definitions, and do not figure into parameter list congruency.</p>
+      <p>The following two method definitions are equivalent:</p>
+      <pre class="code">
+method (#key X :: &lt;integer&gt;)
+  ... X ...
+end method;
+
+method (#key X)
+  let X :: &lt;integer&gt; = X;
+  ... X ...
+end method;
+</pre>
+      <p>If a keyword parameter is given a type, if <code>#f</code> is not an instance of that type,
+	and if the keyword parameter is not given a default value, then the keyword parameter is
+	essentially required. An error of type <code>&lt;type-error&gt;</code> will be signaled if a
+	call to the method does not include the keyword.</p>
+      <p>The following examples include keyword parameters that include both a type and a default
+	value.</p>
+      <pre class="code">
+define method find-happiness (#key hint :: &lt;symbol&gt; =  #"here")
+  ...
+end method find-happiness;
+
+define method find-food (#key hint :: &lt;restaurant&gt;
+                              =  lookup-default-restaurant())
+  ...
+end method find-food;<a name="IX-828"></a><a name="IX-829"></a></pre>
+      <a name="HEADING-49-68"></a>
+      <a name="UID-Functions-2324"></a>
+      <h2 class="subsection-title"><a name="IX-830">Return Value Declarations</a><a name="IX-831"></a></h2>
+      <p>Parameter lists may include value declarations. Value declarations come at the end of the
+	parameter list and are separated from the parameters by <code>=&gt;</code>. For each return
+	value, a value declaration can specify a name and an operand or just a name if the type
+	is <code>&lt;object&gt;</code>. The complete syntax of value declarations is given
+	in <a href="Phrase_Grammar#XREF-2115"><q>Methods</q> on page 426</a>.</p>
+      <p>The result of executing the operand at the time the function is defined is a type, called
+	a <dfn id="IX-832">value type</dfn>. The name never comes into scope. It is included
+	for documentation and for syntactic consistency with parameters. It is valid for the same
+	name to be used in both one parameter and one value declaration in the same parameter list;
+	this is useful as documentation that a function returns one of its arguments.</p>
+      <p>The last value declaration can be preceded by <code>#rest</code> to indicate a variable
+	number of return values. A value declaration preceded by <code>#rest</code> is called
+	a <dfn id="IX-833">rest value declaration</dfn>. A value declaration not preceded
+	by <code>#rest</code> is called a <dfn id="IX-834">required value
+	  declaration</dfn>. The value type in a rest value declaration is the type of each one of the
+	remaining individual values, not the type of a conceptual sequence of multiple values.</p>
+      <p>If a parameter-list does not contain a value declaration, it defaults to
+	<code>=&gt; #rest x :: &lt;object&gt;</code>. That is, the function can return any number of
+	values of any type.</p>
+      <p>A function will always return the number and types of values declared in its
+	parameter-list. More precisely:</p>
+      <ul>
+	<li>Each value returned by a function must be an instance of the corresponding value type,
+	  or else an error of type <code>&lt;type-error&gt;</code> will be signaled.</li>
+	<li><a name="IX-835"></a>If fewer values are returned by the function's body (or by
+	  the applicable method if the function is a generic function) than the number of required
+	  value declarations in the function's parameter-list, the missing values are defaulted
+	  to <code>#f</code> and returned. If <code>#f</code> is not an instance of the
+	  corresponding value type, an error of type <code>&lt;type-error&gt;</code> is
+	  signaled.</li>
+	<li>If a function does not have a rest value declaration, and more values are returned by
+	  the function's body (or by the applicable method if the function is a generic function)
+	  than the number of required value declarations in the function's parameter-list, the extra
+	  values are discarded and not returned.</li>
+      </ul>
+      <p>Because of the <a name="IX-836">parameter list congruency rules</a> for value declarations
+	(see <a href="#XREF-837"><q>Parameter List Congruency</q> on page 93</a>) the values
+	returned by a generic function do not have to be checked by the generic function. The check
+	inside a method will always be enough to verify that the return values are valid for the
+	generic function.</p>
+      <pre class="code">
+define method average (x :: &lt;number&gt;, y :: &lt;number&gt;)
+ =&gt; mean :: &lt;number&gt;;
+ (x + y) / 2
+end method;
+
+// Returning multiple values
+define method limits (center :: &lt;number&gt;, radius :: &lt;number&gt;)
+ =&gt; (min :: &lt;number&gt;, max :: &lt;number&gt;);
+ values(center - radius, center + radius);
+end method;
+
+// The same name used both as a parameter and as a value type
+define method rotate (image :: &lt;picture&gt;, rotation-angle :: &lt;number&gt;)
+
+ =&gt; (image :: &lt;picture&gt;);
+ &hellip;
+end method;
+
+// This method can return one, two, or three values
+define method family (kid :: &lt;person&gt;)
+  =&gt; (kid :: &lt;person&gt;, #rest parents);
+  let mom = kid.mother;
+  let dad = kid.father;
+  case
+    mom &amp; dad =&gt; values(kid, mom, dad);
+    mom =&gt; values(kid, mom);
+    dad =&gt; values(kid, dad);
+    otherwise =&gt; kid;
+  end case
+end method family;
+</pre>
+      <p>Note that the following example does not declare a return value of
+	type <code>&lt;number&gt;</code>. It declares a return value of
+	type <code>&lt;object&gt;</code>. To specify a type, both the name and the type must be
+	specified. If only one is given, it is taken as the name.</p>
+      <pre class="code">
+define method average (x :: &lt;number&gt;, y :: &lt;number&gt;)
+ =&gt; &lt;number&gt;;
+ truncate/((x + y), 2);
+end method;
+</pre>
+      <p class="errata-note" id="errata-p93-1">
+	<a class="note-tag" href="Errata#p93-1"><strong>Errata:</strong></a> In the published book,
+	the return value declaration is incorrect: <code>=&gt; avg :: &lt;number&gt;;</code>
+      </p>
+      <a name="HEADING-49-84"></a>
+      <a name="UID-Functions-2334"></a>
+      <h2 class="subsection-title"><a name="XREF-837"></a><a name="IX-838">Parameter List Congruency</a></h2>
+      <p>For any given generic function, the generic function and all methods for that function must
+	have <dfn>congruent parameter lists</dfn>. Two parameter lists are congruent if they satisfy
+	the following conditions:</p>
+      <ul>
+	<li>They have the same number of required arguments.</li>
+	<li>Each of the method's parameter specializers is a subtype of the corresponding parameter
+	  specializer of the generic function.</li>
+	<li>One of the following is true:
+	  <ul>
+	    <li>both accept keyword arguments</li>
+	    <li>both accept a variable number of arguments</li>
+	    <li>both require a fixed number of arguments</li>
+	  </ul>
+	</li>
+	<li>If the generic function accepts keyword arguments, each method must recognize the
+	  mandatory keywords of the generic function.</li>
+      </ul>
+      <p>In addition, the value declarations must be congruent, defined as follows:</p>
+      <ul>
+	<li>If the generic function's parameter list does not contain a rest value declaration,
+	  then:
+	  <ul>
+	    <li>The method's parameter list must not contain a rest value declaration.</li>
+	    <li>The two parameter lists must contain the same number of required value
+	      declarations.</li>
+	    <li>Each value type in the method's parameter list must be a subtype of the
+	      corresponding value type in the generic function's parameter list.</li>
+	  </ul>
+	</li>
+	<li><a name="IX-839"></a>If the generic function's parameter list contains a rest
+	  value declaration, then:
+	  <ul>
+	    <li>The method's parameter list is permitted, but not required, to contain a rest value
+	      declaration.</li>
+	    <li>The method's parameter list must contain at least as many required value
+	      declarations as the generic function's parameter list.</li>
+	    <li>Each value type in the method's parameter list must be a subtype of the
+	      corresponding value type in the generic function's parameter list. If the method has a
+	      rest value type, it corresponds to the generic function's rest value type. If the
+	      method has more required value types than the generic function, the extra ones must be
+	      subtypes of the generic function's rest value type.<a name="IX-840"></a></li>
+	  </ul>
+	</li>
+      </ul>
+      <a name="HEADING-49-102"></a>
+      <a name="UID-Functions-3556"></a>
+      <h2 class="subsection-title"><a name="IX-841">Parameter Lists of Implicitly Defined Generic Functions</a></h2>
+      <p>As a general principle, the parameter list of an implicitly defined generic function will
+	impose as few constraints as possible on the methods that may be added. If a more
+	constrained generic function definition is desired, an explicit definition should be
+	used.</p>
+      <p>The parameter list of an implicitly defined generic function is determined by its method
+	definitions. These method definitions include both methods defined using <code>define
+	method</code> and slot getter and setter methods defined using <code>define
+	class</code>.</p>
+      <ul>
+	<li>The implicitly defined generic function has the same basic argument pattern as the
+	  methods. Either they must all require a fixed number of arguments, they must all accept a
+	  variable number of arguments, or they must all accept keyword arguments. A set of methods
+	  that includes members with more than one of these patterns violates the parameter list
+	  congruency requirement, and is an error.</li>
+	<li>The implicitly defined generic function has the same number of required arguments as the
+	  methods. A set of methods that includes members with different numbers of required
+	  arguments violates the parameter list congruency requirement, and is an error.</li>
+	<li>Each required argument of the implicitly defined generic function is specialized
+	  on <code>&lt;object&gt;</code>.</li>
+	<li>If the implicitly defined generic function accepts keyword arguments, it does not have
+	  any mandatory keywords, nor does it accept all keyword arguments.</li>
+	<li>The implicitly defined generic function has a rest value declaration
+	  of <code>&lt;object&gt;</code>.<a name="IX-842"></a><a name="IX-843"></a></li>
+      </ul>
+
+      <div id="footnotes">
+	<hr />
+
+	<p id="FOOTNOTE-3"><a href="#FOOTNOTE-ANCHOR-3"><sup>*</sup></a> In practice, an
+	  implementation may place a reasonable limit on the number of arguments that may be passed
+	  to any function.</p>
+      </div>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Functions_Overview"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Method_Dispatch"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Functions"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>

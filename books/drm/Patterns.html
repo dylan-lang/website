@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    
+    <!-- Relative Navigation -->
+    
+    <link rel="up" href="Macros" />
+    <link rel="prev" href="Rewrite_Rules" />
+    <link rel="next" href="Pattern_Variable_Constraints" />
+    
+    <!-- Absolute Navigation -->
+    
+    <link rel="top" href="Title" />
+    <link rel="start first" href="." />
+    <link rel="copyright" href="Copyrights" />
+    <link rel="contents" href="Contents" />
+    <link rel="glossary" href="Glossary" />
+    <link rel="index" href="Index" />
+    <link rel="last author" href="Colophon" />
+    
+    <!-- Chapters -->
+    
+    <link rel="chapter" title="About This Book" href="Preface" />
+    <link rel="chapter" title="1 Introduction" href="Introduction" />
+    <link rel="chapter" title="2 Syntax" href="Syntax" />
+    <link rel="chapter" title="3 Program Structure" href="Program_Structure" />
+    <link rel="chapter" title="4 Program Control" href="Program_Control" />
+    <link rel="chapter" title="5 Types and Classes" href="Types_and_Classes" />
+    <link rel="chapter" title="6 Functions" href="Functions" />
+    <link rel="chapter" title="7 Conditions" href="Conditions" />
+    <link rel="chapter" title="8 Collections" href="Collections" />
+    <link rel="chapter" title="9 Sealing" href="Sealing" />
+    <link rel="chapter" title="10 Macros" href="Macros" />
+    <link rel="chapter" title="11 The Built-In Classes" href="Built-In_Classes" />
+    <link rel="chapter" title="12 The Built-In Functions" href="Built-In_Functions" />
+    <link rel="chapter" title="13 Other Built-In Objects" href="Other_Built-In_Objects" />
+    <link rel="chapter" title="14 The Built-In Macros and Special Definitions" href="Built-In_Macros_and_Special_Definitions" />
+    
+    <!-- Appendices -->
+    
+    <link rel="appendix" title="A BNF" href="BNF" />
+    <link rel="appendix" title="B Exported Names" href="Exported_Names" />
+    
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="styles/common.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav-top-fixed.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="styles/nav-left-fixed.css" type="text/css" media="screen" title="Navigation at Left" />
+    <link rel="stylesheet alternate" href="styles/nav-top-fixed.css" type="text/css" media="screen" title="Navigation at Top" />
+
+    <title>Patterns &mdash; 10. Macros &mdash; The DRM</title>
+  </head>
+  <body class="content">
+
+    <div id="header">
+      <div id="navigation-header">
+	<div id="navigation-top">
+	  <div class="background">
+	    <p id="book-title">
+	    <img class="book-icon" alt="" src="images/color-square-small.png" width="22" height="21" />
+	    <a href="Title"><img class="book-title" alt="The Dylan Reference Manual" src="images/book-title.png" width="343" height="28" /></a>
+	  </p>
+	  <p id="navigation-core">
+	    <a class="previous" accesskey="p" title="Previous Page" href="Rewrite_Rules"><span>&larr; Previous</span></a>
+	    <a class="next" accesskey="n" title="Next Page" href="Pattern_Variable_Constraints"><span>Next Page &rarr;</span></a>
+	    <a class="up" accesskey="u" title="Chapter Start" href="Macros"><span>Up</span></a>
+	    <a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	    <a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	    <a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+	  </p>
+	</div>
+	</div>
+	<div id="navigation-TOC">
+	  <ul class="front-matter">
+	    <li id="book-start"><a href="Title">Start</a></li>
+	    <li><a href="Contents">Contents</a></li>
+	    <li><a href="Preface">About This Book</a></li>
+	  </ul>
+	  <ol class="chapters">
+	    <li><a href="Introduction">Introduction</a></li>
+	    <li><a href="Syntax">Syntax</a></li>
+	    <li><a href="Program_Structure">Program Structure</a></li>
+	    <li><a href="Program_Control">Program Control</a></li>
+	    <li><a href="Types_and_Classes">Types and Classes</a></li>
+	    <li><a href="Functions">Functions</a></li>
+	    <li><a href="Conditions">Conditions</a></li>
+	    <li><a href="Collections">Collections</a></li>
+	    <li><a href="Sealing">Sealing</a></li>
+	    <li class="current parent"><a href="Macros">Macros</a>
+	      <ul class="sections">
+		<li><a href="Macros_Overview">Overview</a></li>
+		<li><a href="Extensible_Grammar">Extensible Grammar</a></li>
+		<li><a href="Macro_Names">Macro Names</a></li>
+		<li><a href="Rewrite_Rules">Rewrite Rules</a></li>
+		<li id="current" class="subsections"><a href="Patterns">Patterns</a>
+		  <ul class="page-TOC">
+		    <li><a href="#HEADING-81-32">Special Rules for Definitions</a></li>
+		    <li><a href="#HEADING-81-36">Special Rules for Statements</a></li>
+		    <li><a href="#HEADING-81-38">Special Rules for Function Macros</a></li>
+		  </ul>
+		</li>
+		<li><a href="Pattern_Variable_Constraints">Pattern Variable Constraints</a></li>
+		<li><a href="Templates">Templates</a></li>
+		<li><a href="Auxiliary_Rule_Sets">Auxiliary Rule Sets</a></li>
+		<li><a href="Hygiene">Hygiene</a></li>
+		<li><a href="Rewrite_Rule_Examples">Rewrite Rule Examples</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="Built-In_Classes">The Built-In Classes</a></li>
+	    <li><a href="Built-In_Functions">The Built-In Functions</a></li>
+	    <li><a href="Other_Built-In_Objects">Other Built-In Objects</a></li>
+	    <li><a href="Built-In_Macros_and_Special_Definitions">The Built-In Macros and Special Definitions</a></li>
+	  </ol>
+	  <ol class="appendices">
+	    <li><a href="BNF">BNF</a></li>
+	    <li><a href="Exported_Names">Exported Names</a></li>
+	  </ol>
+	  <ul class="back-matter">
+	    <li><a href="Glossary">Glossary</a></li>
+	    <li><a href="Index">Index</a></li>
+	    <li><a href="Colophon">Colophon</a></li>
+	  </ul>
+	  <ul class="errata">
+	    <li><a href="Errata">Errata</a></li>
+	  </ul>
+	</div>
+      </div>
+
+      <hr />
+
+    </div>
+
+    <div id="content">
+      <div id="section-header">
+	<p id="section-prefix">Chapter 10</p>
+	<p id="section-name">Macros</p>
+      </div>
+
+      <a name="HEADING-81-0"></a>
+      <a name="UID-Macros-1648"></a>
+      <h1 class="section-title"><a name="IX-1237">Patterns</a></h1>
+      <p>Approximately speaking, a pattern looks like the construct that it matches, but contains
+	pattern variables that bind to portions of the construct. Hence, a left-hand side in
+	the <var>main-rule-set</var> looks like a macro call. However, the grammar of patterns is
+	not the same as the grammar of programs, but contains just what is required to match the
+	portions of the Dylan grammar that are extensible by macros. Patterns have a simple nested
+	grammar, with semicolons, commas, and brackets used to indicate levels of nesting. See the
+	definition of <var>pattern</var> in <a href="BNF">Appendix A, <q>BNF.</q></a></p>
+      <p>A pattern matches a fragment (a sequence of elementary fragments) by executing the
+	following algorithm from left to right. It is easy to create patterns that are ambiguous
+	when considered as grammars. This ambiguity is resolved by the left to right processing
+	order and the specified try-shortest-first order for matching wildcards. Pattern matching
+	succeeds only if all sub-patterns match. If pattern matching fails, the current rule fails
+	and control passes to the next rule in the current rule set. If all patterns in a rule set
+	fail to match, the macro call is invalid.</p>
+      <p>Multiple occurrences of the same pattern variable name in a single rule's left-hand side
+	are not valid.</p>
+      <p>A <var>pattern</var> matches a fragment as follows:</p>
+      <ul>
+	<li>If the pattern consists of just one pattern-list, go to the next step. Otherwise, divide
+	  the pattern into subpatterns and the fragment into subfragments at semicolons, and match
+	  subpatterns to subfragments individually in order. The subpatterns and subfragments do not
+	  include the semicolons that separate them. Suppose the pattern consists of N + 1
+	  pattern-lists separated by N semicolons. Locate the first N semicolons in the fragment
+	  (without looking inside of elementary fragments) and divide up the fragment into
+	  subfragments accordingly. The match fails if the fragment contains fewer than N - 1
+	  semicolons. As a special case, if the fragment contains N - 1 semicolons, the match still
+	  succeeds and the last subfragment is empty. If the fragment contains more than N
+	  semicolons, the extra semicolons will be in the last subfragment.</li>
+      </ul>
+      <p>A <var id="IX-1238">pattern-list</var> matches a fragment as follows:</p>
+      <ul>
+	<li>If the pattern-list consists of just a pattern-sequence, go to the next step. If the
+	  pattern-list consists of just a property-list-pattern, go to that step. Otherwise divide
+	  the pattern-list into subpatterns and the fragment into subfragments at commas, and match
+	  subpatterns to subfragments individually in order. The subpatterns and subfragments do not
+	  include the commas that separate them. Suppose the pattern consists of N + 1 subpatterns
+	  separated by N commas. Locate the first N commas in the fragment (without looking inside
+	  of elementary fragments) and divide up the fragment into subfragments accordingly. The
+	  match fails if the fragment contains fewer than N - 1 commas. As a special case, if the
+	  fragment contains N - 1 commas, the match still succeeds and the last subfragment is
+	  empty. If the fragment contains more than N commas, the extra commas will be in the last
+	  subfragment. Note that the subdivision algorithms for commas and semicolons are
+	  identical.</li>
+      </ul>
+      <p>A <var id="IX-1239">pattern-sequence</var> matches a fragment as follows:</p>
+      <ul>
+	<li>Consider each simple-pattern in the pattern-sequence in turn from left to right. Each
+	  simple-pattern matches an initial subsequence of the fragment and consumes that
+	  subsequence, or fails. The entire pattern match fails if any simple-pattern fails, if the
+	  fragment is empty and the simple-pattern requires one or more elementary fragments, or if
+	  the fragment is not entirely consumed after all simple-patterns have been matched. There
+	  is a special backup and retry rule for wildcards, described below.</li>
+      </ul>
+      <p>A <var id="IX-1240">simple-pattern</var> matches a fragment as follows:</p>
+      <ul>
+	<li>A <em class="BNFCaps">name</em> or <code>=&gt;</code> consumes one elementary fragment,
+	  which must be identical to the <var>simple-pattern</var>. A <em class="BNFCaps">name</em>
+	  matches a name that is spelled the same, independent of modules, lexical scoping issues,
+	  alphabetic case, and backslash quoting. As a special case, after the
+	  word <code>otherwise</code>, an <code>=&gt;</code> is optional in both the pattern and the
+	  fragment. Presence or absence of the arrow in either place makes no difference to
+	  matching.</li>
+	<li>A <var id="IX-1241">bracketed-pattern</var> matches and consumes
+	  a <var>bracketed-fragment</var>. If the enclosed <var>pattern</var> is omitted, the
+	  enclosed <var>body-fragment</var> must be empty, otherwise the enclosed <var>pattern</var>
+	  must match the enclosed <var>body-fragment</var> (which can be empty). The type of
+	  brackets ( <code>()</code>, <code>[]</code>, or <code>{}</code> ) in
+	  the <var>bracketed-fragment</var> must be the same as the type of brackets in
+	  the <var>bracketed-pattern</var>.</li>
+      </ul>
+      <p>A <var id="IX-1242">binding-pattern</var> matches a fragment as follows:</p>
+      <ul>
+	<li><var>pattern-variable</var> <code>::</code> <var>pattern-variable</var> consumes as much
+	  of the fragment as can be parsed by the grammar for <var>variable. </var>It matches the
+	  first pattern-variable to the <var>variable-name</var> and the second to
+	  the <var>type</var>, a parsed expression fragment. If no specializer is present, it
+	  matches the second pattern-variable to a parsed expression fragment that is a named value
+	  reference to <code>&lt;object&gt;</code> in the Dylan module. This matching checks the
+	  constraints on the pattern variable, fails if the constraint is not satisfied, and binds
+	  the pattern variable to the fragment.</li>
+	<li><var>pattern-variable</var> <code>=</code> <var>pattern-variable</var> consumes as much
+	  of the fragment as can be parsed by the grammar
+	  for <var>variable</var> <code>=</code> <var>expression</var>. It matches the first
+	  pattern-variable to the <var>variable</var>, a fragment, and the second to
+	  the <var>expression</var>, a parsed expression fragment.</li>
+	<li><var>pattern-variable</var> <code>::</code> <var>pattern-variable</var> <code>=</code> <var>pattern-variable</var>
+	  consumes as much of the fragment as can be parsed by the grammar
+	  for <var>variable</var> <code>=</code> <var>expression</var>. It matches the first two
+	  pattern-variables the same as the first kind of <var>binding-pattern</var> and it matches
+	  the third pattern-variable the same as the second kind of <var>binding-pattern</var>.</li>
+      </ul>
+      <p>A <var id="IX-1243">pattern-variable</var> matches a fragment as follows:</p>
+      <ul>
+	<li>When the constraint is a wildcard constraint
+	  (see <a href="Pattern_Variable_Constraints#XREF-1256"><q>Pattern Variable
+	      Constraints</q> on page 157</a>), the pattern variable consumes some initial subsequence
+	  of the fragment, using a backup and retry algorithm. First, the wildcard consumes no
+	  elementary fragments, and matching continues with the next <var>simple-pattern</var> in
+	  the <var>pattern-sequence</var>. If any <var>simple-pattern</var> in the
+	  current <var>pattern-sequence</var> fails to match, back up to the wildcard, consume one
+	  more elementary fragment than before, and retry matching the rest of
+	  the <var>pattern-sequence</var>, starting one elementary fragment to the right of the
+	  previous start point. Once the entire <var>pattern-sequence</var> has successfully
+	  matched, the pattern variable binds to a fragment consisting of the sequence of elementary
+	  fragments that it consumed.</li>
+	<li>It is an error for more than one of the <var>simple-patterns</var> directly contained in
+	  a <var>pattern-sequence</var> to be a wildcard.</li>
+	<li>When the constraint is other than a wildcard constraint, the pattern variable consumes
+	  as much of the fragment as can be parsed by the grammar specified for the constraint
+	  in <a href="Pattern_Variable_Constraints#XREF-1256"><q>Pattern Variable
+	      Constraints</q> on page 157</a>. If the parsing fails, the pattern match fails. The
+	  pattern variable binds to the fragment specified
+	  in <a href="Pattern_Variable_Constraints#XREF-1256"><q>Pattern Variable
+	      Constraints.</q></a> This can be a parsed fragment rather than the original sequence of
+	  elementary fragments.</li>
+	<li>The ellipsis <var>pattern-variable</var>, <code>...</code>, can only be used in an
+	  auxiliary rule set. It represents a pattern variable with the same name as the current
+	  rule set and a wildcard constraint.</li>
+      </ul>
+      <p>A <var id="IX-1244">property-list-pattern</var> matches a fragment as follows:</p>
+      <ul>
+	<li>Parse the fragment using the grammar
+	  for <var>property-list<em><sub>opt</sub></em></var>. If the parsing fails or does not
+	  consume the entire fragment, the pattern match fails.</li>
+	<li>If the <var>property-list-pattern</var>
+	  contains <code id="IX-1245">#key</code> and does not
+	  contain <code>#all-keys</code>, the match fails if the <em class="BNFCaps">symbol</em>
+	  part of any property is not the <em class="BNFCaps">name</em> in
+	  some <var>pattern-keyword</var> in the <var>property-list-pattern</var>. Comparison of
+	  a <em class="BNFCaps">symbol</em> to a <em class="BNFCaps">name</em> is case-insensitive,
+	  ignores backslash quoting, and is unaffected by the lexical context of
+	  the <em class="BNFCaps">name</em>.</li>
+	<li>If the <var>property-list-pattern</var>
+	  contains <code id="IX-1246">#rest</code>, bind the pattern variable
+	  immediately following <code>#rest</code> to the entire fragment. If the pattern variable
+	  has a non-wildcard constraint, parse the <var>value</var> part of each property according
+	  to this constraint, fail if the parsing fails or does not consume the
+	  entire <var>value</var> part, and substitute the fragment specified
+	  in <a href="Pattern_Variable_Constraints#XREF-1256"><q>Pattern Variable
+	      Constraints</q> on page 157</a> for the <var>value</var> part.</li>
+	<li>Each <var>pattern-keyword</var> in the <var>property-list-pattern</var> binds a pattern
+	  variable as follows:
+	  <ul>
+	    <li>A single <a name="IX-1247">question mark</a> finds the first property
+	      whose <em class="BNFCaps">symbol</em> is the <em class="BNFCaps">name</em> of
+	      the <var>pattern-keyword</var>. Comparison of a <em class="BNFCaps">symbol</em> to
+	      a <em class="BNFCaps">name</em> is case-insensitive, ignores backslash quoting, and is
+	      unaffected by the lexical context of the <em class="BNFCaps">name</em>. If
+	      the <var>pattern-keyword</var> has a non-wildcard constraint, parse the
+	      property's <var>value</var> according to this constraint, fail if the parsing fails or
+	      does not consume the entire <var>value</var> , and bind the pattern variable to the
+	      fragment specified in <a href="Pattern_Variable_Constraints#XREF-1256"><q>Pattern
+		  Variable Constraints</q> on page 157</a>. If the <var>pattern-keyword</var> has a
+	      wildcard constraint, bind the pattern variable to the
+	      property's <var>value</var>.</li>
+	    <li>A double <a name="IX-1248">question mark</a> finds every property with a
+	      matching <em class="BNFCaps">symbol</em>, processes each property's <var>value</var>
+	      as for a single question mark, and binds the pattern variable to a sequence of the
+	      values, preserving the order of properties in the input fragment. This sequence can
+	      only be used with double question mark in a template. Constraint-directed parsing
+	      applies to each property <var>value</var> individually.</li>
+	  </ul>
+	</li>
+	<li>If a single question mark <var>pattern-keyword</var> does not find any matching
+	  property, then if a <var>default</var> is present, the pattern variable binds to the
+	  default expression, otherwise the property is required so the pattern match fails.</li>
+	<li>If a double question mark <var>pattern-keyword</var> does not find any matching
+	  property, then if a <var>default</var> is present, the pattern variable binds to a
+	  sequence of one element, the default expression, otherwise the pattern variable binds to
+	  an empty sequence.</li>
+	<li>Note: the default expression in a <var>pattern-keyword</var> is not evaluated during
+	  macro expansion; it is a parsed expression fragment that is used instead of a fragment
+	  from the macro call. The default is not subject to a pattern variable constraint.</li>
+      </ul>
+      <a name="HEADING-81-32"></a>
+      <a name="UID-Macros-1752"></a>
+      <h2 class="subsection-title"><a name="IX-1249">Special Rules for Definitions</a></h2>
+      <p>A list-style definition parses as the core reserved word <code>define</code>, an optional
+	sequence of modifiers, a <em class="BNFCaps">define-list-word</em>, and a
+	possibly-empty <var>list-fragment. </var>The left-hand side of
+	a <var>list-style-definition-rule </var> matches this by treating
+	the <var>definition-head</var> as a <var>pattern-sequence</var> and matching it to the
+	sequence of modifiers, and then matching the <var>pattern</var> to
+	the <var>list-fragment. </var>If no <var>definition-head</var> is present, the sequence of
+	modifiers must be empty. If no <var>pattern </var>is present,
+	the <var>list-fragment </var>must be empty. The word <code>define</code> and
+	the <em class="BNFCaps">define-list-word</em> do not participate in the pattern match
+	because they were already used to identify the macro being called and because the spelling
+	of the <em class="BNFCaps">define-list-word</em> might have been changed by renaming the
+	macro during module importing.</p>
+      <p>A body-style definition parses as the core reserved word <code>define</code>, an optional
+	sequence of modifiers, a <em class="BNFCaps">define-body-word</em>, a
+	possibly-empty <var>body-fragment,</var> the core reserved word <code>end</code>, and
+	optional repetitions of the <em class="BNFCaps">define-body-word</em> and
+	the <em class="BNFCaps">name</em> (if any) that is the first token of
+	the <var>body-fragment. </var>The left-hand side of a <var>body-style-definition-rule</var>
+	matches this by treating the <var>definition-head</var> as a <var>pattern-sequence</var> and
+	matching it to the sequence of modifiers, and then matching the <var>pattern</var> to
+	the <var>body-fragment. </var>If no <var>definition-head</var> is present, the sequence of
+	modifiers must be empty. If no <var>pattern </var>is present,
+	the <var>body-fragment </var>must be empty. If the <var>body-fragment </var>ends in a
+	semicolon, this semicolon is removed before matching. The optional semicolon in the rule is
+	just decoration and does not participate in the pattern match. The word <code>define</code>
+	and the <em class="BNFCaps">define-body-word</em> do not participate in the pattern match
+	because they were already used to identify the macro being called and because the spelling
+	of the <em class="BNFCaps">define-body-word</em> might have been changed by renaming the
+	macro during module importing. The word <code>end</code> and the two optional items
+	following it in the macro call are checked during parsing, and so do not participate in the
+	pattern match.</p>
+      <p>It is an error for a <var>definition-head</var> to contain more than one
+	wildcard.<a name="IX-1250"></a></p>
+      <a name="HEADING-81-36"></a>
+      <a name="UID-Macros-1760"></a>
+      <h2 class="subsection-title"><a name="IX-1251">Special Rules for Statements</a></h2>
+      <p>A statement parses as a <em class="BNFCaps">begin-word</em>, a
+	possibly-empty <var>body-fragment,</var> the core reserved word <code>end</code>, and an
+	optional repetition of the <em class="BNFCaps">begin-word</em>. The left-hand side of
+	a <var>statement-rule</var> matches this by matching the <var>pattern</var> to
+	the <var>body-fragment. </var>If the rule does not contain a <var>pattern,</var>
+	the <var>body-fragment</var> must be empty. If the <var>body-fragment</var> ends in a
+	semicolon, this semicolon is removed before matching. The optional semicolon in the rule is
+	just decoration and does not participate in the pattern
+	match. The <em class="BNFCaps">begin-word</em> does not participate in the pattern match
+	because it was already used to identify the macro being called and because its spelling
+	might have been changed by renaming the macro during module importing. The
+	word <code>end</code> and the optional item following it in the macro call are checked
+	during parsing, and so do not participate in the pattern match.<a name="IX-1252"></a></p>
+      <a name="HEADING-81-38"></a>
+      <a name="UID-Macros-1764"></a>
+      <h2 class="subsection-title"><a name="IX-1253">Special Rules for Function Macros</a></h2>
+      <p>A call to a function macro parses as a <em class="BNFCaps">function-word</em> followed by a
+	parenthesized, possibly-empty <var>body-fragment</var>. The left-hand side of
+	a <var>function-rule</var> matches this by matching the <var>pattern</var> to
+	the <var>body-fragment. </var>If the rule does not contain a <var>pattern,</var>
+	the <var>body-fragment</var> must be empty. The <em class="BNFCaps">function-word</em> does
+	not participate in the pattern match because it was already used to identify the macro being
+	called and because its spelling might have been changed by renaming the macro during module
+	importing. The parentheses in the rule are just decoration and do not participate in the
+	pattern match.</p>
+      <p>A function macro can also be invoked by any of the shorthand syntax constructs available
+	for invoking functions. In this case, the arguments are always parsed expression fragments,
+	as described on <a href="Macros_Overview#XREF-1199">page 146</a>. However, the left-hand
+	side of a function-rule has to use function-macro-call syntax even if the macro is intended
+	to be called by operator, slot reference, or element reference
+	syntax.<a name="IX-1254"></a><a name="IX-1255"></a></p>
+
+    </div>
+
+    <div id="footer">
+
+      <hr />
+      <address>The Dylan Reference Manual - 7 Apr 1998</address>
+      <p id="navigation-footer">
+	<a class="previous" accesskey="p" title="Previous Page" href="Rewrite_Rules"><span>&larr; Previous</span></a>
+	<a class="next" accesskey="n" title="Next Page" href="Pattern_Variable_Constraints"><span>Next Page &rarr;</span></a>
+	<a class="up" accesskey="u" title="Chapter Start" href="Macros"><span>Up</span></a>
+	<a class="start" accesskey="s" title="Start of Book" href="Title"><span>Start</span></a>
+	<a class="contents" accesskey="c" title="Contents" href="Contents"><span>Contents</span></a>
+	<a class="index" accesskey="i" title="Index" href="Index"><span>Index</span></a>
+      </p>
+      <p>Copyright Apple Computer, Inc. 1996. Apple&reg; and the Apple logo are registered
+	trademarks of Apple Computer, Inc. Used with permission. All Rights Reserved.</p>
+      <p>Originally generated with Harlequin WebMaker&reg;, subsequently revised.</p>
+    </div>
+  </body>
+</html>
